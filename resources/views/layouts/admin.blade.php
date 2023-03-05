@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="{{asset('admin/sweetalert2/sweetalert2.css')}}">
 
+    <link href="{{asset('frontend/assets/css/style.css')}}" rel="stylesheet">
+
     <!-- All CSS files included here -->
     <link rel="stylesheet" href="{{asset('admin/css/all.min.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
@@ -21,6 +23,7 @@
     <link rel="stylesheet" href="{{asset('admin/css/metisMenu.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/styles/main.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/admin-extra.css')}}">
+
     <link href="{{asset('common/css/select2.css')}}" rel="stylesheet">
     @toastr_css
 

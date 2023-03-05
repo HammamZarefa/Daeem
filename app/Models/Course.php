@@ -113,6 +113,11 @@ class Course extends Model
         return $this->hasMany(LiveClass::class, 'course_id');
     }
 
+    public function programSessions()
+    {
+        return $this->hasMany(Program_session::class, 'course_id');
+    }
+
     public function orderItems()
     {
         return $this->hasMany(Order_item::class);
