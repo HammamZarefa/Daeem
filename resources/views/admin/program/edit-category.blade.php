@@ -133,7 +133,7 @@
                                         <div class="upload-course-item-block-title mb-3">
                                             <h6 class="font-20">{{ __('Learners Accessibility & others') }}</h6>
                                         </div>
-                                        @if($course->course_type == COURSE_TYPE_GENERAL ||$course->course_type == COURSE_TYPE_PROGRAM)
+                                        @if($course->course_type == COURSE_TYPE_PROGRAM)
                                         <div class="row">
                                             <div class="col-md-12 mb-30">
                                                 <label

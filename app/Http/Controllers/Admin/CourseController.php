@@ -44,13 +44,14 @@ class CourseController extends Controller
 {
     use General, ImageSaveTrait, SendNotification;
 
-    protected $model, $lectureModel, $lessonModel;
+    protected $model, $lectureModel, $lessonModel,$programSessionModel;
 
-    public function __construct(Course $course, Course_lesson $course_lesson, Course_lecture $course_lecture)
+    public function __construct(Course $course, Course_lesson $course_lesson, Course_lecture $course_lecture,Program_session $program_session)
     {
         $this->model = new Crud($course);
         $this->lectureModel = new Crud($course_lecture);
         $this->lessonModel = new Crud($course_lesson);
+        $this->programSessionModel = new Crud($program_session);
     }
 
     public function index()
@@ -185,7 +186,6 @@ class CourseController extends Controller
 //        } else {
 //            $video = $course->video;
 //        }
-//dd('asfafasf');
         $data = [
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
@@ -266,7 +266,8 @@ class CourseController extends Controller
             $data['selected_tags'] = $selected_tags;
 
             return view('admin.program.edit-category', $data);
-        } elseif (\request('step') == 'lesson') {
+        }
+        elseif (\request('step') == 'lesson') {
             if ($data['course']->course_type == COURSE_TYPE_GENERAL) {
                 return view('admin.program.lesson', $data);
             } elseif ($data['course']->course_type == COURSE_TYPE_SCORM) {
@@ -293,15 +294,19 @@ class CourseController extends Controller
 
                 return view('admin.program.program_lesson', $data);
             }
-        } elseif (\request('step') == 'instructors') {
+        }
+        elseif (\request('step') == 'instructors') {
             if ($data['course']->user_id != auth()->id()) {
                 return view('admin.program.submit-lesson', $data);
             }
 
             $data['instructors'] = User::where('role', USER_ROLE_ADMIN)->where('id', '!=', $data['course']->user_id)->where('id', '!=', auth()->id())->select('id', 'name')->get();
             return view('admin.program.instructors', $data);
-        } elseif (\request('step') == 'submit') {
+        }
+        elseif (\request('step') == 'submit') {
             return view('admin.program.submit-lesson', $data);
+        }elseif (\request('step') == 'changeStatus'){
+            return view('admin.program.change_status', $data);
         } else {
             return view('admin.program.edit', $data);
         }
@@ -316,7 +321,6 @@ class CourseController extends Controller
 
             $courseInstructor = $course->course_instructors()->where('instructor_id', $user_id)->where('status', STATUS_ACCEPTED)->first();
             if (!$courseInstructor) {
-                dd('sfjasfasf');
                 $this->showToastrMessage('error', __('You don\'t have permission to edit this'));
                 return redirect()->back();
             }
@@ -368,12 +372,122 @@ class CourseController extends Controller
 
         if ($course->status != 0) {
             $text = __("Course category has been updated");
-            $target_url = route('admin.course.index');
+            $target_url = route('admin.program.index');
             $this->send($text, 1, $target_url, null);
         }
 
 
         return redirect(route('admin.program.edit', [$course->uuid, 'step=lesson']));
+    }
+
+    public function updateProgramOverview(Request $request, $uuid)
+    {
+        $data['navCourseUploadActiveClass'] = 'active';
+        $course = Course::where('courses.uuid', $uuid)->first();
+        $user_id = auth()->id();
+
+        if(!$course->user_id == $user_id){
+
+            $courseInstructor = $course->course_instructors()->where('instructor_id', $user_id)->where('status', STATUS_ACCEPTED)->first();
+            if(!$courseInstructor){
+                $this->showToastrMessage('error', __('You don\'t have permission to edit this'));
+                return redirect()->back();
+            }
+        }
+
+        if (Course::where('slug', getSlug($request->title))->where('id', '!=', $course->id)->count() > 0)
+        {
+            $slug = getSlug($request->title) . '-'. rand(100000, 999999);
+        } else {
+            $slug = getSlug($request->title);
+        }
+
+        $data = [
+            'title' => $request->title,
+//            'course_type' => 3,
+            'subtitle' => $request->subtitle,
+            'slug' => $slug,
+            'description' => $request->description
+        ];
+
+        $data['is_subscription_enable'] = 0;
+
+        if(get_option('subscription_mode')){
+            $data['is_subscription_enable'] = $request->is_subscription_enable;
+        }
+
+        if($data['is_subscription_enable']){
+            if($course->status == STATUS_APPROVED){
+                $count = CourseInstructor::join('courses', 'courses.id', '=', 'course_instructor.course_id')->where('is_subscription_enable', STATUS_ACCEPTED)->where('course_instructor.instructor_id', auth()->id())->groupBy('course_id')->count();
+            }
+            else{
+                $count = Course::where('user_id', auth()->id())->count();
+            }
+            if(!hasLimitSaaS(PACKAGE_RULE_SUBSCRIPTION_COURSE, PACKAGE_TYPE_SAAS_INSTRUCTOR, $count)){
+                $this->showToastrMessage('error', __('Your Subscription Enable Course Create limit has been finish.'));
+                return redirect()->back();
+            }
+        }
+
+        $this->model->updateByUuid($data, $uuid); // update category
+
+        $now = now();
+        if ($request['key_points']) {
+            if (count(@$request['key_points']) > 0) {
+                foreach ($request['key_points'] as $item) {
+                    if (@$item['name']) {
+                        if (@$item['id']) {
+                            $key_point = LearnKeyPoint::find($item['id']);
+                        } else {
+                            $key_point = new LearnKeyPoint();
+                        }
+                        $key_point->course_id = $course->id;
+                        $key_point->name = @$item['name'];
+                        $key_point->updated_at = $now;
+                        $key_point->save();
+                    }
+                }
+            }
+        }
+
+        LearnKeyPoint::where('course_id', $course->id)->where('updated_at', '!=', $now)->get()->map(function ($q) {
+            $q->delete();
+        });
+
+        if ($course->status != 0) {
+            $text = __("Course overview has been updated");
+            $target_url = route('admin.program.index');
+            $this->send($text, 1, $target_url, null);
+        }
+
+        return redirect(route('admin.program.edit', [$course->uuid, 'step=category']));
+    }
+
+    public function updateProgramStatus(Request $request, $uuid)
+    {
+        $data['navCourseUploadActiveClass'] = 'active';
+        $course = Course::where('courses.uuid', $uuid)->first();
+        $user_id = auth()->id();
+
+        if(!$course->user_id == $user_id){
+
+            $courseInstructor = $course->course_instructors()->where('instructor_id', $user_id)->where('status', STATUS_ACCEPTED)->first();
+            if(!$courseInstructor){
+                $this->showToastrMessage('error', __('You don\'t have permission to edit this'));
+                return redirect()->back();
+            }
+        }
+
+        $data = [
+            'status' => $request->status,
+        ];
+        $this->model->updateByUuid($data, $uuid); // update category
+
+        $text = __("Course Status has been updated");
+        $target_url = route('admin.program.index');
+        $this->send($text, 1, $target_url, null);
+
+        return redirect(route('admin.program.index'));
     }
 
     public function storeInstructor(Request $request, $uuid)
@@ -508,6 +622,12 @@ class CourseController extends Controller
             $this->showToastrMessage('error', 'Please check your credentials');
             return redirect()->back()->withInput();
         }
+    }
+
+    public function deleteProgramSession($uuid){
+        $this->programSessionModel->deleteByUuid($uuid);
+        $this->showToastrMessage('error', __('Deleted Successfully'));
+        return redirect()->back()->with('success');
     }
 
     public function uploadFinished($uuid)

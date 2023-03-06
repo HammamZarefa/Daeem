@@ -81,17 +81,22 @@
 
                                             <div class="action__buttons">
 
-                                                <a href="{{route('admin.program.view', [$course->uuid])}}" class="btn-action mr-30" title="View Details">
+                                                <a href="{{route('admin.program.view', [$course->uuid])}}" class="btn-action ms-2" title="View Details">
                                                     <img src="{{asset('admin/images/icons/eye-2.svg')}}" alt="eye">
                                                 </a>
 
-                                                <button class="btn-action ms-2 deleteItem" data-formid="approve_row_form_{{$course->uuid}}">
-                                                    <img src="{{asset('admin/images/icons/check.svg')}}" alt="trash">
-                                                </button>
+                                                <a href="{{route('admin.program.edit', [$course->uuid, 'step=lesson'])}}" class="btn-action ms-2" title="Add Session To Program">
+                                                    <img src="{{asset('admin/images/icons/add-file.svg')}}" alt="eye">
+                                                </a>
 
-                                                <form action="{{route('admin.course.delete', [$course->uuid])}}" method="get" id="delete_row_form_{{ $course->uuid }}">
+                                                <a href="{{route('admin.program.edit', [$course->uuid])}}" class="btn-action ms-2" title="Edit Program">
+                                                    <img src="{{asset('admin/images/icons/action/edit.svg')}}" alt="eye">
+                                                </a>
 
-                                                </form>
+                                                <a href="{{route('admin.program.edit', [$course->uuid, 'step=changeStatus'])}}" class="btn-action ms-2" title="Edit Program">
+                                                    <img src="{{asset('admin/images/icons/check.svg')}}" alt="eye">
+                                                </a>
+
 
                                                 <button class="btn-action ms-2 deleteItem" data-formid="delete_row_form_{{$course->uuid}}">
                                                     <img src="{{asset('admin/images/icons/trash-2.svg')}}" alt="trash">

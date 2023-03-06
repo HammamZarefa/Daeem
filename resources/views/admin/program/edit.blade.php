@@ -25,18 +25,18 @@
                         <!-- progressbar -->
                         <ul id="progressbar"
                             class="upload-course-item-block d-flex align-items-center justify-content-center">
-                            <li class="active" id="account"><strong>{{ __('Course Overview') }}</strong></li>
+                            <li class="active" id="account"><strong>{{ __('Program Overview') }}</strong></li>
                             <li id="personal"><strong>{{ __('Upload Video') }}</strong></li>
                             <li id="instructor"><strong>{{ __('Instructors') }}</strong></li>
                             <li id="confirm"><strong>{{ __('Submit process') }}</strong></li>
                         </ul>
 
-                        <!-- Upload Course Step-1 Item Start -->
+                        <!-- Upload Program Step-1 Item Start -->
                         <div class="upload-course-step-item upload-course-overview-step-item">
 
-                            <!-- Upload Course Overview-1 start -->
+                            <!-- Upload Program Overview-1 start -->
                             <div id="upload-course-overview-1">
-                                <form method="POST" action="{{route('course.update.overview', [$course->uuid])}}"
+                                <form method="POST" action="{{route('admin.program.update.overview', [$course->uuid])}}"
                                     id="step1" class="row g-3 needs-validation" novalidate>
                                     @csrf
                                     @if(get_option('courseUploadRuleTitle'))
@@ -55,39 +55,15 @@
                                     @endif
                                     <div class="upload-course-item-block course-overview-step1 radius-8">
                                         <div class="upload-course-item-block-title mb-3">
-                                            <h6 class="font-20">{{ __('Course Details') }}</h6>
+                                            <h6 class="font-20">{{ __('Program Details') }}</h6>
                                         </div>
+
+
 
                                         <div class="row mb-30">
                                             <div class="col-md-12">
                                                 <div class="label-text-title color-heading font-medium font-16 mb-3">{{
-                                                    __('Course Type') }}
-                                                    <span class="text-danger">*</span>
-                                                </div>
-
-                                                <select name="course_type" id="course_type" class="form-select"
-                                                    required>
-                                                    <option value="">{{ __('Select Course
-                                                        Type') }}</option>
-                                                    <option value="{{ COURSE_TYPE_GENERAL }}"
-                                                        {{old('course_type', $course->course_type)==COURSE_TYPE_GENERAL ? 'selected' : '' }}>
-                                                        General</option>
-                                                    <option value="{{ COURSE_TYPE_SCORM }}"
-                                                        {{old('course_type', $course->course_type)==COURSE_TYPE_SCORM ? 'selected' : '' }}>
-                                                        SCORM</option>
-                                                </select>
-
-                                                @if ($errors->has('course_type'))
-                                                <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
-                                                    $errors->first('course_type') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-30">
-                                            <div class="col-md-12">
-                                                <div class="label-text-title color-heading font-medium font-16 mb-3">{{
-                                                    __('Course Title') }}
+                                                    __('Program Title') }}
                                                     <span class="text-danger">*</span>
                                                 </div>
 
@@ -103,7 +79,7 @@
                                         <div class="row mb-30">
                                             <div class="col-md-12">
                                                 <div class="label-text-title color-heading font-medium font-16 mb-3">{{
-                                                    __('Course Subtitle') }}
+                                                    __('Program Subtitle') }}
                                                     <span class="text-danger">*</span>
                                                 </div>
 
@@ -144,7 +120,7 @@
                                         <div class="row mb-30">
                                             <div class="col-md-12">
                                                 <div class="label-text-title color-heading font-medium font-16 mb-3">{{
-                                                    __('Course Description Key Points') }}
+                                                    __('Program Description Key Points') }}
                                                     <span class="text-danger">*</span>
                                                 </div>
                                                 <div id="add_repeater">
@@ -208,12 +184,12 @@
                                         <div class="row mb-30">
                                             <div class="col-md-12">
                                                 <div class="label-text-title color-heading font-medium font-16 mb-3">{{
-                                                    __('Course Description') }}
+                                                    __('Program Description') }}
                                                     <span class="text-danger">*</span>
                                                 </div>
                                                 <textarea class="form-control" name="description" cols="30" rows="10"
                                                     required
-                                                    placeholder="Course description in 250 characters">{{$course->description}}</textarea>
+                                                    placeholder="Program description in 250 characters">{{$course->description}}</textarea>
                                                 @if ($errors->has('description'))
                                                 <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
                                                     $errors->first('description') }}</span>
@@ -223,7 +199,7 @@
                                     </div>
 
                                     <div class="stepper-action-btns">
-                                        <a href="{{route('instructor.course')}}"
+                                        <a href="{{route('admin.program.index')}}"
                                             class="theme-btn theme-button3">{{__('Back')}}</a>
                                         <button type="submit"
                                             class="theme-btn default-hover-btn theme-button1">{{__('Save and

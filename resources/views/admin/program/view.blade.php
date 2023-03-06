@@ -55,9 +55,95 @@
                                                 <div class="accordion-body">
                                                     <div class="play-list">
                                                         @if($lesson->session_type == PROGRAM_SESSION_TYPE_LIVE)
-                                                            live
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col">{{ __('Topic') }}</th>
+                                                                    <th scope="col">{{ __('Coach') }}</th>
+                                                                    <th scope="col">{{ __('Date & Time') }}</th>
+                                                                    <th scope="col">{{ __('Time Duration') }}</th>
+                                                                    <th scope="col">{{ __('Session Type') }}</th>
+                                                                    <th scope="col">{{ __('Meeting Host Name') }}</th>
+                                                                    <th scope="col">{{ __('Action') }}</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td>{{ Str::limit($lesson->class_topic, 50) }}</td>
+                                                                    <td>{{$lesson->instructor->name}}</td>
+                                                                    <td>{{ $lesson->date }}</td>
+                                                                    <td>{{ $lesson->duration }} minutes</td>
+                                                                    <td>{{ $lesson->session_type == 1 ?  __('LIVE')  : __('ONSITE') }}</td>
+                                                                    <td>
+                                                                        @if($lesson->meeting_host_name == 'zoom')
+                                                                            Zoom
+                                                                            <button
+                                                                                class="theme-btn theme-button1 green-theme-btn default-hover-btn viewMeetingLink"
+                                                                                data-item="{{ $lesson }}">
+                                                                                {{ __('View') }}
+                                                                            </button>
+                                                                        @elseif($lesson->meeting_host_name == 'bbb')
+                                                                            BigBlueButton
+                                                                            <button
+                                                                                class="theme-btn theme-button1 green-theme-btn default-hover-btn viewBBBMeetingLink"
+                                                                                data-item="{{ $lesson }}"
+                                                                                data-route="{{ route('instructor.join-bbb-meeting', $lesson->id) }}">
+                                                                                {{ __('View') }}
+                                                                            </button>
+                                                                        @elseif($lesson->meeting_host_name == 'jitsi')
+                                                                            Jitsi
+                                                                            <button
+                                                                                class="theme-btn theme-button1 green-theme-btn default-hover-btn viewJitsiMeetingLink"
+                                                                                data-item="{{ $lesson }}"
+                                                                                data-route="{{ route('join-jitsi-meeting', $lesson->uuid) }}">
+                                                                                {{ __('View') }}
+                                                                            </button>
+                                                                        @elseif($lesson->meeting_host_name == 'gmeet')
+                                                                            Gmeet
+                                                                            <button
+                                                                                class="theme-btn theme-button1 green-theme-btn default-hover-btn viewGmeetMeetingLink"
+                                                                                data-url="{{ $lesson->join_url }}">
+                                                                                {{ __('View') }}
+                                                                            </button>
+                                                                        @endif
+                                                                    </td>
+
+                                                                    <td><a href="javascript:void(0);"
+                                                                           data-url="{{ route('admin.program-session.delete', $lesson->uuid) }}"
+                                                                           class="theme-btn default-delete-btn-red delete"><span class="iconify"
+                                                                                                                                 data-icon="gg:trash"></span>{{ __('Delete') }}</a></td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
                                                         @elseif($lesson->session_type == PROGRAM_SESSION_TYPE_ONSITE)
-                                                            onsite
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col">{{ __('Topic') }}</th>
+                                                                    <th scope="col">{{ __('Coach') }}</th>
+                                                                    <th scope="col">{{ __('Date & Time') }}</th>
+                                                                    <th scope="col">{{ __('Time Duration') }}</th>
+                                                                    <th scope="col">{{ __('Session Type') }}</th>
+                                                                    <th scope="col">{{ __('Description') }}</th>
+                                                                    <th scope="col">{{ __('Action') }}</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td>{{ Str::limit($lesson->class_topic, 50) }}</td>
+                                                                    <td>{{$lesson->instructor->name}}</td>
+                                                                    <td>{{ $lesson->date }}</td>
+                                                                    <td>{{ $lesson->duration }} minutes</td>
+                                                                    <td>{{ $lesson->session_type == 1 ?  __('LIVE')  : __('ONSITE') }}</td>
+                                                                    <td>{{$lesson->description}}</td>
+
+                                                                    <td><a href="javascript:void(0);"
+                                                                           data-url="{{ route('admin.program-session.delete', $lesson->uuid) }}"
+                                                                           class="theme-btn default-delete-btn-red delete"><span class="iconify"
+                                                                                                                                 data-icon="gg:trash"></span>{{ __('Delete') }}</a></td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
                                                         @else
                                                         @endif
 
@@ -154,6 +240,77 @@
         </div>
     </div>
     <!-- Audio Player Modal End-->
+
+
+
+    <!--View Meeting Modal Start-->
+    <div class="modal fade viewMeetingLinkModal" id="viewMeetingModal" tabindex="-1" aria-labelledby="viewMeetingModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="viewMeetingModalLabel">{{ __('View Meeting') }}</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="d-none bbbMeetingDiv">
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <div class="join-url-wrap position-relative">
+                                    <label class="font-medium font-15 color-heading">{{ __('Meeting ID') }}</label>
+                                    <input type="text" name="meeting_id" class="form-control" disabled readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <div class="join-url-wrap position-relative">
+                                    <label class="font-medium font-15 color-heading">{{ __('Moderator Password') }}</label>
+                                    <input type="text" name="moderator_pw" class="form-control" disabled readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <div class="join-url-wrap position-relative">
+                                    <label class="font-medium font-15 color-heading">{{ __('Attendee Password') }}</label>
+                                    <input type="" name="attendee_pw" class="form-control" disabled readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-30 d-none zoomMeetingDiv">
+                        <div class="col-md-12">
+                            <div class="join-url-wrap position-relative">
+                                <label class="font-medium font-15 color-heading">{{ __('Start URL') }}</label>
+                                <textarea name="start_url" class="start_url join-url-text form-control" id="start_url"
+                                          disabled readonly rows="3">
+                            </textarea>
+                                <button class="copy-text-btn position-absolute copyZoomStartUrl"><span class="iconify"
+                                                                                                       data-icon="akar-icons:copy"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-30 d-none jitsiMeetingDiv">
+                        <div class="col-md-12">
+                            <div class="join-url-wrap position-relative">
+                                <label class="font-medium font-15 color-heading">{{ __('Jitsi Meeting ID/Room') }}</label>
+                                <input type="text" name="jitsi_meeting_id" class="form-control jitsi_meeting_id" disabled
+                                       readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <a href="" target="_blank" class="theme-btn theme-button1 default-hover-btn green-theme-btn startNow">{{
+                    __('Start Now') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--View Meeting Modal End-->
+
 @endsection
 
 @push('style')
@@ -166,7 +323,7 @@
 @push('script')
     <!--Feather Icon-->
     <script src="{{asset('frontend/assets/js/feather.min.js')}}"></script>
-
+    <script src="{{ asset('frontend/assets/js/instructor/copy-zoom-url-and-show.js') }}"></script>
     <!-- Video Player js -->
     <script src="{{ asset('frontend/assets/vendor/video-player/plyr.js') }}"></script>
     <script>

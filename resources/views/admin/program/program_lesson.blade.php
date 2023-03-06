@@ -122,7 +122,7 @@
                                                                                     </td>
 
                                                                                     <td><a href="javascript:void(0);"
-                                                                                           data-url="{{ route('live-class.delete', $upcoming_live_class->uuid) }}"
+                                                                                           data-url="{{ route('admin.program-session.delete', $upcoming_live_class->uuid) }}"
                                                                                            class="theme-btn default-delete-btn-red delete"><span class="iconify"
                                                                                                                                                  data-icon="gg:trash"></span>{{ __('Delete') }}</a></td>
                                                                                 </tr>
@@ -200,7 +200,7 @@
                                                                                     </td>
 
                                                                                     <td><a href="javascript:void(0);"
-                                                                                           data-url="{{ route('live-class.delete', $past_live_class->uuid) }}"
+                                                                                           data-url="{{ route('admin.program-session.delete', $past_live_class->uuid) }}"
                                                                                            class="theme-btn default-delete-btn-red delete">
                                                                                             <span class="iconify" data-icon="gg:trash"></span>{{ __('Delete') }}</a>
                                                                                     </td>
@@ -230,7 +230,7 @@
                                                         <a href="{{ route('admin.program.edit',[$course->uuid, 'step=category']) }}"
                                                            class="theme-btn theme-button3 quiz-back-btn default-hover-btn">{{ __('Back') }}</a>
                                                         <a href="{{ route('admin.program-session.create', $course->uuid) }}"
-                                                           class="add-resources-btn theme-btn theme-button1 default-hover-btn">{{ __('Add Live Class') }}</a>
+                                                           class="add-resources-btn theme-btn theme-button1 default-hover-btn">{{ __('Add New Session') }}</a>
                                                         @if($course->status == 1)
                                                             <a href="{{route('admin.course.upload-finished', [$course->uuid])}}" type="button" class="theme-btn theme-button1">{{ __('Done') }}</a>
                                                         @else
