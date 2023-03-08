@@ -624,6 +624,87 @@ class CourseController extends Controller
         }
     }
 
+    public function editProgramSession($session_uuid)
+    {
+        $data['title'] = 'Edit Program Session';
+        $data['navLiveClassActiveClass'] = 'active';
+        $data['instructors'] = Instructor::approved()->orderBy('id', 'desc')->get();
+        $data['session'] = $this->programSessionModel->getRecordByUuid($session_uuid);
+        $data['course'] = $data['session']->course;
+        $data['gmeet'] = GmeetSetting::whereUserId(\Illuminate\Support\Facades\Auth::id())->where('status', GMEET_AUTHORIZE)->first();
+        return view('admin.program.edit-session', $data);
+    }
+
+    public function updateProgramSession(Request $request, $session_uuid)
+    {
+        $request->validate([
+            'class_topic' => 'required|max:255',
+            'date' => 'required',
+            'coach' => 'required',
+            'session_type' => 'required',
+            'duration' => 'required',
+            'moderator_pw' => 'nullable|min:6',
+            'attendee_pw' => 'nullable|min:6',
+        ]);
+        try {
+            DB::beginTransaction();
+            $class = $this->programSessionModel->getRecordByUuid($session_uuid);
+            $course = $class->course;
+            $class->course_id = $course->id;
+            $class->instructor_id = $request->coach;
+            $class->session_type = $request->session_type;
+            $class->description = $request->desc;
+            $class->class_topic = $request->class_topic;
+            $class->date = $request->date;
+            $class->duration = $request->duration;
+            $class->start_url = $request->start_url;
+            $class->join_url = $request->join_url;
+            $class->meeting_host_name = $request->meeting_host_name;
+            $class->meeting_id = $request->meeting_host_name == 'jitsi' ? $request->jitsi_meeting_id : $class->id . rand();
+            $class->moderator_pw = $request->moderator_pw;
+            $class->attendee_pw = $request->attendee_pw;
+            $class->save();
+
+            /** ====== Start:: BigBlueButton create meeting ===== */
+            if ($class->meeting_host_name == 'bbb') {
+                Bigbluebutton::create([
+                    'meetingID' => $class->meeting_id,
+                    'meetingName' => $class->class_topic,
+                    'attendeePW' => $request->moderator_pw,
+                    'moderatorPW' => $request->attendee_pw
+                ]);
+            }
+            /** ====== End:: BigBlueButton create meeting ===== */
+
+            /** ====== Start:: Gmeet create meeting ===== */
+            if ($class->meeting_host_name == 'gmeet') {
+                $endDate = \Carbon\Carbon::parse($class->date)->addMinutes($class->duration);
+                $link = GmeetSetting::createMeeting($class->class_topic, $class->date, $endDate);
+                $class->join_url = $link;
+                $class->save();
+            }
+            /** ====== End:: Gmeet create meeting ===== */
+
+
+            /** ====== send notification to student ===== */
+            $students = Enrollment::where('course_id', $course->id)->select('user_id')->get();
+            foreach ($students as $student) {
+                $text = __("New Live Class Added");
+                $target_url = route('student.my-course.show', $course->slug);
+                $this->send($text, 3, $target_url, $student->user_id);
+            }
+            /** ====== send notification to student ===== */
+
+            DB::commit();
+            $this->showToastrMessage('success', 'Live Class Created Successfully');
+            return redirect()->route('admin.program.edit', [$course->uuid, 'step=lesson']);
+        } catch (Exception $e) {
+            DB::rollBack();
+            $this->showToastrMessage('error', 'Please check your credentials');
+            return redirect()->back()->withInput();
+        }
+    }
+
     public function deleteProgramSession($uuid){
         $this->programSessionModel->deleteByUuid($uuid);
         $this->showToastrMessage('error', __('Deleted Successfully'));

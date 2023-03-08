@@ -106,6 +106,21 @@ Route::prefix('course')->group(function () {
         Route::post('store/{course_uuid}', [ResourceController::class, 'store'])->name('store')->middleware('isDemo');
         Route::get('delete/{uuid}', [ResourceController::class, 'delete'])->name('delete')->middleware('isDemo');
     });
+
+    Route::group(['prefix' => 'session', 'as' => 'session.'], function () {
+        Route::get('index/{course_uuid}', [ResourceController::class, 'session'])->name('index');
+        Route::get('create/{course_uuid}', [ResourceController::class, 'create'])->name('create');
+        Route::post('store/{course_uuid}', [ResourceController::class, 'store'])->name('store')->middleware('isDemo');
+        Route::get('delete/{uuid}', [ResourceController::class, 'delete'])->name('delete')->middleware('isDemo');
+    });
+});
+
+Route::prefix('program')->group(function (){
+    Route::get('/', [CourseController::class, 'program'])->name('instructor.program');
+    Route::get('program/{course_uuid}', [CourseController::class, 'programSessions'])->name('program.session');
+});
+Route::prefix('program1')->group(function (){
+    Route::get('/', [CourseController::class, 'program1'])->name('instructor.program1');
 });
 
 Route::group(['prefix' => 'bundle', 'as' => 'instructor.'], function () {

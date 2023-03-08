@@ -150,6 +150,8 @@ Route::prefix('admin.program-session')->group(function () {
         Route::get('live-class-list/{course_uuid}', [LiveClassController::class, 'liveClassIndex'])->name('index');
         Route::get('create-live-class/{course_uuid}', [CourseController::class, 'createProgramSession'])->name('create');
         Route::post('live-class-store/{course_uuid}', [CourseController::class, 'storeProgramSession'])->name('store')->middleware('isDemo');
+        Route::get('edit-program-session/{session_uuid}', [CourseController::class, 'editProgramSession'])->name('edit');
+        Route::post('program-session-update/{session_uuid}', [CourseController::class, 'updateProgramSession'])->name('update')->middleware('isDemo');
         Route::get('view-live-class/{course_uuid}/{uuid}', [LiveClassController::class, 'view'])->name('view');
         Route::get('delete-live-class/{uuid}', [CourseController::class, 'deleteProgramSession'])->name('delete')->middleware('isDemo');
         Route::post('get-zoom-link', [LiveClassController::class, 'getZoomMeetingLink'])->name('get-zoom-link');

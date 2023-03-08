@@ -84,7 +84,7 @@
                                                                             @foreach($upcoming_live_classes as $upcoming_live_class)
                                                                                 <tr>
                                                                                     <td>{{ Str::limit($upcoming_live_class->class_topic, 50) }}</td>
-                                                                                    <td>{{ $upcoming_live_class->date }}</td>
+                                                                                    <td>{{ date('d M Y, H:i:s', strtotime(@$upcoming_live_class->date)) }}</td>
                                                                                     <td>{{ $upcoming_live_class->duration }} minutes</td>
                                                                                     <td>{{ $upcoming_live_class->session_type == 1 ?  __('LIVE')  : __('ONSITE') }}</td>
                                                                                     <td>
@@ -121,10 +121,17 @@
                                                                                         @endif
                                                                                     </td>
 
-                                                                                    <td><a href="javascript:void(0);"
+                                                                                    <td>
+                                                                                        <a href="{{ route('admin.program-session.edit', $upcoming_live_class->uuid) }}"
+                                                                                           class="theme-btn default-edit-btn-blue edit">
+                                                                                            <span class="iconify" data-icon="gg:file"></span>{{ __('Edit') }}
+                                                                                        </a>
+                                                                                        <a href="javascript:void(0);"
                                                                                            data-url="{{ route('admin.program-session.delete', $upcoming_live_class->uuid) }}"
-                                                                                           class="theme-btn default-delete-btn-red delete"><span class="iconify"
-                                                                                                                                                 data-icon="gg:trash"></span>{{ __('Delete') }}</a></td>
+                                                                                           class="theme-btn default-delete-btn-red delete">
+                                                                                            <span class="iconify" data-icon="gg:trash"></span>{{ __('Delete') }}
+                                                                                        </a>
+                                                                                    </td>
                                                                                 </tr>
                                                                             @endforeach
                                                                             </tbody>
@@ -163,7 +170,7 @@
                                                                             @foreach($past_live_classes as $past_live_class)
                                                                                 <tr>
                                                                                     <td>{{ Str::limit($past_live_class->class_topic, 50) }}</td>
-                                                                                    <td>{{ $past_live_class->date }}</td>
+                                                                                    <td>{{ date('d M Y, H:i:s', strtotime(@$past_live_class->date)) }}</td>
                                                                                     <td>{{ $past_live_class->duration }} minutes</td>
                                                                                     <td>
                                                                                         @if($past_live_class->meeting_host_name == 'zoom')
@@ -199,7 +206,11 @@
                                                                                         @endif
                                                                                     </td>
 
-                                                                                    <td><a href="javascript:void(0);"
+                                                                                    <td>
+                                                                                        <a href="{{ route('admin.program-session.edit', $past_live_class->uuid) }}"
+                                                                                           class="theme-btn default-edit-btn-blue edit">
+                                                                                            <span class="iconify" data-icon="gg:file"></span>{{ __('Edit') }}</a>
+                                                                                        <a href="javascript:void(0);"
                                                                                            data-url="{{ route('admin.program-session.delete', $past_live_class->uuid) }}"
                                                                                            class="theme-btn default-delete-btn-red delete">
                                                                                             <span class="iconify" data-icon="gg:trash"></span>{{ __('Delete') }}</a>
