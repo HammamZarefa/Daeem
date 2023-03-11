@@ -1111,7 +1111,10 @@
     /*Menu CSS Start*/
     #mainNav {
         height: 80px;
-        padding: 21px 0;
+        padding: 15px 0;
+    }
+    #mainNav .navbar-brand img{
+        width: 60px;
     }
     #mainNav .navbar-nav .nav-item .nav-link {
         padding: 0.75em 11px 0.75em 0;
@@ -2777,6 +2780,27 @@
         width: 30px;
     }
 
+}
+@media only screen and (max-width: 767px){
+.tex-s-c{
+    text-align: center;
+}
+.mar-s-au{
+    margin: 0 auto;
+}
+.mar1-s-au{
+    margin: 10px auto;
+}
+.rating-list{
+    justify-content: center;
+}
+.ms-3 {
+    margin-left: 0 !important;
+  }
+  .footer-social,.footer-links{
+    display: flex;
+    justify-content: center;
+  }
 }
 /*-------------------------------------------
     24. Responsive Design End
