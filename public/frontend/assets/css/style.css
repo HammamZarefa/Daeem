@@ -869,7 +869,7 @@ button:focus {
     height: 100px;
     display: flex !important;
     transition: all ease .6s;
-    background: #0091d23b;
+    background: #0091d275;
     padding: 21px 100px;
     align-items: center;
     width: 100%;
@@ -1937,8 +1937,12 @@ button:focus {
     margin: 20px 0 22px;
 }
 .course-instructor-support-wrap div:nth-child(2) .instructor-support-item .theme-btn {
-    background-color: var(--orange-color);
-    border-color: var(--orange-color);
+    background-color:#bacd34;
+    border-color:#bacd34;
+}
+.course-instructor-support-wrap div:nth-child(3) .instructor-support-item .theme-btn {
+    background-color: #f89423;
+    border-color: #f89423;
 }
 .course-instructor-support-wrap div:nth-child(2) .instructor-support-item .theme-btn:hover {
     background-color: var(--white-color);
@@ -3448,12 +3452,7 @@ video#player {
     20. Inner Page Banner/Header Area Start
 -------------------------------------------*/
 .page-banner-header .section-overlay {
-    min-height: 409px;
-    padding: 230px 0 130px;
-}
-.page-banner-header .section-overlay {
-    min-height: 409px;
-    padding: 200px 0 100px;
+    padding: 150px 0 20px;
 }
 .our-gallery-area .section-sub-heading, .our-history-area .section-sub-heading {
     font-size: 16px;
