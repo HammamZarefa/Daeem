@@ -34,7 +34,7 @@
     </div>
     <!-- slider item  -->
     <div class="slider__slide">
-      <img src="{{ getImageFile(@$home->banner_image) }}">
+      <img src="{{ asset('frontend/assets/img/daeem/1.png') }}">
       <div class="slider__slide-text">
         <p> 
             @foreach(@$home->banner_mini_words_title ?? [] as $banner_mini_word)
@@ -59,7 +59,60 @@
             @endif
       </div>
     </div>
-
+    <!-- slider item  -->
+    <div class="slider__slide">
+      <img src="{{ asset('frontend/assets/img/daeem/2.png') }}">
+      <div class="slider__slide-text">
+        <p> 
+            @foreach(@$home->banner_mini_words_title ?? [] as $banner_mini_word)
+                <span>{{ __($banner_mini_word) }}</span>
+            @endforeach
+        </p>
+        <p style="margin: 20px 0px;">{{ __(@$home->banner_first_line_title) }}</p>
+        <p>
+            {{ __(@$home->banner_second_line_title) }}&nbsp; 
+            @foreach(@$home->banner_second_line_changeable_words ?? [] as $banner_second_line_changeable_word)
+                <span class="word">{{ __($banner_second_line_changeable_word) }}</span>
+            @endforeach
+        </p>
+        <p> 
+        {{ __(@$home->banner_third_line_title) }}
+        </p>
+        <p> 
+        {{ __(@$home->banner_subtitle) }}
+        </p>
+            @if(!get_option('private_mode') || !auth()->guest())
+                    <a  style="margin: 20px 0px;" href="{{ route('courses') }}" class="theme-btn theme-button1">{{ __('Browse Course') }} <i data-feather="arrow-right"></i></a>
+            @endif
+      </div>
+    </div>
+<!-- slider item  -->
+<div class="slider__slide">
+      <img src="{{ asset('frontend/assets/img/daeem/3.png') }}">
+      <div class="slider__slide-text">
+        <p> 
+            @foreach(@$home->banner_mini_words_title ?? [] as $banner_mini_word)
+                <span>{{ __($banner_mini_word) }}</span>
+            @endforeach
+        </p>
+        <p style="margin: 20px 0px;">{{ __(@$home->banner_first_line_title) }}</p>
+        <p>
+            {{ __(@$home->banner_second_line_title) }}&nbsp; 
+            @foreach(@$home->banner_second_line_changeable_words ?? [] as $banner_second_line_changeable_word)
+                <span class="word">{{ __($banner_second_line_changeable_word) }}</span>
+            @endforeach
+        </p>
+        <p> 
+        {{ __(@$home->banner_third_line_title) }}
+        </p>
+        <p> 
+        {{ __(@$home->banner_subtitle) }}
+        </p>
+            @if(!get_option('private_mode') || !auth()->guest())
+                    <a  style="margin: 20px 0px;" href="{{ route('courses') }}" class="theme-btn theme-button1">{{ __('Browse Course') }} <i data-feather="arrow-right"></i></a>
+            @endif
+      </div>
+    </div>
   </div>
   <button href="#" class="slider__button slider__button--next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.3 19.3q-.275-.275-.288-.7q-.012-.425.263-.7l4.9-4.9H5q-.425 0-.713-.288Q4 12.425 4 12t.287-.713Q4.575 11 5 11h11.175l-4.9-4.9q-.275-.275-.263-.7q.013-.425.288-.7q.275-.275.7-.275q.425 0 .7.275l6.6 6.6q.15.125.213.312q.062.188.062.388t-.062.375q-.063.175-.213.325l-6.6 6.6q-.275.275-.7.275q-.425 0-.7-.275Z"/></svg></button>
 </div>
@@ -223,6 +276,9 @@
         <p class="section-sub-heading">{{ __(get_option('course_subtitle')) }}</p>
         </div>
         </div>
+
+      
+        </div>
         <div class="course-tab-nav-wrap d-flex justify-content-between">
         <ul class="nav nav-tabs tab-nav-list border-0" id="myTab" role="tablist">
         @foreach($featureCategories as $key => $category)
@@ -232,7 +288,6 @@
             </li>
         @endforeach
         </ul>
-        </div>
         </div>
         </div>
         </div>
@@ -520,23 +575,53 @@
     @endif
 
     <!-- Our Top Categories Area Start -->
-    <section class="top-categories-area gradient-bg p-0 {{ @$home->top_category_area == 1 ? '' : 'd-none' }}">
+    <section class="top-categories-area p-0 {{ @$home->top_category_area == 1 ? '' : 'd-none' }}">
         <div class="section-overlay section-t-space section-b-space">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title text-center">
                             <div class="section-heading-img"><img src="{{ asset(get_option('top_category_logo')) }}" alt="Our categories"></div>
-                            <h3 class="section-heading section-heading-light">{{ __(get_option('top_category_title')) }}</h3>
-                            <p class="section-sub-heading section-sub-heading-light">{{ __(get_option('top_category_subtitle')) }}</p>
+                            <h3 class="section-heading">{{ __(get_option('top_category_title')) }}</h3>
+                            <p class="section-sub-heading">{{ __(get_option('top_category_subtitle')) }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="row top-categories-content-wrap">
-                    @foreach(@$firstFourCategories as $firstFourCategory)
+                   
 
-                        <!-- Single Feature Item start-->
-                        <div class="col-md-6 col-lg-6 col-xl-3">
+                    <section class="section-categories">
+                    @foreach(@$firstFourCategories as $firstFourCategory)
+                            <article>
+                                <figure>
+                                    <h2>{{ Str::limit($firstFourCategory->name, 20) }}</h2>
+                                    <p>{{ @$firstFourCategory->courses->count() }} {{ __('Courses') }}</p>
+                                </figure>
+                                <img alt src="{{ getImageFile($firstFourCategory->image ?? 'frontend/assets/img/top-categories-icon/1.png') }}" alt="categories" />
+                            </article>
+                    @endforeach
+                    @foreach(@$firstFourCategories as $firstFourCategory)
+                            <article>
+                                <figure>
+                                    <h2>{{ Str::limit($firstFourCategory->name, 20) }}</h2>
+                                    <p>{{ @$firstFourCategory->courses->count() }} {{ __('Courses') }}</p>
+                                </figure>
+                                <img alt src="{{ getImageFile($firstFourCategory->image ?? 'frontend/assets/img/top-categories-icon/1.png') }}" alt="categories" />
+                            </article>
+                    @endforeach
+                    @foreach(@$firstFourCategories as $firstFourCategory)
+                            <article>
+                                <figure>
+                                    <h2>{{ Str::limit($firstFourCategory->name, 20) }}</h2>
+                                    <p>{{ @$firstFourCategory->courses->count() }} {{ __('Courses') }}</p>
+                                </figure>
+                                <img alt src="{{ getImageFile($firstFourCategory->image ?? 'frontend/assets/img/top-categories-icon/1.png') }}" alt="categories" />
+                            </article>
+                    @endforeach
+                    </section>
+                    
+                    <!-- Single Feature Item start-->
+                        <!-- <div class="col-md-6 col-lg-6 col-xl-3">
                             <div class="single-feature-item top-cat-item align-items-center tex-s-c">
                                 <div class="flex-shrink-0 feature-img-wrap mar-s-au">
                                     <img src="{{ getImageFile($firstFourCategory->image ?? 'frontend/assets/img/top-categories-icon/1.png') }}" alt="categories">
@@ -546,10 +631,9 @@
                                     <p>{{ @$firstFourCategory->courses->count() }} {{ __('Courses') }}</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Single Feature Item End-->
 
-                    @endforeach
                     @if(!get_option('private_mode') || !auth()->guest())
                     <!-- section button start-->
                     <div class="col-12 text-center section-btn">
@@ -743,7 +827,7 @@ PHP Developer
 
                         <div class="video-floating-img-wrap pe-2 position-relative">
                             <p>{{ Str::limit(get_option('become_instructor_video_subtitle'), 450) }}</p>
-                            <img src="{{ getImageFile(get_option('become_instructor_video_logo')) }}" alt="video" class="position-absolute">
+                            <!-- <img src="{{ getImageFile(get_option('become_instructor_video_logo')) }}" alt="video" class="position-absolute"> -->
                         </div>
 
                         <!-- section button start-->
