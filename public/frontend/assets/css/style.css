@@ -963,9 +963,14 @@ button:focus {
     /* color: var(--heading-color)!important; */
     color: #fff;
     border-radius: 3px;
-    padding: 6.5px 21px!important;
+    padding: 6.5px 10px!important;
     font-weight: 500;
     margin: 0.75em 0;
+}
+@media only screen and (max-width: 767px){
+    #librariesDropdown {
+        padding: 6.5px 0!important;
+    }
 }
 #mainNav .navbar-nav .nav-item .nav-link.dropdown-toggle svg {
     height: 17px;
