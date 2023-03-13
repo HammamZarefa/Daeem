@@ -61,6 +61,12 @@ const ORDER_PAYMENT_STATUS_CANCELLED = 'cancelled';
 //course type
 const COURSE_TYPE_GENERAL = 1;
 const COURSE_TYPE_SCORM = 2;
+const COURSE_TYPE_PROGRAM= 3;
+
+
+//Program Session type
+const PROGRAM_SESSION_TYPE_LIVE = 1;
+const PROGRAM_SESSION_TYPE_ONSITE = 2;
 
 const SEND_BACK_MONEY_STATUS_YES = 1;
 const SEND_BACK_MONEY_STATUS_NO = 0;

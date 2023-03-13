@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\difficultyLevelController;
 use App\Http\Controllers\Admin\ForumCategoryController;
 use App\Http\Controllers\Admin\HomeSettingController;
 use App\Http\Controllers\Admin\InstructorController;
+use App\Http\Controllers\Admin\LessonController;
 use App\Http\Controllers\Admin\OrganizationController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\LocationController;
@@ -118,6 +119,43 @@ Route::prefix('course')->group(function () {
 
     Route::get('enroll', [CourseController::class, 'courseEnroll'])->name('admin.course.enroll');
     Route::post('enroll', [CourseController::class, 'courseEnrollStore'])->name('admin.course.enroll.store')->middleware('isDemo');
+});
+
+Route::prefix('program')->group(function () {
+    Route::get('/', [CourseController::class, 'programmes'])->name('admin.program.index');
+    Route::get('/create', [CourseController::class, 'createProgram'])->name('admin.program.create');
+    Route::post('store', [CourseController::class, 'storeProgram'])->name('admin.program.store')->middleware('isDemo');
+    Route::get('edit/{uuid}', [CourseController::class, 'editProgram'])->name('admin.program.edit');
+    Route::post('update-program-category/{uuid}', [CourseController::class, 'updateProgramCategory'])->name('program.update.category')->middleware('isDemo');
+    Route::post('update-overview/{uuid}', [CourseController::class, 'updateProgramOverview'])->name('admin.program.update.overview')->middleware('isDemo');
+    Route::post('update-status/{uuid}', [CourseController::class, 'updateProgramStatus'])->name('admin.program.update.status')->middleware('isDemo');
+    Route::get('view/{uuid}', [CourseController::class, 'viewProgram'])->name('admin.program.view');
+    Route::prefix('lesson')->group(function () {
+        Route::post('store/{course_uuid}', [LessonController::class, 'store'])->name('admin.lesson.store')->middleware('isDemo');
+        Route::post('update-lesson/{course_uuid}/{lesson_id}', [LessonController::class, 'updateLesson'])->name('admin.lesson.update')->middleware('isDemo');
+        Route::delete('delete-lesson/{lesson_id}', [LessonController::class, 'deleteLesson'])->name('admin.lesson.delete')->middleware('isDemo');
+        Route::get('upload-finished/{uuid}', [CourseController::class, 'uploadFinished'])->name('admin.course.upload-finished');
+        Route::get('upload-lecture/{course_uuid}/{lesson_uuid}', [LessonController::class, 'uploadLecture'])->name('admin.upload.lecture');
+        Route::post('store-lecture/{course_uuid}/{lesson_uuid}', [LessonController::class, 'storeLecture'])->name('admin.store.lecture')->middleware('isDemo');
+        Route::get('edit-lecture/{course_uuid}/{lesson_uuid}/{lecture_uuid}', [LessonController::class, 'editLecture'])->name('admin.edit.lecture');
+        Route::post('update-lecture/{lecture_uuid}', [LessonController::class, 'updateLecture'])->name('admin.update.lecture')->middleware('isDemo');
+        Route::get('delete-lecture/{course_uuid}/{lecture_uuid}', [LessonController::class, 'deleteLecture'])->name('admin.delete.lecture')->middleware('isDemo');
+    });
+    Route::post('store-instructor/{course_uuid}', [CourseController::class, 'storeInstructor'])->name('program.store.instructor')->middleware('isDemo');
+});
+
+Route::prefix('admin.program-session')->group(function () {
+    Route::group(['prefix' => 'admin.program-session', 'as' => 'admin.program-session.'], function () {
+        Route::get('course-live-class-list', [LiveClassController::class, 'courseLiveClassIndex'])->name('course-live-class.index');
+        Route::get('live-class-list/{course_uuid}', [LiveClassController::class, 'liveClassIndex'])->name('index');
+        Route::get('create-live-class/{course_uuid}', [CourseController::class, 'createProgramSession'])->name('create');
+        Route::post('live-class-store/{course_uuid}', [CourseController::class, 'storeProgramSession'])->name('store')->middleware('isDemo');
+        Route::get('edit-program-session/{session_uuid}', [CourseController::class, 'editProgramSession'])->name('edit');
+        Route::post('program-session-update/{session_uuid}', [CourseController::class, 'updateProgramSession'])->name('update')->middleware('isDemo');
+        Route::get('view-live-class/{course_uuid}/{uuid}', [LiveClassController::class, 'view'])->name('view');
+        Route::get('delete-live-class/{uuid}', [CourseController::class, 'deleteProgramSession'])->name('delete')->middleware('isDemo');
+        Route::post('get-zoom-link', [LiveClassController::class, 'getZoomMeetingLink'])->name('get-zoom-link');
+    });
 });
 
 Route::get('course-upload-rules', [CourseController::class, 'courseUploadRuleIndex'])->name('course-rules.index');

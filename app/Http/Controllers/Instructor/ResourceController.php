@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Instructor;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseResource;
+use App\Models\Program_session;
 use App\Tools\Repositories\Crud;
 use App\Traits\General;
 use App\Traits\ImageSaveTrait;
@@ -30,6 +31,16 @@ class ResourceController extends Controller
         $data['resources'] = CourseResource::where('course_id', $data['course']->id)->paginate();
 
         return view('instructor.course.resources.index', $data);
+    }
+
+    public function session($course_uuid)
+    {
+        $data['title'] = 'Sessions';
+        $data['navProgramActiveClass'] = 'active';
+        $data['course'] = $this->courseModel->getRecordByUuid($course_uuid);
+        $data['resources'] = Program_session::where('instructor_id', auth()->user()->instructor->id)->where('course_id', $data['course']->id)->paginate();
+
+        return view('instructor.program.sessions.index', $data);
     }
 
     public function create($course_uuid)

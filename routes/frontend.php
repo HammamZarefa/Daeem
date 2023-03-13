@@ -47,7 +47,9 @@ Route::group(['middleware' => 'private.mode'], function () {
 
     // Start:: Course
     Route::get('courses', [CourseController::class, 'allCourses'])->name('courses');
+    Route::get('programmes', [CourseController::class, 'allProgrammes'])->name('programmes');
     Route::get('course-details/{slug}', [CourseController::class, 'courseDetails'])->name('course-details');
+    Route::get('program-details/{slug}', [CourseController::class, 'programDetails'])->name('program-details');
 
     Route::get('category/courses/{slug}', [CourseController::class, 'categoryCourses'])->name('category-courses');
     Route::get('subcategory/courses/{slug}', [CourseController::class, 'subCategoryCourses'])->name('subcategory-courses');

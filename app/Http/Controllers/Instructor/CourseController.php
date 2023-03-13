@@ -18,6 +18,7 @@ use App\Models\Difficulty_level;
 use App\Models\Instructor;
 use App\Models\LearnKeyPoint;
 use App\Models\Order_item;
+use App\Models\Program_session;
 use App\Models\Subcategory;
 use App\Models\Tag;
 use App\Models\User;
@@ -27,6 +28,8 @@ use App\Traits\General;
 use App\Traits\ImageSaveTrait;
 use App\Traits\SendNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class CourseController extends Controller
@@ -49,6 +52,76 @@ class CourseController extends Controller
         $data['navCourseActiveClass'] = 'active';
         $data['number_of_course'] = count($courseInstructorIds);
         return view('instructor.course.index', $data);
+    }
+
+    public function program()
+    {
+        $data['title'] = 'My Programmes';
+        $courseInstructorIds = [];
+        $courseSessionInstructorIds = Program_session::where('instructor_id', auth()->user()->instructor->id)->get();
+        foreach ($courseSessionInstructorIds as $courseSessionInstructorId){
+            array_push($courseInstructorIds,$courseSessionInstructorId->course_id);
+        }
+        $data['courses'] = Course::whereIn('id', $courseInstructorIds)->whereNull('organization_id')->orderBy('id', 'DESC')->paginate(10);
+        $data['navProgramActiveClass'] = 'active';
+        $data['number_of_course'] = count($courseInstructorIds);
+        return view('instructor.program.index', $data);
+    }
+    public function program1()
+    {
+        $data['title'] = 'Training Program';
+        $data['navProgram1ActiveClass'] = 'active';
+
+        $now = now();
+        $courseInstructorIds = [];
+        $courseSessionInstructorIds = Program_session::where('instructor_id', auth()->user()->instructor->id)->get();
+        foreach ($courseSessionInstructorIds as $courseSessionInstructorId){
+            array_push($courseInstructorIds,$courseSessionInstructorId->course_id);
+        }
+        $data['courses'] = Course::whereIn('id', $courseInstructorIds)->whereNull('organization_id')->orderBy('id', 'DESC');
+
+//        $data['courses'] = Course::whereUserId(Auth::user()->id);
+        $data['courses'] = $data['courses']->withCount([
+            'programSessions as total_upcoming' => function ($q) use ($now) {
+                $q->select(DB::raw("COUNT(id) as total_upcoming"));
+                $q->where('date', '>=', $now);
+            },
+            'programSessions as total_past' => function ($q) use ($now) {
+                $q->select(DB::raw("COUNT(id) as total_past"));
+                $q->where('date', '<=', $now);
+            },
+
+        ])->paginate();
+        return view('instructor.program.program-list', $data);
+    }
+
+    public function programSessions(Request $request, $course_uuid)
+    {
+        $data['title'] = 'Program Sessions';
+        $data['navProgram1ActiveClass'] = 'active';
+        if ($request->past) {
+            $data['navPastActive'] = 'active';
+            $data['tabPastActive'] = 'show active';
+        } else {
+            $data['navUpcomingActive'] = 'active';
+            $data['tabUpcomingActive'] = 'show active';
+        }
+
+        $data['course'] = $this->model->getRecordByUuid($course_uuid);
+
+        $now = now();
+
+        $data['upcoming_live_classes'] = Program_session::where('instructor_id', auth()->user()->instructor->id)->whereCourseId($data['course']->id)
+            ->where('date', '>=', $now)
+            ->latest()->paginate(15, '*', 'upcoming');
+
+        $data['past_live_classes'] = Program_session::where('instructor_id', auth()->user()->instructor->id)->whereCourseId($data['course']->id)
+            ->where('date', '<=', $now)
+            ->latest()->paginate(15, '*', 'past');
+
+
+
+        return view('instructor.live_class.live-class-list', $data);
     }
 
     public function organizationCourses()
