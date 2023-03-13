@@ -3,6 +3,7 @@
 @endphp
 
 <section class="menu-section-area @auth isLoginMenu @endauth">
+<div id="blurry-filter"></div>
     <!-- Navigation -->
     <nav class="navbar sticky-header navbar-expand-lg" id="mainNav">
         <div class="container-fluid">
@@ -15,8 +16,8 @@
             </button>
             <div class="main-menu-collapse collapse navbar-collapse" id="navbarSupportedContent">
 
-                <div class="header-nav-left-side me-auto d-flex">
-                    <!-- <ul class="navbar-nav mb-2 mb-lg-0">
+                <!-- <div class="header-nav-left-side me-auto d-flex">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
                                 data-bs-toggle="dropdown">
@@ -45,9 +46,9 @@
                                 <li><a href="{{ route('courses') }}">{{ __('All Courses') }}</a></li>
                             </ul>
                         </li>
-                    </ul> -->
+                    </ul>
 
-                    <!-- <form action="#">
+                    <form action="#">
                         <div class="input-group">
                             <button class="input-group-text pe-0" id="basic-addon1"><img
                                     src="{{ asset('frontend/assets/img/icons-svg/search.svg') }}" alt="Search"></button>
@@ -55,16 +56,19 @@
                                 value="{{request('keyword')}}" placeholder="{{__('Search Course')}}..."
                                 aria-label="Search">
                         </div>
+
+                        
                         <div class="search-bar-suggestion-box searchBox d-none custom-scrollbar">
                             <ul class="appendCourseSearchList">
 
                             </ul>
                         </div>
-                    </form> -->
-                </div>
+                       
+                    </form>
+                </div> -->
                 <div class="header-nav-right-side d-flex">
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown"
                                 data-bs-toggle="dropdown">{{__('Pages')}}</a>
                             <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
@@ -78,6 +82,15 @@
                                         __($dynamicMenu->name) }}</a></li>
                                 @endforeach
                             </ul>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">{{__('Home')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/about-us') }}">{{__('About Us')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('blogs') }}">{{__('Blog')}}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
@@ -163,13 +176,15 @@
                             <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('blogs') }}">{{__('Blog')}}</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{ route('contact') }}">{{__('Contact')}}</a>
                         </li>
                         @endif
-                        <li class="nav-item dropdown menu-round-btn menu-language-btn dropdown-top-space">
+                        
+                    </ul>
+                </div>
+                <div>
+                    <ul class="navbar-nav">
+                    <li class="nav-item dropdown menu-round-btn menu-language-btn dropdown-top-space">
                             <a class="nav-link" href="#">
                                 <img src="{{asset($selectedLanguage->flag)}}" alt="Flag" class="radius-50">
                             </a>
@@ -290,7 +305,7 @@
                         <li class="nav-item menu-round-btn menu-cart-btn">
                             <a class="nav-link menu-cart-btn" aria-current="page"
                                 href="{{ route('student.cartList') }}">
-                                <i data-feather="shopping-bag"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f39223" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2zM1 3c0 .55.45 1 1 1h1l3.6 7.59l-1.35 2.44C4.52 15.37 5.48 17 7 17h11c.55 0 1-.45 1-1s-.45-1-1-1H7l1.1-2h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.67-1.43a.993.993 0 0 0-.9-.57H2c-.55 0-1 .45-1 1zm16 15c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2z"/></svg>
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cartQuantity">
                                     {{ @$cartQuantity }}

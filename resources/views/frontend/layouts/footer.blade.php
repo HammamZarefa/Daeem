@@ -1,9 +1,9 @@
-<footer class="footer-area footer-gradient-bg position-relative tex-s-c">
+<footer class="footer-area position-relative tex-s-c">
     <div class="section-overlay">
         <div class="container">
             <!-- footer-widget-area -->
             <div class="row footer-top-part section-p-t-b-90">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                     <div class="footer-widget footer-about">
                         <img src="{{asset(get_option('app_logo'))}}" alt="Logo">
                         <p>{{ __(get_option('footer_quote')) }}</p>
@@ -17,19 +17,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-2">
                     <div class="footer-widget">
                         <h6 class="footer-widget-title">{{__('Company')}}</h6>
                         <div class="footer-links d-flex">
                             <ul>
-                                <li><a href="{{ route('about') }}">{{ __('About')  }}</a></li>
-                                <li><a href="{{ route('faq') }}">{{__('FAQ')}}</a></li>
+                                <li><a href="{{ route('about') }}">{{ __('About US')  }}</a></li>
                                 <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
+                                <li><a href="{{ route('courses') }}">{{ __('Courses') }}</a></li>
+                                
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-2">
                     <div class="footer-widget">
                         <h6 class="footer-widget-title">{{__('Support')}}</h6>
                         <div class="footer-links d-flex">
@@ -37,13 +38,12 @@
                                 <li><a href="{{ route('contact') }}">{{  __('Contact')  }}</a></li>
                                 <li><a href="{{ route('support-ticket-faq') }}">{{  __('Support')  }}</a></li>
                                 @if(!get_option('private_mode') || !auth()->guest())
-                                <li><a href="{{ route('courses') }}">{{ __('Courses')  }}</a></li>
                                 @endif
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                     <div class="footer-widget footer-contact-info">
                         <h6 class="footer-widget-title">{{__('Contact Info')}}</h6>
 
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-12 col-md-12 col-lg-4">
                     <div class="copyright-text text-center">
-                        <p class="text-white font-13">{{ __(get_option('app_copyright')) }}</p>
+                        <p class=" font-13">{{ __(get_option('app_copyright')) }}</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-4">
