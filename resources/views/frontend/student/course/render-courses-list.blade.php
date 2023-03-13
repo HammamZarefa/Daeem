@@ -86,7 +86,7 @@
     <!-- If there is no data Show Empty Design Start -->
     <div class="empty-data">
         <img src="{{ asset('frontend/assets/img/empty-data-img.png') }}" alt="img" class="img-fluid">
-        <h4 class="my-3">{{ __('Empty Course') }}</h4>
+        <h4 class="my-3">{{ __('Empty Program') }}</h4>
     </div>
     <!-- If there is no data Show Empty Design End -->
 @endif

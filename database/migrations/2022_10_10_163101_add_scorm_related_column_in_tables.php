@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->tinyInteger('course_type')->after('user_id')->default(1)->comment('1=general, 2=scorm');
+            $table->tinyInteger('course_type')->after('user_id')->default(1)->comment('1=general, 2=scorm, 3=program');
         });
 
         Schema::table('scorm', function (Blueprint $table) {

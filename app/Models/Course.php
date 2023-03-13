@@ -113,6 +113,11 @@ class Course extends Model
         return $this->hasMany(LiveClass::class, 'course_id');
     }
 
+    public function programSessions()
+    {
+        return $this->hasMany(Program_session::class, 'course_id');
+    }
+
     public function orderItems()
     {
         return $this->hasMany(Order_item::class);
@@ -192,6 +197,61 @@ class Course extends Model
             foreach ($this->lectures as $lecture) {
                 if ($lecture->file_duration_second) {
                     $total_video_duration_seconds +=  $lecture->file_duration_second;
+                }
+            }
+
+            $h = floor($total_video_duration_seconds / 3600);
+
+            return $h;
+        }
+
+        return $video_duration;
+    }
+
+    /*
+    * Video duration For All without filter in frontend
+    */
+    public function getSessionDurationAttribute()
+    {
+        $video_duration = 0;
+        $total_video_duration_in_seconds = 0;
+
+        if ($this->programSessions()->count() > 0) {
+            foreach ($this->programSessions as $session) {
+                if ($session->duration) {
+                    $total_video_duration_in_seconds +=  $session->duration * 60;
+                }
+            }
+
+            $h = floor($total_video_duration_in_seconds / 3600);
+            $m = floor($total_video_duration_in_seconds % 3600 / 60);
+            $s = floor($total_video_duration_in_seconds % 3600 % 60);
+
+            if ($h > 0) {
+                return "$h h $m m $s s";
+            } elseif ($m > 0) {
+                return "$m min $s sec";
+            } elseif ($s > 0) {
+                return "$s sec";
+            }
+        }
+
+        return $video_duration;
+    }
+
+    /*
+     * for filter in front
+     */
+
+    public function getFilterSessionDurationAttribute()
+    {
+        $video_duration = 0;
+        $total_video_duration_seconds = 0;
+
+        if ($this->programSessions()->count() > 0) {
+            foreach ($this->programSessions as $session) {
+                if ($session->duration) {
+                    $total_video_duration_in_seconds +=  $session->duration * 60;
                 }
             }
 

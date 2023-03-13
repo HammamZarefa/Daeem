@@ -382,9 +382,12 @@ function studentCourseProgress($course_id, $enrollment_id)
         if ($number_of_total_lecture) {
             $result = (($number_of_total_view_lecture * 100) / $number_of_total_lecture ?? 1);
         }
-    } else {
+    } elseif ($course->course_type == COURSE_TYPE_SCORM) {
         $enrollment = Enrollment::whereId($enrollment_id)->first();
         $result = ($enrollment) ? ($enrollment->completed_time / $course->scorm_course->duration_in_second) * 100 : 0;
+    }else{
+        $number_of_total_lecture = \App\Models\Program_session::where('course_id', $course_id)->count();
+        $result = $number_of_total_lecture;
     }
 
     return $result;

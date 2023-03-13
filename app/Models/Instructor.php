@@ -57,11 +57,16 @@ class Instructor extends Model
         return $this->hasMany(Course::class, 'instructor_id');
     }
 
+    public function Program_sessions()
+    {
+        return $this->hasMany(Program_session::class, 'instructor_id');
+    }
+
     public function enrollments()
     {
         return $this->hasMany(Enrollment::class, 'owner_user_id', 'user_id');
     }
-   
+
     public function orders()
     {
         return $this->hasManyThrough(Order::class, Enrollment::class, 'owner_user_id', 'id', 'user_id', 'order_id');

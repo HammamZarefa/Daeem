@@ -18741,3 +18741,78 @@ blockquote.right span::before {
 .removeClass{
     /* margin-top: 20px; */
 }
+
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey;
+    border: 1px solid #EDEDED;
+    padding: 33px 0;
+    box-shadow: 0 2px #ededed;
+    border-radius: 8px;
+}
+#progressbar .active {
+    color: #0a53be;
+}
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+    text-align: center;
+}
+#progressbar li:before {
+    width: 35px;
+    height: 35px;
+    line-height: 45px;
+    display: flex;
+    font-size: 15px;
+    color: var(--white-color);
+    background: var(--white-color);
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px;
+    border: 5px solid #0a53be;
+    align-items: center;
+    justify-content: center;
+    top: 7px;
+    position: relative;
+    font-family: Feather!important;
+    content: "\e92b"
+}
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #DFDCEB;
+    position: absolute;
+    right: -118px;
+    top: 25px;
+    z-index: -1;
+}
+#progressbar li:last-child::after {
+    display: none;
+}
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #0a53be;
+}
+.progress {
+    height: 20px;
+}
+.progress-bar {
+    background-color: #0a53be;
+}
+.upload-course-item-block{
+    margin: 40px;
+    width: 75%;
+}
+
+
+.stepper-action-btns{
+    margin: 40px;
+    width: 75%;
+}

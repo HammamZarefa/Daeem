@@ -19,6 +19,7 @@ use App\Models\LiveClass;
 use App\Models\NoticeBoard;
 use App\Models\Order;
 use App\Models\Order_item;
+use App\Models\Program_session;
 use App\Models\Question;
 use App\Models\Question_option;
 use App\Models\Review;
@@ -64,6 +65,32 @@ class MyCourseController extends Controller
         $data['enrollments'] = $data['enrollments']->latest()->paginate();
 
         return view('frontend.student.course.courses-list', $data);
+    }
+
+    public function myLearningProgramList(Request $request)
+    {
+        $data['pageTitle'] = 'My Training Program';
+        $data['enrollments'] = Enrollment::where('enrollments.user_id', auth()->id())->select('enrollments.*', 'order_items.unit_price')->join('orders', 'orders.id', '=', 'enrollments.order_id')->join('order_items', 'order_items.order_id', '=', 'orders.id')->where('enrollments.status', ACCESS_PERIOD_ACTIVE)->groupBy('enrollments.id');
+
+        if ($request->ajax()) {
+            $sortByID = $request->sortByID; // 1=newest, 2=Oldest
+            if ($sortByID) {
+                if ($sortByID == 1) {
+
+                    $data['enrollments'] = $data['enrollments']->latest()->paginate();
+                }
+
+                if ($sortByID == 2) {
+                    $data['enrollments'] = $data['enrollments']->paginate();
+                }
+            }
+
+            return view('frontend.student.program.render-courses-list', $data);
+        }
+
+        $data['enrollments'] = $data['enrollments']->latest()->paginate();
+
+        return view('frontend.student.program.courses-list', $data);
     }
 
     public function organizationCourses(Request $request)
@@ -343,6 +370,202 @@ class MyCourseController extends Controller
         }
 
         return view('frontend.student.course.course-details', $data);
+    }
+
+    public function myProgramShow(Request $request, $slug, $action_type = null, $quiz_uuid = null, $answer_id = null)
+    {
+        $data['pageTitle'] = "Program Details";
+        $data['course'] = Course::whereSlug($slug)->firstOrfail();
+        $data['enrollment'] = Enrollment::where(['course_id' => $data['course']->id, 'user_id' => auth()->id(), 'status' => ACCESS_PERIOD_ACTIVE])->whereDate('end_date', '>=', now())->first();
+
+        // End:: Checking enrolled or not
+
+        $data['total_enrolled_students'] = Enrollment::where('course_id', $data['course']->id)->count();
+        $data['enrolled_students'] = Enrollment::where('course_id', $data['course']->id)->take(4)->get();
+
+        //Start:: Assignment
+        $data['assignments'] = Assignment::where('course_id', $data['course']->id)->get();
+        //End:: Assignment
+        //Start:: Notice
+        $data['notices'] = NoticeBoard::whereCourseId($data['course']->id)->latest()->get();
+        //End:: Notice
+
+        //Start:: Live Class
+        $now = now();
+
+        $data['upcoming_live_classes'] = Program_session::whereCourseId($data['course']->id)
+            ->where('date', '>=', $now)
+            ->latest()->get();
+
+        $data['past_live_classes'] = Program_session::whereCourseId($data['course']->id)
+            ->where('date', '<=', $now)
+            ->latest()->get();
+        //End:: Live Class
+
+        //Start:: Review
+        $data['reviews'] = Review::whereCourseId($data['course']->id)->latest()->paginate(3);
+        $data['loadMoreShowButtonReviews'] = Review::whereCourseId($data['course']->id)->paginate(4);
+        $data['five_star_count'] = Review::whereCourseId($data['course']->id)->whereRating(5)->count();
+        $data['four_star_count'] = Review::whereCourseId($data['course']->id)->whereRating(4)->count();
+        $data['three_star_count'] = Review::whereCourseId($data['course']->id)->whereRating(3)->count();
+        $data['two_star_count'] = Review::whereCourseId($data['course']->id)->whereRating(2)->count();
+        $data['first_star_count'] = Review::whereCourseId($data['course']->id)->whereRating(1)->count();
+
+        $data['total_reviews'] = (5 * $data['five_star_count']) + (4 * $data['four_star_count']) + (3 * $data['three_star_count']) +
+            (2 * $data['two_star_count']) + (1 * $data['first_star_count']);
+        $data['total_user_review'] = $data['five_star_count'] + $data['four_star_count'] + $data['three_star_count'] + $data['two_star_count'] + $data['first_star_count'];
+        if ($data['total_user_review'] > 0) {
+            $data['average_rating'] = $data['total_reviews'] / $data['total_user_review'];
+        } else {
+            $data['average_rating'] = 0;
+        }
+
+        $total_reviews = Review::whereCourseId($data['course']->id)->count();
+
+        if ($total_reviews > 0) {
+            $data['five_star_percentage'] = ($data['five_star_count'] / $total_reviews) * 100;
+
+            $data['four_star_percentage'] = 100 * ($data['four_star_count'] / $total_reviews);
+            $data['three_star_percentage'] = 100 * ($data['three_star_count'] / $total_reviews);
+            $data['two_star_percentage'] = 100 * ($data['two_star_count'] / $total_reviews);
+            $data['first_star_percentage'] = 100 * ($data['first_star_count'] / $total_reviews);
+        } else {
+            $data['five_star_percentage'] = 0;
+            $data['four_star_percentage'] = 0;
+            $data['three_star_percentage'] = 0;
+            $data['two_star_percentage'] = 0;
+            $data['first_star_percentage'] = 0;
+        }
+
+        //End:: Review
+        $data['discussions'] = Discussion::whereCourseId($data['course']->id)->whereNull('parent_id')->active()->get();
+
+        if (!is_null($action_type) && !is_null($quiz_uuid)) {
+            $data['exam'] = Exam::whereUuid($quiz_uuid)->first();
+
+            if ($action_type == 'start-quiz') {
+
+                if (Take_exam::whereUserId(auth()->user()->id)->whereExamId($data['exam']->id)->count() == 0) {
+                    $take_exam = new Take_exam();
+                    $take_exam->exam_id = $data['exam']->id;
+                    $take_exam->save();
+                }
+
+                $data['take_exam'] = Take_exam::whereUserId(auth()->user()->id)->whereExamId($data['exam']->id)->orderBy('id', 'DESC')->first();
+
+                $question_ids = Answer::whereUserId(auth()->user()->id)->whereExamId($data['exam']->id)->pluck('question_id')->toArray();
+                $data['question'] = Question::whereExamId($data['exam']->id)->whereNotIn('id', $question_ids)->first();
+                $data['number_of_answer'] = Answer::whereUserId(auth()->user()->id)->whereExamId($data['exam']->id)->count();
+
+
+                $now = Carbon::now();
+                $expend_second = $now->diffInSeconds($data['take_exam']->created_at);
+
+                if (Carbon::parse($data['exam']->duration * 60)->subSecond($expend_second)->format('H:i:s') > Carbon::parse($data['exam']->duration * 60)->format('H:i:s')) {
+                    return redirect(route('student.my-course.show', [$data['course']->slug, 'quiz-result', $data['exam']->uuid]));
+                }
+            }
+
+
+            if ($action_type == 'leaderboard') {
+                $data['top5_take_exams'] = Take_exam::whereExamId($data['exam']->id)->orderBy('number_of_correct_answer', 'DESC')->take(5)->get();
+                $data['take_exams'] = Take_exam::whereExamId($data['exam']->id)->orderBy('number_of_correct_answer', 'DESC')->skip(5)->take(500)->get();
+            }
+        }
+
+        if (!is_null($answer_id)) {
+            $data['answer'] = Answer::find($answer_id);
+        }
+
+        $data['action_type'] = $action_type;
+        $data['quiz_uuid'] = $quiz_uuid;
+        $data['answer_id'] = $answer_id;
+
+        /** ------- save certificate ----------- */
+
+//        if ($request->get('lecture_uuid')) {
+//            $lecture = Course_lecture::where('uuid', $request->get('lecture_uuid'))->firstOrFail();
+//            $isFirst = count($data['course_lecture_views']) ? false : true;
+//            if(!checkStudentCourseIsLock( $data['course_lecture_views'], $data['course'], $lecture, $data['enrollment'], $isFirst)){
+//                $nextLecture = $this->getNextId($data['course_lecture_views'], $data['course'],  $lecture, $data['enrollment']);
+//                if ($nextLecture) {
+//                    $data['nextLectureUuid'] = $nextLecture->uuid;
+//                } else {
+//                    $data['nextLectureUuid'] = null;
+//                }
+//
+//                if ($lecture->type == 'video') {
+//                    $data['video_src'] = $lecture->file_path;
+//                } elseif ($lecture->type == 'youtube') {
+//                    $data['youtube_video_src'] = $lecture->url_path;
+//                } elseif ($lecture->type == 'vimeo') {
+//                    $data['vimeo_video_src'] = $lecture->url_path;
+//                } elseif ($lecture->type == 'text') {
+//                    $lecture = Course_lecture::find($lecture->id);
+//                    if ($lecture) {
+//                        if (Course_lecture_views::where('user_id', auth()->id())->where('course_id', $lecture->course_id)->where('course_lecture_id', $lecture->id)->count() == 0) {
+//                            $course_lecture_views = new Course_lecture_views();
+//                            $course_lecture_views->course_id = $lecture->course_id;
+//                            $course_lecture_views->course_lecture_id = $lecture->id;
+//                            $course_lecture_views->save();
+//                        }
+//                    }
+//
+//                    $data['text_src'] = $lecture->text;
+//                    $this->makePdfCertificate($lecture->course_id, $data['enrollment']->id);
+//                } elseif ($lecture->type == 'image') {
+//                    $lecture = Course_lecture::find($lecture->id);
+//                    if ($lecture) {
+//                        if (Course_lecture_views::where('user_id', auth()->id())->where('course_id', $lecture->course_id)->where('course_lecture_id', $lecture->id)->count() == 0) {
+//                            $course_lecture_views = new Course_lecture_views();
+//                            $course_lecture_views->course_id = $lecture->course_id;
+//                            $course_lecture_views->course_lecture_id = $lecture->id;
+//                            $course_lecture_views->save();
+//                        }
+//                    }
+//
+//                    $data['image_src'] = $lecture->image;
+//                    $this->makePdfCertificate($lecture->course_id, $data['enrollment']->id);
+//                } elseif ($lecture->type == 'pdf') {
+//                    $lecture = Course_lecture::find($lecture->id);
+//                    if ($lecture) {
+//                        if (Course_lecture_views::where('user_id', auth()->id())->where('course_id', $lecture->course_id)->where('course_lecture_id', $lecture->id)->count() == 0) {
+//                            $course_lecture_views = new Course_lecture_views();
+//                            $course_lecture_views->course_id = $lecture->course_id;
+//                            $course_lecture_views->course_lecture_id = $lecture->id;
+//                            $course_lecture_views->save();
+//                        }
+//                    }
+//
+//                    $data['pdf_src'] = $lecture->pdf;
+//                    $this->makePdfCertificate($lecture->course_id, $data['enrollment']->id);
+//                    // return redirect(getImageFile($pdf_src));
+//                } elseif ($lecture->type == 'slide_document') {
+//                    $lecture = Course_lecture::find($lecture->id);
+//                    if ($lecture) {
+//                        if (Course_lecture_views::where('user_id', auth()->id())->where('course_id', $lecture->course_id)->where('course_lecture_id', $lecture->id)->count() == 0) {
+//                            $course_lecture_views = new Course_lecture_views();
+//                            $course_lecture_views->course_id = $lecture->course_id;
+//                            $course_lecture_views->course_lecture_id = $lecture->id;
+//                            $course_lecture_views->save();
+//                        }
+//                    }
+//
+//                    $data['slide_document_src'] = $lecture->slide_document;
+//                    $this->makePdfCertificate($lecture->course_id, $data['enrollment']->id);
+//                } elseif ($lecture->type == 'audio') {
+//                    $data['audio_src'] = $lecture->audio;
+//                }
+//
+//                $data['lecture_type'] = $lecture->type;
+//                $data['lesson_id_check'] = @$lecture->lesson->id;
+//                $data['lecture_id_check'] = $lecture->id;
+//                $data['navLessonActive'] = 'on';
+//                $data['subNavLectureActiveClass'] = 'show';
+//            }
+//        }
+
+        return view('frontend.student.program.program-details', $data);
     }
 
     public function getNextId($course_lecture_views, $course, $old_lecture, $enrollment)
