@@ -13,11 +13,13 @@ Route::group(['as' => 'student.'], function () {
 
     //Start:: My Learning Course
     Route::get('my-learning', [MyCourseController::class, 'myLearningCourseList'])->name('my-learning');
+    Route::get('my-program', [MyCourseController::class, 'myLearningProgramList'])->name('my-program');
     Route::get('organization-course', [MyCourseController::class, 'organizationCourses'])->name('organization_course');
     Route::get('my-consultation', [MyCourseController::class, 'myConsultationList'])->name('my-consultation');
     Route::get('download-invoice/{item_id}', [MyCourseController::class, 'downloadInvoice'])->name('download-invoice');
     Route::post('my-course-complete-duration/{course_uuid}', [MyCourseController::class, 'myCourseCompleteDuration'])->name('my-course.completed_duration');
     Route::get('my-course/{slug}/{action_type?}/{quiz_uuid?}/{answer_id?}', [MyCourseController::class, 'myCourseShow'])->middleware('course.access')->name('my-course.show');
+    Route::get('my-program/{slug}/{action_type?}/{quiz_uuid?}/{answer_id?}', [MyCourseController::class, 'myProgramShow'])->middleware('course.access')->name('my-program.show');
 
     Route::get('my-learning-video-completed', [MyCourseController::class, 'videoCompleted'])->name('video.completed')->middleware('isDemo');
 

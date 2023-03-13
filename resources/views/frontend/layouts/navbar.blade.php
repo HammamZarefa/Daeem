@@ -1,4 +1,4 @@
-@php 
+@php
     $authUser = @auth()->user();
 @endphp
 
@@ -307,6 +307,9 @@
                                 <!-- Dropdown User Info Item End -->
                                 @if(@$authUser->role != USER_ROLE_ADMIN)
                                 <ul class="user-dropdown-item-box">
+                                    <li><a class="dropdown-item" href="{{ route('student.my-program') }}"><span
+                                                class="iconify" data-icon="akar-icons:book"></span>{{__('My Training Program')}}
+                                        </a></li>
                                     <li><a class="dropdown-item" href="{{ route('student.my-learning') }}"><span
                                                 class="iconify" data-icon="akar-icons:book"></span>{{__('My Learning')}}
                                         </a></li>
@@ -364,7 +367,7 @@
                                             {{ __('Device Control') }}</a>
                                     </li>
                                     @endif
-                                    
+
                                     @if(Auth::user()->is_affiliator == AFFILIATOR || (Auth::user()->role == USER_ROLE_INSTRUCTOR &&
                                     @$authUser->instructor->status == STATUS_APPROVED) || (Auth::user()->role == USER_ROLE_ORGANIZATION &&
                                     @$authUser->organization->status == STATUS_APPROVED))
