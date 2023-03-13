@@ -8,7 +8,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12">
-                    <div class="page-banner-content text-center">
+                <div class="page-banner-content text-center" style="display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;">
+                        <div style="position: relative;">
+                        <img style="width:180px;position: absolute;left: -55px;top: -40px;"
+                             src="{{ asset('frontend/assets/img/daeem-ha2.png') }}" alt="">
                         <h3 class="page-banner-heading text-white pb-15">{{ __('Contact Us') }}</h3>
 
                         <!-- Breadcrumb Start-->
@@ -18,6 +24,8 @@
                                 <li class="breadcrumb-item font-14 active" aria-current="page">{{ __('Contact Us') }}</li>
                             </ol>
                         </nav>
+                                                </div>
+                        <img style="width:180px;margin-top: -40px;" src="{{ asset('frontend/assets/img/daeem-ha.png') }}" alt="">
                         <!-- Breadcrumb End-->
                     </div>
                 </div>

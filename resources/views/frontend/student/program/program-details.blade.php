@@ -49,7 +49,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12 col-xl-7 col-xxl-8">
-                    
+
                     <div class="course-watch-no-video-img">
                         <img src="{{ getImageFile($course->image) }}" alt="" class="w-100 img-fluid">
                     </div>
