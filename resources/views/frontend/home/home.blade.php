@@ -86,35 +86,10 @@
                     @endif
                 </div>
             </div>
-            <!-- slider item  -->
-            <div class="slider__slide">
-                <img src="{{ asset('frontend/assets/img/daeem/3.png') }}">
-                <div class="slider__slide-text">
-                    <p>
-                        @foreach(@$home->banner_mini_words_title ?? [] as $banner_mini_word)
-                            <span>{{ __($banner_mini_word) }}</span>
-                        @endforeach
-                    </p>
-                    <p style="margin: 20px 0px;">{{ __(@$home->banner_first_line_title) }}</p>
-                    <p>
-                        {{ __(@$home->banner_second_line_title) }}&nbsp;
-                        @foreach(@$home->banner_second_line_changeable_words ?? [] as $banner_second_line_changeable_word)
-                            <span class="word">{{ __($banner_second_line_changeable_word) }}</span>
-                        @endforeach
-                    </p>
-                    <p>
-                        {{ __(@$home->banner_third_line_title) }}
-                    </p>
-                    <p>
-                        {{ __(@$home->banner_subtitle) }}
-                    </p>
-                    @if(!get_option('private_mode') || !auth()->guest())
-                        <a  style="margin: 20px 0px;" href="{{ route('courses') }}" class="theme-btn theme-button1">{{ __('Browse Course') }} <i data-feather="arrow-right"></i></a>
-                    @endif
-                </div>
-            </div>
         </div>
         <button href="#" class="slider__button slider__button--next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.3 19.3q-.275-.275-.288-.7q-.012-.425.263-.7l4.9-4.9H5q-.425 0-.713-.288Q4 12.425 4 12t.287-.713Q4.575 11 5 11h11.175l-4.9-4.9q-.275-.275-.263-.7q.013-.425.288-.7q.275-.275.7-.275q.425 0 .7.275l6.6 6.6q.15.125.213.312q.062.188.062.388t-.062.375q-.063.175-.213.325l-6.6 6.6q-.275.275-.7.275q-.425 0-.7-.275Z"/></svg></button>
+         <button href="#" class="slider__button slider__button--prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.3 19.3q-.275-.275-.288-.7q-.012-.425.263-.7l4.9-4.9H5q-.425 0-.713-.288Q4 12.425 4 12t.287-.713Q4.575 11 5 11h11.175l-4.9-4.9q-.275-.275-.263-.7q.013-.425.288-.7q.275-.275.7-.275q.425 0 .7.275l6.6 6.6q.15.125.213.312q.062.188.062.388t-.062.375q-.063.175-.213.325l-6.6 6.6q-.275.275-.7.275q-.425 0-.7-.275Z"/></svg></button>
+        
     </div>
     <!-- <header class="hero-area gradient-bg position-relative">
         <div class="section-overlay">
@@ -305,13 +280,10 @@
 </span>
                                                     </div>
                                                 </div>
-                                                <div class="card-body">
+                                                <div class="card-body tex-s-c">
                                                     <h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/javascript-understanding-the-weird-parts">JavaScript: Understanding the Weird Part...</a></h5>
-                                                    <p class="card-text instructor-name-certificate font-medium font-12">
-                                                        <a href="https://lmszai.zainikthemes.com/users/2/profile">Johnny Depp</a>
-                                                    </p>
                                                     <div class="course-item-bottom">
-                                                        <div class="course-rating d-flex align-items-center">
+                                                        <div class="course-rating d-flex align-items-center rating-list">
                                                             <span class="font-medium font-14 me-2">5.00</span>
                                                             <ul class="rating-list d-flex align-items-center me-2">
                                                                 <li class="star-full"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
@@ -334,138 +306,7 @@
                                                 </div>
                                             </div>
                                         </div></div>
-                                    <!-- ***************** slider item ***************** -->
-
-                                    <div class="owl-item active" style="width: 256.5px; margin-right: 30px;"><div class="col-12 col-sm-4 col-lg-3 w-100">
-                                            <div class="card course-item border-0 radius-3 bg-white">
-                                                <div class="course-img-wrap overflow-hidden">
-                                                    <a href="https://lmszai.zainikthemes.com/course-details/python-for-beginners-learn-programming"><img src="https://lmszai.zainikthemes.com/uploads/course/1657090503-9ynVP5V0Tx.jpg" alt="course" class="img-fluid"></a>
-                                                    <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-course_id="20" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-</span>
-                                                        <span class="course-item-btn addToCart" data-course_id="20" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/python-for-beginners-learn-programming">Python for Beginners - Learn Programming</a></h5>
-                                                    <p class="card-text instructor-name-certificate font-medium font-12">
-                                                        <a href="https://lmszai.zainikthemes.com/users/6/profile">Jack Nicholson</a>
-                                                    </p>
-                                                    <div class="course-item-bottom">
-                                                        <div class="course-rating d-flex align-items-center">
-                                                            <span class="font-medium font-14 me-2">0.00</span>
-                                                            <ul class="rating-list d-flex align-items-center me-2">
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                            </ul>
-                                                            <span class="rating-count font-14">(1)</span>
-                                                        </div>
-                                                        <div class="instructor-bottom-item font-14 font-semi-bold">
-                                                            <div class="instructor-bottom-item font-14 font-semi-bold">Price:
-                                                                <span class="color-hover">
-49.00 $
-</span>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div></div>
-                                    <!-- ***************** slider item ***************** -->
-
-                                    <div class="owl-item active" style="width: 256.5px; margin-right: 30px;"><div class="col-12 col-sm-4 col-lg-3 w-100">
-                                            <div class="card course-item border-0 radius-3 bg-white">
-                                                <div class="course-img-wrap overflow-hidden">
-                                                    <a href="https://lmszai.zainikthemes.com/course-details/python-for-beginners-learn-programming"><img src="https://lmszai.zainikthemes.com/uploads/course/1657090503-9ynVP5V0Tx.jpg" alt="course" class="img-fluid"></a>
-                                                    <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-course_id="20" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-</span>
-                                                        <span class="course-item-btn addToCart" data-course_id="20" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/python-for-beginners-learn-programming">Python for Beginners - Learn Programming</a></h5>
-                                                    <p class="card-text instructor-name-certificate font-medium font-12">
-                                                        <a href="https://lmszai.zainikthemes.com/users/6/profile">Jack Nicholson</a>
-                                                    </p>
-                                                    <div class="course-item-bottom">
-                                                        <div class="course-rating d-flex align-items-center">
-                                                            <span class="font-medium font-14 me-2">0.00</span>
-                                                            <ul class="rating-list d-flex align-items-center me-2">
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                            </ul>
-                                                            <span class="rating-count font-14">(1)</span>
-                                                        </div>
-                                                        <div class="instructor-bottom-item font-14 font-semi-bold">
-                                                            <div class="instructor-bottom-item font-14 font-semi-bold">Price:
-                                                                <span class="color-hover">
-49.00 $
-</span>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div></div>
-                                    <!-- ***************** slider item ***************** -->
-
-                                    <div class="owl-item active" style="width: 256.5px; margin-right: 30px;"><div class="col-12 col-sm-4 col-lg-3 w-100">
-                                            <div class="card course-item border-0 radius-3 bg-white">
-                                                <div class="course-img-wrap overflow-hidden">
-                                                    <a href="https://lmszai.zainikthemes.com/course-details/python-for-beginners-learn-programming"><img src="https://lmszai.zainikthemes.com/uploads/course/1657090503-9ynVP5V0Tx.jpg" alt="course" class="img-fluid"></a>
-                                                    <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-course_id="20" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-</span>
-                                                        <span class="course-item-btn addToCart" data-course_id="20" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/python-for-beginners-learn-programming">Python for Beginners - Learn Programming</a></h5>
-                                                    <p class="card-text instructor-name-certificate font-medium font-12">
-                                                        <a href="https://lmszai.zainikthemes.com/users/6/profile">Jack Nicholson</a>
-                                                    </p>
-                                                    <div class="course-item-bottom">
-                                                        <div class="course-rating d-flex align-items-center">
-                                                            <span class="font-medium font-14 me-2">0.00</span>
-                                                            <ul class="rating-list d-flex align-items-center me-2">
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                                <li class=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
-                                                            </ul>
-                                                            <span class="rating-count font-14">(1)</span>
-                                                        </div>
-                                                        <div class="instructor-bottom-item font-14 font-semi-bold">
-                                                            <div class="instructor-bottom-item font-14 font-semi-bold">Price:
-                                                                <span class="color-hover">
-49.00 $
-</span>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div></div>
+                                
                                 </div></div>
 
 
@@ -485,7 +326,88 @@
                     </div>
                 </div>
         </section>
+    <!-- ********************* A Traning programs ********************* -->
+    <section class="courses-area section-t-space section-b-85-space {{ @$home->courses_area == 1 ? '' : 'd-none' }}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-left-title-with-btn d-flex justify-content-between align-items-end">
+                            <div class="section-title section-title-left d-flex align-items-start">
+                                <div class="section-heading-img">
+                                    <img src="{{ getImageFile(get_option('course_logo')) }}" alt="Course"></div>
+                                <div>
+                                    <h3 class="section-heading">A Traning programs </h3>
+                                    <p class="section-sub-heading">{{ __(get_option('course_subtitle')) }}</p>
+                                </div>
+                                
+                            </div>
+                            <a href="{{ route('consultationInstructorList') }}" class="theme-btn theme-button2 theme-button3 ">{{ __('View All') }} <i data-feather="arrow-right"></i></a>
 
+
+                        </div>
+
+                    </div>
+                </div>
+<div class="tab-content">
+    <div class="tab-pane fade active show">
+        <div class="course-slider-items owl-carousel owl-theme owl-loaded owl-drag">
+
+            <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2006px;">
+                    <!-- ***************** slider item ***************** -->
+                    <div class="owl-item active" style="width: 256.5px; margin-right: 30px;">
+                    <div class="card-container">
+      <a href="/" class="hero-image-container">
+        <img class="hero-image" src="https://lmszai.zainikthemes.com/uploads/course/1655545018-UOg3MEPfM6.jpg" alt="Spinning glass cube"/>
+      </a>
+      <main class="main-content">
+        <h1><a href="#">Traning programs</a></h1>
+        <div class="course-rating d-flex align-items-center rating-list">
+                                                            <span class="font-medium font-14 me-2">5.00</span>
+                                                            <ul class="rating-list d-flex align-items-center me-2">
+                                                                <li class="star-full"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                                                <li class="star-full"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                                                <li class="star-full"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                                                <li class="star-full"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                                                <li class="star-full"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" data-icon="bi:star-fill"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                                            </ul>
+                                                            <span class="rating-count font-14">(2)</span>
+                                                        </div>
+        <div class="flex-row">
+          <div class="coin-base">
+            <span class="m-1">Price:</span>
+            <h2>50.00 $</h2>
+          </div>
+          <div class="time-left">
+            <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock" class="small-image"/>
+            <p>3 days left</p>
+          </div>
+        </div>
+      </main>
+    </div>
+                                    </div>
+                                
+
+                                        
+                                </div></div>
+
+
+                            <div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--la" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" data-icon="la:angle-left"><path fill="currentColor" d="m19.031 4.281l-11 11l-.687.719l.687.719l11 11l1.438-1.438L10.187 16L20.47 5.719z"></path></svg></button><button type="button" role="presentation" class="owl-next"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--la" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" data-icon="la:angle-right"><path fill="currentColor" d="M12.969 4.281L11.53 5.72L21.812 16l-10.28 10.281l1.437 1.438l11-11l.687-.719l-.687-.719z"></path></svg></button></div>
+
+                            <div class="owl-dots disabled"></div></div>
+                    </div>
+                    <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
+                        <div class="course-slider-items owl-carousel owl-theme owl-loaded owl-drag">
+                            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
+
+                                </div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--la" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" data-icon="la:angle-left"><path fill="currentColor" d="m19.031 4.281l-11 11l-.687.719l.687.719l11 11l1.438-1.438L10.187 16L20.47 5.719z"></path></svg></button><button type="button" role="presentation" class="owl-next disabled"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--la" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" data-icon="la:angle-right"><path fill="currentColor" d="M12.969 4.281L11.53 5.72L21.812 16l-10.28 10.281l1.437 1.438l11-11l.687-.719l-.687-.719z"></path></svg></button></div><div class="owl-dots disabled"></div></div>
+                    </div>
+                    <div class="tab-pane fade" id="it-software" role="tabpanel" aria-labelledby="it-software-tab">
+                        <div class="course-slider-items owl-carousel owl-theme owl-loaded owl-drag">
+                        </div>
+                    </div>
+                </div>
+        </section>
         <!-- Board Selection of Courses Area End -->
         @if(count($bundles) > 0)
             <!-- Latest Courses bundles Area Start -->
@@ -568,7 +490,7 @@
     @endif
 
     <!-- Our Top Categories Area Start -->
-    <section class="top-categories-area p-0 {{ @$home->top_category_area == 1 ? '' : 'd-none' }}">
+    <!-- <section class="top-categories-area p-0 {{ @$home->top_category_area == 1 ? '' : 'd-none' }}">
         <div class="section-overlay section-t-space section-b-space">
             <div class="container">
                 <div class="row">
@@ -611,7 +533,7 @@
                                 <img alt src="{{ getImageFile($firstFourCategory->image ?? 'frontend/assets/img/top-categories-icon/1.png') }}" alt="categories" />
                             </article>
                         @endforeach
-                    </section>
+                    </section> -->
 
                     <!-- Single Feature Item start-->
                 <!-- <div class="col-md-6 col-lg-6 col-xl-3">
@@ -624,21 +546,18 @@
                                     <p>{{ @$firstFourCategory->courses->count() }} {{ __('Courses') }}</p>
                                 </div>
                             </div>
-                        </div> -->
-                    <!-- Single Feature Item End-->
+                        </div> 
 
                 @if(!get_option('private_mode') || !auth()->guest())
-                    <!-- section button start-->
                         <div class="col-12 text-center section-btn">
                             <a href="{{ route('courses') }}" class="theme-btn theme-button1">{{ __('All Categories') }} <i data-feather="arrow-right"></i></a>
                         </div>
-                        <!-- section button end-->
                     @endif
 
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!--  ****************** Coaching ******************-->
     @if(!get_option('private_mode') || !auth()->guest())
@@ -791,7 +710,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="w-100">
-                                                    <button type="button" data-type="3" data-booking_instructor_user_id="2" data-hourly_fee="$ 50/h" data-hourly_rate="50" data-get_off_days_route="https://lmszai.zainikthemes.com/get-off-days/2" class="theme-btn theme-button1 theme-button3 w-100 bookSchedule" data-bs-toggle="modal" data-bs-target="#consultationBookingModal">View Profile
+                                                    <button type="button" data-type="3" data-booking_instructor_user_id="2" data-hourly_fee="$ 50/h" data-hourly_rate="50" data-get_off_days_route="https://lmszai.zainikthemes.com/get-off-days/2" class="theme-btn theme-button1 theme-button3 w-100 bookSchedule" data-bs-toggle="modal" data-bs-target="#consultationBookingModal">Book Now
                                                     </button>
                                                 </div>
                                             </div>
@@ -1135,19 +1054,32 @@
                 this.slider = element;
                 this.animationSpeed = parseInt(element.dataset.animationspeed);
                 this.nextButton = this.slider.querySelector(".slider__button--next");
+                this.prevButton = this.slider.querySelector(".slider__button--prev");
                 this.slides = this.slider.querySelectorAll(".slider__slide");
                 this.currentSlide = 0;
                 this.setZindex();
                 this.nextButton.addEventListener("click", this.next.bind(this));
+                this.prevButton.addEventListener("click", this.prev.bind(this));
             }
             next(event) {
                 event.preventDefault();
-                this.nextButton.disabled = true;
                 const slide = this.slides[this.currentSlide];
                 slide.slideobject = {};
                 this.currentSlide++;
-                if (this.currentSlide === this.slides.length) {
+                if(this.currentSlide === this.slides.length){
                     this.currentSlide = 0;
+                }
+                this.setZindex();
+                this.cloneSlide(slide);
+                this.nextTransition(slide);
+                this.endTransition(slide);
+            }
+            prev(event) {
+                event.preventDefault();
+                const slide = this.slides[this.currentSlide];
+                slide.slideobject = {};
+                if(this.currentSlide != 0){
+                    this.currentSlide--;
                 }
                 this.setZindex();
                 this.cloneSlide(slide);
@@ -1209,9 +1141,12 @@
             }
             setZindex() {
                 this.nextSlide = this.currentSlide + 1;
+                
                 if (this.nextSlide === this.slides.length) {
                     this.nextSlide = 0;
                 }
+              
+                
                 this.slides.forEach((slide, id) => {
                     if (id === this.currentSlide) {
                         slide.style.zIndex = 20;
@@ -1223,7 +1158,21 @@
                     }
                     slide.style.zIndex = 1;
                 });
-                this.nextButton.disabled = false;
+                if (this.currentSlide === 0) {
+                    this.prevButton.disabled = true;
+                }
+                else{
+                    this.prevButton.disabled = false;
+
+                }
+                if (this.currentSlide === this.slides.length) {
+                    this.nextButton.disabled = true;
+                }
+                else{
+                    this.nextButton.disabled = false;
+                }
+                console.log(this.currentSlide);
+
             }
         }
         new CutSlider(document.querySelector(".slider"));

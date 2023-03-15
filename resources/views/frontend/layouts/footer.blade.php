@@ -49,9 +49,9 @@
 
                         <div class="footer-links d-flex">
                             <ul>
-                                <li><span class="iconify" data-icon="carbon:location-filled"></span><span>{{ __(get_option('app_location')) }}</span></li>
-                                <li><span class="iconify" data-icon="fluent-emoji-high-contrast:telephone-receiver"></span><a href="tel:12457835">{{ __(get_option('app_contact_number')) }}</a></li>
-                                <li><span class="iconify" data-icon="ic:round-email"></span><a href="mailto:demo@gmail.com">{{ __(get_option('app_email')) }}</a></li>
+                                <li><span class="iconify" data-icon="carbon:location-filled" style="color: black;"></span>{{ __(get_option('app_location')) }}</span></li>
+                                <li><span class="iconify" data-icon="fluent-emoji-high-contrast:telephone-receiver" style="color: black;"></span><a href="tel:12457835">{{ __(get_option('app_contact_number')) }}</a></li>
+                                <li><span class="iconify" data-icon="ic:round-email" style="color: black;"></span><a href="mailto:demo@gmail.com">{{ __(get_option('app_email')) }}</a></li>
                             </ul>
                         </div>
                     </div>
