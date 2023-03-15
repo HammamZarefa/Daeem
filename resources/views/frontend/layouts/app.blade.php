@@ -115,7 +115,8 @@
 @if(get_option('allow_preloader') == 1)
 <!-- Pre Loader Area start -->
 <div id="preloader">
-    <div id="preloader_status"><img src="{{getImageFile(get_option('app_preloader'))}}" alt="img" /></div>
+    <div class="loader">
+    </div>
 </div>
 <!-- Pre Loader Area End -->
 @endif
