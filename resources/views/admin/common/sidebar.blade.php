@@ -64,6 +64,14 @@
                             </a>
                         </li>
                     @endcan
+                    @can('add_course')
+                            <li class="{{ active_if_full_match('admin/course/create') }}">
+                                <a href="{{route('admin.course.create')}}">
+                                    <i class="fa fa-circle"></i>
+                                    <span>{{__('Add Course')}}</span>
+                                </a>
+                            </li>
+                    @endcan
 
                     <li class="{{ active_if_full_match('admin/course/enroll') }}">
                         <a href="{{route('admin.course.enroll')}}">

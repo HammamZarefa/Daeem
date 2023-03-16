@@ -31,6 +31,7 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">{{ __('Date & Time') }}</th>
+                                        <th scope="col">{{ __('Session Type') }}</th>
                                         <th scope="col">{{ __('Time Duration') }}</th>
                                         <th scope="col">{{ __('Topic') }}</th>
                                         <th scope="col">{{ __('Meeting Host Name') }}</th>
@@ -41,6 +42,7 @@
                                     @forelse($upcoming_live_classes as $upcoming_live_class)
                                     <tr>
                                         <td>{{ $upcoming_live_class->date }}</td>
+                                        <td>{{ $upcoming_live_class->session_type == 1 ?  __('LIVE')  : __('ONSITE')  }}</td>
                                         <td>{{ $upcoming_live_class->duration }} {{ __('minutes') }}</td>
                                         <td><div class="course-watch-live-class-topic">{{ Str::limit($upcoming_live_class->class_topic, 50) }}</div></td>
                                         <td>
@@ -86,16 +88,21 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">{{ __('Date & Time') }}</th>
+                                        <th scope="col">{{ __('Session Type') }}</th>
                                         <th scope="col">{{ __('Time Duration') }}</th>
                                         <th scope="col">{{ __('Topic') }}</th>
                                         <th scope="col">{{ __('Meeting Host Name') }}</th>
                                         <th scope="col">{{ __('Meeting Link') }}</th>
+                                        <th scope="col">{{ __('Action') }}</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($past_live_classes as $past_live_class)
+                                        <input type="hidden" class="program_session_id" value="{{ @$past_live_class->id }}">
                                     <tr>
                                         <td>{{ $past_live_class->date }}</td>
+                                        <td>{{ $past_live_class->session_type == 1 ?  __('LIVE')  : __('ONSITE')  }}</td>
                                         <td>{{ $past_live_class->duration }} {{ __('minutes') }}</td>
                                         <td><div class="course-watch-live-class-topic">{{ Str::limit($past_live_class->class_topic, 50) }}</div></td>
                                         <td>
@@ -119,6 +126,11 @@
                                                     Jitsi
                                                 @endif
                                             </div>
+                                        </td>
+                                        <td>
+                                            <button class="color-gray2 me-2 font-medium bg-transparent border-0 my-course-give-a-review-btn star-full my-learning-give-review courseReview" data-session_id="{{ @$past_live_class->id }}" data-bs-toggle="modal" data-bs-target="#writeSessionReviewModal"><span class="iconify me-1" data-icon="bi:star-fill"></span>{{ __('Give Review') }}</button>
+                                            <input type="hidden" class="studentSessionReviewCreateRoute" value="{{ route('student.sessionReview.create') }}">
+                                            <input type="hidden" class="session_id" value="{{ @$past_live_class->id}}">
                                         </td>
                                     </tr>
                                     @endforeach
