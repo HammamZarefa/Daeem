@@ -25,6 +25,11 @@ class Program_session extends Model
         return $this->belongsTo(Course::class, 'course_id');
     }
 
+    public function programSessionReviews()
+    {
+        return $this->hasMany(ProgramSessionReview::class, 'session_id');
+    }
+
     protected static function boot()
     {
         parent::boot();

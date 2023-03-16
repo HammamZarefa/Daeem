@@ -116,7 +116,7 @@ Route::prefix('course')->group(function () {
     Route::get('status-change/{uuid}/{status}', [CourseController::class, 'statusChange'])->name('admin.course.status-change')->middleware('isDemo');
     Route::get('delete/{uuid}', [CourseController::class, 'delete'])->name('admin.course.delete')->middleware('isDemo');
 
-
+    Route::get('/create', [CourseController::class, 'create'])->name('admin.course.create');
     Route::get('enroll', [CourseController::class, 'courseEnroll'])->name('admin.course.enroll');
     Route::post('enroll', [CourseController::class, 'courseEnrollStore'])->name('admin.course.enroll.store')->middleware('isDemo');
 });
