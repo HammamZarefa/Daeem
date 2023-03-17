@@ -75,7 +75,6 @@
     border: none;
     outline: none;
 }
-
 body,
 html {
     height: 100%;
@@ -8862,4 +8861,27 @@ Classes
 }
 .our-servcies .vlt-services__icon img{
     width: 60px;
+}
+/* ********************* our-servcies page ********************** */
+.img-servce img{
+    max-width: 100%;
+}
+.servces-page-area .u-content{
+    position: relative;
+}
+.servces-page-area .content{
+    padding: 20px;
+    background-color: #b7c206;
+    position: absolute;
+    margin-inline-start: -65px;
+    top: 83px;
+}
+.servces-page-area .or-content{
+    background-color: #ef8e07;
+    margin-inline-start: 0;
+    margin-inline-end: -65px;
+    top: 35px;
+}
+.servces-page-area .content *{
+    color: #fff;
 }
