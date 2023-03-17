@@ -2826,6 +2826,27 @@
       width: 80%;
   }
 }
+
+@media only screen and (max-width: 991px){
+    .servces-page-area .content{
+        position: relative;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        top: 0;
+    }
+}
+@media only screen and (min-width:767px) and (max-width:991px) {
+    .servces-page-area .content{
+        min-height: 176px;
+        padding: 10px;
+    }
+    .servces-page-area .content h4{
+        font-size: 32px;
+    }
+    .servces-page-area .content h6{
+        font-size: 18px;
+    }
+}
 /*-------------------------------------------
     24. Responsive Design End
 -------------------------------------------*/
