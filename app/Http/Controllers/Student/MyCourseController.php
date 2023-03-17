@@ -20,6 +20,7 @@ use App\Models\NoticeBoard;
 use App\Models\Order;
 use App\Models\Order_item;
 use App\Models\Program_session;
+use App\Models\ProgramSessionReview;
 use App\Models\Question;
 use App\Models\Question_option;
 use App\Models\Review;
@@ -564,7 +565,6 @@ class MyCourseController extends Controller
 //                $data['subNavLectureActiveClass'] = 'show';
 //            }
 //        }
-
         return view('frontend.student.program.program-details', $data);
     }
 
@@ -725,6 +725,61 @@ class MyCourseController extends Controller
         $course = Course::findOrFail($request->course_id);
         $course->average_rating = number_format($average_rating, 1);
         $course->save();
+
+        // End:: Review Calculation and Update
+
+        return response()->json([
+            'status' => 200,
+            'msg' => 'Review Created Successful.'
+        ]);
+    }
+
+    public function sessionReviewCreate(Request $request)
+    {
+//        dd($request);
+        $review_exists_user = ProgramSessionReview::whereUserId(auth()->id())->whereProgramSessionId($request->program_session_id)->first();
+
+        if ($review_exists_user) {
+            return response()->json([
+                'status' => 302,
+                'msg' => 'Already you have reviewed. Thank you.'
+            ]);
+        }
+
+        $request->validate([
+            'program_session_id' => 'required',
+            'rating' => 'required',
+            'comment' => 'required',
+        ]);
+
+        $review = new ProgramSessionReview();
+        $review->user_id = Auth::user()->id;
+        $review->program_session_id = $request->program_session_id;
+        $review->rating = $request->rating;
+        $review->comment = $request->comment;
+        $review->save();
+
+        // Review Calculation and Update
+
+        $data['session_five_star_count'] = ProgramSessionReview::whereProgramSessionId($request->program_session_id)->whereRating(5)->count();
+        $data['session_four_star_count'] = ProgramSessionReview::whereProgramSessionId($request->program_session_id)->whereRating(4)->count();
+        $data['session_three_star_count'] = ProgramSessionReview::whereProgramSessionId($request->program_session_id)->whereRating(3)->count();
+        $data['session_two_star_count'] = ProgramSessionReview::whereProgramSessionId($request->program_session_id)->whereRating(2)->count();
+        $data['session_first_star_count'] = ProgramSessionReview::whereProgramSessionId($request->program_session_id)->whereRating(1)->count();
+
+        $data['total_session_reviews'] = (5 * $data['session_five_star_count']) + (4 * $data['session_four_star_count']) + (3 * $data['session_three_star_count']) +
+            (2 * $data['session_two_star_count']) + (1 * $data['session_first_star_count']);
+        $data['total_session_user_review'] = $data['session_five_star_count'] + $data['session_four_star_count'] + $data['session_three_star_count'] + $data['session_two_star_count'] + $data['session_first_star_count'];
+
+        if ($data['total_session_user_review'] > 0) {
+            $average_session_rating = $data['total_session_reviews'] / $data['total_session_user_review'];
+        } else {
+            $average_session_rating = 0;
+        }
+
+        $programSession = Program_session::findOrFail($request->program_session_id);
+        $programSession->average_rating = number_format($average_session_rating, 1);
+        $programSession->save();
 
         // End:: Review Calculation and Update
 

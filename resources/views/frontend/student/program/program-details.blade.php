@@ -234,16 +234,16 @@
                                         href="#Review" role="tab" aria-controls="Review"
                                         aria-selected="false">{{__('Review')}}</a>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link text-uppercase {{$action_type ? 'active' : '' }}" id="Quiz-tab"
-                                        data-bs-toggle="tab" href="#Quiz" role="tab" aria-controls="Quiz"
-                                        aria-selected="false">{{__('Quiz')}}</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link text-uppercase" id="Assignment-tab" data-bs-toggle="tab"
-                                        href="#Assignment" role="tab" aria-controls="Quiz"
-                                        aria-selected="false">{{__('Assignment')}}</a>
-                                </li>
+{{--                                <li class="nav-item" role="presentation">--}}
+{{--                                    <a class="nav-link text-uppercase {{$action_type ? 'active' : '' }}" id="Quiz-tab"--}}
+{{--                                        data-bs-toggle="tab" href="#Quiz" role="tab" aria-controls="Quiz"--}}
+{{--                                        aria-selected="false">{{__('Quiz')}}</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item" role="presentation">--}}
+{{--                                    <a class="nav-link text-uppercase" id="Assignment-tab" data-bs-toggle="tab"--}}
+{{--                                        href="#Assignment" role="tab" aria-controls="Quiz"--}}
+{{--                                        aria-selected="false">{{__('Assignment')}}</a>--}}
+{{--                                </li>--}}
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link text-uppercase" id="Notice-tab" data-bs-toggle="tab"
                                         href="#Notice" role="tab" aria-controls="Notice"
@@ -252,33 +252,33 @@
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link text-uppercase" id="LiveClass-tab" data-bs-toggle="tab"
                                         href="#LiveClass" role="tab" aria-controls="LiveClass"
-                                        aria-selected="false">{{__('Live Class')}}</a>
+                                        aria-selected="false">{{__('Sessions')}}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link text-uppercase" id="Discussion-tab" data-bs-toggle="tab"
                                         href="#Discussion" role="tab" aria-controls="Discussion"
                                         aria-selected="false">{{__('Discussion')}}</a>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link text-uppercase" id="Certificate-tab" data-bs-toggle="tab"
-                                        href="#Certificate" role="tab" aria-controls="Certificate"
-                                        aria-selected="false">{{__('Certificate')}}</a>
-                                </li>
+{{--                                <li class="nav-item" role="presentation">--}}
+{{--                                    <a class="nav-link text-uppercase" id="Certificate-tab" data-bs-toggle="tab"--}}
+{{--                                        href="#Certificate" role="tab" aria-controls="Certificate"--}}
+{{--                                        aria-selected="false">{{__('Certificate')}}</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                         <!-- Tab panel nav list -->
 
                         <!-- Tab Content-->
                         <div class="tab-content" id="myTabContent">
-                            @include('frontend.student.course.partial.partial-overview-tab')
-                            @include('frontend.student.course.partial.partial-resources-tab')
-                            @include('frontend.student.course.partial.partial-review-tab')
-                            @include('frontend.student.course.partial.partial-quiz-tab')
-                            @include('frontend.student.course.partial.partial-assignment-tab')
-                            @include('frontend.student.course.partial.partial-notice-tab')
-                            @include('frontend.student.course.partial.partial-liveclass-tab')
-                            @include('frontend.student.course.partial.partial-discussion-tab')
-                            @include('frontend.student.course.partial.partial-certificate-tab')
+                            @include('frontend.student.program.partial.partial-overview-tab')
+                            @include('frontend.student.program.partial.partial-resources-tab')
+                            @include('frontend.student.program.partial.partial-review-tab')
+{{--                            @include('frontend.student.program.partial.partial-quiz-tab')--}}
+{{--                            @include('frontend.student.program.partial.partial-assignment-tab')--}}
+                            @include('frontend.student.program.partial.partial-notice-tab')
+                            @include('frontend.student.program.partial.partial-session-tab')
+                            @include('frontend.student.program.partial.partial-discussion-tab')
+{{--                            @include('frontend.student.course.partial.partial-certificate-tab')--}}
                         </div>
 
                     </div>
@@ -289,7 +289,7 @@
     </section>
     <!-- Course Single Details Area End -->
 
-    <!--Write Review Modal Start-->
+    <!--Write Course Review Modal Start-->
     <div class="modal fade" id="writeReviewModal" tabindex="-1" aria-labelledby="writeReviewModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -343,7 +343,63 @@
             </div>
         </div>
     </div>
-    <!--Write Review Modal End-->
+    <!--Write Course Review Modal End-->
+
+    <!--Write Session Review Modal Start-->
+    <div class="modal fade modal1" id="writeSessionReviewModal" tabindex="-1" aria-labelledby="writeSessionReviewModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="writeReviewModalLabel">{{__('Write a Review for this Session')}}</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-4">
+                            <div class="col-md-12 text-center">
+                                <div class="btn-group give-rating-group" role="group"
+                                     aria-label="Basic checkbox toggle button group">
+                                    <input type="checkbox" class="btn-check" id="sessionbtncheck1" name="rating">
+                                    <label class="give-rating-star" for="sessionbtncheck1"><span class="iconify"
+                                                                                          data-icon="bi:star-fill"></span></label>
+
+                                    <input type="checkbox" class="btn-check" id="sessionbtncheck2" name="rating">
+                                    <label class="give-rating-star" for="sessionbtncheck2"><span class="iconify"
+                                                                                          data-icon="bi:star-fill"></span></label>
+
+                                    <input type="checkbox" class="btn-check" id="sessionbtncheck3" name="rating">
+                                    <label class="give-rating-star" for="sessionbtncheck3"><span class="iconify"
+                                                                                          data-icon="bi:star-fill"></span></label>
+
+                                    <input type="checkbox" class="btn-check" id="sessionbtncheck4" name="rating">
+                                    <label class="give-rating-star" for="sessionbtncheck4"><span class="iconify"
+                                                                                          data-icon="bi:star-fill"></span></label>
+
+                                    <input type="checkbox" class="btn-check" id="sessionbtncheck5" name="rating">
+                                    <label class="give-rating-star" for="sessionbtncheck5"><span class="iconify"
+                                                                                          data-icon="bi:star-fill"></span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <label class="font-medium font-15 color-heading">{{__('Feedback')}}</label>
+                                <textarea class="form-control feedback2" id="exampleFormControlTextarea1" rows="3"
+                                          placeholder="Please write your feedback here"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <button type="button" class="theme-btn theme-button3" data-bs-dismiss="modal">{{__('Cancel')}}</button>
+                    <button type="button" class="theme-btn theme-button1 submitSessionReview">{{__('Submit review')}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Write Session Review Modal End-->
 </div>
 
 <input type="hidden" class="course_id" value="{{ @$course->id}}">
@@ -375,6 +431,7 @@
 <script src="{{ asset('frontend/assets/js/tinymce-script.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/vimeo/api/player.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/custom/rating.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/custom/session-rating.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/course/student-review-paginate.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/course/student-assignment.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/course/zoom-copy-url.js') }}"></script>

@@ -332,7 +332,14 @@ class CourseController extends Controller
 
         $data['total_course_students'] = Enrollment::where('course_id', $data['course']->id)->count();
         //End:: Course students
+        $data['program_sessions'] = $data['course']->programSessions;
+        $data['coaches'] = [];
+        foreach ($data['program_sessions'] as $key=> $session){
+            if (!collect($data['coaches'])->contains($session->instructor)){
+                array_push($data['coaches'],$session->instructor);
+            }
 
+        }
         return view('frontend.program.program-details', $data);
     }
 
