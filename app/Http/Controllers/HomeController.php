@@ -36,7 +36,7 @@ class HomeController extends Controller
             return redirect(route('main.index'));
         }
     }
-    
+
     /**
      * Show all the login device of current user.
      *
@@ -52,11 +52,11 @@ class HomeController extends Controller
         else{
             $limit =  get_option('device_limit');
         }
-        
+
         $data['limit'] = $limit;
         return view('frontend.logout_devices', $data);
     }
-   
+
     /**
      * Show all the login device of current user.
      *
@@ -82,7 +82,7 @@ class HomeController extends Controller
             }
         }
         else{
-            Device::join('device_user', 'devices.id', '=', 'device_user.device_id')->where('user_id', auth()->id())->update(['deleted_at' => now()]);            
+            Device::join('device_user', 'devices.id', '=', 'device_user.device_id')->where('user_id', auth()->id())->update(['deleted_at' => now()]);
             $this->showToastrMessage('success', 'Logout from all device successfully. Please login to continue.');
             Cookie::queue(Cookie::forget('_uuid_d'));
             Auth::logout();

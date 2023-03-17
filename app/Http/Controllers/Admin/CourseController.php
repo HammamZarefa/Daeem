@@ -77,6 +77,34 @@ class CourseController extends Controller
         return view('admin.program.index', $data);
     }
 
+    public function create()
+    {
+        if (!Auth::user()->can('add_course')) {
+            abort('403');
+        } // end permission checking
+
+        $data['title'] = 'Create Course';
+        $data['categories'] = Category::active()->orderBy('name', 'asc')->select('id', 'name')->get();
+        $data['tags'] = Tag::orderBy('name', 'asc')->select('id', 'name')->get();
+        $data['course_languages'] = Course_language::orderBy('name', 'asc')->select('id', 'name')->get();
+        $data['difficulty_levels'] = Difficulty_level::orderBy('name', 'asc')->select('id', 'name')->get();
+        if (old('category_id')) {
+            $data['subcategories'] = Subcategory::where('category_id', old('category_id'))->select('id', 'name')->orderBy('name', 'asc')->get();
+        } else {
+            $data['subcategories'] = [];
+        }
+
+        $selected_tags = [];
+
+        if (old('tag')) {
+            $selected_tags = old('tag');
+        } else {
+            $selected_tags = [];
+        }
+
+        $data['selected_tags'] = $selected_tags;
+        return view('admin.course.create', $data);
+    }
 
     public function createProgram()
     {
