@@ -8885,3 +8885,29 @@ Classes
 .servces-page-area .content *{
     color: #fff;
 }
+/* ********************* tabs section style *************************** */
+.tab-section .nav-item{
+    flex-grow: 3
+}
+.tab-section .nav-item button{
+    width: 100%;
+}
+.tab-section .nav-link{
+    background-color: #015fa7;
+    color: #fff;
+    font-weight: 501;
+    border-radius: 0;
+    border: var(--bs-nav-tabs-border-width) solid #ffffff61;
+    box-shadow: 0px 1px 5px #015fa778;
+}
+.tab-section .nav-link.active{
+    background-color: #fff;
+    color: #015fa7;
+    font-weight: 501;
+    border-color: #80808040;
+    box-shadow: 0px 1px 5px #0000003d;
+}
+.tab-section h4{
+    color: #015fa7;
+    text-shadow: 0px 4px 6px #015fa773;
+}
