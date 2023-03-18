@@ -40,13 +40,13 @@
 <section class="blog-page-area section-t-space">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-7 col-lg-8">
+            <div class="col-12">
 
-                <div class="blog-page-left-content">
+                <div class="blog-page-left-content row">
 
                     @forelse($blogs as $blog)
                     <!-- Blog Item Start -->
-                    <div class="blog-item">
+                    <div class="blog-item col-12 col-md-6 col-lg-4">
 
                         <div class="blog-item-img-wrap overflow-hidden position-relative">
                             <a href="{{ route('blog-details', $blog->slug) }}"><img src="{{ getImageFile($blog->image_path) }}" alt="img" class="img-fluid"></a>
@@ -80,68 +80,6 @@
 
                 </div>
 
-            </div>
-            <div class="col-12 col-md-5 col-lg-4">
-                <div class="blog-page-right-content bg-white">
-
-                    <div class="blog-sidebar-box">
-                        <form class="blog-sidebar-search-box position-relative">
-                            <div class="input-group">
-                                <input class="form-control border-0 searchBlog" type="search" placeholder="{{ __('Search...') }}">
-                                <button class="bg-transparent border-0"><span class="iconify" data-icon="akar-icons:search"></span></button>
-                            </div>
-
-                            <!-- Search Bar Suggestion Box Start -->
-                            <div class="search-bar-suggestion-box searchBlogBox d-none custom-scrollbar">
-                                <ul class="appendBlogSearchList">
-
-                                </ul>
-                            </div>
-                            <!-- Search Bar Suggestion Box End -->
-
-                        </form>
-                    </div>
-
-                    <div class="blog-sidebar-box">
-                        <h6 class="blog-sidebar-box-title">{{ __('Recent Blogs') }}</h6>
-                        <ul class="popular-posts">
-                            @foreach($recentBlogs as $recentBlog)
-                            <li>
-                                <div class="sidebar-blog-item d-flex">
-                                    <div class="flex-shrink-0">
-                                        <div class="sidebar-blog-item-img-wrap overflow-hidden">
-                                            <a href="{{ route('blog-details', $recentBlog->slug) }}"><img src="{{ getImageFile($recentBlog->image_path) }}" alt="img" class="img-fluid"></a>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 {{selectedLanguage()->rtl == 1 ? 'me-3' : 'ms-3' }}">
-                                        <h6 class="sidebar-blog-item-title"><a href="{{ route('blog-details', $recentBlog->slug) }}">{{ __(@$recentBlog->title) }}</a></h6>
-                                        <p class="blog-author-name-publish-date font-12 font-medium color-gray mb-0">{{ @$recentBlog->created_at->format(' j  M, Y')  }}</p>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                    <div class="blog-sidebar-box">
-                        <h6 class="blog-sidebar-box-title">{{ __('Categories') }}</h6>
-                        <ul class="blog-sidebar-categories">
-                            @foreach($blogCategories as $blogCategory)
-                            <li><a href="{{ route('categoryBlogs', $blogCategory->slug) }}" class="font-15">{{ __($blogCategory->name) }} ({{ $blogCategory->active_blogs_count }})</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                    <div class="blog-sidebar-box">
-                        <h6 class="blog-sidebar-box-title">{{ __('Tags') }}</h6>
-                        <ul class="blog-sidebar-tags">
-                            @foreach($tags as $tag)
-                            <li><a href="#">{{ $tag->name }}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>

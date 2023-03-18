@@ -219,7 +219,15 @@
 <script src="{{asset('frontend/assets/vendor/datatable/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('frontend/assets/vendor/datatable/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('frontend/assets/vendor/datatable/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
-
+<script>
+var entry_id = window.location.href.substring(window.location.href.indexOf("#"));
+$(document).ready(function() {
+    $('html, body').animate({
+        
+        scrollTop: $(entry_id).offset().top
+    }, 2000);
+});   
+</script>
 @stack('script')
 
 @toastr_js
@@ -232,6 +240,8 @@
         toastr.options.positionClass = 'toast-bottom-right';
         toastr.error("{{ $error }}")
         @endforeach
+
+        
     </script>
 @endif
 
