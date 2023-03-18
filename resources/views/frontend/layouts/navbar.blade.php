@@ -94,53 +94,58 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{__('Home')}}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/about-us') }}">{{__('About Us')}}</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
+                               data-bs-toggle="dropdown">
+                                {{ __('About Us') }}
+                            </a>
+                        <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
+                                <li>
+                                    <a href="{{ url('/about-us#Vision') }}" class="dropdown-item">@lang('Vision')</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/about-us#Goal') }}" class="dropdown-item">@lang('Goal')</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/about-us#Servcies') }}" class="dropdown-item">@lang('Servcies')</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/about-us#Coaching') }}" class="dropdown-item">@lang('Coaching')</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="">{{__('Blog')}}</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
+                               data-bs-toggle="dropdown">
+                                {{ __('Blog') }}
+                            </a>
                             <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
                                 <li>
-                                    <a href="{{ route('blogs', 'post') }}">@lang('post')</a>
+                                    <a href="{{ route('blogs', 'post') }}" class="dropdown-item">@lang('post')</a>
                                 </li>
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <a href="{{ route('blogs', 'post2') }}" class="dropdown-item">@lang('post2')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('blogs', 'news') }}">@lang('news')</a>
+                                    <a href="{{ route('blogs', 'post3') }}" class="dropdown-item">@lang('post3')</a>
                                 </li>
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <a href="{{ route('blogs', 'news') }}" class="dropdown-item">@lang('news')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('blogs', 'advertisement') }}">@lang('advertisement')</a>
+                                    <a href="{{ route('blogs', 'advertisement') }}" class="dropdown-item">@lang('advertisement')</a>
                                 </li>
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <a href="{{ route('blogs', 'partnership') }}" class="dropdown-item">@lang('partnership')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('blogs', 'partnership') }}">@lang('partnership')</a>
+                                    <a href="{{ route('blogs', 'meet') }}" class="dropdown-item">@lang('meet')</a>
                                 </li>
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <a href="{{ route('blogs', 'development') }}" class="dropdown-item">@lang('development')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('blogs', 'meet') }}">@lang('meet')</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a href="{{ route('blogs', 'development') }}">@lang('development')</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a href="{{ route('blogs', 'gallery') }}">@lang('Gallery')</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
+                                    <a href="{{ route('blogs', 'Gallery') }}" class="dropdown-item">@lang('Gallery')</a>
                                 </li>
                             </ul>
                         </li>
@@ -167,7 +172,7 @@
                                     </li>
                                 @endforeach
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <hr class="dropdown-divider" style="background-color: #ffffff45;">
                                 </li>
                                 <li><a href="{{ route('courses') }}">{{ __('All Courses') }}</a></li>
                             </ul>
@@ -229,7 +234,13 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('programme') }}">{{__('programs')}}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('gallery') }}">{{__('Gallery')}}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page"

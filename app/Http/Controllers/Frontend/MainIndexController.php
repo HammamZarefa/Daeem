@@ -542,4 +542,12 @@ class MainIndexController extends Controller
     {
         return view('frontend.programm');
     }
+    public function post2()
+    {
+        return view('frontend.post2');
+    }
+    public function post3()
+    {
+        return view('frontend.post3');
+    }
 }

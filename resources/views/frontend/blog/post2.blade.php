@@ -42,11 +42,11 @@
         <div class="row">
             <div class="col-12 col-md-7 col-lg-8">
 
-                <div class="blog-page-left-content">
+                <div class="blog-page-left-content row">
 
                     @forelse($blogs as $blog)
                     <!-- Blog Item Start -->
-                    <div class="blog-item">
+                    <div class="blog-item col-lg-6">
 
                         <div class="blog-item-img-wrap overflow-hidden position-relative">
                             <a href="{{ route('blog-details', $blog->slug) }}"><img src="{{ getImageFile($blog->image_path) }}" alt="img" class="img-fluid"></a>
