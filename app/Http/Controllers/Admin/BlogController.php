@@ -68,6 +68,7 @@ class BlogController extends Controller
             'details' => $request->details,
             'blog_category_id' => $request->blog_category_id,
             'image' => $request->image ? $this->saveImage('blog', $request->image, null, null) :   null,
+            'type' => $request->blog_type
         ];
 
         $blog = $this->model->create($data); // create new blog
@@ -123,14 +124,14 @@ class BlogController extends Controller
         } else {
             $slug = getSlug($request->slug);
         }
-
         $data = [
             'title' => $request->title,
             'slug' => $slug,
             'details' => $request->details,
             'blog_category_id' => $request->blog_category_id,
             'image' => $image,
-            'status'=> $request->status
+            'status'=> $request->status,
+            'type' => $request->blog_type
         ];
 
         $blog = $this->model->updateByUuid($data, $uuid); // update category

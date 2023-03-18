@@ -15,8 +15,10 @@
                         <div class="breadcrumb__content__right">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('blog.index')}}">{{__('All Blog')}}</a></li>
+                                    <li class="breadcrumb-item"><a
+                                            href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('blog.index')}}">{{__('All Blog')}}</a>
+                                    </li>
                                     <li class="breadcrumb-item active" aria-current="page">{{__('Add Blog')}}</li>
                                 </ul>
                             </nav>
@@ -30,12 +32,14 @@
                         <div class="item-title d-flex justify-content-between">
                             <h2>{{__('Add Blog')}}</h2>
                         </div>
-                        <form action="{{route('blog.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+                        <form action="{{route('blog.store')}}" method="post" class="form-horizontal"
+                              enctype="multipart/form-data">
                             @csrf
 
                             <div class="input__group mb-25">
                                 <label>{{__('Title')}} <span class="text-danger">*</span></label>
-                                <input type="text" name="title" value="{{old('title')}}" placeholder="{{__('Title')}}" class="form-control slugable"  onkeyup="slugable()">
+                                <input type="text" name="title" value="{{old('title')}}" placeholder="{{__('Title')}}"
+                                       class="form-control slugable" onkeyup="slugable()">
                                 @if ($errors->has('title'))
                                     <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('title') }}</span>
                                 @endif
@@ -43,10 +47,26 @@
 
                             <div class="input__group mb-25">
                                 <label>{{__('Slug')}} <span class="text-danger">*</span></label>
-                                <input type="text" name="slug" value="{{old('slug')}}" placeholder="{{__('Slug')}}" class="form-control slug" onkeyup="getMyself()">
+                                <input type="text" name="slug" value="{{old('slug')}}" placeholder="{{__('Slug')}}"
+                                       class="form-control slug" onkeyup="getMyself()">
                                 @if ($errors->has('slug'))
                                     <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('slug') }}</span>
                                 @endif
+                            </div>
+
+                            <div class="input__group mb-25">
+                                <label for="blog_type"> {{ __('Blog Type') }} </label>
+                                <select name="blog_type" id="blog_type">
+                                    <option value="">--{{ __('Select Option') }}--</option>
+                                    <option value="post" selected>@lang("post")</option>
+                                    <option value="news">@lang("news")</option>
+                                    <option value="advertisement">@lang("advertisement")</option>
+                                    <option value="partnership">@lang("partnership")</option>
+                                    <option value="meet">@lang("meet")</option>
+                                    <option value="development">@lang("development")</option>
+                                    <option value="image">@lang("image")</option>
+                                    <option value="video">@lang("video")</option>
+                                </select>
                             </div>
 
                             <div class="input__group mb-25">
@@ -54,18 +74,20 @@
                                 <select name="blog_category_id" id="blog_category_id">
                                     <option value="">--{{ __('Select Option') }}--</option>
                                     @foreach($blogCategories as $blogCategory)
-                                    <option value="{{ $blogCategory->id }}">{{ $blogCategory->name }}</option>
+                                        <option value="{{ $blogCategory->id }}">{{ $blogCategory->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="input__group mb-25">
                                 <label for="tag_ids"> {{ __('Tag') }} </label>
-                                <select name="tag_ids[]" multiple id="tag_ids" class="multiple-basic-single form-control">
+                                <select name="tag_ids[]" multiple id="tag_ids"
+                                        class="multiple-basic-single form-control">
                                     @foreach($tags as $tag)
-                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="input__group mb-25">
                                 <label>{{__('Details')}} <span class="text-danger">*</span></label>
                                 <textarea name="details" id="summernote">{{old('details')}}</textarea>
@@ -80,7 +102,8 @@
                                 <div class="col-md-3">
                                     <div class="upload-img-box mb-25">
                                         <img src="">
-                                        <input type="file" name="image" id="image" accept="image/*" onchange="previewFile(this)">
+                                        <input type="file" name="image" id="image" accept="image/*"
+                                               onchange="previewFile(this)">
                                         <div class="upload-img-box-icon">
                                             <i class="fa fa-camera"></i>
                                             <p class="m-0">{{__('Image')}}</p>
@@ -90,7 +113,8 @@
                                 @if ($errors->has('image'))
                                     <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('image') }}</span>
                                 @endif
-                                <p>{{ __('Accepted Files') }}: JPEG, JPG, PNG <br> {{ __('Recommend Size') }}: 870 x 500 (1MB)</p>
+                                <p>{{ __('Accepted Files') }}: JPEG, JPG, PNG <br> {{ __('Recommend Size') }}: 870 x 500
+                                    (1MB)</p>
                             </div>
 
                             <div class="row mb-3">
@@ -126,7 +150,7 @@
     <!-- Summernote JS - CDN Link -->
     <script src="{{ asset('common/js/summernote/summernote-lite.min.js') }}"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#summernote").summernote({dialogsInBody: true});
             $('.dropdown-toggle').dropdown();
         });

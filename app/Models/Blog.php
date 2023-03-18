@@ -19,7 +19,8 @@ class Blog extends Model
         'details',
         'image',
         'status',
-        'blog_category_id'
+        'blog_category_id',
+        'type'
     ];
 
     /**

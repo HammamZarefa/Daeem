@@ -70,7 +70,7 @@ Route::group(['middleware' => 'private.mode'], function () {
     //End:: Bundle
 
     // Start:: Blog & Comment
-    Route::get('blogs', [BlogController::class, 'blogAll'])->name('blogs');
+    Route::get('blogs/{type?}', [BlogController::class, 'blogAll'])->name('blogs');
     Route::get('blog-details/{slug}', [BlogController::class, 'blogDetails'])->name('blog-details');
 
     Route::get('category-blogs/{slug}', [BlogController::class, 'categoryBlogs'])->name('categoryBlogs');
@@ -85,7 +85,8 @@ Route::group(['middleware' => 'private.mode'], function () {
     Route::get('terms-conditions', [MainIndexController::class, 'termConditions'])->name('terms-conditions')->withoutMiddleware('private.mode');
     Route::get('privacy-policy', [MainIndexController::class, 'privacyPolicy'])->name('privacy-policy')->withoutMiddleware('private.mode');
     Route::get('cookie-policy', [MainIndexController::class, 'cookiePolicy'])->name('cookie-policy')->withoutMiddleware('private.mode');
-
+    Route::get('gallery', [MainIndexController::class, 'gallery'])->name('gallery');
+    Route::get('programm', [MainIndexController::class, 'programme'])->name('programme');
     Route::get('support-ticket-faq', [SupportTicketController::class, 'supportTicketFAQ'])->name('support-ticket-faq');
 
     Route::get('student-join-bbb-meeting/{live_class_id}', [MyCourseController::class, 'bigBlueButtonJoinMeeting'])->name('student.join-bbb-meeting');
