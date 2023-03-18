@@ -15,15 +15,18 @@ use function PHPUnit\Framework\returnArgument;
 class BlogController extends Controller
 {
     use General;
-    public function blogAll()
+
+    public function blogAll($type = 'post')
     {
         $data['pageTitle'] = "Blog";
         $data['metaData'] = staticMeta(5);
-        $data['blogs'] = Blog::latest()->active()->paginate(10);
-        $data['recentBlogs'] = Blog::latest()->take(3)->active()->get();
+        if ($type == 'gallery')
+            $data['blogs'] = Blog::whereIn('type', ['video', 'image'])->latest()->active()->paginate(10);
+        else
+            $data['blogs'] = Blog::where('type', $type)->latest()->active()->paginate(10);
+        $data['recentBlogs'] = Blog::where('type', $type)->latest()->take(3)->active()->get();
         $data['blogCategories'] = BlogCategory::withCount('activeBlogs')->active()->get();
         $data['tags'] = Tag::all();
-
         return view('frontend.blog.blogs', $data);
     }
 
@@ -73,7 +76,7 @@ class BlogController extends Controller
 
     public function blogCommentReplyStore(Request $request)
     {
-        if ($request->user_id && $request->comment){
+        if ($request->user_id && $request->comment) {
             $comment = new BlogComment();
             $comment->blog_id = $request->blog_id;
             $comment->user_id = $request->user_id;
@@ -84,10 +87,10 @@ class BlogController extends Controller
             $comment->parent_id = $request->parent_id;
             $comment->save();
 
-            $this->showToastrMessage('success', __('Reply successfully.')) ;
+            $this->showToastrMessage('success', __('Reply successfully.'));
             return redirect()->back();
         } else {
-            $this->showToastrMessage('warning', __('You need to login first!')) ;
+            $this->showToastrMessage('warning', __('You need to login first!'));
             return redirect()->back();
         }
     }

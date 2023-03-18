@@ -48,6 +48,20 @@
                                     <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('slug') }}</span>
                                 @endif
                             </div>
+                            <div class="input__group mb-25">
+                                <label for="blog_type"> {{ __('Blog Type') }} </label>
+                                <select name="blog_type" id="blog_type">
+                                    <option value="">--{{ __('Select Option') }}--</option>
+                                    <option value="post" @if($blog->type == "post") selected @endif>@lang("post")</option>
+                                    <option value="news" @if($blog->type == "news") selected @endif>@lang("news")</option>
+                                    <option value="advertisement" @if($blog->type == "advertisement") selected @endif>@lang("advertisement")</option>
+                                    <option value="partnership" @if($blog->type == "partnership") selected @endif>@lang("partnership")</option>
+                                    <option value="meet" @if($blog->type == "meet") selected @endif>@lang("meet")</option>
+                                    <option value="development" @if($blog->type == "development") selected @endif>@lang("development")</option>
+                                    <option value="image" @if($blog->type == "image") selected @endif>@lang("image")</option>
+                                    <option value="video" @if($blog->type == "video") selected @endif>@lang("video")</option>
+                                </select>
+                            </div>
 
                             <div class="input__group mb-25">
                                 <label for="blog_category_id"> {{ __('Blog category') }} </label>
