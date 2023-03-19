@@ -80,17 +80,19 @@ html {
     height: 100%;
     margin: 0;
 }
-
 body {
     background: #fff none repeat scroll;
     font-size: 16px;
     font-weight: normal;
-    font-family: var(--body-font-family);
     color: var(--body-font-color);
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
-
+@font-face {
+    font-family: ArbFONTS-GE_SS_Two_Bold;
+    font-weight: bold;
+    src: url('../fonts/ArbFONTS-GE_SS_Two_Bold.otf') format("opentype");
+  }
 a {
     /* color: var(--heading-color); */
     color: #000;
@@ -8886,13 +8888,13 @@ Classes
     color: #fff;
 }
 /* ********************* tabs section style *************************** */
-.tab-section .nav-item{
+.tab-section .na-item{
     flex-grow: 3
 }
-.tab-section .nav-item button{
+.tab-section .na-item button{
     width: 100%;
 }
-.tab-section .nav-link{
+.tab-section .na-link{
     background-color: #015fa7;
     color: #fff;
     font-weight: 501;
@@ -8900,7 +8902,7 @@ Classes
     border: var(--bs-nav-tabs-border-width) solid #ffffff61;
     box-shadow: 0px 1px 5px #015fa778;
 }
-.tab-section .nav-link.active{
+.tab-section .na-link.active{
     background-color: #fff;
     color: #015fa7;
     font-weight: 501;
@@ -9086,3 +9088,6 @@ Classes
     }
   }
 /* video */
+/* .course-single-details-left-content{
+    box-shadow: 0px 0px 5px #0003;
+} */
