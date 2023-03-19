@@ -550,4 +550,8 @@ class MainIndexController extends Controller
     {
         return view('frontend.post3');
     }
+    public function Membership()
+    {
+        return view('frontend.Membership');
+    }
 }

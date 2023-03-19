@@ -280,14 +280,14 @@
         <section class="tab-section">
         <div class="container">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Title 1</button>
+                <li class="nav-item na-item" role="presentation">
+                    <button class="nav-link na-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Title 1</button>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Title 2</button>
+                <li class="nav-item na-item" role="presentation">
+                    <button class="nav-link na-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Title 2</button>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Title 3</button>
+                <li class="nav-item na-item" role="presentation">
+                    <button class="nav-link na-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Title 3</button>
                 </li>
             </ul>
             <div class="tab-content section-t-space" id="myTabContent">

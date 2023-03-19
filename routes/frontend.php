@@ -87,6 +87,7 @@ Route::group(['middleware' => 'private.mode'], function () {
     Route::get('cookie-policy', [MainIndexController::class, 'cookiePolicy'])->name('cookie-policy')->withoutMiddleware('private.mode');
     Route::get('gallery', [MainIndexController::class, 'gallery'])->name('gallery');
     Route::get('programm', [MainIndexController::class, 'programme'])->name('programme');
+    Route::get('Membership', [MainIndexController::class, 'Membership'])->name('Membership');
     Route::get('post2', [MainIndexController::class, 'post2'])->name('post2');
     Route::get('post3', [MainIndexController::class, 'post3'])->name('post3');
     Route::get('support-ticket-faq', [SupportTicketController::class, 'supportTicketFAQ'])->name('support-ticket-faq');

@@ -149,7 +149,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
                                data-bs-toggle="dropdown">
                                 {{ __('Courses') }}
@@ -176,7 +176,7 @@
                                 </li>
                                 <li><a href="{{ route('courses') }}">{{ __('All Courses') }}</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         @if(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_STUDENT || @$authUser->role == USER_ROLE_ORGANIZATION)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
@@ -237,8 +237,12 @@
                                 <a class="nav-link" href="{{ route('programme') }}">{{__('programs')}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
+                                <a class="nav-link" href="{{ route('Membership') }}">{{__('Membership')}}</a>
                             </li>
+                            
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
+                            </li> -->
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('gallery') }}">{{__('Gallery')}}</a>
                             </li>
