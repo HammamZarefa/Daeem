@@ -1049,7 +1049,8 @@ class CartManagementController extends Controller
                 return redirect()->back();
             }
 
-        } else if ($request->payment_method == MOLLIE) {
+        }
+        else if ($request->payment_method == MOLLIE) {
             $object = [
                 'id' => $order->uuid,
                 'payment_method' => MOLLIE,
@@ -1068,7 +1069,8 @@ class CartManagementController extends Controller
                 $this->showToastrMessage('error', $responseData['message']);
                 return redirect()->back();
             }
-        } else if ($request->payment_method == MERCADOPAGO) {
+        }
+        else if ($request->payment_method == MERCADOPAGO) {
             $object = [
                 'id' => $order->uuid,
                 'payment_method' => MERCADOPAGO,
@@ -1087,7 +1089,8 @@ class CartManagementController extends Controller
                 $this->showToastrMessage('error', $responseData['message']);
                 return redirect()->back();
             }
-        }  else if ($request->payment_method == FLUTTERWAVE) {
+        }
+        else if ($request->payment_method == FLUTTERWAVE) {
             $object = [
                 'id' => $order->uuid,
                 'payment_method' => FLUTTERWAVE,
@@ -1106,7 +1109,8 @@ class CartManagementController extends Controller
                 $this->showToastrMessage('error', $responseData['message']);
                 return redirect()->back();
             }
-        } else if ($request->payment_method == INSTAMOJO) {
+        }
+        else if ($request->payment_method == INSTAMOJO) {
             $total = $order->grand_total * (get_option('im_conversion_rate') ? get_option('im_conversion_rate') : 0);
             $total = number_format($total, 2,'.','');
             $object = [
@@ -1126,7 +1130,8 @@ class CartManagementController extends Controller
                 return redirect()->back();
             }
 
-        } else if ($request->payment_method == PAYSTAC) {
+        }
+        else if ($request->payment_method == PAYSTAC) {
             $total = $order->grand_total * (get_option('paystack_conversion_rate') ? get_option('paystack_conversion_rate') : 0);
             $total = number_format($total, 2,'.','');
             $object = [
@@ -1147,7 +1152,8 @@ class CartManagementController extends Controller
                 return redirect()->back();
             }
 
-        } else if ($request->payment_method == BANK) {
+        }
+        else if ($request->payment_method == BANK) {
             $deposit_by = $request->deposit_by;
             $deposit_slip = $this->uploadFileWithDetails('bank', $request->deposit_slip);
             if (!$deposit_slip['is_uploaded']) {
@@ -1171,7 +1177,8 @@ class CartManagementController extends Controller
             /** ====== Send notification =========*/
             $this->showToastrMessage('success', __('Request has been Placed! Please Wait for Approve'));
             return redirect()->route('student.thank-you');
-        } else if ($request->payment_method == SSLCOMMERZ)  {
+        }
+        else if ($request->payment_method == SSLCOMMERZ)  {
 
             $total = $order->grand_total * (get_option('sslcommerz_conversion_rate') ? get_option('sslcommerz_conversion_rate') : 0);
             $total = number_format($total, 2,'.','');
@@ -1231,7 +1238,8 @@ class CartManagementController extends Controller
                 $this->showToastrMessage('error', __('Something went wrong!'));
                 return redirect()->back();
             }
-        } else if ($request->payment_method == STRIPE)  {
+        }
+        else if ($request->payment_method == STRIPE)  {
 
             $total = $order->grand_total * (get_option('stripe_conversion_rate') ? get_option('stripe_conversion_rate') : 0);
             $total = number_format($total, 2,'.','');

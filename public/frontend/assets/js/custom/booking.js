@@ -5,6 +5,12 @@
             var hourly_fee = $(this).data('hourly_fee');
             var hourly_rate = $(this).data('hourly_rate');
             var booking_instructor_user_id = $(this).data('booking_instructor_user_id');
+            var instructor_coaching_type = $(this).data('instructor_coaching_type');
+            Object.keys(instructor_coaching_type).forEach(function(key, index) {
+                var ctId = instructor_coaching_type[key]['id']
+                $('#ct_'+ctId).removeClass('d-none');
+            });
+
             var available_type = $(this).data('type');
             if (available_type == 3) {
                 $('.InPerson').removeClass('d-none');
@@ -59,6 +65,7 @@
                 data: {"user_id": user_id, "bookingDate": bookingDate},
                 datatype: "json",
                 success: function (response) {
+                    console.log(response)
                     toastr.options.positionClass = 'toast-bottom-right';
 
                     if (response.status == 404) {
@@ -79,11 +86,19 @@
             var available_type = $("input[name='available_type']:checked").val()
             var time = $("input[name='time']:checked").val();
             var route = $(this).data('route');
+            var coachingType =$('#coachingTypes').val();
+            // console.log(coachingType)
             var consultation_slot_id = $('.consultation_slot_id').val();
 
             toastr.options.positionClass = 'toast-bottom-right';
             if (!bookingDate) {
                 toastr.error("Please select date!")
+                return
+            }
+
+            if (!coachingType) {
+                console.log(coachingType)
+                toastr.error("Please select Coaching Type!")
                 return
             }
 
@@ -104,6 +119,7 @@
                     'consultation_slot_id': consultation_slot_id,
                     'booking_instructor_user_id': booking_instructor_user_id,
                     'bookingDate': bookingDate,
+                    'coachingType' : coachingType,
                     'time': time,
                     'available_type' : available_type,
                     '_token': $('meta[name="csrf-token"]').attr('content')

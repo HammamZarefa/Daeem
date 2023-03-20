@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\BookingHistory;
+use App\Models\CoachingType;
 use App\Models\ConsultationSlot;
 use App\Models\Course;
 use App\Models\Instructor;
@@ -40,16 +41,19 @@ class ConsultationController extends Controller
         }
 
         $orderIds =  Order::where('payment_status', 'paid')->orWhere('payment_status', 'free')->pluck('id')->toArray();
-
+        $user = User::find($request->user_id);
+        $instructor = $user->instructor;
         $consultationSlotIds = BookingHistory::whereIn('order_id', $orderIds)->where('instructor_user_id', $request->user_id)->where('date', $date)->pluck('consultation_slot_id')->toArray();
         $data['slots'] = ConsultationSlot::whereNotIn('id', $consultationSlotIds);
         $data['slots'] = $data['slots']->where('user_id', $request->user_id)->where('day', $day)->get();
+        $data['coaching_types'] =$instructor->coachingTypes;
 
         return view('frontend.home.partial.consultation-booking-day-time', $data);
     }
 
     public function consultationInstructorList()
     {
+
         $data['consultationInstructors'] = User::query()
                 ->leftJoin('instructors as ins', 'ins.user_id', '=', 'users.id')
                 ->leftJoin('organizations as org', 'org.user_id', '=', 'users.id')
@@ -66,6 +70,7 @@ class ConsultationController extends Controller
                 ->select('users.*', 'ins.organization_id', DB::raw(selectStatement()))
                 ->paginate($this->consultationPaginateValue);
         $data['highest_price'] = Instructor::max('hourly_rate');
+        $data['all_coaching_types'] = CoachingType::all();
         return view('frontend.consultation.instructor-consultation-list', $data);
     }
 
@@ -107,7 +112,7 @@ class ConsultationController extends Controller
         if ($search_name){
             $users->where('users.name', 'LIKE', '%' . $search_name. '%');
         }
-        
+
         if($typeIds && count($typeIds) != 2){
             $users->where(function($q) use($typeIds){
                 $q->where('ins.available_type', $typeIds)

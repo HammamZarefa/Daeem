@@ -96,6 +96,22 @@
                 </div>
             </div>
 
+            <div class="instructor-profile-info-box">
+                <div class="row">
+                    <div class="col-md-12 mb-30">
+                        <label class="font-medium font-15 color-heading">{{__('Coaching Types')}}</label>
+                        <select name="coachingTypes[]"  class="form-control select2" multiple>
+                            @foreach ($coachingTypes as $coachingType)
+                                <option value="{{ $coachingType->id }}" {{ in_array($coachingType->id, $instructor->coachingTypes->pluck('id')->toArray())?'selected':'' }}>{{ $coachingType->name }}</option>
+                            @endforeach
+                        </select>
+                        @if ($errors->has('coachingTypes'))
+                            <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('coachingTypes') }}</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-12 mb-30">
                     <label class="font-medium font-15 color-heading">{{__('Gender')}}</label>
