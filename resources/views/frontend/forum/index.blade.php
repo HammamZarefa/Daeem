@@ -275,6 +275,66 @@
             </section>
             <!-- Forum community blog articles Area End -->
         @endif
+
+        <!-- ********************* tabs section start ********************* -->
+        <section class="tab-section">
+        <div class="container">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item na-item" role="presentation">
+                    <button class="nav-link na-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Title 1</button>
+                </li>
+                <li class="nav-item na-item" role="presentation">
+                    <button class="nav-link na-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Title 2</button>
+                </li>
+                <li class="nav-item na-item" role="presentation">
+                    <button class="nav-link na-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Title 3</button>
+                </li>
+            </ul>
+            <div class="tab-content section-t-space" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-12 img-servce">
+                                <img src="{{ asset('frontend/assets/img/daeem/1.png') }}" alt="">
+                        </div>
+                        <div class="col-12 mt-5">
+                                <h4>Title 1</h4>
+                        </div>
+                        <div class="col-12 mt-5">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi impedit porro odit minus voluptatibus provident labore dolore libero quasi in. Officia praesentium neque ut dicta, doloremque illum amet esse incidunt.</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="row">
+                        <div class="col-12 img-servce">
+                                <img src="{{ asset('frontend/assets/img/daeem/2.png') }}" alt="">
+                        </div>
+                        <div class="col-12 mt-5">
+                                <h4>Title 2</h4>
+                        </div>
+                        <div class="col-12 mt-5">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi impedit porro odit minus voluptatibus provident labore dolore libero quasi in. Officia praesentium neque ut dicta, doloremque illum amet esse incidunt.</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="row">
+                        <div class="col-12 img-servce">
+                                <img src="{{ asset('frontend/assets/img/daeem/3.png') }}" alt="">
+                        </div>
+                        <div class="col-12 mt-5">
+                                <h4>Title 3</h4>
+                        </div>
+                        <div class="col-12 mt-5">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi impedit porro odit minus voluptatibus provident labore dolore libero quasi in. Officia praesentium neque ut dicta, doloremque illum amet esse incidunt.</p>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        </section>
+        <!-- ********************* tabs section end ********************* -->
+
     </div>
     <input type="hidden" class="renderForumCategoryPostsRoute" value="{{ route('forum.renderForumCategoryPosts') }}">
     <input type="hidden" class="searchForumRoute" value="{{ route('forum.search-forum.list') }}">

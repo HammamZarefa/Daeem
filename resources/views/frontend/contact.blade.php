@@ -14,7 +14,7 @@
                                     align-items: center;">
                         <div style="position: relative;">
                         <img style="width:180px;position: absolute;left: -55px;top: -40px;"
-                             src="{{ asset('frontend/assets/img/daeem-ha2.png') }}" alt="">
+                             src="{{ asset('frontend/assets/img/daeem/daeem-ha2.png') }}" alt="">
                         <h3 class="page-banner-heading text-white pb-15">{{ __('Contact Us') }}</h3>
 
                         <!-- Breadcrumb Start-->
@@ -25,7 +25,7 @@
                             </ol>
                         </nav>
                                                 </div>
-                        <img style="width:180px;margin-top: -40px;" src="{{ asset('frontend/assets/img/daeem-ha.png') }}" alt="">
+                        <img style="width:180px;margin-top: -40px;" src="{{ asset('frontend/assets/img/daeem/daeem-ha.png') }}" alt="">
                         <!-- Breadcrumb End-->
                     </div>
                 </div>
@@ -136,6 +136,7 @@
 </section>
 <!-- Contact Page Area End -->
 </div>
+
 <input type="hidden" value="{{ route('contact.store') }}" class="contactStoreRoute">
 @endsection
 

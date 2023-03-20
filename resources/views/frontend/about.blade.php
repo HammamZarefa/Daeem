@@ -74,7 +74,7 @@
 <!-- Gallery Area End -->
 
 <!-- Our History Area Start -->
-<section class="our-history-area bg-page section-t-space">
+<section class="our-history-area bg-page section-t-space" id="Vision">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -102,7 +102,7 @@
     </div>
 </section>
 <!-- Our History Area End -->
-<section class="section-t-space our-goal">
+<section class="section-t-space our-goal" id="Goal">
     <div class="container">
     <div class="row">
             <div class="col-12">
@@ -153,7 +153,9 @@
     </div>
 </section>
 <!-- our servcies -->
-<section class="our-servcies section-t-space">
+<section class="our-servcies section-t-space" id="Servcies">
+    <!-- ******************* servces-page programes ************************** -->
+
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
@@ -166,6 +168,39 @@
 								</div>
 							</div>
 						</div>
+                        <!-- <section class="servces-page-area section-t-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-12 img-servce">
+
+                <img src="{{ asset('frontend/assets/img/daeem/3.png') }}" alt="">
+
+            </div>
+
+            <div class="col-md-6 col-lg-6 u-content col-12">
+               <div class="content">
+               <h4> للأفراد </h4>
+               <h6>خدمات الدعم والتطوير المهني والشخصي لافراد المجتمع من خلال الجلسات الكوتشينغ الفرديه والجماعيه المتنوعه الخدمات الكوتشينغ للناشئه خدمات التطوير المهني المتزامن وغير المتزامن</h6>
+               </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="container section-t-space">
+        <div class="row">
+                <div class="col-md-6 col-lg-6 u-content col-12">
+                <div class="content or-content">
+                <h4> للمنظمات </h4>
+                <h6>الكوتشينج، وسيلة للتعلم، والتطور، وتحقيق الأهداف والإنجازات فهو لديه أثر ايجابي على الطالب، المعلم، والفريق القيادي في المنشئة التعليمية. حيث يساعد الكوتشنج المدارس على تقديم المعلومات والمهارات الأساسية التي يحتاجها الطالب ليس فقط للتفوق الدراسي ولكن كي يستطيع تحقيق أهدافه في الحياة ويصبح انسان ناجحا.</h6>
+                </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-12 img-servce">
+                    <img src="{{ asset('frontend/assets/img/daeem/1.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+</section> -->
 						<div class="row mt-3">
 							<div class="col-lg-4 col-md-6 col-xs-12">
 								<!--Animation Block-->
@@ -269,11 +304,14 @@
 									</div>
 								</div>
 							</div>
+                            <!-- <div class="col-12 mt-5 text-center">
+                                <a href="" class="theme-btn theme-button2 theme-button3 ">{{ __('View') }} <i data-feather="arrow-right"></i></a>
+                            </div> -->
 						</div>
 					</div>
 				</section>
 <!-- Upgrade Your Skills Area Start -->
-<section class="upgrade-your-skills-area">
+<section class="upgrade-your-skills-area" id="Coaching">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-4 col-xl-4 col-sm-12">

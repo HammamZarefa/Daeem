@@ -83,7 +83,6 @@
     <link rel="icon" href="{{ getImageFile(get_option('app_fav_icon')) }}" type="image/png" sizes="16x16">
     <link rel="shortcut icon" href="{{ getImageFile(get_option('app_fav_icon')) }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ getImageFile(get_option('app_fav_icon')) }}">
-
     <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="{{ getImageFile(get_option('app_fav_icon')) }}" sizes="72x72" >
     <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="{{ getImageFile(get_option('app_fav_icon')) }}" sizes="114x114" >
     <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="{{ getImageFile(get_option('app_fav_icon')) }}" sizes="144x144" >
@@ -110,7 +109,14 @@
     $selectedLanguage = selectedLanguage();
 @endphp
 
-<body class="{{$selectedLanguage->rtl == 1 ? 'direction-rtl' : 'direction-ltr' }}">
+<body class="{{$selectedLanguage->rtl == 1 ? 'direction-rtl' : 'direction-ltr' }}"
+      style="{{$selectedLanguage->rtl == 1 ? 
+        '
+        font-family:ArbFONTS-GE_SS_Two_Bold;
+        ' : 
+        '
+        font-family: var(--body-font-family);
+        ' }}">
 
 @if(get_option('allow_preloader') == 1)
 <!-- Pre Loader Area start -->
@@ -219,7 +225,15 @@
 <script src="{{asset('frontend/assets/vendor/datatable/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('frontend/assets/vendor/datatable/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('frontend/assets/vendor/datatable/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
-
+<script>
+var entry_id = window.location.href.substring(window.location.href.indexOf("#"));
+$(document).ready(function() {
+    $('html, body').animate({
+        
+        scrollTop: $(entry_id).offset().top
+    }, 2000);
+});   
+</script>
 @stack('script')
 
 @toastr_js
@@ -232,6 +246,8 @@
         toastr.options.positionClass = 'toast-bottom-right';
         toastr.error("{{ $error }}")
         @endforeach
+
+        
     </script>
 @endif
 

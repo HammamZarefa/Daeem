@@ -535,4 +535,25 @@ class MainIndexController extends Controller
 
         return view('frontend.cookie-policy', $data);
     }
+
+    public function gallery()
+    {
+        return view('frontend.gallery');
+    }
+    public function programme()
+    {
+        return view('frontend.programm');
+    }
+    public function post2()
+    {
+        return view('frontend.post2');
+    }
+    public function post3()
+    {
+        return view('frontend.post3');
+    }
+    public function Membership()
+    {
+        return view('frontend.Membership');
+    }
 }
