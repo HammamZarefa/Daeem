@@ -89,7 +89,7 @@
         </div>
         <button href="#" class="slider__button slider__button--next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.3 19.3q-.275-.275-.288-.7q-.012-.425.263-.7l4.9-4.9H5q-.425 0-.713-.288Q4 12.425 4 12t.287-.713Q4.575 11 5 11h11.175l-4.9-4.9q-.275-.275-.263-.7q.013-.425.288-.7q.275-.275.7-.275q.425 0 .7.275l6.6 6.6q.15.125.213.312q.062.188.062.388t-.062.375q-.063.175-.213.325l-6.6 6.6q-.275.275-.7.275q-.425 0-.7-.275Z"/></svg></button>
          <button href="#" class="slider__button slider__button--prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.3 19.3q-.275-.275-.288-.7q-.012-.425.263-.7l4.9-4.9H5q-.425 0-.713-.288Q4 12.425 4 12t.287-.713Q4.575 11 5 11h11.175l-4.9-4.9q-.275-.275-.263-.7q.013-.425.288-.7q.275-.275.7-.275q.425 0 .7.275l6.6 6.6q.15.125.213.312q.062.188.062.388t-.062.375q-.063.175-.213.325l-6.6 6.6q-.275.275-.7.275q-.425 0-.7-.275Z"/></svg></button>
-        
+
     </div>
     <!-- <header class="hero-area gradient-bg position-relative">
         <div class="section-overlay">
@@ -306,7 +306,7 @@
                                                 </div>
                                             </div>
                                         </div></div>
-                                
+
                                 </div></div>
 
 
@@ -339,7 +339,7 @@
                                     <h3 class="section-heading">A Traning programs </h3>
                                     <p class="section-sub-heading">{{ __(get_option('course_subtitle')) }}</p>
                                 </div>
-                                
+
                             </div>
                             <a href="{{ route('consultationInstructorList') }}" class="theme-btn theme-button2 theme-button3 ">{{ __('View All') }} <i data-feather="arrow-right"></i></a>
 
@@ -386,9 +386,9 @@
       </main>
     </div>
                                     </div>
-                                
 
-                                        
+
+
                                 </div></div>
 
 
@@ -546,7 +546,7 @@
                                     <p>{{ @$firstFourCategory->courses->count() }} {{ __('Courses') }}</p>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
 
                 @if(!get_option('private_mode') || !auth()->guest())
                         <div class="col-12 text-center section-btn">
@@ -1141,12 +1141,12 @@
             }
             setZindex() {
                 this.nextSlide = this.currentSlide + 1;
-                
+
                 if (this.nextSlide === this.slides.length) {
                     this.nextSlide = 0;
                 }
-              
-                
+
+
                 this.slides.forEach((slide, id) => {
                     if (id === this.currentSlide) {
                         slide.style.zIndex = 20;

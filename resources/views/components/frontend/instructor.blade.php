@@ -86,6 +86,7 @@
             <button type="button" data-type="{{ $user->available_type }}"
                 data-booking_instructor_user_id="{{ $user->id }}" data-hourly_fee="{{ $hourly_fee }}"
                 data-hourly_rate="{{ $user->hourly_rate }}"
+                data-instructor_coaching_type="{{$user->instructor->coachingTypes}}"
                 data-get_off_days_route="{{ route('getOffDays', $user->id) }}"
                 class="theme-btn theme-button1 theme-button3 w-100 bookSchedule" data-bs-toggle="modal"
                 data-bs-target="#consultationBookingModal">{{ __('Book Schedule') }}

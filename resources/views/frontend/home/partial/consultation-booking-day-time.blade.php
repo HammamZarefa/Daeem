@@ -8,9 +8,11 @@
                 @forelse($slots as $slot)
                     <div class="col-sm-6 col-md-4">
                         <div class="time-slot-item">
-                            <input type="radio" name="time" class="btn-check" data-item="{{ $slot }}" value="{{ $slot->time }}" id="checkbox{{ $slot->id }}"
+                            <input type="radio" name="time" class="btn-check" data-item="{{ $slot }}"
+                                   value="{{ $slot->time }}" id="checkbox{{ $slot->id }}"
                                    autocomplete="off">
-                            <label class="btn btn-outline-primary" for="checkbox{{ $slot->id }}">{{ $slot->time }}</label>
+                            <label class="btn btn-outline-primary"
+                                   for="checkbox{{ $slot->id }}">{{ $slot->time }}</label>
                         </div>
                     </div>
                 @empty
@@ -29,6 +31,7 @@
     <p class="font-medium color-heading mb-1">{{ __('Your Meeting Details') }}</p>
     <p class="font-16 mb-1">{{ __('Meeting Date & Time') }}: <span class="meetingDateTime color-heading"></span></p>
     <p class="font-16 mb-1">{{ __('Total Duration') }}: <span class="meetingDuration color-heading"></span></p>
+    <p class="font-16 mb-1">{{ __('Coaching Type') }}: <span class="meetingCoachingType color-heading"></span></p>
     <p class="font-16 mb-1">{{ __('Total Cost') }}: <span class="meetingCost color-heading"></span></p>
     <input type="hidden" class="consultation_slot_id">
 </div>
@@ -42,9 +45,13 @@
             var hour_duration = $(this).data('item').hour_duration;
             var minute_duration = $(this).data('item').minute_duration;
             var hourly_rate = $('.hourly_rate').val();
+            var test = $('#coachingTypes').val();
+            var el = document.getElementById('coachingTypes');
+            var text = el.options[el.selectedIndex].innerHTML;
+            console.log(text);
 
             var minuteCost = 0;
-            if (minute_duration > 0){
+            if (minute_duration > 0) {
                 minuteCost = (parseFloat(hourly_rate) / (60 / parseFloat(minute_duration)));
             }
 
@@ -56,14 +63,15 @@
 
             $('.meetingDateTime').html(bookingDate + ' | ' + time)
             $('.meetingDuration').html(duration)
+            $('.meetingCoachingType').html(text)
 
             var currency_symbol = "{{ $currencySymbol ?? get_currency_symbol() }}";
             var currency_placement = "{{ $currencyPlacement ?? get_currency_placement() }}";
             var totalCost = 0;
-            if(currency_placement == 'after'){
+            if (currency_placement == 'after') {
                 totalCost = cost + ' ' + currency_symbol;
             } else {
-                totalCost = currency_symbol + ' ' + cost ;
+                totalCost = currency_symbol + ' ' + cost;
             }
             $('.meetingCost').html(totalCost)
             $('.consultation_slot_id').val($(this).data('item').id)

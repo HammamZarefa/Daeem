@@ -111,6 +111,11 @@ class Instructor extends Model
         return $this->hasMany(Instructor_awards::class, 'instructor_id');
     }
 
+    public function coachingTypes()
+    {
+        return $this->belongsToMany(CoachingType::class,'instructor_coaching_type');
+    }
+
 
     public function getNameAttribute()
     {

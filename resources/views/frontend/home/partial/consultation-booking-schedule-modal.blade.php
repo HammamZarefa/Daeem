@@ -48,6 +48,21 @@
                 </div>
             </div>
 
+            <div class="row booking-header-row">
+                <div class="col-sm-12 col-md-8">
+                    <div class="input-group row">
+                        <label class="col-sm-4 col-md-6 col-form-label font-17 font-semi-bold color-heading">{{ __('Coaching Type') }}</label>
+                        <select name="coachingType" class="form-control" id="coachingTypes">
+                            <option readonly="" value="">{{__('Choose One')}}</option>
+                            @foreach($all_coaching_types as $coachingType)
+                                <option class="d-none" id="ct_{{$coachingType->id}}" value="{{$coachingType->id}}">{{$coachingType->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
             <div class="appendDayAndTime">
 
             </div>

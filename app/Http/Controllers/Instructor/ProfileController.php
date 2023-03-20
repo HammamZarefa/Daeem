@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Instructor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Instructor\ProfileRequest;
 use App\Models\City;
+use App\Models\CoachingType;
 use App\Models\Country;
 use App\Models\Instructor;
 use App\Models\Instructor_awards;
@@ -39,6 +40,7 @@ class ProfileController extends Controller
         $data['user'] = Auth::user();
         $data['instructor'] = Auth::user()->instructor;
         $data['skills'] = Skill::where('status',1)->get();
+        $data['coachingTypes'] = CoachingType::where('status',1)->get();
         return view('instructor.profile', $data);
     }
 
@@ -79,7 +81,11 @@ class ProfileController extends Controller
 
         $instructor = $this->model->updateByUuid($instructor_date, $uuid); // update category
 
+        $instructor->coachingTypes()->sync($request->coachingTypes); // coachingTypes
+
         $instructor->skills()->sync($request->skills); // Skills
+
+
 
         /**
          * manage instructor certificate
