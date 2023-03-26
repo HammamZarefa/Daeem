@@ -34,4 +34,9 @@ class CartManagement extends Model
     {
         return $this->belongsTo(ConsultationSlot::class, 'consultation_slot_id');
     }
+
+    public function coachingType(): BelongsTo
+    {
+        return $this->belongsTo(CoachingType::class, 'coaching_type_id');
+    }
 }

@@ -53,6 +53,7 @@
                                         <th>{{__('Time')}}</th>
                                         <th>{{__('Hours')}}</th>
                                         <th>{{__('Type')}}</th>
+                                        <th>{{__('Coaching Type')}}</th>
                                         <th>{{__('View')}}</th>
                                         <th>{{__('Action')}}</th>
                                     </tr>
@@ -80,6 +81,7 @@
                                                     {{ __('Online') }}
                                                 @endif
                                             </td>
+                                            <td>{{ $upcoming->coachingType != null ? $upcoming->coachingType->name : '-' }}</td>
                                             <td>
                                                 <div class="booking-table-detail-btn quiz-details-action-btns">
                                                     <button data-meeting_host_name="{{ $upcoming->meeting_host_name }}" data-id="{{ $upcoming->id }}" class="collapsed create_link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{ $upcoming->id }}"
@@ -270,6 +272,7 @@
                                         <th>{{__('Time')}}</th>
                                         <th>{{__('Hours')}}</th>
                                         <th>{{__('Type')}}</th>
+                                        <th>{{__('Coaching Type')}}</th>
                                         <th>{{__('Status')}}</th>
                                     </tr>
                                     </thead>
@@ -295,6 +298,7 @@
                                                     Online
                                                 @endif
                                             </td>
+                                            <td>{{ $upcoming->coachingType != null ? $upcoming->coachingType->name : '-' }}</td>
                                             <td>@if($completed->status == 2)
                                                     <span class="status blocked">{{ __('Cancel') }}</span>
                                                 @elseif($completed->status == 3)

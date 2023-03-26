@@ -32,6 +32,7 @@
                                 <th scope="col">{{__('Date')}}</th>
                                 <th scope="col">{{__('Time')}}</th>
                                 <th scope="col">{{__('Duration')}}</th>
+                                <th scope="col">{{__('Coaching Type')}}</th>
                                 <th scope="col">{{__('Action')}}</th>
                             </tr>
                             </thead>
@@ -50,6 +51,7 @@
                                     <td>{{ $bookingHistory->date }}</td>
                                     <td>{{ $bookingHistory->time }}</td>
                                     <td>{{ $bookingHistory->duration }}</td>
+                                    <td>{{ $bookingHistory->coachingType->name }}</td>
                                     <td>
                                         <div class="red-blue-action-btns">
                                             <button type="button" data-route="{{ route('instructor.bookingStatus', [$bookingHistory->uuid, 1]) }}"
