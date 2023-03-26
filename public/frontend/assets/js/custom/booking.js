@@ -66,11 +66,11 @@
                 datatype: "json",
                 success: function (response) {
                     console.log(response)
-                    toastr.options.positionClass = 'toast-bottom-right';
-
-                    if (response.status == 404) {
-                        toastr.error(response.msg);
-                    }
+                    // toastr.options.positionClass = 'toast-bottom-right';
+                    //
+                    // if (response.status == 404) {
+                    //     toastr.error(response.msg);
+                    // }
 
                     $('.appendDayAndTime').html(response);
                 },
@@ -90,27 +90,27 @@
             // console.log(coachingType)
             var consultation_slot_id = $('.consultation_slot_id').val();
 
-            toastr.options.positionClass = 'toast-bottom-right';
-            if (!bookingDate) {
-                toastr.error("Please select date!")
-                return
-            }
+            // toastr.options.positionClass = 'toast-bottom-right';
+            // if (!bookingDate) {
+            //     toastr.error("Please select date!")
+            //     return
+            // }
 
-            if (!coachingType) {
-                console.log(coachingType)
-                toastr.error("Please select Coaching Type!")
-                return
-            }
+            // if (!coachingType) {
+            //     console.log(coachingType)
+            //     toastr.error("Please select Coaching Type!")
+            //     return
+            // }
 
-            if (!available_type) {
-                toastr.error("Please select type!")
-                return
-            }
-
-            if (!time) {
-                toastr.error("Please select time!")
-                return
-            }
+            // if (!available_type) {
+            //     toastr.error("Please select type!")
+            //     return
+            // }
+            //
+            // if (!time) {
+            //     toastr.error("Please select time!")
+            //     return
+            // }
 
             $.ajax({
                 type: "POST",
@@ -127,18 +127,18 @@
                 datatype: "json",
                 success: function (response) {
                     if (response.status == 401 || response.status == 402 || response.status == 404 || response.status == 409) {
-                        toastr.error(response.msg)
+                        // toastr.error(response.msg)
                     } else if (response.status == 200) {
                         location.href = response.redirect_route
-                        toastr.success(response.msg)
+                        // toastr.success(response.msg)
                     }
                 },
                 error: function (error) {
                     if (error.status == 401) {
-                        toastr.error("You need to login first!")
+                        // toastr.error("You need to login first!")
                     }
                     if (error.status == 403) {
-                        toastr.error("You don't have permission!")
+                        // toastr.error("You don't have permission!")
                     }
 
                 },

@@ -8,6 +8,7 @@
                 <th scope="col" class="color-gray font-15 font-medium">{{__('Price')}}</th>
                 <th scope="col" class="color-gray font-15 font-medium">{{__('Order Id')}}</th>
                 <th scope="col" class="color-gray font-15 font-medium">{{__('Type')}}</th>
+                <th scope="col" class="color-gray font-15 font-medium">{{__('Coaching Type')}}</th>
                 <th scope="col" class="color-gray font-15 font-medium">{{__('Status')}}</th>
                 <th scope="col" class="color-gray font-15 font-medium">{{__('Action')}}</th>
             </tr>
@@ -67,6 +68,9 @@
                         @elseif(@$orderItem->bookingHistory->type == 2)
                             {{ __('Online') }}
                         @endif
+                    </td>
+                    <td class="wishlist-price font-15 color-heading">
+                        {{ @$orderItem->bookingHistory->coachingType != null ? $orderItem->bookingHistory->coachingType->name : '-'}}
                     </td>
 
                     <td class="wishlist-price font-15 color-heading">
