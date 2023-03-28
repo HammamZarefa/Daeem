@@ -6,20 +6,20 @@
     <div class="container-fluid p-0">
         <div class="row">
             <div class="col-md-5">
-                <div class="sign-up-left-content">
+                <div class="sign-up-left-content" style="background-image: url({{ asset('frontend/assets/img/daeem/background-wave-footer.jpg') }})">
                     <div class="sign-up-top-logo">
                         <a href="{{ route('main.index') }}"><img src="{{getImageFile(get_option('app_logo'))}}"
                                 alt="logo"></a>
                     </div>
                     <p>{{ __(get_option('sign_up_left_text')) }}</p>
-                    @if(get_option('sign_up_left_image'))
-                    <div class="sign-up-bottom-img">
-                        <img src="{{getImageFile(get_option('sign_up_left_image'))}}" alt="hero" class="img-fluid">
-                    </div>
-                    @endif
+                    {{--  @if(get_option('sign_up_left_image'))
+                            <div class="sign-up-bottom-img">
+                                <img src="{{asset('frontend/assets/img/daeem/3.png') }}" alt="hero" class="img-fluid">
+                            </div>
+                        @endif --}}
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 mt-5">
                 <div class="sign-up-right-content bg-white">
                     <form method="POST" action="{{route('store.sign-up')}}">
                         @csrf
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="row mb-30">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label class="label-text-title color-heading font-medium font-16 mb-3"
                                     for="first_name">{{__('First Name')}} <span class="text-danger">*</span></label>
                                 <input type="text" name="first_name" id="first_name" value="{{old('first_name')}}"
@@ -80,7 +80,7 @@
                                     $errors->first('first_name') }}</span>
                                 @endif
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label class="label-text-title color-heading font-medium font-16 mb-3"
                                     for="last_name">{{__('Last Name')}} <span class="text-danger">*</span></label>
                                 <input type="text" name="last_name" id="last_name" value="{{old('last_name')}}"
@@ -89,6 +89,15 @@
                                 <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
                                     $errors->first('last_name') }}</span>
                                 @endif
+                            </div>
+                            <div class="col-md-4">
+                            <label for="exampleDataList" class="form-label label-text-title color-heading font-medium font-16 mb-3">Choose Type</label>
+                                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                    <datalist id="datalistOptions">
+                                    <option value="Student">
+                                    <option value="Coach">
+                                    <option value="Organization">
+                                    </datalist>
                             </div>
                         </div>
                         <div class="row mb-30">
