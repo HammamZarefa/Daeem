@@ -99,7 +99,8 @@ v class="show-all-course-area">
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/Bundle-course-Web-development-special-offer"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
+
+<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
 <span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
@@ -110,7 +111,7 @@ v class="show-all-course-area">
 </div>
 </div>
 <div class="card-body">
- <h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/Bundle-course-Web-development-special-offer">Bundle course - Web development special...</a></h5>
+ <h5 class="card-title course-title"><a href="{{ route('programm_details') }}">Bundle course - Web development special...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Benjamin Lucas
 | Author Level 1
@@ -304,7 +305,7 @@ v class="show-all-course-area">
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/Bundle-course-Web-development-special-offer"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
+<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
 <span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
@@ -315,7 +316,7 @@ v class="show-all-course-area">
 </div>
 </div>
 <div class="card-body">
- <h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/Bundle-course-Web-development-special-offer">Bundle course - Web development special...</a></h5>
+ <h5 class="card-title course-title"><a href="{{ route('programm_details') }}">Bundle course - Web development special...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Benjamin Lucas
 | Author Level 1
@@ -508,7 +509,7 @@ v class="show-all-course-area">
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/Bundle-course-Web-development-special-offer"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
+<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
 <span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
@@ -519,7 +520,7 @@ v class="show-all-course-area">
 </div>
 </div>
 <div class="card-body">
- <h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/Bundle-course-Web-development-special-offer">Bundle course - Web development special...</a></h5>
+ <h5 class="card-title course-title"><a href="{{ route('programm_details') }}">Bundle course - Web development special...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Benjamin Lucas
 | Author Level 1
@@ -713,7 +714,7 @@ v class="show-all-course-area">
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/Bundle-course-Web-development-special-offer"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
+<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
 <span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
@@ -724,7 +725,7 @@ v class="show-all-course-area">
 </div>
 </div>
 <div class="card-body">
- <h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/Bundle-course-Web-development-special-offer">Bundle course - Web development special...</a></h5>
+ <h5 class="card-title course-title"><a href="{{ route('programm_details') }}">Bundle course - Web development special...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Benjamin Lucas
 | Author Level 1
