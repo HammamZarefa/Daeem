@@ -32,8 +32,8 @@
             <div class="container">
                 <div class="row become-instructor-feature-wrap">
 
-                    @foreach($instructorFeatures as $instructorFeature)
-                        <!-- Become Instructor Feature Item start-->
+                @foreach($instructorFeatures as $instructorFeature)
+                    <!-- Become Instructor Feature Item start-->
                         <div class="col-md-4">
                             <div class="become-instructor-feature-item bg-white theme-border">
                                 <div class="instructor-support-img-wrap">
@@ -61,8 +61,8 @@
         <section class="become-an-instructor-procedures-area">
             <div class="container">
 
-                @foreach($instructorProcedures as $instructorProcedure)
-                    <!-- Become an instructor procedure item start-->
+            @foreach($instructorProcedures as $instructorProcedure)
+                <!-- Become an instructor procedure item start-->
                     <div class="row become-an-instructor-procedure-item align-items-center">
                         <div class="col-md-6">
                             <div class="become-an-instructor-procedure-item-left overflow-hidden">
@@ -192,19 +192,7 @@
                                 <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('first_name') }}</span>
                             @endif
                         </div>
-                        
-                        <div class="row mb-30">
-                            <div class="col-md-12">
-                                <label class="label-text-title color-heading font-medium font-16 mb-2">{{__('Account Type')}}</label>
-                                <select class="form-control"  name="account_type">
-                                    <option value="{{ USER_ROLE_INSTRUCTOR }}">{{ __('Instructor') }}</option>
-                                    <option value="{{ USER_ROLE_ORGANIZATION }}">{{ __('Organization') }}</option>
-                                </select>
-                            </div>
-                            @if ($errors->has('account_type'))
-                                <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('account_type') }}</span>
-                            @endif
-                        </div>
+
 
                         <div class="row mb-30">
                             <div class="col-md-12">
@@ -216,10 +204,49 @@
                             @endif
                         </div>
 
+                        {{--                        <div class="row mb-30">--}}
+                        {{--                            <div class="col-md-12">--}}
+                        {{--                                <label class="label-text-title color-heading font-medium font-16 mb-2">{{__('Account Type')}}</label>--}}
+                        {{--                                <select class="form-control"  name="account_type">--}}
+                        {{--                                    <option value="{{ USER_ROLE_INSTRUCTOR }}">{{ __('Instructor') }}</option>--}}
+                        {{--                                    <option value="{{ USER_ROLE_ORGANIZATION }}">{{ __('Organization') }}</option>--}}
+                        {{--                                </select>--}}
+                        {{--                            </div>--}}
+                        {{--                            @if ($errors->has('account_type'))--}}
+                        {{--                                <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('account_type') }}</span>--}}
+                        {{--                            @endif--}}
+                        {{--                        </div>--}}
+
                         <div class="row mb-30">
                             <div class="col-md-12">
-                                <label for="professional_title" class="label-text-title color-heading font-medium font-16 mb-2">{{__('Professional Title')}}</label>
-                                <input type="text" name="professional_title" class="form-control" id="professional_title" placeholder="{{__('Professional Title')}}" value="{{ old('professional_title') }}">
+                                <label class="label-text-title color-heading font-medium font-16 mb-2">{{__('Email')}}</label>
+                                <input type="text" name="email" class="form-control" id="email" placeholder="Write your email" value="{{ @Auth::user()->email }}" required>
+                            </div>
+                            @if ($errors->has('email'))
+                                <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('email') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <label class="label-text-title color-heading font-medium font-16 mb-2">{{__('Gender')}}</label>
+                                <select class="form-control"  name="gender">
+                                    <option value="{{ USER_GENDER_MALE }}">{{ __('Male') }}</option>
+                                    <option value="{{ USER_GENDER_FEMALE }}">{{ __('Female') }}</option>
+                                </select>
+                            </div>
+                            @if ($errors->has('gender'))
+                                <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('gender') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <label for="professional_title"
+                                       class="label-text-title color-heading font-medium font-16 mb-2">{{__('Professional Title')}}</label>
+                                <input type="text" name="professional_title" class="form-control"
+                                       id="professional_title" placeholder="{{__('Professional Title')}}"
+                                       value="{{ old('professional_title') }}">
                             </div>
                             @if ($errors->has('professional_title'))
                                 <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('professional_title') }}</span>
@@ -234,6 +261,46 @@
                             @if ($errors->has('phone_number'))
                                 <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('phone_number') }}</span>
                             @endif
+                        </div>
+
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <label class="label-text-title color-heading font-medium font-16 mb-2">{{__('Country')}}</label>
+                                <select class="form-control"  name="country_id">
+                                    @foreach($countries as $country)
+                                        <option value="{{ $country->id }}">{{$country->country_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @if ($errors->has('country_id'))
+                                <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('country_id') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <label class="label-text-title color-heading font-medium font-16 mb-2">{{__('Nationality')}}</label>
+                                <input type="text" name="nationality" class="form-control" id="address" placeholder="{{__('nationality')}}" value="{{ old('nationality')}}" required>
+                            </div>
+                            @if ($errors->has('nationality'))
+                                <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('nationality') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="instructor-profile-info-box">
+                            <div class="row">
+                                <div class="col-md-12 mb-30">
+                                    <label class="font-medium font-15 color-heading">{{__('Coaching Types')}}</label>
+                                    <select name="coachingTypes[]"  class="form-control select2" multiple>
+                                        @foreach ($all_coaching_types as $coachingType)
+                                            <option value="{{ $coachingType->id }}">{{ $coachingType->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('coachingTypes'))
+                                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('coachingTypes') }}</span>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row mb-30">
@@ -282,6 +349,12 @@
 @endsection
 
 @push('script')
+    <script src="{{asset('common/js/select2.min.js')}}"></script>
+    <script>
+        $('.select2').select2({
+            width: '100%'
+        });
+    </script>
     @if (@$errors->any())
         <script>
             var myModal = document.getElementById('becomeAnInstructor');

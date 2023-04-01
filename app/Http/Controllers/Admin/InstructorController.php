@@ -106,7 +106,7 @@ class InstructorController extends Controller
         if ($status == 1)
         {
             $user = User::find($instructor->user_id);
-        
+
             if(!UserPackage::where('user_id', $user->id)->first()){
                 //set default package
                 $package = Package::where('is_default', 1)->where('package_type', PACKAGE_TYPE_SAAS_INSTRUCTOR)->firstOrFail();

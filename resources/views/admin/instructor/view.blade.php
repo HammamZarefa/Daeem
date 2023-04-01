@@ -15,9 +15,12 @@
                         <div class="breadcrumb__content__right">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('instructor.index')}}">{{__('All Instructors')}}</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{__('Instructor Profile')}}</li>
+                                    <li class="breadcrumb-item"><a
+                                            href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
+                                    <li class="breadcrumb-item"><a
+                                            href="{{route('instructor.index')}}">{{__('All Instructors')}}</a></li>
+                                    <li class="breadcrumb-item active"
+                                        aria-current="page">{{__('Instructor Profile')}}</li>
                                 </ul>
                             </nav>
                         </div>
@@ -42,6 +45,14 @@
                                 {{$instructor->about_me}}
                             </p>
                         </div>
+                        {{--                        <div class="profile__item__content">--}}
+                        {{--                            <h2>{{__('Coaching Type')}}</h2>--}}
+                        {{--                            @foreach($instructor->coachingTypes as $type)--}}
+                        {{--                                <h3>--}}
+                        {{--                                    {{$type->name}}--}}
+                        {{--                                </h3>--}}
+                        {{--                            @endforeach--}}
+                        {{--                        </div>--}}
                         <ul class="profile__item__list">
                             <li>
                                 <div class="list-item">
@@ -63,6 +74,12 @@
                             </li>
                             <li>
                                 <div class="list-item">
+                                    <h2>{{__('Gender')}}:</h2>
+                                    <p>{{$instructor->gender }}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
                                     <h2>{{ __('Address') }}:</h2>
                                     <p>{{$instructor->address}} </p>
                                 </div>
@@ -75,12 +92,39 @@
                             </li>
                             <li>
                                 <div class="list-item">
+                                    <h2>{{ __('Nationality') }}: </h2>
+                                    <p>  {{$instructor->nationality}} </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item">
                                     <h2>{{ __('CV') }}:</h2>
-                                    <span><a href="{{ getVideoFile($instructor->cv_file) }}">{{ $instructor->cv_filename }}</a> </span>
+                                    <span><a
+                                            href="{{ getVideoFile($instructor->cv_file) }}">{{ $instructor->cv_filename }}</a> </span>
                                 </div>
                             </li>
 
                         </ul>
+                    </div>
+                    <div class="profile__inbox bg-style">
+                        <div class="item-title">
+                            <h2>{{__('Coaching Type')}}</h2>
+                        </div>
+                        <div class="profile__inbox__table">
+                            <table class="text-black">
+                                <tbody>
+                                @foreach($instructor->coachingTypes as $type)
+                                    <tr>
+                                        <td>
+                                            <h3>
+                                                {{$type->name}}
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="profile__inbox bg-style">
                         <div class="item-title">
@@ -236,15 +280,15 @@
                                 <tbody>
 
                                 @foreach($instructor->awards as $award)
-                                <tr>
+                                    <tr>
 
-                                    <td>
-                                        <span class="data-text">{{$award->name}}</span>
-                                    </td>
-                                    <td>
-                                        <span class="data-text">{{$award->winning_year}}</span>
-                                    </td>
-                                </tr>
+                                        <td>
+                                            <span class="data-text">{{$award->name}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="data-text">{{$award->winning_year}}</span>
+                                        </td>
+                                    </tr>
                                 @endforeach
 
                                 </tbody>

@@ -8,6 +8,11 @@ const USER_ROLE_STUDENT = 3;
 const USER_ROLE_ORGANIZATION = 4;
 
 
+//USer Gender
+const USER_GENDER_MALE = 'Male';
+const USER_GENDER_FEMALE = 'Female';
+
+
 
 // Status
 const STATUS_PENDING = 0;

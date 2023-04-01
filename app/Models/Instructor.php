@@ -20,6 +20,8 @@ class Instructor extends Model
         'city_id',
         'first_name',
         'last_name',
+        'email',
+        'nationality',
         'professional_title',
         'phone_number',
         'postal_code',
