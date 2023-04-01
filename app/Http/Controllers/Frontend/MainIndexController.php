@@ -556,4 +556,12 @@ class MainIndexController extends Controller
     {
         return view('frontend.Membership');
     }
+    public function programm_details()
+    {
+        return view('frontend.programm_details');
+    }
+    public function coash_details()
+    {
+        return view('frontend.coash_details');
+    }
 }

@@ -672,11 +672,11 @@
 
                                 <div class="owl-item active" style="width: 256.5px; margin-right: 30px;"><div class="col-12 col-sm-4 col-lg-3 w-100 mt-0 mb-25">
                                         <div class="card instructor-item search-instructor-item position-relative text-center border-0 p-30 px-3">
-                                            <div class="search-instructor-img-wrap mb-15"><a href="https://lmszai.zainikthemes.com/users/2/profile">
+                                            <div class="search-instructor-img-wrap mb-15"><a href="{{ route('coash_details') }}">
                                                     <img src="https://lmszai.zainikthemes.com/uploads_demo/user/1.jpg" alt="instructor" class="fit-image rounded-circle"></a>
                                             </div>
                                             <div class="card-body p-0">
-                                                <h6 class="card-title"><a href="https://lmszai.zainikthemes.com/users/2/profile">Johnny Depp</a>
+                                                <h6 class="card-title"><a href="{{ route('coash_details') }}">Johnny Depp</a>
                                                 </h6>
                                                 <p class="card-text instructor-designation font-medium mb-15">
                                                     PHP Developer

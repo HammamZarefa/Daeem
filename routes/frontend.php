@@ -90,6 +90,8 @@ Route::group(['middleware' => 'private.mode'], function () {
     Route::get('Membership', [MainIndexController::class, 'Membership'])->name('Membership');
     Route::get('post2', [MainIndexController::class, 'post2'])->name('post2');
     Route::get('post3', [MainIndexController::class, 'post3'])->name('post3');
+    Route::get('programm_details', [MainIndexController::class, 'programm_details'])->name('programm_details');
+    Route::get('coash_details', [MainIndexController::class, 'coash_details'])->name('coash_details');
     Route::get('support-ticket-faq', [SupportTicketController::class, 'supportTicketFAQ'])->name('support-ticket-faq');
 
     Route::get('student-join-bbb-meeting/{live_class_id}', [MyCourseController::class, 'bigBlueButtonJoinMeeting'])->name('student.join-bbb-meeting');
