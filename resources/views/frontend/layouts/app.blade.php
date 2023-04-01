@@ -110,10 +110,10 @@
 @endphp
 
 <body class="{{$selectedLanguage->rtl == 1 ? 'direction-rtl' : 'direction-ltr' }}"
-      style="{{$selectedLanguage->rtl == 1 ? 
+      style="{{$selectedLanguage->rtl == 1 ?
         '
         font-family:ArbFONTS-GE_SS_Two_Bold;
-        ' : 
+        ' :
         '
         font-family: var(--body-font-family);
         ' }}">
@@ -229,10 +229,10 @@
 var entry_id = window.location.href.substring(window.location.href.indexOf("#"));
 $(document).ready(function() {
     $('html, body').animate({
-        
+
         scrollTop: $(entry_id).offset().top
     }, 2000);
-});   
+});
 </script>
 @stack('script')
 
@@ -247,7 +247,7 @@ $(document).ready(function() {
         toastr.error("{{ $error }}")
         @endforeach
 
-        
+
     </script>
 @endif
 

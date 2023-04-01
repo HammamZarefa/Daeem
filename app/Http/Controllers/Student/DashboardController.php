@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\ProfileRequest;
 use App\Models\City;
+use App\Models\CoachingType;
 use App\Models\Country;
 use App\Models\Enrollment;
 use App\Models\Instructor;
@@ -60,12 +61,10 @@ class DashboardController extends Controller
         $data['user'] = auth::user();
         $data['student'] = $data['user']->student;
         $data['countries'] = Country::orderBy('country_name', 'asc')->get();
-        if (old('country_id'))
-        {
+        if (old('country_id')) {
             $data['states'] = State::where('country_id', old('country_id'))->orderBy('name', 'asc')->get();
         }
-        if (old('state_id'))
-        {
+        if (old('state_id')) {
             $data['cities'] = City::where('state_id', old('state_id'))->orderBy('name', 'asc')->get();
         }
         return view('frontend.student.settings.address', $data);
@@ -137,12 +136,10 @@ class DashboardController extends Controller
 
     public function becomeAnInstructor()
     {
-        if (auth()->user()->role == USER_ROLE_INSTRUCTOR)
-        {
+        if (auth()->user()->role == USER_ROLE_INSTRUCTOR) {
             $this->showToastrMessage('error', __('You are already an instructor!'));
             return redirect()->back();
-        }
-        elseif(auth()->user()->role == USER_ROLE_ORGANIZATION){
+        } elseif (auth()->user()->role == USER_ROLE_ORGANIZATION) {
             $this->showToastrMessage('error', __('You are already an organization!'));
             return redirect()->back();
         }
@@ -153,6 +150,9 @@ class DashboardController extends Controller
         $data['total_students'] = Student::count();
         $data['total_enrollments'] = Enrollment::count();
         $data['total_instructors'] = Instructor::count();
+        $data['countries'] = Country::all();
+        $data['all_coaching_types'] = CoachingType::all();
+//        dd($data['all_coaching_types']);
 
         return view('frontend.student.settings.become-an-instructor', $data);
     }
@@ -161,40 +161,114 @@ class DashboardController extends Controller
     {
         $request->validate([
             'first_name' => 'required',
+            'coachingTypes' => 'required|array',
+            'last_name' => 'required',
+            'email' => 'required',
+            'nationality' => 'required',
+            'gender' => 'required',
+            'country_id' => 'required',
+            'professional_title' => 'required',
+            'about_me' => 'required',
+            'cv_file' => 'required|max:5000|mimes:pdf',
+        ],
+            [
+                'required' => 'The :attribute field is required.',
+            ]);
+
+        $authUser = Auth::user();
+
+
+        $object = Instructor::where('user_id', $authUser->id)->get();
+
+
+        if ($object->count() > 0) {
+            $this->showToastrMessage('success', __('Request already send'));
+            return redirect(route('student.dashboard'));
+        } else {
+
+
+            $slugCount = Instructor::where('slug', getSlug($authUser->name))->count();
+
+
+            if ($slugCount) {
+                $slug = getSlug($authUser->name) . '-' . rand(100000, 999999);
+            } else {
+                $slug = getSlug($authUser->name);
+            }
+
+            $cv_file_data = $this->uploadFileWithDetails('user', $request->cv_file);
+            if (!$cv_file_data['is_uploaded']) {
+                $this->showToastrMessage('error', __('Something went wrong! Failed to upload file'));
+                return redirect()->back();
+            }
+            $data = [
+                'user_id' => Auth::user()->id,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'nationality' => $request->nationality,
+                'gender' => $request->gender,
+                'country_id' => $request->country_id,
+                'professional_title' => $request->professional_title,
+                'phone_number' => $request->phone_number,
+                'address' => $request->address,
+                'about_me' => $request->about_me,
+                'slug' => $slug,
+                'cv_file' => $cv_file_data['path'],
+                'cv_filename' => $cv_file_data['original_filename'],
+            ];
+
+            $instructor = $this->instructorModel->create($data);
+            $instructor->coachingTypes()->sync($request->coachingTypes);
+            $text = __("New organization request");
+            $target_url = route('organizations.pending');
+
+
+            $this->send($text, 1, $target_url, null);
+
+            $this->showToastrMessage('success', __('Request successfully send'));
+            return redirect(route('student.dashboard'));
+        }
+
+
+    }
+
+    public function oldSaveInstructorInfo(Request $request)
+    {
+        dd($request);
+        $request->validate([
+            'first_name' => 'required',
             'account_type' => 'required',
             'last_name' => 'required',
             'professional_title' => 'required',
             'about_me' => 'required',
             'cv_file' => 'required|max:5000|mimes:pdf',
         ],
-        [
-            'required'  => 'The :attribute field is required.',
-        ]);
+            [
+                'required' => 'The :attribute field is required.',
+            ]);
 
         $authUser = Auth::user();
 
-        if($request->account_type == USER_ROLE_ORGANIZATION){
+        if ($request->account_type == USER_ROLE_ORGANIZATION) {
             $object = Organization::where('user_id', $authUser->id)->get();
-        }
-        else{
+        } else {
             $object = Instructor::where('user_id', $authUser->id)->get();
         }
 
-        if ($object->count() > 0){
+        if ($object->count() > 0) {
             $this->showToastrMessage('success', __('Request already send'));
             return redirect(route('student.dashboard'));
         } else {
 
-            if($request->account_type == USER_ROLE_ORGANIZATION){
+            if ($request->account_type == USER_ROLE_ORGANIZATION) {
                 $slugCount = Organization::where('slug', getSlug($authUser->name))->count();
-            }
-            else{
+            } else {
                 $slugCount = Instructor::where('slug', getSlug($authUser->name))->count();
             }
 
-            if ($slugCount)
-            {
-                $slug = getSlug($authUser->name) . '-'. rand(100000, 999999);
+            if ($slugCount) {
+                $slug = getSlug($authUser->name) . '-' . rand(100000, 999999);
             } else {
                 $slug = getSlug($authUser->name);
             }
@@ -217,12 +291,11 @@ class DashboardController extends Controller
                 'cv_filename' => $cv_file_data['original_filename'],
             ];
 
-            if($request->account_type == USER_ROLE_ORGANIZATION){
+            if ($request->account_type == USER_ROLE_ORGANIZATION) {
                 $this->organizationModel->create($data);
                 $text = __("New instructor request");
                 $target_url = route('instructor.pending');
-            }
-            else{
+            } else {
                 $this->instructorModel->create($data);
                 $text = __("New organization request");
                 $target_url = route('organizations.pending');
@@ -237,21 +310,18 @@ class DashboardController extends Controller
 
     }
 
-
     public function saveProfile(ProfileRequest $request, $uuid)
     {
         $student = $this->studentModel->getRecordByUuid($uuid);
 
         $user = User::find($student->user_id);
-        if (User::where('id', '!=', $user->id)->where('email', $request->email)->count() > 0)
-        {
+        if (User::where('id', '!=', $user->id)->where('email', $request->email)->count() > 0) {
             $this->showToastrMessage('warning', __('Email already exist'));
             return redirect()->back();
         } else {
             $user->email = $request->email;
         }
-        if ($request->image)
-        {
+        if ($request->image) {
             $this->deleteFile($user->image); // delete file from server
 
             $image = $this->saveImage('user', $request->image, null, 'null'); // new file upload into server
