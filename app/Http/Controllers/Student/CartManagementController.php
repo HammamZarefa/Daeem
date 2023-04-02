@@ -728,7 +728,8 @@ class CartManagementController extends Controller
     {
         if ($request->has('proceed_to_checkout')) {
             return redirect(route('student.checkout'));
-        } elseif ($request->has('pay_from_lmszai_wallet')) {
+        }
+        elseif ($request->has('pay_from_lmszai_wallet')) {
             $carts = CartManagement::whereUserId(@Auth::id())->get();
             if (!count($carts)) {
                 $this->showToastrMessage('error', __('Your cart is empty!'));
@@ -782,11 +783,13 @@ class CartManagementController extends Controller
                 $this->showToastrMessage('success', __('Payment has been completed'));
                 return redirect()->route('student.thank-you');
             }
-        } elseif ($request->has('cancel_order')) {
+        }
+        elseif ($request->has('cancel_order')) {
             CartManagement::whereUserId(@Auth::id())->delete();
             $this->showToastrMessage('warning', __('Order has been cancel'));
             return redirect(url('/'));
-        } elseif ($request->has('pay_from_subscription')) {
+        }
+        elseif ($request->has('pay_from_subscription')) {
             $carts = CartManagement::whereUserId(@Auth::id())->get();
             if (!count($carts)) {
                 $this->showToastrMessage('error', 'Your cart is empty!');
@@ -849,7 +852,8 @@ class CartManagementController extends Controller
                 $this->showToastrMessage('success', 'Payment has been completed');
                 return redirect()->route('student.thank-you');
             }
-        } else {
+        }
+        else {
             abort(404);
         }
     }

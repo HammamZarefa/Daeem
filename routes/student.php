@@ -46,6 +46,7 @@ Route::group(['as' => 'student.'], function () {
     Route::post('address-update/{uuid}', [DashboardController::class, 'address_update'])->name('address.update');
 
     Route::get('become-an-instructor', [DashboardController::class, 'becomeAnInstructor'])->name('become-an-instructor');
+    Route::get('payForCoachRequest',[DashboardController::class, 'payForCoachRequest'])->name('payForCoachRequest');
     Route::post('save-instructor-info', [DashboardController::class, 'saveInstructorInfo'])->name('save-instructor-info')->middleware('isDemo');
     Route::post('save-profile/{uuid}', [DashboardController::class, 'saveProfile'])->name('save-profile')->middleware('isDemo');
     Route::get('get-state-by-country/{country_id}', [DashboardController::class, 'getStateByCountry']);
@@ -66,6 +67,7 @@ Route::group(['as' => 'student.'], function () {
 
 
     Route::get('checkout', [CartManagementController::class, 'checkout'])->name('checkout');
+    Route::get('checkoutForBecomeCoach', [DashboardController::class, 'checkoutForBecomeCoach'])->name('checkoutForBecomeCoach');
     Route::post('razorpay_payment', [CartManagementController::class, 'razorpay_payment'])->name('razorpay_payment');
     Route::post('pay', [CartManagementController::class, 'pay'])->name('pay')->middleware('isDemo');
 

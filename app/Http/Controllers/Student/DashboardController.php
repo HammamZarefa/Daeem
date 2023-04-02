@@ -4,14 +4,24 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\ProfileRequest;
+use App\Models\AffiliateRequest;
+use App\Models\Bank;
+use App\Models\Bundle;
+use App\Models\BundleCourse;
+use App\Models\CartManagement;
 use App\Models\City;
 use App\Models\CoachingType;
 use App\Models\Country;
+use App\Models\Course;
+use App\Models\CourseInstructor;
 use App\Models\Enrollment;
 use App\Models\Instructor;
 use App\Models\InstructorFeature;
 use App\Models\InstructorProcedure;
+use App\Models\Order;
+use App\Models\Order_item;
 use App\Models\Organization;
+use App\Models\Product;
 use App\Models\State;
 use App\Models\Student;
 use App\Models\User;
@@ -19,8 +29,10 @@ use App\Tools\Repositories\Crud;
 use App\Traits\General;
 use App\Traits\ImageSaveTrait;
 use App\Traits\SendNotification;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -231,6 +243,86 @@ class DashboardController extends Controller
         }
 
 
+    }
+
+    public function payForCoachRequest(){
+        $user = User::find(2);
+        $price = 200;
+        DB::beginTransaction();
+        try {
+            $cartManagement = CartManagement::where('user_id',$user->id)
+                ->where('course_id',null)
+                ->where('product_id',null)
+                ->where('consultation_slot_id',null)
+                ->where('bundle_id',null)
+                ->where('bundle_course_ids',null)
+                ->where('promotion_id',null)
+                ->first();
+            if ($cartManagement){
+                $response['msg'] = __("You've already request to be a coach!");
+                $response['status'] = 402;
+                DB::rollBack();
+                return response()->json($response);
+            }
+            $cart = new CartManagement();
+            $cart->user_id = Auth::user()->id;
+
+
+                $cart->main_price = $price;
+                $cart->price = $price;
+
+
+
+
+            $cart->save();
+
+            $response['quantity'] = CartManagement::whereUserId(Auth::user()->id)->count();
+            $response['msg'] = __("Added to cart");
+            $response['msgInfoChange'] = __("Added to cart");
+            $response['status'] = 200;
+            //End:: Cart Management
+            DB::commit();
+            return redirect(route('student.checkoutForBecomeCoach'));
+            return response()->json($response);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            $response['msg'] = __("Something is wrong! Try again.");
+            $response['status'] = 402;
+            return response()->json($response);
+        }
+    }
+    public function checkoutForBecomeCoach()
+    {
+        $data['pageTitle'] = "Checkout";
+        $data['carts'] = CartManagement::whereUserId(@Auth::id())
+            ->where('course_id',null)
+            ->where('product_id',null)
+            ->where('consultation_slot_id',null)
+            ->where('bundle_id',null)
+            ->where('bundle_course_ids',null)
+            ->where('promotion_id',null)->get();
+        $data['student'] = auth::user()->student;
+        $data['countries'] = Country::orderBy('country_name', 'asc')->get();
+        $data['banks'] = Bank::orderBy('name', 'asc')->where('status', 1)->get();
+
+        if (old('country_id')) {
+            $data['states'] = State::where('country_id', old('country_id'))->orderBy('name', 'asc')->get();
+        }
+
+        if (old('state_id')) {
+            $data['cities'] = City::where('state_id', old('state_id'))->orderBy('name', 'asc')->get();
+        }
+
+        $razorpay_grand_total_with_conversion_rate = ($data['carts']->sum('price') + get_platform_charge($data['carts']->sum('price'))) * (get_option('razorpay_conversion_rate') ? get_option('razorpay_conversion_rate') : 0);
+        $data['razorpay_grand_total_with_conversion_rate'] = (float)preg_replace("/[^0-9.]+/", "", number_format($razorpay_grand_total_with_conversion_rate, 2));
+
+        $paystack_grand_total_with_conversion_rate = ($data['carts']->sum('price') + get_platform_charge($data['carts']->sum('price'))) * (get_option('paystack_conversion_rate') ? get_option('paystack_conversion_rate') : 0);
+        $data['paystack_grand_total_with_conversion_rate'] = (float)preg_replace("/[^0-9.]+/", "", number_format($paystack_grand_total_with_conversion_rate, 2));
+
+        $sslcommerz_grand_total_with_conversion_rate = ($data['carts']->sum('price') + get_platform_charge($data['carts']->sum('price'))) * (get_option('sslcommerz_conversion_rate') ? get_option('sslcommerz_conversion_rate') : 0);
+        $data['sslcommerz_grand_total_with_conversion_rate'] = (float)preg_replace("/[^0-9.]+/", "", number_format($sslcommerz_grand_total_with_conversion_rate, 2));
+
+        return view('frontend.student.cart.checkout', $data);
     }
 
     public function oldSaveInstructorInfo(Request $request)
