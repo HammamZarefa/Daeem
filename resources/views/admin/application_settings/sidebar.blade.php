@@ -262,6 +262,12 @@
                     <span>{{ __('Instructor CMS') }}</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('settings.instructor.coast') }}" class="list-item {{ @$instructorCoastSettingsActiveClass }}">
+                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
+                    <span>{{ __('Instructor Coast') }}</span>
+                </a>
+            </li>
 
         </ul>
     </div>

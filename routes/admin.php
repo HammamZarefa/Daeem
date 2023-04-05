@@ -512,6 +512,7 @@ Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
     Route::get('instructor-procedure-settings', [SettingController::class, 'instructorProcedureSetting'])->name('instructor-procedure');
     Route::post('instructor-procedure-settings', [SettingController::class, 'instructorProcedureSettingUpdate'])->name('instructor-procedure.update')->middleware('isDemo');
     Route::get('instructor-cms', [SettingController::class, 'instructorCMSSetting'])->name('instructor.cms');
+    Route::get('instructor-coast', [SettingController::class, 'instructorCoastSetting'])->name('instructor.coast');
     //End:: Become an Instructor
 
     //Start:: FAQ Question & Answer

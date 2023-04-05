@@ -245,10 +245,11 @@ class DashboardController extends Controller
 
     }
 
-    public function payForCoachRequest()
+    public function payForCoachRequest($uuid)
     {
-        $user = User::find(2);
-        $price = 200;
+        $instructor = $this->instructorModel->getRecordByUuid($uuid);
+        $user = $instructor->user;
+        $price = get_option('become_instructor_coast');
         DB::beginTransaction();
         try {
             $cartManagement = CartManagement::where('user_id', $user->id)
