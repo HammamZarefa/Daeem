@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ForgotPasswordMail;
+use App\Mail\PayForBecomeCoachMail;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Course;
@@ -23,6 +25,8 @@ use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class InstructorController extends Controller
@@ -100,11 +104,13 @@ class InstructorController extends Controller
     public function changeStatus($uuid, $status)
     {
         $instructor = $this->instructorModel->getRecordByUuid($uuid);
+
         $instructor->status = $status;
-        $instructor->save();
+
 
         if ($status == 1)
         {
+            $instructor->status = 4;
             $user = User::find($instructor->user_id);
 
             if(!UserPackage::where('user_id', $user->id)->first()){
@@ -129,11 +135,49 @@ class InstructorController extends Controller
             }
 
             $user->role = USER_ROLE_INSTRUCTOR;
+
             $user->save();
             setBadge($user->id);
+            $instructor->save();
+            $this->sendPayForBecomeCoachEmail($uuid);
+            $this->showToastrMessage('success', __('Status has been changed'));
+            return redirect()->back();
+
+        }else{
+            $instructor->save();
+            $this->showToastrMessage('success', __('Status has been changed'));
+            return redirect()->back();
         }
 
-        $this->showToastrMessage('success', __('Status has been changed'));
+    }
+
+    public function sendPayForBecomeCoachEmail($uuid)
+    {
+        $instructor = $this->instructorModel->getRecordByUuid($uuid);
+        if ($instructor)
+        {
+            $verification_code = rand(10000, 99999);
+            if ($verification_code)
+            {
+                $instructor->pay_token = $verification_code;
+                $instructor->save();
+            }
+
+            try {
+                Mail::to($instructor->email)->send(new PayForBecomeCoachMail($instructor, $verification_code));
+            } catch (\Exception $exception) {
+                toastrMessage('error', 'Something is wrong. Try after few minutes!');
+                return redirect()->back();
+            }
+
+            Session::put('email', $instructor->email);
+            Session::put('verification_code', $verification_code);
+
+            $this->showToastrMessage('success', __('Pay Instruction sent To Instructor email. Please check.'));
+            return redirect()->back();
+        }
+
+        $this->showToastrMessage('error', __('Instructor Email is incorrect!'));
         return redirect()->back();
     }
 
