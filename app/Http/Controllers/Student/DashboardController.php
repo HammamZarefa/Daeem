@@ -245,20 +245,21 @@ class DashboardController extends Controller
 
     }
 
-    public function payForCoachRequest(){
+    public function payForCoachRequest()
+    {
         $user = User::find(2);
         $price = 200;
         DB::beginTransaction();
         try {
-            $cartManagement = CartManagement::where('user_id',$user->id)
-                ->where('course_id',null)
-                ->where('product_id',null)
-                ->where('consultation_slot_id',null)
-                ->where('bundle_id',null)
-                ->where('bundle_course_ids',null)
-                ->where('promotion_id',null)
+            $cartManagement = CartManagement::where('user_id', $user->id)
+                ->where('course_id', null)
+                ->where('product_id', null)
+                ->where('consultation_slot_id', null)
+                ->where('bundle_id', null)
+                ->where('bundle_course_ids', null)
+                ->where('promotion_id', null)
                 ->first();
-            if ($cartManagement){
+            if ($cartManagement) {
                 $response['msg'] = __("You've already request to be a coach!");
                 $response['status'] = 402;
                 DB::rollBack();
@@ -266,13 +267,8 @@ class DashboardController extends Controller
             }
             $cart = new CartManagement();
             $cart->user_id = Auth::user()->id;
-
-
-                $cart->main_price = $price;
-                $cart->price = $price;
-
-
-
+            $cart->main_price = $price;
+            $cart->price = $price;
 
             $cart->save();
 
@@ -291,16 +287,17 @@ class DashboardController extends Controller
             return response()->json($response);
         }
     }
+
     public function checkoutForBecomeCoach()
     {
         $data['pageTitle'] = "Checkout";
         $data['carts'] = CartManagement::whereUserId(@Auth::id())
-            ->where('course_id',null)
-            ->where('product_id',null)
-            ->where('consultation_slot_id',null)
-            ->where('bundle_id',null)
-            ->where('bundle_course_ids',null)
-            ->where('promotion_id',null)->get();
+            ->where('course_id', null)
+            ->where('product_id', null)
+            ->where('consultation_slot_id', null)
+            ->where('bundle_id', null)
+            ->where('bundle_course_ids', null)
+            ->where('promotion_id', null)->get();
         $data['student'] = auth::user()->student;
         $data['countries'] = Country::orderBy('country_name', 'asc')->get();
         $data['banks'] = Bank::orderBy('name', 'asc')->where('status', 1)->get();
