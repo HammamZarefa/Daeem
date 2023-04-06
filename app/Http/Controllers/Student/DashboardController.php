@@ -247,6 +247,7 @@ class DashboardController extends Controller
 
     public function payForCoachRequest($uuid)
     {
+//        dd('afsfasf');
         $instructor = $this->instructorModel->getRecordByUuid($uuid);
         $user = $instructor->user;
         $price = get_option('become_instructor_coast');
@@ -320,7 +321,7 @@ class DashboardController extends Controller
         $sslcommerz_grand_total_with_conversion_rate = ($data['carts']->sum('price') + get_platform_charge($data['carts']->sum('price'))) * (get_option('sslcommerz_conversion_rate') ? get_option('sslcommerz_conversion_rate') : 0);
         $data['sslcommerz_grand_total_with_conversion_rate'] = (float)preg_replace("/[^0-9.]+/", "", number_format($sslcommerz_grand_total_with_conversion_rate, 2));
 
-        return view('frontend.student.cart.checkout', $data);
+        return view('frontend.student.cart.checkoutForBecomeCoach', $data);
     }
 
     public function oldSaveInstructorInfo(Request $request)

@@ -46,7 +46,7 @@ Route::group(['as' => 'student.'], function () {
     Route::post('address-update/{uuid}', [DashboardController::class, 'address_update'])->name('address.update');
 
     Route::get('become-an-instructor', [DashboardController::class, 'becomeAnInstructor'])->name('become-an-instructor');
-    Route::get('payForCoachRequest/uuid',[DashboardController::class, 'payForCoachRequest'])->name('payForCoachRequest');
+    Route::get('payForCoachRequest/{uuid}',[DashboardController::class, 'payForCoachRequest'])->name('payForCoachRequest');
     Route::post('save-instructor-info', [DashboardController::class, 'saveInstructorInfo'])->name('save-instructor-info')->middleware('isDemo');
     Route::post('save-profile/{uuid}', [DashboardController::class, 'saveProfile'])->name('save-profile')->middleware('isDemo');
     Route::get('get-state-by-country/{country_id}', [DashboardController::class, 'getStateByCountry']);
