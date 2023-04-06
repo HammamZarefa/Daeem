@@ -979,6 +979,7 @@ class CartManagementController extends Controller
 
     public function pay(Request $request)
     {
+//        dd(Auth::user()->instructor);
         if (is_null($request->payment_method)) {
             $this->showToastrMessage('warning', __('Please Select Payment Method'));
             return redirect()->back();
@@ -997,12 +998,12 @@ class CartManagementController extends Controller
             }
         }
 
-        if ($request->payment_method == 'mollie') {
-            if (empty(env('MOLLIE_KEY'))) {
-                $this->showToastrMessage('error', __('Mollie payment gateway is off!'));
-                return redirect()->back();
-            }
-        }
+//        if ($request->payment_method == 'mollie') {
+//            if (empty(env('MOLLIE_KEY'))) {
+//                $this->showToastrMessage('error', __('Mollie payment gateway is off!'));
+//                return redirect()->back();
+//            }
+//        }
 
         if ($request->payment_method == 'instamojo') {
             if (empty(env('IM_API_KEY')) || empty(env('IM_AUTH_TOKEN')) || empty(env('IM_URL'))) {
@@ -1016,7 +1017,12 @@ class CartManagementController extends Controller
                 return redirect()->back();
             }
         }
-        $order_data = $this->placeOrder($request->payment_method);
+        if (is_null($request->payForBecomeCoach)){
+            $order_data = $this->placeOrder($request->payment_method);
+        }else{
+            $order_data = $this->placeOrderForBecomeCoach($request->payment_method);
+        }
+
         if ($order_data['status']) {
             $order = $order_data['data'];
         } else {
@@ -1351,7 +1357,8 @@ class CartManagementController extends Controller
                     $order_item->save();
                     $this->addAffiliateHistory($cart, $order, $order_item);
 
-                } elseif ($cart->bundle_id) {
+                }
+                elseif ($cart->bundle_id) {
                     // $bundleIds = Enrollment::where('user_id', auth()->id())->whereNotIn('course_id', $cart->bundle_course_ids)->whereDate('end_date', '<', now())->select('course_id')->get()->toArray();
                     $courses = Course::whereIn('id', $cart->bundle_course_ids)->get();
                     $bundleUserId = $cart->bundle->user_id;
@@ -1394,7 +1401,8 @@ class CartManagementController extends Controller
                         $this->addAffiliateHistory($cart, $order, $order_item);
                     }
 
-                } elseif ($cart->consultation_slot_id) {
+                }
+                elseif ($cart->consultation_slot_id) {
                     $order_item = new Order_item();
                     $order_item->order_id = $order->id;
                     $order_item->user_id = Auth::id();
@@ -1434,6 +1442,105 @@ class CartManagementController extends Controller
 
                     //End:: Add Booking History
                 }
+
+            }
+
+            DB::commit();
+            return ['status' => true, 'data' => $order];
+        } catch (\Exception $e) {
+            DB::rollBack();
+            $this->logger->log('Cannot Create Order', $e->getMessage());
+            return ['status' => false, 'data' => null];
+        }
+
+    }
+    private function placeOrderForBecomeCoach($payment_method)
+    {
+        DB::beginTransaction();
+        try {
+            $carts = CartManagement::whereUserId(@Auth::id())
+                ->where('course_id', null)
+                ->where('product_id', null)
+                ->where('consultation_slot_id', null)
+                ->where('bundle_id', null)
+                ->where('bundle_course_ids', null)
+                ->where('promotion_id', null)->get();
+            $order = new Order();
+            $order->user_id = Auth::user()->id;
+            $order->order_number = rand(100000, 999999);
+            $order->sub_total = $carts->sum('price');
+            $order->discount = $carts->sum('discount');
+            $order->platform_charge = get_platform_charge($carts->sum('price'));
+            $order->current_currency = get_currency_code();
+            $order->grand_total = $order->sub_total + $order->platform_charge;
+            $order->payment_method = $payment_method;
+
+            $payment_currency = '';
+            $conversion_rate = '';
+
+            if ($payment_method == 'paypal') {
+                $payment_currency = get_option('paypal_currency');
+                $conversion_rate = get_option('paypal_conversion_rate') ? get_option('paypal_conversion_rate') : 0;
+            } elseif ($payment_method == 'stripe') {
+                $payment_currency = get_option('stripe_currency');
+                $conversion_rate = get_option('stripe_conversion_rate') ? get_option('stripe_conversion_rate') : 0;
+            } elseif ($payment_method == 'bank') {
+                $payment_currency = get_option('bank_currency');
+                $conversion_rate = get_option('bank_conversion_rate') ? get_option('bank_conversion_rate') : 0;
+            } elseif ($payment_method == 'mollie') {
+                $payment_currency = get_option('mollie_currency');
+                $conversion_rate = get_option('mollie_conversion_rate') ? get_option('mollie_conversion_rate') : 0;
+            } elseif ($payment_method == 'instamojo') {
+                $payment_currency = get_option('im_currency');
+                $conversion_rate = get_option('im_conversion_rate') ? get_option('im_conversion_rate') : 0;
+            } elseif ($payment_method == 'paystack') {
+                $payment_currency = get_option('paystack_currency');
+                $conversion_rate = get_option('paystack_conversion_rate') ? get_option('paystack_conversion_rate') : 0;
+            } elseif ($payment_method == 'sslcommerz') {
+                $payment_currency = get_option('sslcommerz_currency');
+                $conversion_rate = get_option('sslcommerz_conversion_rate') ? get_option('sslcommerz_conversion_rate') : 0;
+            } elseif ($payment_method == 'mercadopago') {
+                $payment_currency = get_option('mercado_currency');
+                $conversion_rate = get_option('mercado_conversion_rate') ? get_option('mercado_conversion_rate') : 0;
+            } elseif ($payment_method == 'flutterwave') {
+                $payment_currency = get_option('flutterwave_currency');
+                $conversion_rate = get_option('flutterwave_conversion_rate') ? get_option('flutterwave_conversion_rate') : 0;
+            }
+
+            $order->payment_currency = $payment_currency;
+            $order->conversion_rate = $conversion_rate;
+            if ($conversion_rate) {
+                $order->grand_total_with_conversation_rate = ($order->sub_total + $order->platform_charge) * $conversion_rate;
+            }
+
+            $order->save();
+
+            foreach ($carts as $cart) {
+
+                    $order_item = new Order_item();
+                    $order_item->order_id = $order->id;
+                    $order_item->user_id = Auth::id();
+                    $order_item->course_id = $cart->course_id;
+                    $order_item->owner_user_id =  null;
+                    $order_item->unit_price = $cart->price;
+                    $userPackage = UserPackage::join('packages', 'packages.id', '=', 'user_packages.package_id')->whereIn('packages.package_type', [PACKAGE_TYPE_SAAS_INSTRUCTOR, PACKAGE_TYPE_SAAS_ORGANIZATION])->where('user_packages.user_id', $order_item->owner_user_id)->where('user_packages.status', PACKAGE_STATUS_ACTIVE)->whereDate('enroll_date', '<=', now())->whereDate('expired_date', '>=', now())->first();
+                    $adminCommission = ($userPackage && $userPackage->admin_commission) ? $userPackage->admin_commission : get_option('sell_commission');
+                    if ($adminCommission) {
+                        $order_item->admin_commission = admin_commission_by_percentage($cart->price, $adminCommission);
+                        $order_item->owner_balance = $cart->price - admin_commission_by_percentage($cart->price, $adminCommission);
+                        $order_item->sell_commission = $adminCommission;
+                    } else {
+                        $order_item->owner_balance = $cart->price;
+                    }
+
+                    $order_item->save();
+                    $instructor = Auth::user()->instructor;
+                    $instructor->status = 1;
+                    $instructor->save();
+                    $this->addAffiliateHistory($cart, $order, $order_item);
+
+
+
 
             }
 
