@@ -1,0 +1,2 @@
+Domain Name,Record Name,Record Type,Record Value
+admin.mikroelektron.com,_b507be0e9462a81a61952aed4285a2f9.admin.mikroelektron.com.,CNAME,_0eb21519eab94618e176afe5723deff0.jddtvkljgg.acm-validations.aws.

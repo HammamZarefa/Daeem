@@ -326,7 +326,6 @@ class DashboardController extends Controller
 
     public function oldSaveInstructorInfo(Request $request)
     {
-        dd($request);
         $request->validate([
             'first_name' => 'required',
             'account_type' => 'required',
