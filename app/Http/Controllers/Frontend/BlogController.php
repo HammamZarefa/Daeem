@@ -20,9 +20,11 @@ class BlogController extends Controller
     {
         $data['pageTitle'] = "Blog";
         $data['metaData'] = staticMeta(5);
-        if ($type == 'gallery')
+        if ($type == 'gallery' || $type == 'Gallery') {
             $data['blogs'] = Blog::whereIn('type', ['video', 'image'])->latest()->active()->paginate(10);
-        else
+            $data['pageTitle'] = "Gallery";
+            return view('frontend.blog.gallery', $data);
+        } else
             $data['blogs'] = Blog::where('type', $type)->latest()->active()->paginate(10);
         $data['recentBlogs'] = Blog::where('type', $type)->latest()->take(3)->active()->get();
         $data['blogCategories'] = BlogCategory::withCount('activeBlogs')->active()->get();
@@ -35,13 +37,21 @@ class BlogController extends Controller
         $data['pageTitle'] = "Blog Details";
         $data['metaData'] = staticMeta(6);
         $data['blog'] = Blog::whereSlug($slug)->firstOrFail();
+
         $tag_ids = BlogTag::whereBlogId($data['blog']->id)->pluck('tag_id')->toArray();
         $data['tags'] = Tag::whereIn('id', $tag_ids)->get();
         $data['recentBlogs'] = Blog::latest()->take(3)->active()->get();
         $data['blogCategories'] = BlogCategory::withCount('blogs')->active()->get();
         $data['blogComments'] = BlogComment::active();
         $data['blogComments'] = $data['blogComments']->where('blog_id', $data['blog']->id)->whereNull('parent_id')->get();
-        return view('frontend.blog.blog-details', $data);
+        if ($data['blog']->type == 'image' || $data['blog']->type == 'video') {
+            $data['pageTitle'] = "Gallery Details";
+            $data['recentBlogs'] = Blog::whereIn('type', ['video', 'image'])->latest()->take(3)->active()->get();
+            return view('frontend.blog.gallery-details', $data);
+        } else {
+            return view('frontend.blog.blog-details', $data);
+        }
+
     }
 
     public function categoryBlogs($slug)

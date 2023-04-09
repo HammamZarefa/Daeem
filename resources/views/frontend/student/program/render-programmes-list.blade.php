@@ -16,6 +16,7 @@
 
             @foreach($enrollments as $enrollment)
                 @if($enrollment->course_id)
+                    @if($enrollment->course->course_type == 3)
                 <tr>
                     <td class="wishlist-course-item">
                         <div class="card course-item wishlist-item border-0 d-flex align-items-center">
@@ -76,6 +77,7 @@
                         @endif
                     </td>
                 </tr>
+                    @endif
                 @endif
             @endforeach
 
