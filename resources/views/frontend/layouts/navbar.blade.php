@@ -17,7 +17,7 @@
             </button>
             <div class="main-menu-collapse collapse navbar-collapse" id="navbarSupportedContent">
 
-                <!-- <div class="header-nav-left-side me-auto d-flex">
+            <!-- <div class="header-nav-left-side me-auto d-flex">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
@@ -26,17 +26,17 @@
                 </a>
                 <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
                                 @foreach($categories as $category)
-                    <li>
-                        <a href="{{ route('category-courses', $category->slug) }}"
+                <li>
+                    <a href="{{ route('category-courses', $category->slug) }}"
                                         class="dropdown-item @if(count($category->subcategories) > 0)
-                        dropdown-toggle
-                    @endif">{{
+                    dropdown-toggle
+@endif">{{
                                         $category->name }}</a>
                                     @if(count($category->subcategories) > 0)
-                        <ul class="submenu dropdown-menu">
+                    <ul class="submenu dropdown-menu">
 @foreach($category->subcategories as $subcategory)
-                            <li><a class="dropdown-item"
-                                    href="{{ route('subcategory-courses', $subcategory->slug) }}">{{
+                        <li><a class="dropdown-item"
+                                href="{{ route('subcategory-courses', $subcategory->slug) }}">{{
                                                 $subcategory->name }}</a></li>
 
                         @endforeach
@@ -74,18 +74,18 @@
                 </div> -->
                 <div class="header-nav-right-side d-flex">
                     <ul class="navbar-nav">
-                        <!-- <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown"
                                 data-bs-toggle="dropdown">{{__('Pages')}}</a>
                             <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
                                 @foreach($staticMenus ?? [] as $staticMenu)
-                            <li><a class="dropdown-item" href="{{ route( $staticMenu->slug ) }}">{{
+                        <li><a class="dropdown-item" href="{{ route( $staticMenu->slug ) }}">{{
                                         __($staticMenu->name) }}</a></li>
 
                         @endforeach
 
-                        @foreach($dynamicMenus ?? [] as $dynamicMenu)
-                            <li><a class="dropdown-item" href="{{ route('page', @$dynamicMenu->page->slug) }}">{{
+                    @foreach($dynamicMenus ?? [] as $dynamicMenu)
+                        <li><a class="dropdown-item" href="{{ route('page', @$dynamicMenu->page->slug) }}">{{
                                         __($dynamicMenu->name) }}</a></li>
 
                         @endforeach
@@ -99,7 +99,7 @@
                                data-bs-toggle="dropdown">
                                 {{ __('About Us') }}
                             </a>
-                        <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
+                            <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
                                 <li>
                                     <a href="{{ url('/about-us#Vision') }}" class="dropdown-item">@lang('Vision')</a>
                                 </li>
@@ -107,10 +107,12 @@
                                     <a href="{{ url('/about-us#Goal') }}" class="dropdown-item">@lang('Goal')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/about-us#Servcies') }}" class="dropdown-item">@lang('Servcies')</a>
+                                    <a href="{{ url('/about-us#Servcies') }}"
+                                       class="dropdown-item">@lang('Servcies')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/about-us#Coaching') }}" class="dropdown-item">@lang('Coaching')</a>
+                                    <a href="{{ url('/about-us#Coaching') }}"
+                                       class="dropdown-item">@lang('Coaching')</a>
                                 </li>
                             </ul>
                         </li>
@@ -133,48 +135,51 @@
                                     <a href="{{ route('blogs', 'news') }}" class="dropdown-item">@lang('news')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('blogs', 'advertisement') }}" class="dropdown-item">@lang('advertisement')</a>
+                                    <a href="{{ route('blogs', 'advertisement') }}"
+                                       class="dropdown-item">@lang('advertisement')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('blogs', 'partnership') }}" class="dropdown-item">@lang('partnership')</a>
+                                    <a href="{{ route('blogs', 'partnership') }}"
+                                       class="dropdown-item">@lang('partnership')</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('blogs', 'meet') }}" class="dropdown-item">@lang('meet')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('blogs', 'development') }}" class="dropdown-item">@lang('development')</a>
+                                    <a href="{{ route('blogs', 'development') }}"
+                                       class="dropdown-item">@lang('development')</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('blogs', 'Gallery') }}" class="dropdown-item">@lang('Gallery')</a>
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
                                data-bs-toggle="dropdown">
                                 {{ __('Courses') }}
-                            </a>
-                            <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
+                        </a>
+                        <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
                                 @foreach($categories as $category)
-                                    <li>
-                                        <a href="{{ route('category-courses', $category->slug) }}"
+                        <li>
+                            <a href="{{ route('category-courses', $category->slug) }}"
                                            class="dropdown-item @if(count($category->subcategories) > 0) dropdown-toggle @endif">{{
                                         $category->name }}</a>
                                         @if(count($category->subcategories) > 0)
-                                            <ul class="submenu dropdown-menu">
-                                                @foreach($category->subcategories as $subcategory)
-                                                    <li><a class="dropdown-item"
-                                                           href="{{ route('subcategory-courses', $subcategory->slug) }}">{{
+                            <ul class="submenu dropdown-menu">
+@foreach($category->subcategories as $subcategory)
+                                <li><a class="dropdown-item"
+                                       href="{{ route('subcategory-courses', $subcategory->slug) }}">{{
                                                 $subcategory->name }}</a></li>
                                                 @endforeach
-                                            </ul>
-                                        @endif
-                                    </li>
-                                @endforeach
-                                <li>
-                                    <hr class="dropdown-divider" style="background-color: #ffffff45;">
-                                </li>
-                                <li><a href="{{ route('courses') }}">{{ __('All Courses') }}</a></li>
+                                </ul>
+@endif
+                            </li>
+@endforeach
+                        <li>
+                            <hr class="dropdown-divider" style="background-color: #ffffff45;">
+                        </li>
+                        <li><a href="{{ route('courses') }}">{{ __('All Courses') }}</a></li>
                             </ul>
                         </li> -->
                         @if(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_STUDENT || @$authUser->role == USER_ROLE_ORGANIZATION)
@@ -191,9 +196,14 @@
                                         <a class="nav-link" href="{{route('student.become-an-instructor')}}">{{__('Become an
                                 Instructor')}}</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('student.become-an-organization')}}">{{__('Become an
+                                Organization')}}</a>
+                                    </li>
                                 @endif
                             @elseif(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_ORGANIZATION)
-                                <!-- Status 1 = Approved,  Status 2 = Blocked,  Status 0 = Pending -->
+                            <!-- Status 1 = Approved,  Status 2 = Blocked,  Status 0 = Pending -->
+                                {{--                                {{dd(@$authUser->instructor->status)}}--}}
                                 @if(@$authUser->instructor->status == STATUS_APPROVED)
                                     @if(\Illuminate\Support\Str::contains(url()->current(), 'instructor'))
                                         <li class="nav-item">
@@ -239,8 +249,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('Membership') }}">{{__('Membership')}}</a>
                             </li>
-                            
-                            <!-- <li class="nav-item">
+
+                        <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
                             </li> -->
                             <li class="nav-item">
@@ -269,9 +279,9 @@
                                 @endforeach
                             </ul>
                         </li>
-                        @if(@$authUser->role != USER_ROLE_ADMIN)
-                            @if(auth::user())
-                                <!-- Menu Notification Option Start -->
+                    @if(@$authUser->role != USER_ROLE_ADMIN)
+                        @if(auth::user())
+                            <!-- Menu Notification Option Start -->
                                 <li class="nav-item dropdown menu-round-btn menu-notification-btn dropdown-top-space">
                                     <a class="nav-link menu-cart-btn" href="#">
                                         <i data-feather="bell"></i>
@@ -304,8 +314,8 @@
                                              id="pills-tabContent">
                                             <div class="tab-pane fade show active" id="pills-student" role="tabpanel"
                                                  aria-labelledby="pills-student-tab">
-                                                @forelse ( $student_notifications as $student_notification)
-                                                    <!-- Message User Item Start -->
+                                            @forelse ( $student_notifications as $student_notification)
+                                                <!-- Message User Item Start -->
                                                     <a href="{{route('notification.url', [$student_notification->uuid])}}"
                                                        class="message-user-item cursor d-flex align-items-center">
                                                         <div class="message-user-item-left">
@@ -340,8 +350,8 @@
 
                                             <div class="tab-pane fade " id="pills-instructor" role="tabpanel"
                                                  aria-labelledby="pills-instructor-tab">
-                                                @forelse ( $instructor_notifications as $instructor_notification)
-                                                    <!-- Message User Item Start -->
+                                            @forelse ( $instructor_notifications as $instructor_notification)
+                                                <!-- Message User Item Start -->
                                                     <a href="{{route('notification.url', [$instructor_notification->uuid])}}"
                                                        class="message-user-item d-flex align-items-center">
                                                         <div class="message-user-item-left">
@@ -379,9 +389,9 @@
                                     </div>
                                 </li>
                                 <!-- Menu Notification Option End -->
-                            @endif
+                        @endif
 
-                            <!-- Menu Cart Option Start -->
+                        <!-- Menu Cart Option Start -->
                             <li class="nav-item menu-round-btn menu-cart-btn">
                                 <a class="nav-link menu-cart-btn" aria-current="page"
                                    href="{{ route('student.cartList') }}">
@@ -396,10 +406,10 @@
                                 </a>
                             </li>
                             <!-- Menu Cart Option End -->
-                        @endif
-                        @if (Route::has('login'))
-                            @auth
-                                <!-- Menu User Dropdown Menu Option Start -->
+                    @endif
+                    @if (Route::has('login'))
+                        @auth
+                            <!-- Menu User Dropdown Menu Option Start -->
                                 <li class="nav-item dropdown menu-round-btn menu-user-btn dropdown-top-space">
                                     <a class="nav-link" href="#">
                                         <img src="{{asset(auth::user()->image_path)}}" alt="user" class="radius-50">

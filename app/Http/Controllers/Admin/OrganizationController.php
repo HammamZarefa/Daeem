@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\PayForBecomeCoachMail;
+use App\Mail\PayForBecomeOrganizationMail;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Course;
@@ -22,6 +24,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class OrganizationController extends Controller
 {
@@ -350,9 +354,10 @@ class OrganizationController extends Controller
         if (is_null($organization)) {
             return response()->json(['message' => __('Organization Not Found!'), 'status' => false]);
         }
-
+        $organization->status = $request->status;
         if ($request->status == STATUS_APPROVED)
         {
+            $organization->status = 4;
             $user = $organization->user;
             if(!UserPackage::where('user_id', $user->id)->first()){
                 //set default package
@@ -379,10 +384,39 @@ class OrganizationController extends Controller
             $user->save();
 
             setBadge($user->id);
+            $organization->save();
+            $this->sendPayForBecomeOrganizationEmail($organization->uuid);
+            return response()->json(['message' => __('Organization status has been updated'), 'status' => true]);
+        }else{
+            $organization->save();
+            return response()->json(['message' => __('Organization status has been updated'), 'status' => true]);
         }
 
-        $organization->status = $request->status;
-        $organization->save();
-        return response()->json(['message' => __('Organization status has been updated'), 'status' => true]);
+
+
+
+    }
+
+    public function sendPayForBecomeOrganizationEmail($uuid)
+    {
+        $organization = Organization::where('uuid', $uuid)->first();
+        if ($organization)
+        {
+
+            try {
+                Mail::to($organization->organization_email)->send(new PayForBecomeOrganizationMail($organization));
+            } catch (\Exception $exception) {
+                toastrMessage('error', 'Something is wrong. Try after few minutes!');
+                return redirect()->back();
+            }
+
+            Session::put('email', $organization->organization_email);
+
+            $this->showToastrMessage('success', __('Pay Instruction sent To Instructor email. Please check.'));
+            return redirect()->back();
+        }
+
+        $this->showToastrMessage('error', __('Instructor Email is incorrect!'));
+        return redirect()->back();
     }
 }

@@ -169,6 +169,29 @@ class DashboardController extends Controller
         return view('frontend.student.settings.become-an-instructor', $data);
     }
 
+    public function becomeAnOrganization()
+    {
+        if (auth()->user()->role == USER_ROLE_INSTRUCTOR) {
+            $this->showToastrMessage('error', __('You are already an instructor!'));
+            return redirect()->back();
+        } elseif (auth()->user()->role == USER_ROLE_ORGANIZATION) {
+            $this->showToastrMessage('error', __('You are already an organization!'));
+            return redirect()->back();
+        }
+
+        $data['pageTitle'] = 'Become an Organization';
+        $data['instructorFeatures'] = InstructorFeature::take(3)->get();
+        $data['instructorProcedures'] = InstructorProcedure::all();
+        $data['total_students'] = Student::count();
+        $data['total_enrollments'] = Enrollment::count();
+        $data['total_instructors'] = Instructor::count();
+        $data['countries'] = Country::all();
+        $data['all_coaching_types'] = CoachingType::all();
+//        dd($data['all_coaching_types']);
+
+        return view('frontend.student.settings.become-an-organization', $data);
+    }
+
     public function saveInstructorInfo(Request $request)
     {
         $request->validate([
@@ -245,6 +268,67 @@ class DashboardController extends Controller
 
     }
 
+    public function saveOrganizationInfo(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'organization_name' => 'required',
+            'organization_email' => 'required',
+            'agent_email' => 'required',
+            'country_id' => 'required',
+            'work_field' => 'required',
+            'about_me' => 'required',
+        ],
+            [
+                'required' => 'The :attribute field is required.',
+            ]);
+
+        $authUser = Auth::user();
+
+            $object = Organization::where('user_id', $authUser->id)->get();
+        if ($object->count() > 0){
+            $this->showToastrMessage('success', __('Request already send'));
+            return redirect(route('student.dashboard'));
+        } else {
+
+                $slugCount = Organization::where('slug', getSlug($authUser->name))->count();
+            }
+
+            if ($slugCount)
+            {
+                $slug = getSlug($authUser->name) . '-'. rand(100000, 999999);
+            } else {
+                $slug = getSlug($authUser->name);
+            }
+
+            $data = [
+                'user_id' => Auth::user()->id,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'organization_name' => $request->organization_name,
+                'organization_email' => $request->organization_email,
+                'agent_email' => $request->agent_email,
+                'professional_title' => $request->work_field,
+                'phone_number' => $request->phone_number,
+                'address' => $request->address,
+                'about_me' => $request->about_me,
+                'slug' => $slug,
+            ];
+
+                $this->organizationModel->create($data);
+                $text = __("New instructor request");
+                $target_url = route('instructor.pending');
+
+
+            $this->send($text, 1, $target_url, null);
+
+            $this->showToastrMessage('success', __('Request successfully send'));
+            return redirect(route('student.dashboard'));
+
+
+    }
+
     public function payForCoachRequest($uuid)
     {
 //        dd('afsfasf');
@@ -290,9 +374,89 @@ class DashboardController extends Controller
         }
     }
 
+    public function payForOrganizationRequest($uuid)
+    {
+        $organization = $this->organizationModel->getRecordByUuid($uuid);
+        $user = $organization->user;
+        $price = get_option('become_organization_coast');
+        DB::beginTransaction();
+        try {
+            $cartManagement = CartManagement::where('user_id', $user->id)
+                ->where('course_id', null)
+                ->where('product_id', null)
+                ->where('consultation_slot_id', null)
+                ->where('bundle_id', null)
+                ->where('bundle_course_ids', null)
+                ->where('promotion_id', null)
+                ->first();
+            if ($cartManagement) {
+                $response['msg'] = __("You've already request to be a organization!");
+                $response['status'] = 402;
+                DB::rollBack();
+                return response()->json($response);
+            }
+            $cart = new CartManagement();
+            $cart->user_id = Auth::user()->id;
+            $cart->main_price = $price;
+            $cart->price = $price;
+
+            $cart->save();
+
+            $response['quantity'] = CartManagement::whereUserId(Auth::user()->id)->count();
+            $response['msg'] = __("Added to cart");
+            $response['msgInfoChange'] = __("Added to cart");
+            $response['status'] = 200;
+            //End:: Cart Management
+            DB::commit();
+            return redirect(route('student.checkoutForBecomeOrganization'));
+            return response()->json($response);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            $response['msg'] = __("Something is wrong! Try again.");
+            $response['status'] = 402;
+            return response()->json($response);
+        }
+    }
+
     public function checkoutForBecomeCoach()
     {
         $data['pageTitle'] = "Checkout";
+        $data['model'] = 'coach';
+        $data['carts'] = CartManagement::whereUserId(@Auth::id())
+            ->where('course_id', null)
+            ->where('product_id', null)
+            ->where('consultation_slot_id', null)
+            ->where('bundle_id', null)
+            ->where('bundle_course_ids', null)
+            ->where('promotion_id', null)->get();
+        $data['student'] = auth::user()->student;
+        $data['countries'] = Country::orderBy('country_name', 'asc')->get();
+        $data['banks'] = Bank::orderBy('name', 'asc')->where('status', 1)->get();
+
+        if (old('country_id')) {
+            $data['states'] = State::where('country_id', old('country_id'))->orderBy('name', 'asc')->get();
+        }
+
+        if (old('state_id')) {
+            $data['cities'] = City::where('state_id', old('state_id'))->orderBy('name', 'asc')->get();
+        }
+
+        $razorpay_grand_total_with_conversion_rate = ($data['carts']->sum('price') + get_platform_charge($data['carts']->sum('price'))) * (get_option('razorpay_conversion_rate') ? get_option('razorpay_conversion_rate') : 0);
+        $data['razorpay_grand_total_with_conversion_rate'] = (float)preg_replace("/[^0-9.]+/", "", number_format($razorpay_grand_total_with_conversion_rate, 2));
+
+        $paystack_grand_total_with_conversion_rate = ($data['carts']->sum('price') + get_platform_charge($data['carts']->sum('price'))) * (get_option('paystack_conversion_rate') ? get_option('paystack_conversion_rate') : 0);
+        $data['paystack_grand_total_with_conversion_rate'] = (float)preg_replace("/[^0-9.]+/", "", number_format($paystack_grand_total_with_conversion_rate, 2));
+
+        $sslcommerz_grand_total_with_conversion_rate = ($data['carts']->sum('price') + get_platform_charge($data['carts']->sum('price'))) * (get_option('sslcommerz_conversion_rate') ? get_option('sslcommerz_conversion_rate') : 0);
+        $data['sslcommerz_grand_total_with_conversion_rate'] = (float)preg_replace("/[^0-9.]+/", "", number_format($sslcommerz_grand_total_with_conversion_rate, 2));
+
+        return view('frontend.student.cart.checkoutForBecomeCoach', $data);
+    }
+
+    public function checkoutForBecomeOrganization()
+    {
+        $data['pageTitle'] = "Checkout";
+        $data['model'] = 'organization';
         $data['carts'] = CartManagement::whereUserId(@Auth::id())
             ->where('course_id', null)
             ->where('product_id', null)

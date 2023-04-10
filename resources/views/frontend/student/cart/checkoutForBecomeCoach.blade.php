@@ -46,7 +46,13 @@
                     data-stripe-publishable-key="{{ get_option('STRIPE_PUBLIC_KEY') }}" id="payment-form"
                     class="require-validation" enctype="multipart/form-data">
                     @csrf
+                    @if($model == 'coach')
                     <input type="hidden" name="payForBecomeCoach" value="1">
+                    @elseif($model == 'organization')
+                        <input type="hidden" name="payForBecomeOrganization" value="1">
+                    @else
+                        <input type="hidden">
+                    @endif
                     <div class="stripeToken"></div>
                     <div class="row">
                         <div class="col-lg-8">

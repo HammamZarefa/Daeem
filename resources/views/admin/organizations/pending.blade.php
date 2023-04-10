@@ -36,11 +36,12 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('Image') }}</th>
-                                        <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Professional Title') }}</th>
+                                        <th>{{ __('Organization Name') }}</th>
+                                        <th>{{ __('Agent Name') }}</th>
+                                        <th>{{ __('Work Field') }}</th>
                                         <th>{{ __('Phone Number') }}</th>
                                         <th>{{ __('Address') }}</th>
-                                        <th>{{ __('CV') }}</th>
+{{--                                        <th>{{ __('CV') }}</th>--}}
                                         <th>{{ __('Status') }}</th>
                                         <th class="text-center">{{ __('Action') }}</th>
                                     </tr>
@@ -52,6 +53,9 @@
                                                 <a href="{{ route('organizations.view', [$organization->uuid]) }}"> <img
                                                         src="{{ getImageFile($organization->user ? $organization->user->image_path : '') }}"
                                                         width="80"> </a>
+                                            </td>
+                                            <td>
+                                                {{ $organization->organization_name }}
                                             </td>
                                             <td>
                                                 {{ $organization->name }}
@@ -66,8 +70,10 @@
                                             <td>
                                                 {{ $organization->address }}
                                             </td>
-                                            <td><span><a href="{{ getVideoFile($organization->cv_file) }}"
-                                                        target="_blank">{{ $organization->cv_filename }}</a></span></td>
+{{--                                            <td><span><a href="{{ getVideoFile($organization->cv_file) }}"--}}
+{{--                                                        target="_blank">{{ $organization->cv_filename }}</a>--}}
+{{--                                                </span>--}}
+{{--                                            </td>--}}
                                             <td>
                                                 <span id="hidden_id" style="display: none">{{ $organization->id }}</span>
                                                 <select name="status"

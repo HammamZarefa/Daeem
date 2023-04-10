@@ -268,6 +268,12 @@
                     <span>{{ __('Instructor Coast') }}</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('settings.organization.coast') }}" class="list-item {{ @$organizationCoastSettingsActiveClass }}">
+                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
+                    <span>{{ __('Organization Coast') }}</span>
+                </a>
+            </li>
 
         </ul>
     </div>
