@@ -763,6 +763,16 @@ class SettingController extends Controller
         return view('admin.application_settings.instructor.coast', $data);
     }
 
+    public function organizationCoastSetting()
+    {
+        $data['title'] = 'Organization Coast';
+        $data['navApplicationSettingParentActiveClass'] = 'mm-active';
+        $data['subNavInstructorSettingsActiveClass'] = 'mm-active';
+        $data['organizationCoastSettingsActiveClass'] = 'active';
+
+        return view('admin.application_settings.organization.coast', $data);
+    }
+
     public function faqCMS()
     {
         if (!Auth::user()->can('content_setting')) {
