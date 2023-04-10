@@ -20,6 +20,9 @@ class Organization extends Model
         'city_id',
         'first_name',
         'last_name',
+        'organization_name',
+        'organization_email',
+        'agent_email',
         'professional_title',
         'phone_number',
         'postal_code',
@@ -69,7 +72,7 @@ class Organization extends Model
     {
         return $this->hasMany(Enrollment::class, 'owner_user_id', 'user_id');
     }
-   
+
     public function orders()
     {
         return $this->hasManyThrough(Order::class, Enrollment::class, 'owner_user_id', 'id', 'user_id', 'order_id');

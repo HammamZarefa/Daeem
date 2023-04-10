@@ -145,7 +145,7 @@ class InstructorController extends Controller
                 $instructor->pay_token = $verification_code;
                 $instructor->save();
             }
-            return view('admin.test',compact('verification_code','instructor'));
+//            return view('admin.test',compact('verification_code','instructor'));
             $this->sendPayForBecomeCoachEmail($uuid);
             $this->showToastrMessage('success', __('Status has been changed'));
             return redirect()->back();
