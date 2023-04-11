@@ -30,8 +30,10 @@
     <div class="card-body">
         <h5 class="card-title course-title"><a href="{{ route('course-details', $course->slug) }}">{{ Str::limit($course->title, 40)}}</a></h5>
         <p class="card-text instructor-name-certificate font-medium font-12">
-            <a href="{{ route('userProfile',$course->user->id) }}">{{ $course->$userRelation->name }}</a>
+            <a href="{{ route('userProfile',$course->user->id) }}">{{isset($course->$userRelation) ? $course->$userRelation->name : ''}}</a>
+            @if(isset($course->$userRelation))
             @foreach($course->$userRelation->awards as $award) | {{ $award->name }} @endforeach</p>
+        @endif
         <div class="course-item-bottom">
             <div class="course-rating d-flex align-items-center">
                 <span class="font-medium font-14 me-2">{{ @$course->average_rating }}</span>

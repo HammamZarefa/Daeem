@@ -266,19 +266,19 @@
                 </div>
                 <div>
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown menu-round-btn menu-language-btn dropdown-top-space">
-                            <a class="nav-link" href="#">
-                                <img src="{{asset($selectedLanguage->flag)}}" alt="Flag" class="radius-50">
-                            </a>
-                            <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-start' : 'dropdown-menu-end'}}"
-                                data-bs-popper="none">
-                                @foreach(appLanguages() as $app_lang)
-                                    <li><a class="dropdown-item" href="{{ url('/local/'.$app_lang->iso_code) }}">
-                                            <img src="{{asset($app_lang->flag)}}" alt="Flag"
-                                                 class="radius-50">{{$app_lang->language}}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
+{{--                        <li class="nav-item dropdown menu-round-btn menu-language-btn dropdown-top-space">--}}
+{{--                            <a class="nav-link" href="#">--}}
+{{--                                <img src="{{asset($selectedLanguage->flag)}}" alt="Flag" class="radius-50">--}}
+{{--                            </a>--}}
+{{--                            <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-start' : 'dropdown-menu-end'}}"--}}
+{{--                                data-bs-popper="none">--}}
+{{--                                @foreach(appLanguages() as $app_lang)--}}
+{{--                                    <li><a class="dropdown-item" href="{{ url('/local/'.$app_lang->iso_code) }}">--}}
+{{--                                            <img src="{{asset($app_lang->flag)}}" alt="Flag"--}}
+{{--                                                 class="radius-50">{{$app_lang->language}}</a></li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
                     @if(@$authUser->role != USER_ROLE_ADMIN)
                         @if(auth::user())
                             <!-- Menu Notification Option Start -->
