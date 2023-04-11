@@ -129,6 +129,20 @@ class HomeSettingController extends Controller
         return view('admin.application_settings.home.course-section', $data);
     }
 
+    public function trainingProgramSection()
+    {
+        if (!Auth::user()->can('home_setting')) {
+            abort('403');
+        } // end permission checking
+
+        $data['title'] = 'Training Program Section';
+        $data['navApplicationSettingParentActiveClass'] = 'mm-active';
+        $data['subNavHomeSettingsActiveClass'] = 'mm-active';
+        $data['trainingProgramSectionActiveClass'] = 'active';
+
+        return view('admin.application_settings.home.training-program-section', $data);
+    }
+
     public function bundleCourseSection()
     {
         if (!Auth::user()->can('home_setting')) {

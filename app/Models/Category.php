@@ -25,7 +25,7 @@ class Category extends Model
 
     public function activeCourses()
     {
-        return $this->hasMany(Course::class, 'category_id')->where('status', 1);
+        return $this->hasMany(Course::class, 'category_id')->where('status', 1)->where('course_type','<>',3);
     }
 
     public function subcategories()
