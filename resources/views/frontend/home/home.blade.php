@@ -287,15 +287,16 @@
                                          style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2006px;">
                                         <!-- ***************** slider item ***************** -->
                                         @foreach($category->activeCourses as $key2=>$course)
-                                        <div class="owl-item {{ $key2 == 0 ? 'active' : '' }}" style="width: 256.5px; margin-right: 30px;">
-                                            <div class="col-12 col-sm-4 col-lg-3 w-100">
-                                                <div class="card course-item border-0 radius-3 bg-white">
-                                                    <div class="course-img-wrap overflow-hidden">
-                                                        <a href="{{route('course-details',$course->slug)}}">
-                                                            <img
-                                                                src="{{getImageFile($course->image_path)}}"
-                                                                alt="course" class="img-fluid"></a>
-                                                        <div class="course-item-hover-btns position-absolute">
+                                            <div class="owl-item {{ $key2 == 0 ? 'active' : '' }}"
+                                                 style="width: 256.5px; margin-right: 30px;">
+                                                <div class="col-12 col-sm-4 col-lg-3 w-100">
+                                                    <div class="card course-item border-0 radius-3 bg-white">
+                                                        <div class="course-img-wrap overflow-hidden">
+                                                            <a href="{{route('course-details',$course->slug)}}">
+                                                                <img
+                                                                    src="{{getImageFile($course->image_path)}}"
+                                                                    alt="course" class="img-fluid"></a>
+                                                            <div class="course-item-hover-btns position-absolute">
 <span class="course-item-btn addToWishlist" data-course_id="1"
       data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -303,43 +304,47 @@
     <path
         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-                                                            <span class="course-item-btn addToCart" data-course_id="1"
-                                                                  data-route="https://lmszai.zainikthemes.com/student/add-to-cart"
-                                                                  title="Add to Cart">
+                                                                <span class="course-item-btn addToCart"
+                                                                      data-course_id="1"
+                                                                      data-route="https://lmszai.zainikthemes.com/student/add-to-cart"
+                                                                      title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path
         d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path
         d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body tex-s-c">
-                                                        <h5 class="card-title course-title"><a
-                                                                href="{{route('course-details',$course->slug)}}">
-                                                                {{$course->title}}
-                                                            </a></h5>
-                                                        <div class="course-item-bottom">
-                                                            <div
-                                                                class="course-rating d-flex align-items-center rating-list">
-                                                                <span class="font-medium font-14 me-2">{{ number_format($course->average_rating, 1) }}</span>
-                                                                <ul class="rating-list d-flex align-items-center me-2">
-                                                                    @include('frontend.course.render-course-rating')
-                                                                </ul>
-                                                                <span class="rating-count font-14">({{ @$course->orderItems->count() }})</span>
                                                             </div>
-                                                            <div class="instructor-bottom-item font-14 font-semi-bold">
+                                                        </div>
+                                                        <div class="card-body tex-s-c">
+                                                            <h5 class="card-title course-title"><a
+                                                                    href="{{route('course-details',$course->slug)}}">
+                                                                    {{$course->title}}
+                                                                </a></h5>
+                                                            <div class="course-item-bottom">
+                                                                <div
+                                                                    class="course-rating d-flex align-items-center rating-list">
+                                                                    <span
+                                                                        class="font-medium font-14 me-2">{{ number_format($course->average_rating, 1) }}</span>
+                                                                    <ul class="rating-list d-flex align-items-center me-2">
+                                                                        @include('frontend.course.render-course-rating')
+                                                                    </ul>
+                                                                    <span class="rating-count font-14">({{ @$course->orderItems->count() }})</span>
+                                                                </div>
                                                                 <div
                                                                     class="instructor-bottom-item font-14 font-semi-bold">
-                                                                    {{__('Price')}}:
-                                                                    <span class="color-hover"> {{ $course->price }} {{ get_currency_symbol() }}</span>
-                                                                </div>
+                                                                    <div
+                                                                        class="instructor-bottom-item font-14 font-semi-bold">
+                                                                        {{__('Price')}}:
+                                                                        <span
+                                                                            class="color-hover"> {{ $course->price }} {{ get_currency_symbol() }}</span>
+                                                                    </div>
 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -385,16 +390,16 @@
                         <div class="section-left-title-with-btn d-flex justify-content-between align-items-end">
                             <div class="section-title section-title-left d-flex align-items-start">
                                 <div class="section-heading-img">
-                                    <img src="{{ getImageFile(get_option('course_logo')) }}" alt="Course"></div>
+                                    <img src="{{ getImageFile(get_option('training_program_logo')) }}" alt="Course"></div>
                                 <div>
-                                    <h3 class="section-heading">@lang('Traning programs')</h3>
+                                    <h3 class="section-heading">{{ __(get_option('training_program_title')) }}</h3>
                                     <p class="section-sub-heading">{{ __(get_option('training_program_subtitle')) }}</p>
                                 </div>
 
                             </div>
-{{--                            <a href="{{ route('consultationInstructorList') }}"--}}
-{{--                               class="theme-btn theme-button2 theme-button3 ">{{ __('View All') }} <i--}}
-{{--                                    data-feather="arrow-right"></i></a>--}}
+                            {{--                            <a href="{{ route('consultationInstructorList') }}"--}}
+                            {{--                               class="theme-btn theme-button2 theme-button3 ">{{ __('View All') }} <i--}}
+                            {{--                                    data-feather="arrow-right"></i></a>--}}
 
 
                         </div>
@@ -409,92 +414,44 @@
                                 <div class="owl-stage"
                                      style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2006px;">
                                     <!-- ***************** slider item ***************** -->
-                                    <div class="owl-item active" style="width: 256.5px; margin-right: 30px;">
-                                        <div class="card-container">
-                                            <a href="/" class="hero-image-container">
-                                                <img class="hero-image"
-                                                     src="https://lmszai.zainikthemes.com/uploads/course/1655545018-UOg3MEPfM6.jpg"
-                                                     alt="Spinning glass cube"/>
-                                            </a>
-                                            <main class="main-content">
-                                                <h1><a href="#">Traning programs</a></h1>
-                                                <div class="course-rating d-flex align-items-center rating-list">
-                                                    <span class="font-medium font-14 me-2">5.00</span>
-                                                    <ul class="rating-list d-flex align-items-center me-2">
-                                                        <li class="star-full">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                 aria-hidden="true" role="img"
-                                                                 class="iconify iconify--bi" width="1em" height="1em"
-                                                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"
-                                                                 data-icon="bi:star-fill">
-                                                                <path fill="currentColor"
-                                                                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                            </svg>
-                                                        </li>
-                                                        <li class="star-full">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                 aria-hidden="true" role="img"
-                                                                 class="iconify iconify--bi" width="1em" height="1em"
-                                                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"
-                                                                 data-icon="bi:star-fill">
-                                                                <path fill="currentColor"
-                                                                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                            </svg>
-                                                        </li>
-                                                        <li class="star-full">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                 aria-hidden="true" role="img"
-                                                                 class="iconify iconify--bi" width="1em" height="1em"
-                                                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"
-                                                                 data-icon="bi:star-fill">
-                                                                <path fill="currentColor"
-                                                                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                            </svg>
-                                                        </li>
-                                                        <li class="star-full">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                 aria-hidden="true" role="img"
-                                                                 class="iconify iconify--bi" width="1em" height="1em"
-                                                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"
-                                                                 data-icon="bi:star-fill">
-                                                                <path fill="currentColor"
-                                                                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                            </svg>
-                                                        </li>
-                                                        <li class="star-full">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                 aria-hidden="true" role="img"
-                                                                 class="iconify iconify--bi" width="1em" height="1em"
-                                                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"
-                                                                 data-icon="bi:star-fill">
-                                                                <path fill="currentColor"
-                                                                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                            </svg>
-                                                        </li>
-                                                    </ul>
-                                                    <span class="rating-count font-14">(2)</span>
-                                                </div>
-                                                <div class="flex-row">
-                                                    <div class="coin-base">
-                                                        <span class="m-1">Price:</span>
-                                                        <h2>50.00 $</h2>
+                                    @foreach($training_programmes as $key=>$training_program)
+                                        <div class="owl-item {{$key==0? 'active' : ''}}"
+                                             style="width: 256.5px; margin-right: 30px;">
+                                            <div class="card-container">
+                                                <a href="{{route('program-details',$training_program->slug)}}"
+                                                   class="hero-image-container">
+                                                    <img class="hero-image"
+                                                         src="{{getImageFile($training_program->image_path)}}"
+                                                         alt="Spinning glass cube"/>
+                                                </a>
+                                                <main class="main-content">
+                                                    <h1>
+                                                        <a href="{{route('program-details',$training_program->slug)}}">{{$training_program->title}}</a>
+                                                    </h1>
+                                                    <div class="course-rating d-flex align-items-center rating-list">
+                                                        <span
+                                                            class="font-medium font-14 me-2">{{ number_format($training_program->average_rating, 1) }}</span>
+                                                        <ul class="rating-list d-flex align-items-center me-2">
+                                                            @include('frontend.course.render-course-rating')
+                                                        </ul>
+                                                        <span class="rating-count font-14">({{ @$training_program->orderItems->count() }})</span>
                                                     </div>
-                                                    <div class="time-left">
-                                                        <img
-                                                            src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png"
-                                                            alt="clock" class="small-image"/>
-                                                        <p>3 days left</p>
+                                                    <div class="flex-row">
+                                                        <div class="coin-base">
+                                                            <span class="m-1">@lang('Price'):</span>
+                                                            <h2>{{ $training_program->price }} {{ get_currency_symbol() }}</h2>
+                                                        </div>
+                                                        <div class="time-left">
+                                                            <img
+                                                                src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png"
+                                                                alt="clock" class="small-image"/>
+                                                            <p>3 days left</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </main>
+                                                </main>
+                                            </div>
                                         </div>
-                                    </div>
-
+                                    @endforeach
 
                                 </div>
                             </div>
@@ -840,7 +797,7 @@
                             </div>
                         </div>
                         <a href="https://lmszai.zainikthemes.com/consultation-instructor-list "
-                           class="theme-btn theme-button2 theme-button3 mar1-s-au">{{ __('View All Instructor') }}
+                           class="theme-btn theme-button2 theme-button3 mar1-s-au">{{ __('View All Coaches') }}
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-arrow-right">
@@ -862,84 +819,14 @@
                             <div class="owl-stage"
                                  style="transform: translate3d(0px, 0px, 0px); transition: all 1s ease 0s; width: 1433px;">
                                 <!-- ************************ item coach ************************ -->
+                                @foreach($consultationInstructors as $key=>$instructor)
+                                    <div class="owl-item {{$key==0?'active':''}}" style="width: 256.5px; margin-right: 30px;">
+                                        <div class="col-12 col-sm-4 col-lg-3 w-100 mt-0 mb-25">
+                                            <x-frontend.instructor :user="$instructor" :type=INSTRUCTOR_CARD_TYPE_TWO/>
 
-                                <div class="owl-item active" style="width: 256.5px; margin-right: 30px;">
-                                    <div class="col-12 col-sm-4 col-lg-3 w-100 mt-0 mb-25">
-                                        <div
-                                            class="card instructor-item search-instructor-item position-relative text-center border-0 p-30 px-3">
-                                            <div class="search-instructor-img-wrap mb-15"><a
-                                                    href="{{ route('coash_details') }}">
-                                                    <img src="https://lmszai.zainikthemes.com/uploads_demo/user/1.jpg"
-                                                         alt="instructor" class="fit-image rounded-circle"></a>
-                                            </div>
-                                            <div class="card-body p-0">
-                                                <h6 class="card-title"><a href="{{ route('coash_details') }}">Johnny
-                                                        Depp</a>
-                                                </h6>
-                                                <p class="card-text instructor-designation font-medium mb-15">
-                                                    PHP Developer
-                                                    <span class="mx-2">||</span>Author Level 3</p>
-                                                <div
-                                                    class="course-rating search-instructor-rating w-100 mb-15 d-inline-flex align-items-center justify-content-center">
-                                                    <span class="font-medium font-14 me-2">5.0</span>
-                                                    <div class="star-ratings" style="width: 83.3333px;">
-                                                        <div class="fill-ratings" style="width: 20%">
-                                                            <span>★★★★★</span>
-                                                        </div>
-                                                        <div class="empty-ratings">
-                                                            <span>★★★★★</span>
-                                                        </div>
-                                                    </div>
-                                                    <span class="rating-count font-14 ms-2">(2)</span>
-                                                </div>
-                                                <div class="search-instructor-bottom-item font-14 font-medium">
-                                                    <div
-                                                        class="search-instructor-award-img d-inline-flex flex-wrap justify-content-center">
-                                                        <img
-                                                            src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/membership_1.png"
-                                                            title="1 Years of Membership" alt="1 Years of Membership"
-                                                            class="fit-image rounded-circle">
-                                                        <img
-                                                            src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/rank_3.png"
-                                                            title="Author Level 3" alt="Author Level 3"
-                                                            class="fit-image rounded-circle">
-                                                        <img
-                                                            src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/course_1.png"
-                                                            title="0 to 5 Course" alt="0 to 5 Course"
-                                                            class="fit-image rounded-circle">
-                                                        <img
-                                                            src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/student_1.png"
-                                                            title="0 to 10 Student" alt="0 to 10 Student"
-                                                            class="fit-image rounded-circle">
-                                                        <img
-                                                            src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/sale_1.png"
-                                                            title="0 to 10 Sold" alt="0 to 10 Sold"
-                                                            class="fit-image rounded-circle">
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="search-instructor-price d-inline-flex align-items-center mb-15">
-                                                    <div class="search-instructor-new-price font-medium mx-1">
-                                                        50/Hour
-                                                    </div>
-                                                    <div
-                                                        class="search-instructor-old-price text-decoration-line-through color-gray font-13 font-medium mx-1">
-                                                    </div>
-                                                </div>
-                                                <div class="w-100">
-                                                    <button type="button" data-type="3"
-                                                            data-booking_instructor_user_id="2" data-hourly_fee="$ 50/h"
-                                                            data-hourly_rate="50"
-                                                            data-get_off_days_route="https://lmszai.zainikthemes.com/get-off-days/2"
-                                                            class="theme-btn theme-button1 theme-button3 w-100 bookSchedule"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#consultationBookingModal">Book Now
-                                                    </button>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
 
                             </div>
                         </div>

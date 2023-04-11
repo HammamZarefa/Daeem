@@ -491,6 +491,7 @@ Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
     Route::post('banner-section-settings', [HomeSettingController::class, 'bannerSectionUpdate'])->name('banner-section.update')->middleware('isDemo');
     Route::get('special-feature-section-settings', [HomeSettingController::class, 'specialFeatureSection'])->name('special-feature-section');
     Route::get('course-section-settings', [HomeSettingController::class, 'courseSection'])->name('course-section');
+    Route::get('training-program-section-settings', [HomeSettingController::class, 'trainingProgramSection'])->name('training-program-section');
     Route::get('bundle-course-section-settings', [HomeSettingController::class, 'bundleCourseSection'])->name('bundle-course-section');
     Route::get('top-category-section-settings', [HomeSettingController::class, 'topCategorySection'])->name('top-category-section');
     Route::get('top-instructor-section-settings', [HomeSettingController::class, 'topInstructorSection'])->name('top-instructor-section');

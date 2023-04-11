@@ -170,6 +170,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('settings.training-program-section') }}" class="list-item {{ @$trainingProgramSectionActiveClass }}">
+                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
+                    <span>{{ __('Training Program Section') }}</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('settings.bundle-course-section') }}" class="list-item {{ @$bundleCourseSectionActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Bundle Course Section') }}</span>

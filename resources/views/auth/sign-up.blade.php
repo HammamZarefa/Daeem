@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="row mb-30">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="label-text-title color-heading font-medium font-16 mb-3"
                                     for="first_name">{{__('First Name')}} <span class="text-danger">*</span></label>
                                 <input type="text" name="first_name" id="first_name" value="{{old('first_name')}}"
@@ -80,7 +80,7 @@
                                     $errors->first('first_name') }}</span>
                                 @endif
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="label-text-title color-heading font-medium font-16 mb-3"
                                     for="last_name">{{__('Last Name')}} <span class="text-danger">*</span></label>
                                 <input type="text" name="last_name" id="last_name" value="{{old('last_name')}}"
@@ -90,15 +90,15 @@
                                     $errors->first('last_name') }}</span>
                                 @endif
                             </div>
-                            <div class="col-md-4">
-                            <label for="exampleDataList" class="form-label label-text-title color-heading font-medium font-16 mb-3">Choose Type</label>
-                                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                                    <datalist id="datalistOptions">
-                                    <option value="Student">
-                                    <option value="Coach">
-                                    <option value="Organization">
-                                    </datalist>
-                            </div>
+{{--                            <div class="col-md-4">--}}
+{{--                            <label for="exampleDataList" class="form-label label-text-title color-heading font-medium font-16 mb-3">Choose Type</label>--}}
+{{--                                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">--}}
+{{--                                    <datalist id="datalistOptions">--}}
+{{--                                    <option value="Student">--}}
+{{--                                    <option value="Coach">--}}
+{{--                                    <option value="Organization">--}}
+{{--                                    </datalist>--}}
+{{--                            </div>--}}
                         </div>
                         <div class="row mb-30">
                             <div class="col-md-12">
