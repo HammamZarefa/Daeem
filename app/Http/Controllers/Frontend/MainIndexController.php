@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUsGeneral;
 use App\Models\Assignment;
+use App\Models\Blog;
 use App\Models\Bundle;
 use App\Models\Category;
 use App\Models\City;
@@ -539,7 +540,9 @@ class MainIndexController extends Controller
 
     public function gallery()
     {
-        return view('frontend.gallery');
+        $data['images'] = Blog::where('type',  'image')->latest()->active()->paginate(10);
+        $data['video'] = Blog::where('type',  'video')->latest()->active()->paginate(10);
+        return view('frontend.gallery',$data);
     }
     public function programme()
     {
