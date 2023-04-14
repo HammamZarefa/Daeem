@@ -52,7 +52,7 @@
 
                             <div class="custom-form-group mb-25 ">
                                 <label for="image" class="text-lg-right text-black mb-2"> {{__('Image')}} </label>
-                                <div class="upload-img-box mb-25">
+                                <div class="upload-img-box m-auto mb-25">
                                     @if($category->image)
                                         <img src="{{asset($category->image_path)}}">
                                     @else
