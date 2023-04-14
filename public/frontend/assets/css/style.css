@@ -865,11 +865,11 @@ button:focus {
 }
 
 #mainNav {
-    position: fixed;
+    position: relative;
     height: 90px;
     display: flex !important;
     transition: all ease .6s;
-    /* background: #0091d233; */
+    background-image: linear-gradient(to right, #f49224ed , #1b77bbab);
     padding: 21px 100px;
     align-items: center;
     width: 100%;

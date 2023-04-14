@@ -457,12 +457,17 @@ label {
     width: 16px;
     height: 16px;
     top: 5px!important;
-    left: 15px!important;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 8px;
     color: #fff;
+}
+.direction-ltr .admin-notification-menu .badge{
+    left: 15px!important;
+}
+.direction-rtl .admin-notification-menu .badge{
+    left: 0!important;
 }
 .admin-notification-menu .dropdown-menu {
     max-height: 240px;

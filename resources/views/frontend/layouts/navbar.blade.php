@@ -95,7 +95,7 @@
                             <a class="nav-link" href="{{ url('/') }}">{{__('Home')}}</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
+                            <a class="nav-link dropdown-toggle" href="{{ url('/about-us') }}" id="librariesDropdown"
                                data-bs-toggle="dropdown">
                                 {{ __('About Us') }}
                             </a>
@@ -125,12 +125,12 @@
                                 <li>
                                     <a href="{{ route('blogs', 'post') }}" class="dropdown-item">@lang('post')</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('blogs', 'post2') }}" class="dropdown-item">@lang('post2')</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('blogs', 'post3') }}" class="dropdown-item">@lang('post3')</a>
-                                </li>
+{{--                                <li>--}}
+{{--                                    <a href="{{ route('blogs', 'post2') }}" class="dropdown-item">@lang('post2')</a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="{{ route('blogs', 'post3') }}" class="dropdown-item">@lang('post3')</a>--}}
+{{--                                </li>--}}
                                 <li>
                                     <a href="{{ route('blogs', 'news') }}" class="dropdown-item">@lang('news')</a>
                                 </li>
@@ -183,9 +183,9 @@
                             </ul>
                         </li> -->
                         @if(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_STUDENT || @$authUser->role == USER_ROLE_ORGANIZATION)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>--}}
+{{--                            </li>--}}
                             @if(@$authUser->role == USER_ROLE_STUDENT )
                                 @if(@$authUser->instructor || @$authUser->organization)
                                     <li class="nav-item">
@@ -250,9 +250,9 @@
                                 <a class="nav-link" href="{{ route('Membership') }}">{{__('Membership')}}</a>
                             </li>
 
-                        <!-- <li class="nav-item">
-                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
-                            </li> -->
+{{--                        <!-- <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>--}}
+{{--                            </li> -->--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('gallery') }}">{{__('Gallery')}}</a>
                             </li>

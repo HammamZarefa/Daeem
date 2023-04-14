@@ -27,7 +27,7 @@
                         <img style="width:180px;margin-top: -40px;" src="{{ asset('frontend/assets/img/daeem/daeem-ha.png') }}" alt="">
                         <!-- Breadcrumb End-->
                     </div>
-                  
+
                 </div>
             </div>
         </div>
@@ -74,34 +74,63 @@
 <!-- Gallery Area End -->
 
 <!-- Our History Area Start -->
+{{--<section class="our-history-area bg-page section-t-space" id="Vision">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12">--}}
+{{--                <div class="section-title text-center">--}}
+{{--                    <h3 class="section-heading">{{ __(@$aboutUsGeneral->our_history_title) }}</h3>--}}
+{{--                    <p class="section-sub-heading">{{ __(@$aboutUsGeneral->our_history_subtitle) }}</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="row">--}}
+{{--            <div class="container-timeline">--}}
+{{--                <ul>--}}
+{{--                    @foreach($ourHistories as $ourHistory)--}}
+{{--                    <li>--}}
+{{--                        <h6 class="history-year">{{ $ourHistory->year }}</h6>--}}
+{{--                        <div class="history-content">--}}
+{{--                            <h6 class="h6 fw-bold font-18">{{ Str::limit($ourHistory->title, 23) }}</h6>--}}
+{{--                            <p class="font-15 pt-1">{{ Str::limit($ourHistory->subtitle, 100) }}</p>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
+{{--                    @endforeach--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
+<!-- Our History Area End -->
+
+<!-- Our History Area Start -->
 <section class="our-history-area bg-page section-t-space" id="Vision">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="section-title text-center">
-                    <h3 class="section-heading">{{ __(@$aboutUsGeneral->our_history_title) }}</h3>
-                    <p class="section-sub-heading">{{ __(@$aboutUsGeneral->our_history_subtitle) }}</p>
+                    <h3 class="section-heading">الرؤية</h3>
+                    <p class="section-sub-heading">أول منصة عربية، لتحقيق الريادة عربي وعالمي، في مجال الكوتشينج التربوي والتعليمي.</p>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+<section class="our-servcies section-t-space" id="Vision">
+    <div class="container">
         <div class="row">
-            <div class="container-timeline">
-                <ul>
-                    @foreach($ourHistories as $ourHistory)
-                    <li>
-                        <h6 class="history-year">{{ $ourHistory->year }}</h6>
-                        <div class="history-content">
-                            <h6 class="h6 fw-bold font-18">{{ Str::limit($ourHistory->title, 23) }}</h6>
-                            <p class="font-15 pt-1">{{ Str::limit($ourHistory->subtitle, 100) }}</p>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <h3 class="section-heading">الرسالة</h3>
+                    <p class="section-sub-heading">تقديم خدمات الكوتشينج النوعية، لتمكين المؤسسات وا£فراد من تجويد المخرجات في مجال التربية
+                        والتعليم.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <!-- Our History Area End -->
+
 <section class="section-t-space our-goal" id="Goal">
     <div class="container">
     <div class="row">
@@ -148,7 +177,7 @@
                     </li>
                 </ul>
             </div>
-            
+
         </div>
     </div>
 </section>
@@ -183,7 +212,7 @@
                <h6>خدمات الدعم والتطوير المهني والشخصي لافراد المجتمع من خلال الجلسات الكوتشينغ الفرديه والجماعيه المتنوعه الخدمات الكوتشينغ للناشئه خدمات التطوير المهني المتزامن وغير المتزامن</h6>
                </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -208,12 +237,13 @@
 									<!--Services Item-->
 									<div class="d-flex" style="height: 126px;">
 										<div class="vlt-services__icon">
-                                            <img src="{{ asset('frontend/assets/img/daeem/s1.png') }}" alt="">
+                                            <img src="{{ asset('frontend/assets/img/daeem/s2.png') }}" alt="">
                                         </div>
 										<div class="vlt-services__content">
-											<h5 class="vlt-services__title"><span class="vlt-highlight">Creative Design</span>
+											<h5 class="vlt-services__title"><span class="vlt-highlight">كوتشينغ المؤسسات</span>
 											</h5>
-											<p class="vlt-services__text">Creepeth and so us land greater, dry have god called. He seas subdue waters you two saying day.
+											<p class="vlt-services__text">
+                                                تطوير المؤسسات لزيادة الانتاجية
 											</p>
 										</div>
 									</div>
@@ -225,12 +255,13 @@
 									<!--Services Item-->
 									<div class="d-flex" style="height: 126px;">
 										<div class="vlt-services__icon">
-                                        <img src="{{ asset('frontend/assets/img/daeem/s2.png') }}" alt="">
+                                        <img src="{{ asset('frontend/assets/img/daeem/s1.png') }}" alt="">
                                         </div>
 										<div class="vlt-services__content">
-											<h5 class="vlt-services__title"><span class="vlt-highlight">Clean Code</span>
+											<h5 class="vlt-services__title"><span class="vlt-highlight">كوتشينغ الافراد</span>
 											</h5>
-											<p class="vlt-services__text">Divided their the brought blessed moving brought the called Brought so face place herb wherein.
+											<p class="vlt-services__text">تقديم خطة لنشر ثقافة
+                                                الكوتشينج
 											</p>
 										</div>
 									</div>
@@ -245,65 +276,65 @@
                                         <img src="{{ asset('frontend/assets/img/daeem/s3.png') }}" alt="">
                                         </div>
 										<div class="vlt-services__content">
-											<h5 class="vlt-services__title"><span class="vlt-highlight">Support 24/7</span>
+											<h5 class="vlt-services__title"><span class="vlt-highlight">تأهيل الكوتشز</span>
 											</h5>
-											<p class="vlt-services__text">Subdue Days wherein beginning blessed fifth tree give, green winged female blessed Is face face.
+											<p class="vlt-services__text">تأهيل وتدريب وتطوير الكوتشز
 											</p>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-4 col-md-6 col-xs-12">
-								<!--Animation Block-->
-								<div class="" data-aos="fade" data-aos-delay="300">
-									<!--Services Item-->
-									<div class="d-flex" style="height: 126px;">
-										<div class="vlt-services__icon">
-                                        <img src="{{ asset('frontend/assets/img/daeem/s4.png') }}" alt="">
-                                        </div>
-										<div class="vlt-services__content">
-											<h5 class="vlt-services__title"><span class="vlt-highlight">Retina Ready</span>
-											</h5>
-											<p class="vlt-services__text">Appear appear rule. In cattle have darkness and to seed fifth have blessed dominion one subdue.
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6 col-xs-12">
-								<!--Animation Block-->
-								<div class="" data-aos="fade" data-aos-delay="400">
-									<!--Services Item-->
-									<div class="d-flex" style="height: 126px;">
-										<div class="vlt-services__icon">
-                                        <img src="{{ asset('frontend/assets/img/daeem/s5.png') }}" alt="">
-                                        </div>
-										<div class="vlt-services__content">
-											<h5 class="vlt-services__title"><span class="vlt-highlight">100% Responsive</span>
-											</h5>
-											<p class="vlt-services__text">Darkness kind likeness said give male shall first creepeth moved, fruit whose third dry one.
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6 col-xs-12">
-								<!--Animation Block-->
-								<div class="" data-aos="fade" data-aos-delay="500">
-									<!--Services Item-->
-									<div class="d-flex" style="height: 126px;">
-										<div class="vlt-services__icon">
-                                        <img src="{{ asset('frontend/assets/img/daeem/s1.png') }}" alt="">
-                                        </div>
-										<div class="vlt-services__content">
-											<h5 class="vlt-services__title"><span class="vlt-highlight">Easy Customization</span>
-											</h5>
-											<p class="vlt-services__text">Third male deep creepeth they're dry said for fly have made, divide that every can't seed gathering.
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
+{{--							<div class="col-lg-4 col-md-6 col-xs-12">--}}
+{{--								<!--Animation Block-->--}}
+{{--								<div class="" data-aos="fade" data-aos-delay="300">--}}
+{{--									<!--Services Item-->--}}
+{{--									<div class="d-flex" style="height: 126px;">--}}
+{{--										<div class="vlt-services__icon">--}}
+{{--                                        <img src="{{ asset('frontend/assets/img/daeem/s4.png') }}" alt="">--}}
+{{--                                        </div>--}}
+{{--										<div class="vlt-services__content">--}}
+{{--											<h5 class="vlt-services__title"><span class="vlt-highlight">Retina Ready</span>--}}
+{{--											</h5>--}}
+{{--											<p class="vlt-services__text">Appear appear rule. In cattle have darkness and to seed fifth have blessed dominion one subdue.--}}
+{{--											</p>--}}
+{{--										</div>--}}
+{{--									</div>--}}
+{{--								</div>--}}
+{{--							</div>--}}
+{{--							<div class="col-lg-4 col-md-6 col-xs-12">--}}
+{{--								<!--Animation Block-->--}}
+{{--								<div class="" data-aos="fade" data-aos-delay="400">--}}
+{{--									<!--Services Item-->--}}
+{{--									<div class="d-flex" style="height: 126px;">--}}
+{{--										<div class="vlt-services__icon">--}}
+{{--                                        <img src="{{ asset('frontend/assets/img/daeem/s5.png') }}" alt="">--}}
+{{--                                        </div>--}}
+{{--										<div class="vlt-services__content">--}}
+{{--											<h5 class="vlt-services__title"><span class="vlt-highlight">100% Responsive</span>--}}
+{{--											</h5>--}}
+{{--											<p class="vlt-services__text">Darkness kind likeness said give male shall first creepeth moved, fruit whose third dry one.--}}
+{{--											</p>--}}
+{{--										</div>--}}
+{{--									</div>--}}
+{{--								</div>--}}
+{{--							</div>--}}
+{{--							<div class="col-lg-4 col-md-6 col-xs-12">--}}
+{{--								<!--Animation Block-->--}}
+{{--								<div class="" data-aos="fade" data-aos-delay="500">--}}
+{{--									<!--Services Item-->--}}
+{{--									<div class="d-flex" style="height: 126px;">--}}
+{{--										<div class="vlt-services__icon">--}}
+{{--                                        <img src="{{ asset('frontend/assets/img/daeem/s1.png') }}" alt="">--}}
+{{--                                        </div>--}}
+{{--										<div class="vlt-services__content">--}}
+{{--											<h5 class="vlt-services__title"><span class="vlt-highlight">Easy Customization</span>--}}
+{{--											</h5>--}}
+{{--											<p class="vlt-services__text">Third male deep creepeth they're dry said for fly have made, divide that every can't seed gathering.--}}
+{{--											</p>--}}
+{{--										</div>--}}
+{{--									</div>--}}
+{{--								</div>--}}
+{{--							</div>--}}
                             <!-- <div class="col-12 mt-5 text-center">
                                 <a href="" class="theme-btn theme-button2 theme-button3 ">{{ __('View') }} <i data-feather="arrow-right"></i></a>
                             </div> -->
@@ -311,32 +342,32 @@
 					</div>
 				</section>
 <!-- Upgrade Your Skills Area Start -->
-<section class="upgrade-your-skills-area" id="Coaching">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-4 col-xl-4 col-sm-12">
-                <div class=" position-relative text-center">
-                {{--  <img style="max-width: 100%;" src="{{ getImageFile(@$aboutUsGeneral->upgrade_skill_logo_path) }}" alt="about" class="img-fluid"> --}}
-                <img style="max-width: 100%;" src="{{ asset('frontend/assets/img/daeem/s1.png') }}" alt="">
-                </div>
-            </div>
-            <div class="col-md-8 col-xl-8 col-sm-12">
-                <div class="tex-s-c">
-                    <div class="section-title">
-                        <h3 class="section-heading">{{ __(@$aboutUsGeneral->upgrade_skill_title) }}</h3>
-                    </div>
-                    <p style="font-weight: 501;">{{ __(@$aboutUsGeneral->upgrade_skill_subtitle) }} </p>
+{{--<section class="upgrade-your-skills-area" id="Coaching">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row align-items-center">--}}
+{{--            <div class="col-md-4 col-xl-4 col-sm-12">--}}
+{{--                <div class=" position-relative text-center">--}}
+{{--                --}}{{--  <img style="max-width: 100%;" src="{{ getImageFile(@$aboutUsGeneral->upgrade_skill_logo_path) }}" alt="about" class="img-fluid"> --}}
+{{--                <img style="max-width: 100%;" src="{{ asset('frontend/assets/img/daeem/s1.png') }}" alt="">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-8 col-xl-8 col-sm-12">--}}
+{{--                <div class="tex-s-c">--}}
+{{--                    <div class="section-title">--}}
+{{--                        <h3 class="section-heading">{{ __(@$aboutUsGeneral->upgrade_skill_title) }}</h3>--}}
+{{--                    </div>--}}
+{{--                    <p style="font-weight: 501;">{{ __(@$aboutUsGeneral->upgrade_skill_subtitle) }} </p>--}}
 
-                    <!-- section button start-->
-                    <!-- <div class="col-12 section-btn">
-                   {{--     <a href="{{ route('courses') }}" class="theme-btn default-hover-btn theme-button1">{{ __ --}}(@$aboutUsGeneral->upgrade_skill_button_name) }} <i data-feather="arrow-right"></i></a>
-                    </div> -->
-                    <!-- section button end-->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{{--                    <!-- section button start-->--}}
+{{--                    <!-- <div class="col-12 section-btn">--}}
+{{--                   --}}{{--     <a href="{{ route('courses') }}" class="theme-btn default-hover-btn theme-button1">{{ __ --}}{{--(@$aboutUsGeneral->upgrade_skill_button_name) }} <i data-feather="arrow-right"></i></a>--}}
+{{--                    </div> -->--}}
+{{--                    <!-- section button end-->--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 <!-- Upgrade Your Skills Area End -->
 
 <!-- Our Passionate Team Member Area Start -->

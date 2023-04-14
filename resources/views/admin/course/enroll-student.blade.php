@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <div class="col-md-12 text-right">
+                                <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary">{{ __('Add') }}</button>
                                 </div>
                             </div>
