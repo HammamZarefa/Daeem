@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Page content area start -->
-    <div class="page-content">
+    <div class="page-content review-pending">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -73,15 +73,15 @@
 
                                             <div class="action__buttons">
 
-                                                <a href="{{route('admin.course.status-change', [$course->uuid, 1])}}" class="btn-action approve-btn mr-30" title="Make as Active">
+                                                <a href="{{route('admin.course.status-change', [$course->uuid, 1])}}" class="btn-action approve-btn" title="Make as Active">
                                                     {{__('Approve')}}
                                                 </a>
 
-                                                <a href="{{route('admin.course.view', [$course->uuid])}}" target="_blank" class="btn-action mr-30" title="View Details">
+                                                <a href="{{route('admin.course.view', [$course->uuid])}}" target="_blank" class="btn-action" title="View Details">
                                                     <img src="{{asset('admin/images/icons/eye-2.svg')}}" alt="eye">
                                                 </a>
 
-                                                <button class="btn-action ms-2 deleteItem" data-formid="delete_row_form_{{$course->uuid}}">
+                                                <button class="btn-action deleteItem" data-formid="delete_row_form_{{$course->uuid}}">
                                                     <img src="{{asset('admin/images/icons/trash-2.svg')}}" alt="trash">
                                                 </button>
 
