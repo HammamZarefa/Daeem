@@ -118,17 +118,17 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="instructor-withdrawal-money-box instructor-dashboard-top-part-item d-flex align-items-center radius-8 mb-30">
-                        <div class="flex-grow-1 ms-3">
-                            <h6 class="text-white font-11 font-semi-bold mb-2">{{ __('Withdrawal Money') }}</h6>
-                            <!-- Button trigger modal -->
-                            <a href="{{ route('wallet./') }}" class="upload-your-course-today-btn bg-hover text-white font-12 font-medium">
-                                {{ __('Withdrawal') }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="col-md-12">--}}
+{{--                    <div class="instructor-withdrawal-money-box instructor-dashboard-top-part-item d-flex align-items-center radius-8 mb-30">--}}
+{{--                        <div class="flex-grow-1 ms-3">--}}
+{{--                            <h6 class="text-white font-11 font-semi-bold mb-2">{{ __('Withdrawal Money') }}</h6>--}}
+{{--                            <!-- Button trigger modal -->--}}
+{{--                            <a href="{{ route('wallet./') }}" class="upload-your-course-today-btn bg-hover text-white font-12 font-medium">--}}
+{{--                                {{ __('Withdrawal') }}--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
             </div>
 

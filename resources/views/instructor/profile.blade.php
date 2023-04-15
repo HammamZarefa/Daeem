@@ -124,10 +124,10 @@
                         <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female" {{$instructor->gender == 'Female' ? 'checked' : '' }} >
                         <label class="form-check-label" for="inlineRadio2">{{ __('Female') }}</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="Others" {{$instructor->gender == 'Others' ? 'checked' : '' }} >
-                        <label class="form-check-label" for="inlineRadio3">{{ __('Others') }}</label>
-                    </div>
+{{--                    <div class="form-check form-check-inline">--}}
+{{--                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="Others" {{$instructor->gender == 'Others' ? 'checked' : '' }} >--}}
+{{--                        <label class="form-check-label" for="inlineRadio3">{{ __('Others') }}</label>--}}
+{{--                    </div>--}}
                     </div>
                     @if ($errors->has('gender'))
                         <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('gender') }}</span>

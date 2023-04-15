@@ -728,7 +728,7 @@ class CartManagementController extends Controller
         if ($request->has('proceed_to_checkout')) {
             return redirect(route('student.checkout'));
         }
-        elseif ($request->has('pay_from_lmszai_wallet')) {
+        elseif ($request->has('pay_from_daeem_wallet')) {
             $carts = CartManagement::whereUserId(@Auth::id())->get();
             if (!count($carts)) {
                 $this->showToastrMessage('error', __('Your cart is empty!'));

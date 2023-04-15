@@ -169,6 +169,12 @@ class InstructorController extends Controller
                 $instructor->pay_token = $verification_code;
                 $instructor->save();
             }
+            /** ====== Send notification to instructor =========*/
+            $text2 = "Your coaching request has been accepted";
+            $target_url2 = route('student.payForCoachRequest',$instructor->uuid);
+            $this->send($text2, 2, $target_url2, $verification_code);
+            /** ====== Send notification to instructor =========*/
+
 
             try {
                 Mail::to($instructor->email)->send(new PayForBecomeCoachMail($instructor, $verification_code));

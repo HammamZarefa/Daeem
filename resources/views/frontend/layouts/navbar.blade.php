@@ -108,7 +108,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('/about-us#Servcies') }}"
-                                       class="dropdown-item">@lang('Servcies')</a>
+                                       class="dropdown-item">@lang('Services')</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/about-us#Coaching') }}"
@@ -522,13 +522,13 @@
                                                 @if(Auth::user()->is_affiliator == AFFILIATOR || (Auth::user()->role == USER_ROLE_INSTRUCTOR &&
                                                 @$authUser->instructor->status == STATUS_APPROVED) || (Auth::user()->role == USER_ROLE_ORGANIZATION &&
                                                 @$authUser->organization->status == STATUS_APPROVED))
-                                                    <li>
-                                                        <a class="dropdown-item" href="{{ route('wallet./') }}"><span
-                                                                class="iconify"
-                                                                data-icon="et:wallet"></span>
-                                                            {{ __('My Wallet') }}
-                                                        </a>
-                                                    </li>
+{{--                                                    <li>--}}
+{{--                                                        <a class="dropdown-item" href="{{ route('wallet./') }}"><span--}}
+{{--                                                                class="iconify"--}}
+{{--                                                                data-icon="et:wallet"></span>--}}
+{{--                                                            {{ __('My Wallet') }}--}}
+{{--                                                        </a>--}}
+{{--                                                    </li>--}}
                                                 @endif
                                             </ul>
 

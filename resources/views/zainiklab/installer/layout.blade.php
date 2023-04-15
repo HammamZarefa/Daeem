@@ -18,7 +18,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12">
                     <div class="breadcrumb-text">
                         <a class="brand-logo" href="#"><img src="{{ asset('uploads_demo/setting/logo.png') }}" alt="logo"></a>
-                        <h2>LMSZAI - Learning Management System</h2>
+                        <h2>Daeem - Learning Management System</h2>
                         <p>{{ \Carbon\Carbon::parse(now())->format('l, j F Y') }}</p>
                     </div>
                 </div>
