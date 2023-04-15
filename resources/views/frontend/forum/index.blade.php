@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-5">
                             <div class="forum-banner-right-img">
-                                <img src="{{ asset('frontend/assets/img/forum-banner-right-img.png') }}" alt="lmszai forum"
+                                <img src="{{ asset('frontend/assets/img/forum-banner-right-img.png') }}" alt="DAEEM forum"
                                     class="img-fluid">
                             </div>
                         </div>

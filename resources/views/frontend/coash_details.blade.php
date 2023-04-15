@@ -77,20 +77,20 @@
 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/course-details/javascript-understanding-the-weird-parts"><img src="https://lmszai.zainikthemes.com/uploads/course/1655545018-UOg3MEPfM6.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/course-details/javascript-understanding-the-weird-parts"><img src="https://DAEEM.zainikthemes.com/uploads/course/1655545018-UOg3MEPfM6.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-course_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-course_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-course_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-course_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/javascript-understanding-the-weird-parts">JavaScript: Understanding the Weird Part...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/course-details/javascript-understanding-the-weird-parts">JavaScript: Understanding the Weird Part...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
-<a href="https://lmszai.zainikthemes.com/users/2/profile">Johnny Depp</a>
+<a href="https://DAEEM.zainikthemes.com/users/2/profile">Johnny Depp</a>
 </p>
 <div class="course-item-bottom">
 <div class="course-rating d-flex align-items-center">
@@ -121,20 +121,20 @@ $ 50.00
 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
- <a href="https://lmszai.zainikthemes.com/course-details/php-for-beginners-become-a-php-master-cms-project"><img src="https://lmszai.zainikthemes.com/uploads/course/1657091202-uW4GOdGMEz.jpg" alt="course" class="img-fluid"></a>
+ <a href="https://DAEEM.zainikthemes.com/course-details/php-for-beginners-become-a-php-master-cms-project"><img src="https://DAEEM.zainikthemes.com/uploads/course/1657091202-uW4GOdGMEz.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-course_id="19" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-course_id="19" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-course_id="19" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-course_id="19" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/php-for-beginners-become-a-php-master-cms-project">PHP for Beginners - Become a PHP Master...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/course-details/php-for-beginners-become-a-php-master-cms-project">PHP for Beginners - Become a PHP Master...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
-<a href="https://lmszai.zainikthemes.com/users/2/profile">Johnny Depp</a>
+<a href="https://DAEEM.zainikthemes.com/users/2/profile">Johnny Depp</a>
 </p>
 <div class="course-item-bottom">
 <div class="course-rating d-flex align-items-center">
@@ -165,20 +165,20 @@ $ 25.00
 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/course-details/react-the-complete-guide-incl-hooks-react-router-redux"><img src="https://lmszai.zainikthemes.com/uploads/course/1657091384-VX5ZldBJ3q.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/course-details/react-the-complete-guide-incl-hooks-react-router-redux"><img src="https://DAEEM.zainikthemes.com/uploads/course/1657091384-VX5ZldBJ3q.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-course_id="23" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-course_id="23" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-course_id="23" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-course_id="23" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/react-the-complete-guide-incl-hooks-react-router-redux">React - The Complete Guide (incl Hooks,...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/course-details/react-the-complete-guide-incl-hooks-react-router-redux">React - The Complete Guide (incl Hooks,...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
-<a href="https://lmszai.zainikthemes.com/users/2/profile">Johnny Depp</a>
+<a href="https://DAEEM.zainikthemes.com/users/2/profile">Johnny Depp</a>
 </p>
 <div class="course-item-bottom">
 <div class="course-rating d-flex align-items-center">
@@ -216,16 +216,16 @@ $ 55.00
 <div class="course-info-box instructor-info-box bg-white p-0">
 <div class="instructor-details-right-img-box text-center mb-20">
 <div class="instructor-details-avatar-wrap radius-50 overflow-hidden mx-auto">
-<img src="https://lmszai.zainikthemes.com/uploads_demo/user/1.jpg" alt="img" class="radius-50">
+<img src="https://DAEEM.zainikthemes.com/uploads_demo/user/1.jpg" alt="img" class="radius-50">
 </div>
 <h6 class="instructor-details-name">Johnny Depp</h6>
 <p class="instructor-details-designation font-12 font-semi-bold mb-15">PHP Developer</p>
 <div class="search-instructor-award-img d-inline-flex flex-wrap justify-content-center">
-<img src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/membership_1.png" title="1 Years of Membership" alt="1 Years of Membership" class="fit-image rounded-circle">
-<img src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/rank_3.png" title="Author Level 3" alt="Author Level 3" class="fit-image rounded-circle">
-<img src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/course_1.png" title="0 to 5 Course" alt="0 to 5 Course" class="fit-image rounded-circle">
-<img src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/student_1.png" title="0 to 10 Student" alt="0 to 10 Student" class="fit-image rounded-circle">
- <img src="https://lmszai.zainikthemes.com/frontend/assets/img/ranking_badges/sale_1.png" title="0 to 10 Sold" alt="0 to 10 Sold" class="fit-image rounded-circle">
+<img src="https://DAEEM.zainikthemes.com/frontend/assets/img/ranking_badges/membership_1.png" title="1 Years of Membership" alt="1 Years of Membership" class="fit-image rounded-circle">
+<img src="https://DAEEM.zainikthemes.com/frontend/assets/img/ranking_badges/rank_3.png" title="Author Level 3" alt="Author Level 3" class="fit-image rounded-circle">
+<img src="https://DAEEM.zainikthemes.com/frontend/assets/img/ranking_badges/course_1.png" title="0 to 5 Course" alt="0 to 5 Course" class="fit-image rounded-circle">
+<img src="https://DAEEM.zainikthemes.com/frontend/assets/img/ranking_badges/student_1.png" title="0 to 10 Student" alt="0 to 10 Student" class="fit-image rounded-circle">
+ <img src="https://DAEEM.zainikthemes.com/frontend/assets/img/ranking_badges/sale_1.png" title="0 to 10 Sold" alt="0 to 10 Sold" class="fit-image rounded-circle">
 </div>
 <div>
 <button type="button" class="green-theme-btn theme-button1 follow-btn" id="unAuthBtnId">Follow</button>
@@ -308,7 +308,7 @@ average)</span>
 </ul>
 </div>
 <div class="instructor-bottom-item mt-20">
-<button type="button" data-type="3" data-booking_instructor_user_id="2" data-hourly_fee="$ 50/h" data-hourly_rate="50" data-get_off_days_route="https://lmszai.zainikthemes.com/get-off-days/2" class="theme-btn theme-button1 theme-button3 w-100 bookSchedule" data-bs-toggle="modal" data-bs-target="#consultationBookingModal">Book Schedule
+<button type="button" data-type="3" data-booking_instructor_user_id="2" data-hourly_fee="$ 50/h" data-hourly_rate="50" data-get_off_days_route="https://DAEEM.zainikthemes.com/get-off-days/2" class="theme-btn theme-button1 theme-button3 w-100 bookSchedule" data-bs-toggle="modal" data-bs-target="#consultationBookingModal">Book Schedule
 </button>
 </div>
 </div>

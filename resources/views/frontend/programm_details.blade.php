@@ -55,18 +55,18 @@
 <div class="col-sm-12">
 <div class="card course-item courses-bundles-course-item radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/course-details/Laravel-For-Beginners-Become-A-Laravel-Master-CMS-Project"><img src="https://lmszai.zainikthemes.com/uploads/course/1669814930-hI5q3yMOZ6.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/course-details/Laravel-For-Beginners-Become-A-Laravel-Master-CMS-Project"><img src="https://DAEEM.zainikthemes.com/uploads/course/1669814930-hI5q3yMOZ6.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-course_id="34" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-course_id="34" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-course_id="34" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-course_id="34" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/Laravel-For-Beginners-Become-A-Laravel-Master-CMS-Project">Laravel For Beginners - Become A Laravel Master - CMS Project</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/course-details/Laravel-For-Beginners-Become-A-Laravel-Master-CMS-Project">Laravel For Beginners - Become A Laravel Master - CMS Project</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Benjamin Lucas
 | Author Level 1
@@ -98,18 +98,18 @@ $ 120.00
 <div class="col-sm-12">
 <div class="card course-item courses-bundles-course-item radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/course-details/The-complete-Scorm-demo-course-web-design-development"><img src="https://lmszai.zainikthemes.com/uploads/course/1669902683-mafaIoaLC9.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/course-details/The-complete-Scorm-demo-course-web-design-development"><img src="https://DAEEM.zainikthemes.com/uploads/course/1669902683-mafaIoaLC9.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-course_id="35" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-course_id="35" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-course_id="35" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-course_id="35" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/course-details/The-complete-Scorm-demo-course-web-design-development">The complete Scorm demo course - web design &amp; development</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/course-details/The-complete-Scorm-demo-course-web-design-development">The complete Scorm demo course - web design &amp; development</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Benjamin Lucas
 | Author Level 1
@@ -145,7 +145,7 @@ $ 100.00
 <div class="col-md-7 col-lg-12 col-xl-7 p-0">
 <div class="meet-your-instructor-left d-flex">
 <div class="meet-instructor-img-wrap flex-shrink-0">
-<img src="https://lmszai.zainikthemes.com/uploads/user/1669903389-ARXS2mtKaM.jpg" alt="img">
+<img src="https://DAEEM.zainikthemes.com/uploads/user/1669903389-ARXS2mtKaM.jpg" alt="img">
 </div>
 <div class="flex-grow-1">
 <p class="font-medium color-heading mb-1">Benjamin Lucas</p>
@@ -184,7 +184,7 @@ $ 100.00
 <div class="course-info-box bg-white">
 <div class="video-area-left position-relative d-flex align-items-center justify-content-center">
 <div class="course-info-video-img">
-<img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="Bundle Image" class="img-fluid">
+<img src="https://DAEEM.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="Bundle Image" class="img-fluid">
 </div>
 </div>
 <div class="course-price-box d-flex justify-content-between align-items-center mt-30 mb-30">
@@ -205,11 +205,11 @@ $ 200
 </li>
 </ul>
 </div>
-<button class="theme-btn theme-button1 theme-button3 w-100 mb-30 addToCart" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-cart">
+<button class="theme-btn theme-button1 theme-button3 w-100 mb-30 addToCart" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart">
 Enroll the bundle<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 </button>
 <div class="course-info-box-wishlist-btns d-flex mb-30">
-<button class="theme-btn para-color font-medium mx-2 addToWishlist" title="Add to wishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bytesize me-2" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" data-icon="bytesize:heart"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16C1 12 2 6 7 4s8 2 9 4c1-2 5-6 10-4s5 8 2 12s-12 12-12 12s-9-8-12-12Z"></path></svg>Add to wishlist
+<button class="theme-btn para-color font-medium mx-2 addToWishlist" title="Add to wishlist" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bytesize me-2" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" data-icon="bytesize:heart"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16C1 12 2 6 7 4s8 2 9 4c1-2 5-6 10-4s5 8 2 12s-12 12-12 12s-9-8-12-12Z"></path></svg>Add to wishlist
 </button>
  <button class="theme-btn para-color font-medium mx-2" title="Share this course" data-bs-toggle="modal" data-bs-target="#shareThisCourseModal">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ci me-2" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="ci:share-outline"><path fill="currentColor" d="M17.5 22a3.46 3.46 0 0 1-3.383-4.352l-6.26-3.578a3.494 3.494 0 1 1 .576-4.47l5.683-3.249A3.494 3.494 0 0 1 14 5.5a3.531 3.531 0 1 1 1.142 2.57l-6.15 3.515c-.007.26-.043.517-.109.768l6.26 3.577A3.495 3.495 0 1 1 17.5 22Zm0-5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3Zm-12-7a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3Zm12-6a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3Z"></path></svg>Share bundle
