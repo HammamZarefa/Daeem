@@ -1042,5 +1042,5 @@ function setEnvironmentValue($envKey, $envValue)
 }
 function getSuperAdminStatus()
 {
-    return false;
+    return true;
 }
