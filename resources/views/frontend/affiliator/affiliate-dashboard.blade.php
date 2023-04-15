@@ -38,17 +38,17 @@
             <div class="col-md-12 col-lg-10">
                 <div class="affiliator-dashboard-wrap bg-white">
 
-                    <div class="row affiliator-dashboard-title align-items-center border-bottom mb-30 pb-20 mx-0">
-                        <div class="col-md-12 col-lg-5 col-xl-5 px-0">
-                            <h5>{{ __('Affiliate Dashboard') }}</h5>
-                        </div>
-                        <div class="col-md-12 col-lg-7 col-xl-7 px-0">
-                            <div class="affiliate-top-title-btns text-end">
-                                <!-- Withdrawal modal trigger Button -->
-                                <a href=" {{ route('wallet./') }}" class="theme-btn theme-button1 default-hover-btn">{{ __('My Wallet') }}</a>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="row affiliator-dashboard-title align-items-center border-bottom mb-30 pb-20 mx-0">--}}
+{{--                        <div class="col-md-12 col-lg-5 col-xl-5 px-0">--}}
+{{--                            <h5>{{ __('Affiliate Dashboard') }}</h5>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-12 col-lg-7 col-xl-7 px-0">--}}
+{{--                            <div class="affiliate-top-title-btns text-end">--}}
+{{--                                <!-- Withdrawal modal trigger Button -->--}}
+{{--                                <a href=" {{ route('wallet./') }}" class="theme-btn theme-button1 default-hover-btn">{{ __('My Wallet') }}</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="affiliate-dashboard-top-box row">
                         <div class="col-md-6 col-lg-4">
@@ -125,63 +125,63 @@
                             @endif
                         </h4>
                     </div>
-                    <form method="POST" action="{{route('wallet.process-withdraw')}}">
-                        @csrf
-                        <div class="row">
+{{--                    <form method="POST" action="{{route('wallet.process-withdraw')}}">--}}
+{{--                        @csrf--}}
+{{--                        <div class="row">--}}
 
-                            <div class="col-md-12 mb-30">
-                                <div class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Amount' ) }}
-                                    <span class="cursor tooltip-show-btn share-referral-big-btn primary-btn get-referral-btn border-0" data-toggle="popover"
-                                          data-bs-placement="bottom" data-bs-content="Meridian sun strikes upper urface of the impenetrable foliage of my trees">
-                                   !
-                                </span>
-                                </div>
-                                <input type="number" name="amount" min="1" class="form-control" placeholder="{{ __('Type amount') }}" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 mb-30">
-                                <div class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Method') }}
-                                    <span class="cursor tooltip-show-btn share-referral-big-btn primary-btn get-referral-btn border-0" data-toggle="popover"
-                                          data-bs-placement="bottom" data-bs-content="Meridian sun strikes upper urface of the impenetrable foliage of my trees">
-                                       !
-                                </span>
-                                </div>
+{{--                            <div class="col-md-12 mb-30">--}}
+{{--                                <div class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Amount' ) }}--}}
+{{--                                    <span class="cursor tooltip-show-btn share-referral-big-btn primary-btn get-referral-btn border-0" data-toggle="popover"--}}
+{{--                                          data-bs-placement="bottom" data-bs-content="Meridian sun strikes upper urface of the impenetrable foliage of my trees">--}}
+{{--                                   !--}}
+{{--                                </span>--}}
+{{--                                </div>--}}
+{{--                                <input type="number" name="amount" min="1" class="form-control" placeholder="{{ __('Type amount') }}" required>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-12 mb-30">--}}
+{{--                                <div class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Method') }}--}}
+{{--                                    <span class="cursor tooltip-show-btn share-referral-big-btn primary-btn get-referral-btn border-0" data-toggle="popover"--}}
+{{--                                          data-bs-placement="bottom" data-bs-content="Meridian sun strikes upper urface of the impenetrable foliage of my trees">--}}
+{{--                                       !--}}
+{{--                                </span>--}}
+{{--                                </div>--}}
 
-                                <div class="withdrawal-radio-item-wrap form-control">
-                                    <div class="form-check">
-                                        <div class="withdrawal-radio-item">
-                                            <input class="form-check-input" type="radio" name="payment_method" value="paypal" required id="flexRadioDefault3">
-                                            <label class="form-check-label" for="flexRadioDefault3">
-                                                {{ __('Withdraw with Paypal') }}
-                                            </label>
-                                        </div>
-                                        <div class="withdrawal-radio-img">
-                                            <img src="{{ asset('frontend/assets/img/instructor-img/paypal-icon.png') }}" alt="paypal">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="withdrawal-radio-item-wrap form-control">
-                                    <div class="form-check">
-                                        <div class="withdrawal-radio-item">
-                                            <input class="form-check-input" type="radio" name="payment_method" value="card" required id="flexRadioDefault4">
-                                            <label class="form-check-label" for="flexRadioDefault4">
-                                                {{ __('Withdraw with Card') }}
-                                            </label>
-                                        </div>
-                                        <div class="withdrawal-radio-img">
-                                            <img src="{{ asset('frontend/assets/img/instructor-img/mastercard-icon.png') }}" alt="card">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <button type="submit" class="theme-btn theme-button1 theme-button3 font-15 fw-bold w-100">{{ __('Make Withdraw') }}</button>
-                            </div>
-                        </div>
-                    </form>
+{{--                                <div class="withdrawal-radio-item-wrap form-control">--}}
+{{--                                    <div class="form-check">--}}
+{{--                                        <div class="withdrawal-radio-item">--}}
+{{--                                            <input class="form-check-input" type="radio" name="payment_method" value="paypal" required id="flexRadioDefault3">--}}
+{{--                                            <label class="form-check-label" for="flexRadioDefault3">--}}
+{{--                                                {{ __('Withdraw with Paypal') }}--}}
+{{--                                            </label>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="withdrawal-radio-img">--}}
+{{--                                            <img src="{{ asset('frontend/assets/img/instructor-img/paypal-icon.png') }}" alt="paypal">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="withdrawal-radio-item-wrap form-control">--}}
+{{--                                    <div class="form-check">--}}
+{{--                                        <div class="withdrawal-radio-item">--}}
+{{--                                            <input class="form-check-input" type="radio" name="payment_method" value="card" required id="flexRadioDefault4">--}}
+{{--                                            <label class="form-check-label" for="flexRadioDefault4">--}}
+{{--                                                {{ __('Withdraw with Card') }}--}}
+{{--                                            </label>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="withdrawal-radio-img">--}}
+{{--                                            <img src="{{ asset('frontend/assets/img/instructor-img/mastercard-icon.png') }}" alt="card">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-12">--}}
+{{--                                <button type="submit" class="theme-btn theme-button1 theme-button3 font-15 fw-bold w-100">{{ __('Make Withdraw') }}</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
                 </div>
             </div>
         </div>

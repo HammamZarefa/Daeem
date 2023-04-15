@@ -61,8 +61,8 @@ class FlutterwaveService
                 'currency' => $this->currency,
                 'redirect_url' => $this->successUrl,
                 'customer' => [
-                    'email' => "lmszai@gmail.com",
-                    "name" => "LMSZAI"
+                    'email' => "Daeem@gmail.com",
+                    "name" => "Daeem"
                 ],
                 'meta' =>  [
                     'metaname' => 'order_id', 'metavalue' => $this->order_id,

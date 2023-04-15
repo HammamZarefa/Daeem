@@ -160,7 +160,7 @@
                                             <option value="">{{__('Select Option')}}</option>
                                             <option value="Male" {{old('gender') == 'Male' ? 'selected' : '' }} >{{ __('Male') }}</option>
                                             <option value="Female" {{old('gender') == 'Female' ? 'selected' : '' }} >{{ __('Female') }}</option>
-                                            <option value="Others" {{old('gender') == 'Others' ? 'selected' : '' }} >{{ __('Others') }}</option>
+{{--                                            <option value="Others" {{old('gender') == 'Others' ? 'selected' : '' }} >{{ __('Others') }}</option>--}}
                                         </select>
                                     </div>
                                 </div>

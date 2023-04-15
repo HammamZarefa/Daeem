@@ -299,11 +299,11 @@
                                         <input type="submit"
                                                class="theme-btn theme-button1 w-100 justify-content-center mt-3"
                                                value="Proceed to Checkout" name="proceed_to_checkout">
-                                        @if(@Auth::user()->is_instructor())
-                                            <input type="submit"
-                                                   class="theme-btn btn-orange w-100 justify-content-center mt-3"
-                                                   value="Pay from LMSzai wallet" name="pay_from_lmszai_wallet">
-                                        @endif
+{{--                                        @if(@Auth::user()->is_instructor())--}}
+{{--                                            <input type="submit"--}}
+{{--                                                   class="theme-btn btn-orange w-100 justify-content-center mt-3"--}}
+{{--                                                   value="Pay from DAEEM wallet" name="pay_from_DAEEM_wallet">--}}
+{{--                                        @endif--}}
                                         @if($subscriptionPurchaseEnable)
                                             <input type="submit"
                                                    class="theme-btn btn-orange w-100 justify-content-center mt-3"
