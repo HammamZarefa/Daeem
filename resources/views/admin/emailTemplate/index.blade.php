@@ -49,7 +49,7 @@
                                             {{$template->subject}}
                                         </td>
                                         <td>
-                                            <div class="action__buttons">
+                                            <div class="action__buttons justify-content-center">
                                                 <a href="{{route('email-template.edit', [$template->uuid])}}" class="btn-action" title="Edit">
                                                     <img src="{{asset('admin/images/icons/edit-2.svg')}}" alt="edit">
                                                 </a>

@@ -31,7 +31,7 @@
                                                                     <img src="{{ asset($notification->sender->image_path) }}" alt="img" class="radius-50">
                                                                 </div>
                                                             </div>
-                                                            <div class="flex-grow-1 ms-2">
+                                                            <div class="flex-grow-1 notifl">
                                                                 <h6 class="color-heading font-14">{{$notification->sender->name}}</h6>
                                                                 <p class="font-13 mb-0">{{ __($notification->text) }}</p>
                                                                 <div class="font-11 color-gray mt-1">{{$notification->created_at->diffForHumans()}}</div>

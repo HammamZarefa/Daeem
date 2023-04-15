@@ -59,7 +59,7 @@
                                             </td>
                                             <td>{{ $skill->description }}</td>
                                             <td>
-                                                <div class="action__buttons">
+                                                <div class="action__buttons justify-content-center">
                                                     <a class=" btn-action mr-1 edit" data-item="{{ $skill }}"
                                                         data-updateurl="{{ route('skill.update', @$skill->id) }}"
                                                         data-toggle="tooltip" title="Edit">

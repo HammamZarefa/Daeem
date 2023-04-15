@@ -46,7 +46,7 @@
                                             {{$difficulty_level->name}}
                                         </td>
                                         <td>
-                                            <div class="action__buttons">
+                                            <div class="action__buttons justify-content-center">
                                                 <a href="{{route('difficulty-level.edit', [$difficulty_level->uuid])}}" title="Edit" class="btn-action">
                                                     <img src="{{asset('admin/images/icons/edit-2.svg')}}" alt="edit">
                                                 </a>

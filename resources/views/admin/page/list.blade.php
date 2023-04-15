@@ -49,7 +49,7 @@
                                         <td>{!! Str::limit($page->en_description, 35) !!}</td>
                                         <td>{{ route('page', $page->slug) }}</td>
                                         <td>
-                                            <div class="action__buttons">
+                                            <div class="action__buttons justify-content-center">
                                                 <a href="{{ route('page.edit', $page->uuid) }}" class=" btn-action mr-1 edit" data-toggle="tooltip" title="Edit">
                                                     <img src="{{asset('admin/images/icons/edit-2.svg')}}" alt="edit">
                                                 </a>

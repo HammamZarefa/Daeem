@@ -176,8 +176,8 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="upload-img-box mb-25">
+                                <div class="col-md-12">
+                                    <div class="upload-img-box m-auto mb-25">
                                         <img src="">
                                         <input type="file" name="image" id="image" accept="image/*" onchange="previewFile(this)">
                                         <div class="upload-img-box-icon">
