@@ -49,7 +49,7 @@
                                            {{$certificate->created_at->format("d/m/Y")}}
                                         </td>
                                         <td>
-                                            <div class="action__buttons">
+                                            <div class="action__buttons justify-content-center">
                                                 <a href="{{route('certificate.edit', [$certificate->uuid])}}" class="btn-action" title="Edit">
                                                     <img src="{{asset('admin/images/icons/edit-2.svg')}}" alt="edit">
                                                 </a>

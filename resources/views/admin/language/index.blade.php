@@ -52,7 +52,7 @@
                                         <td>{{$language->iso_code}}</td>
                                         <td>{{$language->rtl == 1 ? 'Yes' : 'No'}}</td>
                                         <td>
-                                            <div class="action__buttons">
+                                            <div class="action__buttons justify-content-center">
                                                 <a href="{{ route('language.edit', [$language->id, $language->iso_code]) }}" class="btn-action" title="Edit">
                                                     <img src="{{asset('admin/images/icons/edit-2.svg')}}" alt="edit">
                                                 </a>
