@@ -204,8 +204,8 @@
                             </option>
                             <option value="Female" {{ $student->gender == 'Female' ? 'selected' : '' }}>
                                 {{ __('Female') }}</option>
-                            <option value="Others" {{ $student->gender == 'Others' ? 'selected' : '' }}>
-                                {{ __('Others') }}</option>
+{{--                            <option value="Others" {{ $student->gender == 'Others' ? 'selected' : '' }}>--}}
+{{--                                {{ __('Others') }}</option>--}}
                         </select>
                     </div>
                     <div class="col-md-12">

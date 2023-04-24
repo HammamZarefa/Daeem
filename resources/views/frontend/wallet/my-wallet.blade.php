@@ -39,9 +39,9 @@
                         <div class="affiliator-dashboard-wrap bg-white">
 
                             <div class="row affiliator-dashboard-title align-items-center border-bottom mb-30 pb-20 mx-0">
-                                <div class="col-md-12 col-lg-5 col-xl-5 px-0">
-                                    <h5>My Wallet</h5>
-                                </div>
+{{--                                <div class="col-md-12 col-lg-5 col-xl-5 px-0">--}}
+{{--                                    <h5>My Wallet</h5>--}}
+{{--                                </div>--}}
                                 <div class="col-md-12 col-lg-7 col-xl-7 px-0">
                                     <div class="affiliate-top-title-btns text-end">
                                         <!-- Withdrawal modal trigger Button -->
@@ -50,7 +50,7 @@
                                             {{ __('Request a Withdrawal') }}
                                         </button>
 
-                                        <a href="{{ route('wallet.my-beneficiary') }}" class="theme-btn theme-button1 green-theme-btn default-hover-btn">{{ __('My Beneficiary') }}</a>
+{{--                                        <a href="{{ route('wallet.my-beneficiary') }}" class="theme-btn theme-button1 green-theme-btn default-hover-btn">{{ __('My Beneficiary') }}</a>--}}
                                     </div>
                                 </div>
                             </div>
@@ -147,35 +147,35 @@
                                     @endif
                                 </h4>
                             </div>
-                            <form method="POST" action="{{route('wallet.process-withdraw')}}">
-                                @csrf
-                                <div class="row">
+{{--                            <form method="POST" action="{{route('wallet.process-withdraw')}}">--}}
+{{--                                @csrf--}}
+{{--                                <div class="row">--}}
 
-                                    <div class="col-md-12 mb-30">
-                                        <div class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Amount' ) }}
-                                        <span
-                                                class="text-danger">*</span>
-                                        </div>
-                                        <input type="number" name="amount" min="1" class="form-control" placeholder="{{ __('Type amount') }}" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 mb-30">
-                                        <label class="font-medium font-15 color-heading">{{ __('Beneficiary') }}<span
-                                                class="text-danger">*</span></label>
-                                        <select name="uuid" class="form-select" required>
-                                            @foreach ($beneficiaries as $beneficiary)
-                                                <option value="{{ $beneficiary->uuid }}">{{ $beneficiary->beneficiary_name.' - ('.getBeneficiaryAccountDetails($beneficiary).')' }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button type="submit" class="theme-btn theme-button1 theme-button3 font-15 fw-bold w-100">{{ __('Make Withdraw') }}</button>
-                                    </div>
-                                </div>
-                            </form>
+{{--                                    <div class="col-md-12 mb-30">--}}
+{{--                                        <div class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Amount' ) }}--}}
+{{--                                        <span--}}
+{{--                                                class="text-danger">*</span>--}}
+{{--                                        </div>--}}
+{{--                                        <input type="number" name="amount" min="1" class="form-control" placeholder="{{ __('Type amount') }}" required>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="col-md-12 mb-30">--}}
+{{--                                        <label class="font-medium font-15 color-heading">{{ __('Beneficiary') }}<span--}}
+{{--                                                class="text-danger">*</span></label>--}}
+{{--                                        <select name="uuid" class="form-select" required>--}}
+{{--                                            @foreach ($beneficiaries as $beneficiary)--}}
+{{--                                                <option value="{{ $beneficiary->uuid }}">{{ $beneficiary->beneficiary_name.' - ('.getBeneficiaryAccountDetails($beneficiary).')' }}</option>--}}
+{{--                                            @endforeach--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="col-12">--}}
+{{--                                        <button type="submit" class="theme-btn theme-button1 theme-button3 font-15 fw-bold w-100">{{ __('Make Withdraw') }}</button>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
                         </div>
                     </div>
                 </div>

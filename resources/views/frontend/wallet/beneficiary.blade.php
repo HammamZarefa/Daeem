@@ -45,9 +45,9 @@
                                         data-bs-toggle="modal" data-bs-target="#beneficiaryModal">
                                         {{ __('Add Beneficiary') }}
                                     </button>
-                                    <a href=" {{ route('wallet./') }}"
-                                        class="theme-btn theme-button1 green-theme-btn default-hover-btn">GoTo
-                                        Wallet</a>
+{{--                                    <a href=" {{ route('wallet./') }}"--}}
+{{--                                        class="theme-btn theme-button1 green-theme-btn default-hover-btn">GoTo--}}
+{{--                                        Wallet</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -79,17 +79,17 @@
                                                         <td>
                                                             {!! getBeneficiaryDetails($beneficiary) !!}
                                                         </td>
-                                                        <td>
-                                                            <div class="action__buttons">
-                                                                <form action="{{ route('wallet.beneficiary_status.change', $beneficiary->uuid) }}" method="post">
-                                                                    <select class="status form-select">
-                                                                        <option value="{{ PACKAGE_STATUS_ACTIVE }}" {{ ($beneficiary->status == PACKAGE_STATUS_ACTIVE) ? 'selected' : '' }}>{{ getPackageStatus(PACKAGE_STATUS_ACTIVE) }}</option>
-                                                                        <option value="{{ PACKAGE_STATUS_DISABLED }}" {{ ($beneficiary->status == PACKAGE_STATUS_DISABLED) ? 'selected' : '' }}>{{ getPackageStatus(PACKAGE_STATUS_DISABLED) }}</option>
-                                                                    </select>
-                                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                                </form>
-                                                            </div>
-                                                        </td>
+{{--                                                        <td>--}}
+{{--                                                            <div class="action__buttons">--}}
+{{--                                                                <form action="{{ route('wallet.beneficiary_status.change', $beneficiary->uuid) }}" method="post">--}}
+{{--                                                                    <select class="status form-select">--}}
+{{--                                                                        <option value="{{ PACKAGE_STATUS_ACTIVE }}" {{ ($beneficiary->status == PACKAGE_STATUS_ACTIVE) ? 'selected' : '' }}>{{ getPackageStatus(PACKAGE_STATUS_ACTIVE) }}</option>--}}
+{{--                                                                        <option value="{{ PACKAGE_STATUS_DISABLED }}" {{ ($beneficiary->status == PACKAGE_STATUS_DISABLED) ? 'selected' : '' }}>{{ getPackageStatus(PACKAGE_STATUS_DISABLED) }}</option>--}}
+{{--                                                                    </select>--}}
+{{--                                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+{{--                                                                </form>--}}
+{{--                                                            </div>--}}
+{{--                                                        </td>--}}
                                                     </tr>
                                                 @endforeach
                                                 </tbody>

@@ -214,8 +214,8 @@
                             </option>
                             <option value="Female" {{ $instructor->gender == 'Female' ? 'selected' : '' }}>
                                 {{ __('Female') }}</option>
-                            <option value="Others" {{ $instructor->gender == 'Others' ? 'selected' : '' }}>
-                                {{ __('Others') }}</option>
+{{--                            <option value="Others" {{ $instructor->gender == 'Others' ? 'selected' : '' }}>--}}
+{{--                                {{ __('Others') }}</option>--}}
                         </select>
                     </div>
                     @php

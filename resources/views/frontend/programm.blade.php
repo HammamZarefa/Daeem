@@ -42,7 +42,7 @@
 </button>
                 </li>
                 <li class="nav-item na-item" role="presentation">
-                    <button class="nav-link na-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">البرامج الشبابية 
+                    <button class="nav-link na-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">البرامج الشبابية
 </button>
                 </li>
                 <li class="nav-item na-item" role="presentation">
@@ -65,7 +65,7 @@
                     <div class="filter-bar-left col-lg-8">
                         <div class="d-inline-flex align-items-center">
                         <div id="filter" class="actions-filter cursor sidebar-filter-btn color-gray d-flex align-items-center me-2">
-                        <img src="https://lmszai.zainikthemes.com/frontend/assets/img/courses-img/filter-icon.png" alt="short" class="me-2">
+                        <img src="https://DAEEM.zainikthemes.com/frontend/assets/img/courses-img/filter-icon.png" alt="short" class="me-2">
                         Filter
                         </div>
                         </div>
@@ -100,12 +100,12 @@ v class="show-all-course-area">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
 
-<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
+<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
@@ -131,18 +131,18 @@ $ 200
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
+<a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="4" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="4" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="4" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="4" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners">Ultimate Renewable Energy Bundle Course...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners">Ultimate Renewable Energy Bundle Course...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -162,18 +162,18 @@ $ 199
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703180-xG4o7nZaOs.jpg" alt="course" class="img-fluid"></a>
+<a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703180-xG4o7nZaOs.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="3" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="3" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="3" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="3" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle">Options Trading Basics (3-Course Bundle)</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle">Options Trading Basics (3-Course Bundle)</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -193,18 +193,18 @@ $ 99
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702790-NmtHUBxd9T.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702790-NmtHUBxd9T.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="2" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="2" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="2" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="2" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle">Bitcoin &amp; Ethereum CryptoCurrency Course...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle">Bitcoin &amp; Ethereum CryptoCurrency Course...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -224,18 +224,18 @@ $ 70
  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702126-5F3EyTbw6F.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662702126-5F3EyTbw6F.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript">Matching learning with python &amp; javascri...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript">Matching learning with python &amp; javascri...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -271,7 +271,7 @@ $ 50
                     <div class="filter-bar-left col-lg-8">
                         <div class="d-inline-flex align-items-center">
                         <div id="filter" class="actions-filter cursor sidebar-filter-btn color-gray d-flex align-items-center me-2">
-                        <img src="https://lmszai.zainikthemes.com/frontend/assets/img/courses-img/filter-icon.png" alt="short" class="me-2">
+                        <img src="https://DAEEM.zainikthemes.com/frontend/assets/img/courses-img/filter-icon.png" alt="short" class="me-2">
                         Filter
                         </div>
                         </div>
@@ -298,19 +298,19 @@ $ 50
 v class="show-all-course-area">
 
 <div id="loading" class="no-course-found text-center d-none">
-<div id="inner-status"><img src="https://lmszai.zainikthemes.com/frontend/assets/img/loader.svg" alt="img"></div>
+<div id="inner-status"><img src="https://DAEEM.zainikthemes.com/frontend/assets/img/loader.svg" alt="img"></div>
 </div>
 <div class="row courses-grids appendBundleCourseList">
 
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
+<a href="{{ route('programm_details') }}"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
@@ -336,18 +336,18 @@ $ 200
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="4" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="4" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="4" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="4" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners">Ultimate Renewable Energy Bundle Course...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners">Ultimate Renewable Energy Bundle Course...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -367,18 +367,18 @@ $ 199
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703180-xG4o7nZaOs.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703180-xG4o7nZaOs.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="3" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="3" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="3" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="3" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle">Options Trading Basics (3-Course Bundle)</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle">Options Trading Basics (3-Course Bundle)</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -398,18 +398,18 @@ $ 99
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702790-NmtHUBxd9T.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662702790-NmtHUBxd9T.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="2" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="2" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="2" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="2" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle">Bitcoin &amp; Ethereum CryptoCurrency Course...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle">Bitcoin &amp; Ethereum CryptoCurrency Course...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -429,18 +429,18 @@ $ 70
  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702126-5F3EyTbw6F.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662702126-5F3EyTbw6F.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript">Matching learning with python &amp; javascri...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript">Matching learning with python &amp; javascri...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -475,7 +475,7 @@ $ 50
                     <div class="filter-bar-left col-lg-8">
                         <div class="d-inline-flex align-items-center">
                         <div id="filter" class="actions-filter cursor sidebar-filter-btn color-gray d-flex align-items-center me-2">
-                        <img src="https://lmszai.zainikthemes.com/frontend/assets/img/courses-img/filter-icon.png" alt="short" class="me-2">
+                        <img src="https://DAEEM.zainikthemes.com/frontend/assets/img/courses-img/filter-icon.png" alt="short" class="me-2">
                         Filter
                         </div>
                         </div>
@@ -502,19 +502,19 @@ $ 50
 v class="show-all-course-area">
 
 <div id="loading" class="no-course-found text-center d-none">
-<div id="inner-status"><img src="https://lmszai.zainikthemes.com/frontend/assets/img/loader.svg" alt="img"></div>
+<div id="inner-status"><img src="https://DAEEM.zainikthemes.com/frontend/assets/img/loader.svg" alt="img"></div>
 </div>
 <div class="row courses-grids appendBundleCourseList">
 
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
+<a href="{{ route('programm_details') }}"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
@@ -540,18 +540,18 @@ $ 200
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="4" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="4" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="4" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="4" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners">Ultimate Renewable Energy Bundle Course...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners">Ultimate Renewable Energy Bundle Course...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -571,18 +571,18 @@ $ 199
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703180-xG4o7nZaOs.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703180-xG4o7nZaOs.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="3" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="3" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="3" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="3" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle">Options Trading Basics (3-Course Bundle)</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle">Options Trading Basics (3-Course Bundle)</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -602,18 +602,18 @@ $ 99
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702790-NmtHUBxd9T.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662702790-NmtHUBxd9T.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="2" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="2" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="2" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="2" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle">Bitcoin &amp; Ethereum CryptoCurrency Course...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle">Bitcoin &amp; Ethereum CryptoCurrency Course...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -633,18 +633,18 @@ $ 70
  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702126-5F3EyTbw6F.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662702126-5F3EyTbw6F.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript">Matching learning with python &amp; javascri...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript">Matching learning with python &amp; javascri...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -680,7 +680,7 @@ $ 50
                     <div class="filter-bar-left col-lg-8">
                         <div class="d-inline-flex align-items-center">
                         <div id="filter" class="actions-filter cursor sidebar-filter-btn color-gray d-flex align-items-center me-2">
-                        <img src="https://lmszai.zainikthemes.com/frontend/assets/img/courses-img/filter-icon.png" alt="short" class="me-2">
+                        <img src="https://DAEEM.zainikthemes.com/frontend/assets/img/courses-img/filter-icon.png" alt="short" class="me-2">
                         Filter
                         </div>
                         </div>
@@ -707,19 +707,19 @@ $ 50
 v class="show-all-course-area">
 
 <div id="loading" class="no-course-found text-center d-none">
-<div id="inner-status"><img src="https://lmszai.zainikthemes.com/frontend/assets/img/loader.svg" alt="img"></div>
+<div id="inner-status"><img src="https://DAEEM.zainikthemes.com/frontend/assets/img/loader.svg" alt="img"></div>
 </div>
 <div class="row courses-grids appendBundleCourseList">
 
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="{{ route('programm_details') }}"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
+<a href="{{ route('programm_details') }}"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1669902808-9TIvfckTbU.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="5" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="5" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
@@ -745,18 +745,18 @@ $ 200
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="4" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="4" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="4" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="4" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners">Ultimate Renewable Energy Bundle Course...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/ultimate-renewable-energy-bundle-course-for-beginners">Ultimate Renewable Energy Bundle Course...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -776,18 +776,18 @@ $ 199
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662703180-xG4o7nZaOs.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703180-xG4o7nZaOs.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="3" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="3" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="3" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="3" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle">Options Trading Basics (3-Course Bundle)</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/options-trading-basics-3-course-bundle">Options Trading Basics (3-Course Bundle)</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -807,18 +807,18 @@ $ 99
 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702790-NmtHUBxd9T.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662702790-NmtHUBxd9T.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="2" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="2" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="2" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="2" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle">Bitcoin &amp; Ethereum CryptoCurrency Course...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/bitcoin-ethereum-cryptocurrency-course-2-course-bundle">Bitcoin &amp; Ethereum CryptoCurrency Course...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3
@@ -838,18 +838,18 @@ $ 70
  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
 <div class="card course-item border-0 radius-3 bg-white">
 <div class="course-img-wrap overflow-hidden">
-<a href="https://lmszai.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript"><img src="https://lmszai.zainikthemes.com/uploads/bundle/1662702126-5F3EyTbw6F.jpg" alt="course" class="img-fluid"></a>
+<a href="https://DAEEM.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript"><img src="https://DAEEM.zainikthemes.com/uploads/bundle/1662702126-5F3EyTbw6F.jpg" alt="course" class="img-fluid"></a>
 <div class="course-item-hover-btns position-absolute">
-<span class="course-item-btn addToWishlist" data-bundle_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+<span class="course-item-btn addToWishlist" data-bundle_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 </span>
-<span class="course-item-btn addToCart" data-bundle_id="1" data-route="https://lmszai.zainikthemes.com/student/add-to-cart" title="Add to Cart">
+<span class="course-item-btn addToCart" data-bundle_id="1" data-route="https://DAEEM.zainikthemes.com/student/add-to-cart" title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 </span>
 </div>
 </div>
 <div class="card-body">
-<h5 class="card-title course-title"><a href="https://lmszai.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript">Matching learning with python &amp; javascri...</a></h5>
+<h5 class="card-title course-title"><a href="https://DAEEM.zainikthemes.com/bundle-details/Matching-learning-with-python-javascript">Matching learning with python &amp; javascri...</a></h5>
 <p class="card-text instructor-name-certificate font-medium font-12">
 Johnny Depp
 | Author Level 3

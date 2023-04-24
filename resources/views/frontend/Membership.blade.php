@@ -122,7 +122,7 @@
                                                             <div class="meet-your-instructor-left d-flex">
                                                                 <div class="meet-instructor-img-wrap flex-shrink-0">
                                                                     <img
-                                                                        src="https://lmszai.zainikthemes.com/uploads_demo/user/1.jpg"
+                                                                        src="https://DAEEM.zainikthemes.com/uploads_demo/user/1.jpg"
                                                                         alt="img">
                                                                 </div>
                                                                 <div class="flex-grow-1">
@@ -222,7 +222,7 @@
                                                             <div class="meet-your-instructor-left d-flex">
                                                                 <div class="meet-instructor-img-wrap flex-shrink-0">
                                                                     <img
-                                                                        src="https://lmszai.zainikthemes.com/uploads_demo/user/1.jpg"
+                                                                        src="https://DAEEM.zainikthemes.com/uploads_demo/user/1.jpg"
                                                                         alt="img">
                                                                 </div>
                                                                 <div class="flex-grow-1">
@@ -330,7 +330,7 @@
                                                 class="video-area-left position-relative d-flex align-items-center justify-content-center">
                                                 <div class="course-info-video-img">
                                                     <img
-                                                        src="https://lmszai.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg"
+                                                        src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg"
                                                         alt="Bundle Image" class="img-fluid">
                                                 </div>
                                             </div>
@@ -515,7 +515,7 @@
                                                 class="video-area-left position-relative d-flex align-items-center justify-content-center">
                                                 <div class="course-info-video-img">
                                                     <img
-                                                        src="https://lmszai.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg"
+                                                        src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg"
                                                         alt="Bundle Image" class="img-fluid">
                                                 </div>
                                             </div>
@@ -647,7 +647,7 @@
                                                 class="video-area-left position-relative d-flex align-items-center justify-content-center">
                                                 <div class="course-info-video-img">
                                                     <img
-                                                        src="https://lmszai.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg"
+                                                        src="https://DAEEM.zainikthemes.com/uploads/bundle/1662703371-UulOac2DpP.jpg"
                                                         alt="Bundle Image" class="img-fluid">
                                                 </div>
                                             </div>

@@ -89,7 +89,7 @@
                                     @endif
                                 </div>
                             </div>
-                        
+
                             <div class="col-md-6">
                                 <div class="input__group mb-25">
                                     <label>{{ __('Address') }} <span class="text-danger">*</span></label>
@@ -178,8 +178,8 @@
                                             __('Male') }}</option>
                                         <option value="Female" {{ $student->gender == 'Female' ? 'selected' : '' }} >{{
                                             __('Female') }}</option>
-                                        <option value="Others" {{ $student->gender == 'Others' ? 'selected' : '' }} >{{
-                                            __('Others') }}</option>
+{{--                                        <option value="Others" {{ $student->gender == 'Others' ? 'selected' : '' }} >{{--}}
+{{--                                            __('Others') }}</option>--}}
                                     </select>
                                 </div>
                             </div>

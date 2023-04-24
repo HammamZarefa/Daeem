@@ -1,11 +1,11 @@
 /*
 -------------------------------------------------
-  Theme Name: LMSZAI- LMS Online Courses and Education HTML5 Responsive Template
+  Theme Name: DAEEM- LMS Online Courses and Education HTML5 Responsive Template
   Theme URL:
   Author: zainiktheme
   Author URL: https://themeforest.net/user/zainiktheme
   Creation Date: 04-10-2021
-  Description:A default stylesheet for LMSZAI- LMS Online Courses and Education HTML5 Responsive Template
+  Description:A default stylesheet for Daeem- LMS Online Courses and Education HTML5 Responsive Template
   Version: 1.00
   Primary use: lms, eEducation, learning, learn, education, course, online courses, eLearning, responsive, bootstrap, html5, clean, modern, creative etc.
 
@@ -865,11 +865,11 @@ button:focus {
 }
 
 #mainNav {
-    position: fixed;
+    position: relative;
     height: 90px;
     display: flex !important;
     transition: all ease .6s;
-    /* background: #0091d233; */
+    background-image: linear-gradient(to right, #f49224ed , #1b77bbab);
     padding: 21px 100px;
     align-items: center;
     width: 100%;
@@ -1819,7 +1819,7 @@ button:focus {
 @media only screen and (max-width: 767px){
     .video-area-left {
         padding-right: 0;
-    }  
+    }
 }
 .play-btn {
     height: 86px;
@@ -8551,7 +8551,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .section-categories article {
 	background: cadetblue;
-  width: var(--size); 
+  width: var(--size);
   height: calc(var(--size) / 1.1111111);
 	clip-path: url(#hexagono);
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
@@ -8616,7 +8616,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* footer */
 .footer-area .section-overlay {
     background-image: url('../img/daeem/background-wave-footer.jpg');
-    min-height: 500px; 
+    min-height: 500px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -8637,8 +8637,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     z-index: 101;
     pointer-events: none;
     touch-action: none; }
-  
-/* 
+
+/*
 =========================
 Fonts
 =========================
@@ -8649,7 +8649,7 @@ font-family: 'Outfit', sans-serif;
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
 
-/* 
+/*
 ========================
 Variables
 ========================
@@ -8657,9 +8657,9 @@ Variables
 
 
 :root {
-    
+
     font-size: 15px;
-    
+
     /* Primary */
     --var-soft-blue: hsl(215, 51%, 70%);
     --var-cyan: hsl(178, 100%, 50%);
@@ -8668,17 +8668,17 @@ Variables
     --var-card-dark: hsl(216, 50%, 16%);
     --var-line-dark: hsl(215, 32%, 27%);
     --var-lightest: white;
-    
+
     /* Fonts */
-    
+
     --var-heading: normal normal 600 1.5em/1.6em 'Outfit', sans-serif;
-    
+
     --var-small-heading: normal normal 400 1em/1em 'Outfit', sans-serif;
-    
+
     --var-para: normal normal 300 1em/1.55em 'Outfit', sans-serif;
 }
 
-/* 
+/*
 =======================
 Setup
 =======================
@@ -8694,7 +8694,7 @@ Setup
     color: inherit;
 }
 
-/* 
+/*
 
 Eye view
 
@@ -8728,7 +8728,7 @@ Font Styling
     color: #000;
     font-weight: bold;
 }
-/* 
+/*
 =====================
 Classes
 =====================
@@ -8741,7 +8741,7 @@ Classes
     max-width: 400px;
     margin: 2em auto;
     border-radius: 5px;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
     padding: 10px;
     box-shadow: 0 6px 21px rgba(21, 3, 89, 0.08);
 }

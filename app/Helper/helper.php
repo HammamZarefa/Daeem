@@ -201,6 +201,7 @@ function decimal_to_int($amount)
 {
     return number_format(number_format($amount, 2, '.', '') * 100, 0, '.', '');
 }
+
 function int_to_decimal($amount)
 {
     return number_format($amount / 100, 2, '.', '');
@@ -385,7 +386,7 @@ function studentCourseProgress($course_id, $enrollment_id)
     } elseif ($course->course_type == COURSE_TYPE_SCORM) {
         $enrollment = Enrollment::whereId($enrollment_id)->first();
         $result = ($enrollment) ? ($enrollment->completed_time / $course->scorm_course->duration_in_second) * 100 : 0;
-    }else{
+    } else {
         $number_of_total_lecture = \App\Models\Program_session::where('course_id', $course_id)->count();
         $result = $number_of_total_lecture;
     }
@@ -438,7 +439,7 @@ function lessonVideoDuration($course_id, $lesson_id)
     if ($lectures->count() > 0) {
         foreach ($lectures as $lecture) {
             if ($lecture->file_duration_second) {
-                $total_video_duration_in_seconds +=  $lecture->file_duration_second;
+                $total_video_duration_in_seconds += $lecture->file_duration_second;
             }
         }
 
@@ -691,7 +692,6 @@ function distributeCommission($order)
 }
 
 
-
 if (!function_exists('hasLimit')) {
     function hasLimit($type, $count)
     {
@@ -769,7 +769,7 @@ if (!function_exists('setEnrollment')) {
         $enrollment->course_id = $item->course_id;
         $enrollment->consultation_slot_id = $item->consultation_slot_id;
         if ($item->consultation_slot_id != NULL) {
-            $consultationSlot =  $item->consultationSlot;
+            $consultationSlot = $item->consultationSlot;
             if (!is_null($consultationSlot)) {
                 $fullTime = explode(' - ', $consultationSlot->time);
                 $startDate = $consultationSlot->date . ' ' . date("H:i", strtotime($fullTime[0]));
@@ -927,7 +927,7 @@ if (!function_exists('get_domain_name')) {
             $path = explode('/', $parseUrl['path']);
             $host = $path[0];
         }
-        return  trim($host);
+        return trim($host);
     }
 }
 
@@ -983,11 +983,11 @@ if (!function_exists('getBeneficiaryAccountDetails')) {
         $returnData = '';
         if (!is_null($item)) {
             if ($item->type == BENEFICIARY_BANK) {
-                $returnData .= $item->bank_account_name.' - '.$item->bank_name.'['.$item->bank_account_number.']';
+                $returnData .= $item->bank_account_name . ' - ' . $item->bank_name . '[' . $item->bank_account_number . ']';
             } elseif ($item->type == BENEFICIARY_CARD) {
-                $returnData .= $item->card_holder_name.' - '.$item->card_number;
+                $returnData .= $item->card_holder_name . ' - ' . $item->card_number;
             } elseif ($item->type == BENEFICIARY_PAYPAL) {
-                $returnData .= 'Paypal - '.$item->paypal_email;
+                $returnData .= 'Paypal - ' . $item->paypal_email;
             }
         }
 
@@ -999,7 +999,7 @@ if (!function_exists('updateEnv')) {
     {
         if (count($values) > 0) {
             foreach ($values as $envKey => $envValue) {
-                setEnvironmentValue($envKey,$envValue);
+                setEnvironmentValue($envKey, $envValue);
             }
             return true;
         }
@@ -1012,7 +1012,7 @@ function setEnvironmentValue($envKey, $envValue)
         $str = file_get_contents($envFile);
         $str .= "\n"; // In case the searched variable is in the last line without \n
         $keyPosition = strpos($str, "{$envKey}=");
-        if($keyPosition) {
+        if ($keyPosition) {
             $endOfLinePosition = strpos($str, PHP_EOL, $keyPosition);
             $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
             $envValue = str_replace(chr(92), "\\\\", $envValue);
@@ -1025,7 +1025,7 @@ function setEnvironmentValue($envKey, $envValue)
                 fwrite($fp, $str);
                 fclose($fp);
             }
-        }else if(strtoupper($envKey) == $envKey){
+        } else if (strtoupper($envKey) == $envKey) {
             $envValue = str_replace(chr(92), "\\\\", $envValue);
             $envValue = str_replace('"', '\"', $envValue);
             $newLine = "{$envKey}=\"{$envValue}\"\n";
@@ -1036,9 +1036,11 @@ function setEnvironmentValue($envKey, $envValue)
             fclose($fp);
         }
         return true;
-    }catch (\Exception $e){
+    } catch (\Exception $e) {
         return false;
     }
-
-
+}
+function getSuperAdminStatus()
+{
+    return true;
 }

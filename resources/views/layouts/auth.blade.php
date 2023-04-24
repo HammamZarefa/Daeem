@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="zainiktheme">
 
-    <meta name="title" content="@if(@$metaData['title']) {!! $metaData['title']  !!} @else LMSZAI @endif">
+    <meta name="title" content="@if(@$metaData['title']) {!! $metaData['title']  !!} @else DAEEM @endif">
     <meta name="description" content="@if(@$metaData['meta_description']) {!! $metaData['meta_description'] !!} @endif">
     @if(@$metaData['meta_keywords'] AND @$metaData['meta_keywords'])
         <meta name="keywords" content="{!! $metaData['meta_keywords'] !!}">
@@ -21,8 +21,8 @@
     <meta property="og:image" content="{{asset('frontend/assets/img/logo.png')}}">
 
     <meta name="twitter:card" content="zainiktheme">
-    <meta name="twitter:title" content="LMSZAI- LMS Online Courses and Education">
-    <meta name="twitter:description" content="LMSZAI- LMS Online Courses and Education">
+    <meta name="twitter:title" content="DAEEM- LMS Online Courses and Education">
+    <meta name="twitter:description" content="DAEEM- LMS Online Courses and Education">
     <meta name="twitter:image" content="{{asset('frontend/assets/img/logo.png')}}">
 
     <meta name="msapplication-TileImage" content="{{asset('frontend/assets/img/logo.png')}}">

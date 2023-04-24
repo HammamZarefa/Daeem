@@ -70,7 +70,7 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <div class="action__buttons">
+                                            <div class="action__buttons justify-content-center">
                                                 <a href="{{route('instructor.view', [$instructor->uuid])}}" class="btn-action mr-30" title="View Details">
                                                     <img src="{{asset('admin/images/icons/eye-2.svg')}}" alt="eye">
                                                 </a>

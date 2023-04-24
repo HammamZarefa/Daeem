@@ -95,7 +95,7 @@
                             <a class="nav-link" href="{{ url('/') }}">{{__('Home')}}</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
+                            <a class="nav-link dropdown-toggle" href="{{ url('/about-us') }}" id="librariesDropdown"
                                data-bs-toggle="dropdown">
                                 {{ __('About Us') }}
                             </a>
@@ -108,7 +108,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('/about-us#Servcies') }}"
-                                       class="dropdown-item">@lang('Servcies')</a>
+                                       class="dropdown-item">@lang('Services')</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/about-us#Coaching') }}"
@@ -125,12 +125,12 @@
                                 <li>
                                     <a href="{{ route('blogs', 'post') }}" class="dropdown-item">@lang('post')</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('blogs', 'post2') }}" class="dropdown-item">@lang('post2')</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('blogs', 'post3') }}" class="dropdown-item">@lang('post3')</a>
-                                </li>
+{{--                                <li>--}}
+{{--                                    <a href="{{ route('blogs', 'post2') }}" class="dropdown-item">@lang('post2')</a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="{{ route('blogs', 'post3') }}" class="dropdown-item">@lang('post3')</a>--}}
+{{--                                </li>--}}
                                 <li>
                                     <a href="{{ route('blogs', 'news') }}" class="dropdown-item">@lang('news')</a>
                                 </li>
@@ -183,9 +183,9 @@
                             </ul>
                         </li> -->
                         @if(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_STUDENT || @$authUser->role == USER_ROLE_ORGANIZATION)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>--}}
+{{--                            </li>--}}
                             @if(@$authUser->role == USER_ROLE_STUDENT )
                                 @if(@$authUser->instructor || @$authUser->organization)
                                     <li class="nav-item">
@@ -250,9 +250,9 @@
                                 <a class="nav-link" href="{{ route('Membership') }}">{{__('Membership')}}</a>
                             </li>
 
-                        <!-- <li class="nav-item">
-                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>
-                            </li> -->
+{{--                        <!-- <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>--}}
+{{--                            </li> -->--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('gallery') }}">{{__('Gallery')}}</a>
                             </li>
@@ -522,13 +522,13 @@
                                                 @if(Auth::user()->is_affiliator == AFFILIATOR || (Auth::user()->role == USER_ROLE_INSTRUCTOR &&
                                                 @$authUser->instructor->status == STATUS_APPROVED) || (Auth::user()->role == USER_ROLE_ORGANIZATION &&
                                                 @$authUser->organization->status == STATUS_APPROVED))
-                                                    <li>
-                                                        <a class="dropdown-item" href="{{ route('wallet./') }}"><span
-                                                                class="iconify"
-                                                                data-icon="et:wallet"></span>
-                                                            {{ __('My Wallet') }}
-                                                        </a>
-                                                    </li>
+{{--                                                    <li>--}}
+{{--                                                        <a class="dropdown-item" href="{{ route('wallet./') }}"><span--}}
+{{--                                                                class="iconify"--}}
+{{--                                                                data-icon="et:wallet"></span>--}}
+{{--                                                            {{ __('My Wallet') }}--}}
+{{--                                                        </a>--}}
+{{--                                                    </li>--}}
                                                 @endif
                                             </ul>
 

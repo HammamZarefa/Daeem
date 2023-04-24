@@ -46,7 +46,7 @@
                                             {{$tag->name}}
                                         </td>
                                         <td>
-                                            <div class="action__buttons">
+                                            <div class="action__buttons justify-content-center">
                                                 <a href="{{route('tag.edit', [$tag->uuid])}}" class="btn-action" title="Edit">
                                                     <img src="{{asset('admin/images/icons/edit-2.svg')}}" alt="edit">
                                                 </a>

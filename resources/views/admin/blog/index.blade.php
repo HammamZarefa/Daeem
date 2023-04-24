@@ -68,7 +68,7 @@
                                             {{ $blog->user ? $blog->user->name : '' }}
                                         </td>
                                         <td>
-                                            <div class="action__buttons">
+                                            <div class="action__buttons justify-content-center">
                                                 <a href="{{route('blog.edit', [$blog->uuid])}}" title="Edit" class="btn-action">
                                                     <img src="{{asset('admin/images/icons/edit-2.svg')}}" alt="edit">
                                                 </a>

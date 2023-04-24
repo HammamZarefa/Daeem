@@ -298,7 +298,7 @@
                                                                     alt="course" class="img-fluid"></a>
                                                             <div class="course-item-hover-btns position-absolute">
 <span class="course-item-btn addToWishlist" data-course_id="1"
-      data-route="https://lmszai.zainikthemes.com/student/add-to-wishlist" title="Add to Wishlist">
+      data-route="/add-to-wishlist" title="Add to Wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
     <path
@@ -306,7 +306,7 @@
 </span>
                                                                 <span class="course-item-btn addToCart"
                                                                       data-course_id="1"
-                                                                      data-route="https://lmszai.zainikthemes.com/student/add-to-cart"
+                                                                      data-route="/add-to-cart"
                                                                       title="Add to Cart">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path
@@ -796,7 +796,7 @@
                                 <p class="section-sub-heading">{{ __(get_option('top_instructor_subtitle')) }}</p>
                             </div>
                         </div>
-                        <a href="https://lmszai.zainikthemes.com/consultation-instructor-list "
+                        <a href="/consultation-instructor-list "
                            class="theme-btn theme-button2 theme-button3 mar1-s-au">{{ __('View All Coaches') }}
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
