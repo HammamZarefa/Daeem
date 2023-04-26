@@ -23,7 +23,7 @@
 
                             <!-- Upload Course Overview-1 start -->
                             <div id="upload-course-overview-1">
-                                <form method="POST" action="{{route('instructor.course.store')}}" id="step1"
+                                <form method="POST" action="{{route('admin.course.store')}}" id="step1"
                                       class="row g-3 needs-validation" novalidate>
                                     @csrf
 
@@ -184,7 +184,7 @@
                                     </div>
 
                                     <div class="stepper-action-btns">
-                                        <a href="{{route('instructor.course')}}"
+                                        <a href="{{route('admin.course.index')}}"
                                            class="theme-btn theme-button3">{{__('Cancel')}}</a>
                                         <button type="submit"
                                                 class="theme-btn default-hover-btn theme-button1">{{__('Save and

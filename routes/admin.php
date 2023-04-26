@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ContactUsIssueController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseLanguageController;
+use App\Http\Controllers\Admin\CourseLessonController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\difficultyLevelController;
@@ -117,6 +118,25 @@ Route::prefix('course')->group(function () {
     Route::get('delete/{uuid}', [CourseController::class, 'delete'])->name('admin.course.delete')->middleware('isDemo');
 
     Route::get('/create', [CourseController::class, 'create'])->name('admin.course.create');
+    Route::post('/store', [CourseController::class, 'store'])->name('admin.course.store');
+    Route::get('/edit/{uuid}', [CourseController::class, 'edit'])->name('admin.course.edit');
+    Route::post('/update-overview/{uuid}', [CourseController::class, 'updateOverview'])->name('admin.course.update.overview')->middleware('isDemo');
+    Route::post('/update-category/{uuid}', [CourseController::class, 'updateCategory'])->name('admin.course.update.category')->middleware('isDemo');
+    Route::post('/store-instructor/{course_uuid}', [CourseController::class, 'storeCourseInstructor'])->name('admin.course.store.instructor')->middleware('isDemo');
+
+    Route::prefix('lesson')->group(function () {
+        Route::post('store/{course_uuid}', [CourseLessonController::class, 'store'])->name('admin.course.lesson.store')->middleware('isDemo');
+        Route::post('update-lesson/{course_uuid}/{lesson_id}', [CourseLessonController::class, 'updateLesson'])->name('admin.course.lesson.update')->middleware('isDemo');
+        Route::delete('delete-lesson/{lesson_id}', [CourseLessonController::class, 'deleteLesson'])->name('admin.course.lesson.delete')->middleware('isDemo');
+
+        Route::get('upload-lecture/{course_uuid}/{lesson_uuid}', [CourseLessonController::class, 'uploadLecture'])->name('admin.course.upload.lecture');
+        Route::post('store-lecture/{course_uuid}/{lesson_uuid}', [CourseLessonController::class, 'storeLecture'])->name('admin.course.store.lecture')->middleware('isDemo');
+        Route::get('edit-lecture/{course_uuid}/{lesson_uuid}/{lecture_uuid}', [CourseLessonController::class, 'editLecture'])->name('admin.course.edit.lecture');
+        Route::post('update-lecture/{lecture_uuid}', [CourseLessonController::class, 'updateLecture'])->name('admin.course.update.lecture')->middleware('isDemo');
+        Route::get('delete-lecture/{course_uuid}/{lecture_uuid}', [CourseLessonController::class, 'deleteLecture'])->name('admin.course.delete.lecture')->middleware('isDemo');
+    });
+
+
     Route::get('enroll', [CourseController::class, 'courseEnroll'])->name('admin.course.enroll');
     Route::post('enroll', [CourseController::class, 'courseEnrollStore'])->name('admin.course.enroll.store')->middleware('isDemo');
 });
