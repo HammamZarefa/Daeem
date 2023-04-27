@@ -323,7 +323,14 @@ class Course extends Model
     protected static function booted()
     {
         self::creating(function ($model){
-            $authUser = auth()->user();
+//            dd($model->instructor_id);
+            if (!isset($model->instructor_id)){
+                $authUser = auth()->user();
+            }else{
+                $instructor = Instructor::find($model->instructor_id);
+                $authUser = $instructor->user;
+            }
+
             $model->uuid = Str::uuid()->toString();
             $model->user_id = $authUser->id;
             $model->instructor_id = $authUser->instructor ? $authUser->instructor->id : null;

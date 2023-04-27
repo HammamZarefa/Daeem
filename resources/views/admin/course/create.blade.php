@@ -101,6 +101,30 @@
                                                 @endif
                                             </div>
                                         </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-12">
+                                                <div class="label-text-title color-heading font-medium font-16 mb-3">{{
+                                                    __('Coach') }}
+                                                    <span class="text-danger">*</span>
+                                                </div>
+
+                                                <select name="coach" id="coach" class="form-select coach"
+                                                        required>
+                                                    <option value="">{{ __('Select Coach') }}</option>
+                                                    @foreach($instructors as $instructor)
+                                                        <option value="{{ $instructor->id }}"
+                                                            {{old('coach')==$instructor->id ? 'selected' : '' }}>
+                                                            {{$instructor->name}}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+
+                                                @if ($errors->has('session_type'))
+                                                    <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
+                                                    $errors->first('session_type') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
                                         @if(get_option('subscription_mode'))
                                             <div class="row mb-30">
                                                 <div class="col-md-12">
