@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             <div class="stepper-action-btns">
-                                <a href="{{route('instructor.course.edit', [$course->uuid, 'step=lesson'])}}"
+                                <a href="{{route('admin.course.edit', [$course->uuid, 'step=lesson'])}}"
                                     class="theme-btn theme-button3">{{__('Back')}}</a>
                                 <button type="submit" class="theme-btn default-hover-btn theme-button1">{{__('Save')}}</button>
                             </div>

@@ -103,6 +103,7 @@ class CourseController extends Controller
         }
 
         $data['selected_tags'] = $selected_tags;
+        $data['instructors'] = Instructor::approved()->orderBy('id', 'desc')->get();
         return view('admin.course.create', $data);
     }
 
@@ -121,8 +122,10 @@ class CourseController extends Controller
             'subtitle' => $request->subtitle,
             'slug' => $slug,
             'status' => 4,
+            'instructor_id' =>$request->coach,
             'description' => $request->description
         ];
+
 
         $data['is_subscription_enable']= 0;
 
@@ -207,7 +210,7 @@ class CourseController extends Controller
                 return view('admin.course.scorm_upload', $data);
             }
         } elseif (\request('step') == 'instructors') {
-            if ($data['course']->user_id != auth()->id()) {
+            if ($data['course']->user_id != auth()->id() && auth()->user()->is_admin() != true) {
                 return view('admin.course.submit-lesson', $data);
             }
 
@@ -820,13 +823,13 @@ class CourseController extends Controller
 
     public function storeCourseInstructor(Request $request, $uuid)
     {
-        $course = Course::where('user_id', auth()->id())->whereUuid($uuid)->firstOrFail();
 
-        if ($course->user_id == auth()->id()) {
+        $course = Course::whereUuid($uuid)->firstOrFail();
+        if ($course->user_id == auth()->id() || auth()->user()->is_admin()) {
+
             $request->validate([
                 'share.*' => 'bail|required|min:0|max:100'
             ]);
-
             $data = $request->all();
             $courseInstructorIds = [];
             if($request->instructor_id){
@@ -932,6 +935,7 @@ class CourseController extends Controller
         $data['title'] = 'Live Class Create';
         $data['navLiveClassActiveClass'] = 'active';
         $data['instructors'] = Instructor::approved()->orderBy('id', 'desc')->get();
+
         $data['course'] = $this->model->getRecordByUuid($course_uuid);
         $data['gmeet'] = GmeetSetting::whereUserId(\Illuminate\Support\Facades\Auth::id())->where('status', GMEET_AUTHORIZE)->first();
         return view('admin.program.create-session', $data);
