@@ -356,9 +356,9 @@ class CourseController extends Controller
         }
 
         if ($request->image) {
-            $request->validate([
-                'image' => 'dimensions:min_width=575,min_height=450,max_width=575,max_height=450'
-            ]);
+//            $request->validate([
+//                'image' => 'dimensions:min_width=575,min_height=450,max_width=575,max_height=450'
+//            ]);
             $this->deleteFile($course->image); // delete file from server
             $image = $this->saveImage('course', $request->image, null, null); // new file upload into server
         } else {

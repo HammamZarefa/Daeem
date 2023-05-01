@@ -1,4 +1,4 @@
-@extends('layouts.instructor')
+@extends('layouts.admin')
 
 @section('content')
 <div class="instructor-profile-right-part instructor-upload-course-box-part">
