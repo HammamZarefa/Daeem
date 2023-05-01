@@ -244,7 +244,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('programme') }}">{{__('programs')}}</a>
+                                <a class="nav-link" href="{{ route('programmes') }}">{{__('programs')}}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('Membership') }}">{{__('Membership')}}</a>

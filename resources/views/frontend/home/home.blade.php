@@ -56,8 +56,8 @@
                         {{ __(@$home->banner_subtitle) }}
                     </p>
                     @if(!get_option('private_mode') || !auth()->guest())
-                        <a style="margin: 20px 0px;" href="{{ route('courses') }}"
-                           class="theme-btn theme-button1">{{ __('Browse Course') }} <i data-feather="arrow-right"></i></a>
+                        <a style="margin: 20px 0px;" href="{{ route('programmes') }}"
+                           class="theme-btn theme-button1">{{ __('Browse Programmes') }} <i data-feather="arrow-right"></i></a>
                     @endif
                 </div>
             </div>
