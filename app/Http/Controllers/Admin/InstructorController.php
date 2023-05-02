@@ -21,6 +21,7 @@ use App\Models\UserPackage;
 use App\Tools\Repositories\Crud;
 use App\Traits\General;
 use App\Traits\ImageSaveTrait;
+use App\Traits\SendNotification;
 use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
@@ -31,7 +32,7 @@ use Illuminate\Support\Str;
 
 class InstructorController extends Controller
 {
-    use General, ImageSaveTrait;
+    use General, ImageSaveTrait, SendNotification;
 
     protected $instructorModel, $studentModel;
     public function __construct(Instructor $instructor, Student $student)
