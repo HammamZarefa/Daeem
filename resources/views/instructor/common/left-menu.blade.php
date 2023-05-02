@@ -2,10 +2,10 @@
     <nav class="account-page-menu">
         <ul>
             <li><a href="{{route('instructor.dashboard')}}" class="{{active_if_full_match('instructor/dashboard')}} {{ @$navDashboardActiveClass }}"><span class="iconify mr-15" data-icon="feather:home"></span>{{__('Dashboard')}}</a></li>
-            <li><a href="{{route('instructor.course.create')}}" class="{{active_if_full_match('instructor/course/create')}} {{ @$navCourseUploadActiveClass }}"><span class="iconify mr-15" data-icon="feather:upload"></span>{{__('Upload Course')}}</a></li>
+{{--            <li><a href="{{route('instructor.course.create')}}" class="{{active_if_full_match('instructor/course/create')}} {{ @$navCourseUploadActiveClass }}"><span class="iconify mr-15" data-icon="feather:upload"></span>{{__('Upload Course')}}</a></li>--}}
             <li><a href="{{route('instructor.course')}}" class="{{active_if_full_match('instructor/course')}} {{ @$navCourseActiveClass }}" ><span class="iconify mr-15" data-icon="ion:log-in-outline"></span>{{__('My Courses')}}</a></li>
             <li><a href="{{route('instructor.program')}}" class="{{active_if_full_match('instructor/program')}} {{ @$navProgramActiveClass }}" ><span class="iconify mr-15" data-icon="ion:log-in-outline"></span>{{__('My Training Program')}}</a></li>
-            <li><a href="{{route('instructor.program1')}}" class="{{active_if_full_match('instructor/program1')}} {{ @$navProgram1ActiveClass }}" ><span class="iconify mr-15" data-icon="ion:log-in-outline"></span>{{__('My Training Program1')}}</a></li>
+{{--            <li><a href="{{route('instructor.program1')}}" class="{{active_if_full_match('instructor/program1')}} {{ @$navProgram1ActiveClass }}" ><span class="iconify mr-15" data-icon="ion:log-in-outline"></span>{{__('My Training Program1')}}</a></li>--}}
             @if(@auth()->user()->instructor->organization_id != NULL)
             <li><a href="{{route('instructor.course.organization')}}" class="{{active_if_full_match('instructor/course/organization')}} {{ @$navCourseOrganizationActiveClass }}" ><span class="iconify mr-15" data-icon="ion:log-in-outline"></span>{{__('Organization Courses')}}</a></li>
             @endif
@@ -24,7 +24,7 @@
                     <li><a href="{{ route('instructor.bookingHistory') }}" class="{{ @$subNavBookingHistoryActiveClass }}">{{ __('Booking History') }}</a></li>
                 </ul>
             </li>
-            <li><a href="{{route('instructor.certificate.index')}}" class="{{ @$navCertificateActiveClass }}" ><span class="iconify mr-15" data-icon="fluent:certificate-20-regular"></span>{{__('Certificate')}}</a></li>
+{{--            <li><a href="{{route('instructor.certificate.index')}}" class="{{ @$navCertificateActiveClass }}" ><span class="iconify mr-15" data-icon="fluent:certificate-20-regular"></span>{{__('Certificate')}}</a></li>--}}
 
 {{--            <li><a href="{{route('discussion.index')}}" class="{{ @$navDiscussionActiveClass }}" ><span class="iconify mr-15" data-icon="octicon:comment-discussion-24"></span>{{__('Discussion')}}</a></li>--}}
 {{--            <li><a href="{{route('finance.analysis.index')}}" class="{{ @$subNavAnalysisActiveClass }}" ><span class="iconify mr-15" data-icon="system-uicons:heart-rate"></span></span>{{__('Finance')}}</a></li>--}}
