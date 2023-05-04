@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\Home;
 use App\Traits\General;
 use App\Traits\ImageSaveTrait;
@@ -50,17 +51,32 @@ class HomeSettingController extends Controller
         if (!Auth::user()->can('home_setting')) {
             abort('403');
         } // end permission checking
-
         $data['title'] = 'Banner Section';
         $data['navApplicationSettingParentActiveClass'] = 'mm-active';
         $data['subNavHomeSettingsActiveClass'] = 'mm-active';
         $data['bannerSectionActiveClass'] = 'active';
         $data['home'] = Home::first();
+        $data['banners'] = Banner::paginate(5);
 
         return view('admin.application_settings.home.banner-section', $data);
     }
 
-    public function bannerSectionUpdate(Request $request)
+    public function addBanner()
+    {
+        if (!Auth::user()->can('home_setting')) {
+            abort('403');
+        } // end permission checking
+        $data['title'] = 'Add Banner';
+        $data['navApplicationSettingParentActiveClass'] = 'mm-active';
+        $data['subNavHomeSettingsActiveClass'] = 'mm-active';
+        $data['bannerSectionActiveClass'] = 'active';
+        $data['home'] = Home::first();
+        $data['banners'] = Banner::paginate(5);
+
+        return view('admin.application_settings.home.add-banner', $data);
+    }
+
+    public function storeBanner(Request $request)
     {
         if (!Auth::user()->can('home_setting')) {
             abort('403');
@@ -70,34 +86,87 @@ class HomeSettingController extends Controller
             'banner_image' => 'mimes:png,svg|file|max:1024'
         ]);
 
-        $home = Home::first();
-        if (!$home) {
-            $home = new Home();
+        $banner = new Banner();
+
+
+        if ($request->hasFile('banner_image')) {
+            $banner->banner_image = $this->saveImage('home', $request->banner_image, 'null', 'null');
+        }
+
+        $banner->banner_mini_words_title = $request->banner_mini_words_title;
+        $banner->banner_first_line_title = $request->banner_first_line_title;
+        $banner->banner_second_line_title = $request->banner_second_line_title;
+        $banner->banner_second_line_changeable_words = $request->banner_second_line_changeable_words;
+        $banner->banner_third_line_title = $request->banner_third_line_title;
+        $banner->banner_subtitle = $request->banner_subtitle;
+
+        $banner->banner_button_name = $request->banner_button_name;
+        $banner->banner_button_link = $request->banner_button_link;
+
+        $banner->save();
+
+        $this->showToastrMessage('success', __('Banner Added Successfully'));
+        return redirect()->route('settings.banner-section');
+    }
+
+    public function editBanner($id)
+    {
+        if (!Auth::user()->can('home_setting')) {
+            abort('403');
+        } // end permission checking
+        $data['title'] = 'Banner Section';
+        $data['navApplicationSettingParentActiveClass'] = 'mm-active';
+        $data['subNavHomeSettingsActiveClass'] = 'mm-active';
+        $data['bannerSectionActiveClass'] = 'active';
+        $data['home'] = Home::first();
+        $data['banner'] = Banner::find($id);
+
+        return view('admin.application_settings.home.edit-banner', $data);
+    }
+
+    public function bannerSectionUpdate($id,Request $request)
+    {
+
+        if (!Auth::user()->can('home_setting')) {
+            abort('403');
+        } // end permission checking
+
+        $request->validate([
+            'banner_image' => 'mimes:png,svg|file|max:1024'
+        ]);
+
+        $banner = Banner::find($id);
+        if (!$banner) {
+            $banner = new Banner();
             if ($request->hasFile('banner_image')) {
-                $home->banner_image = $this->saveImage('home', $request->banner_image, 'null', 'null');
+                $banner->banner_image = $this->saveImage('home', $request->banner_image, 'null', 'null');
             }
 
         } else {
             if ($request->hasFile('banner_image')) {
-                $home->banner_image = $this->updateImage('home', $request->banner_image, $home->banner_image, 'null', 'null');
+                $banner->banner_image = $this->updateImage('home', $request->banner_image, $banner->banner_image, 'null', 'null');
             }
         }
 
-        $home->banner_mini_words_title = $request->banner_mini_words_title;
-        $home->banner_first_line_title = $request->banner_first_line_title;
-        $home->banner_second_line_title = $request->banner_second_line_title;
-        $home->banner_second_line_changeable_words = $request->banner_second_line_changeable_words;
-        $home->banner_third_line_title = $request->banner_third_line_title;
-        $home->banner_subtitle = $request->banner_subtitle;
+        $banner->banner_mini_words_title = $request->banner_mini_words_title;
+        $banner->banner_first_line_title = $request->banner_first_line_title;
+        $banner->banner_second_line_title = $request->banner_second_line_title;
+        $banner->banner_second_line_changeable_words = $request->banner_second_line_changeable_words;
+        $banner->banner_third_line_title = $request->banner_third_line_title;
+        $banner->banner_subtitle = $request->banner_subtitle;
 
-        $home->banner_first_button_name = $request->banner_first_button_name;
-        $home->banner_first_button_link = $request->banner_first_button_link;
-
-        $home->banner_second_button_name = $request->banner_second_button_name;
-        $home->banner_second_button_link = $request->banner_second_button_link;
-        $home->save();
+        $banner->banner_button_name = $request->banner_button_name;
+        $banner->banner_button_link = $request->banner_button_link;
+        $banner->save();
 
         $this->showToastrMessage('success', __('Updated Successfully'));
+        return redirect()->route('settings.banner-section');
+    }
+
+    public function bannerDelete($id){
+        $banner = Banner::find($id);
+        $banner->delete();
+        $this->showToastrMessage('error', __('Deleted Successfully'));
         return redirect()->back();
     }
 

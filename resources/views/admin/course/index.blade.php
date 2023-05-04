@@ -9,14 +9,14 @@
                     <div class="breadcrumb__content">
                         <div class="breadcrumb__content__left">
                             <div class="breadcrumb__title">
-                                <h2>{{__('Instructors')}}</h2>
+                                <h2>{{__('All Courses')}}</h2>
                             </div>
                         </div>
                         <div class="breadcrumb__content__right">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{__('Approved Instructors')}}</li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{__('All Courses')}}</li>
                                 </ul>
                             </nav>
                         </div>

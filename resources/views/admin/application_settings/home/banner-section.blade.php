@@ -15,7 +15,8 @@
                         <div class="breadcrumb__content__right">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
+                                    <li class="breadcrumb-item"><a
+                                            href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">{{ __(@$title) }}</li>
                                 </ul>
                             </nav>
@@ -30,115 +31,55 @@
                 <div class="col-lg-9 col-md-8">
                     <div class="email-inbox__area bg-style">
                         <div class="item-top mb-30"><h2>{{ __(@$title) }}</h2></div>
-                        <form action="{{route('settings.banner-section.update')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
-                            @csrf
-                            <div class="input__group mb-25 row">
-                                <label for="banner_mini_words_title" class="col-lg-3"> {{ __('Mini Title') }}</label>
-                                <div class="col-lg-9">
-                                    <select class="form-control multiple-select-input" name="banner_mini_words_title[]" id="banner_mini_words_title" multiple="multiple">
-                                        @foreach($home->banner_mini_words_title ?? [] as $item)
-                                            <option value="{{ @$item }}" selected>{{ @$item }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_first_line_title" class="col-lg-3"> {{ __('First Line Title') }} <span class="text-danger">*</span></label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="banner_first_line_title" id="banner_first_line_title"
-                                           value="{{ @$home->banner_first_line_title }}" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_second_line_title" class="col-lg-3"> {{ __('Second Line Title') }} <span class="text-danger">*</span></label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="banner_second_line_title" id="banner_second_line_title"
-                                           value="{{ @$home->banner_second_line_title }}" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_second_line_changeable_words" class="col-lg-3"> {{ __('Second Line Changeable Word Title') }}</label>
-                                <div class="col-lg-9">
-                                    <select class="form-control multiple-select-input" name="banner_second_line_changeable_words[]" id="banner_second_line_changeable_words" multiple="multiple">
-                                        @foreach($home->banner_second_line_changeable_words ?? [] as $item)
-                                            <option value="{{ @$item }}" selected>{{ @$item }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_third_line_title" class="col-lg-3"> {{ __('Third Line Title') }} <span class="text-danger">*</span></label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="banner_third_line_title" id="banner_third_line_title" value="{{ @$home->banner_third_line_title }}" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_subtitle" class="col-lg-3"> {{ __('Subtitle') }} <span class="text-danger">*</span></label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="banner_subtitle" id="banner_subtitle" value="{{ @$home->banner_subtitle }}" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_first_button_name" class="col-lg-3">{{ __('First Button Name') }} </label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="banner_first_button_name" id="banner_first_button_name" value="{{ @$home->banner_first_button_name }}"
-                                           class="form-control" >
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_first_button_link" class="col-lg-3">{{ __('First Button Link') }} </label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="banner_first_button_link" id="banner_first_button_link" value="{{ @$home->banner_first_button_link }}"
-                                           class="form-control" >
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_second_button_name" class="col-lg-3">{{ __('Second Button Name') }}</label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="banner_second_button_name" id="banner_second_button_name" value="{{ @$home->banner_second_button_name }}"
-                                           class="form-control" >
-                                </div>
-                            </div>
-                            <div class="input__group mb-25 row">
-                                <label for="banner_second_button_link" class="col-lg-3">{{ __('Second Button Link') }} </label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="banner_second_button_link" id="banner_second_button_link" value="{{ @$home->banner_second_button_link }}"
-                                           class="form-control" >
-                                </div>
-                            </div>
+                        <div class="item-title d-flex justify-content-between">
+                            <h2>{{__('Banner List')}}</h2>
+                            <a href="{{ route('settings.banner-section-add') }}" class="btn btn-success btn-sm"> <i class="fa fa-plus"></i> {{__('Add Banner')}} </a>
+                        </div>
+                        <div class="customers__table">
+                            <table id="customers-table" class="row-border data-table-filter table-style">
+                                <thead>
+                                <tr>
+                                    <th>{{__('Image')}}</th>
+                                    <th>{{__('Title')}}</th>
+                                    <th>{{__('Action')}}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($banners as $banner)
+                                    <tr class="removable-item">
+                                        <td>
+                                            <a href="#"> <img src="{{getImageFile($banner->banner_image)}}" width="80">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {{$banner->banner_first_line_title}}
+                                        </td>
 
-                            <div class="input__group mb-25 row">
-                                <label class="col-lg-3">{{ __('Banner Image') }}</label>
-                                <div class="col-lg-5">
-                                    <div class="upload-img-box">
-                                        @if( @$home->banner_image)
-                                            <img src="{{getImageFile(@$home->banner_image_path)}}">
-                                        @else
-                                            <img src="" alt="img">
-                                        @endif
-                                        <input type="file" name="banner_image" id="banner_image" accept="image/*" onchange="previewFile(this)">
-                                        <div class="upload-img-box-icon">
-                                            <i class="fa fa-camera"></i>
-                                            <p class="m-0">{{ __('Banner Image') }}</p>
-                                        </div>
-                                    </div>
-                                    @if ($errors->has('banner_image'))
-                                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('banner_image') }}</span>
-                                    @endif
-                                    <p><span class="text-black">{{ __('Accepted Files') }}:</span> PNG,SVG <br> <span class="text-black">{{ __('Recommend Size') }}:</span> 800 x 540 (1MB)</p>
-                                </div>
-                            </div>
+                                        <td>
+                                            <div class="action__buttons">
+                                                <a href="{{route('settings.banner-section-edit', [$banner->id])}}" class="btn-action" title="Edit">
+                                                    <img src="{{asset('admin/images/icons/edit-2.svg')}}" alt="edit">
+                                                </a>
+                                                <button class="btn-action ms-2 deleteItem"
+                                                        data-formid="delete_row_form_{{$banner->id}}">
+                                                    <img src="{{asset('admin/images/icons/trash-2.svg')}}" alt="trash">
+                                                </button>
+                                                <form action="{{route('settings.banner-delete', [$banner->id])}}"
+                                                      method="get" id="delete_row_form_{{ $banner->id }}">
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="input__group general-settings-btn">
-                                        <button type="submit" class="btn btn-blue">{{__('Update')}}</button>
-                                    </div>
-                                </div>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="mt-3">
+                                                            {{$banners->links()}}
                             </div>
-
-                        </form>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

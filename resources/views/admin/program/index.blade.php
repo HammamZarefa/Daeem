@@ -8,9 +8,6 @@
                 <div class="col-md-12">
                     <div class="breadcrumb__content">
                         <div class="breadcrumb__content__left">
-                            <div class="breadcrumb__title">
-                                <h2>{{__('Instructors')}}</h2>
-                            </div>
                         </div>
                         <div class="breadcrumb__content__right">
                             <nav aria-label="breadcrumb">
