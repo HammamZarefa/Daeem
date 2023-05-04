@@ -38,7 +38,7 @@
                                     <th>{{__('Professional_title')}}</th>
                                     <th>{{__('Phone Number')}}</th>
                                     <th>{{__('Country')}}</th>
-                                    <th>{{__('State')}}</th>
+{{--                                    <th>{{__('State')}}</th>--}}
                                     <th>{{__('Action')}}</th>
                                 </tr>
                                 </thead>
@@ -61,9 +61,9 @@
                                         <td>
                                             {{$instructor->country ? $instructor->country->country_name : '' }}
                                         </td>
-                                        <td>
-                                            {{$instructor->state ? $instructor->state->name : '' }}
-                                        </td>
+{{--                                        <td>--}}
+{{--                                            {{$instructor->state ? $instructor->state->name : '' }}--}}
+{{--                                        </td>--}}
                                         <td>
                                             <div class="action__buttons">
                                                 <a href="{{route('instructor.view', [$instructor->uuid])}}" class="btn-action mr-30" title="View Details">

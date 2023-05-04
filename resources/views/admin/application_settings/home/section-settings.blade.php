@@ -15,7 +15,8 @@
                         <div class="breadcrumb__content__right">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
+                                    <li class="breadcrumb-item"><a
+                                            href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">{{ __(@$title) }}</li>
                                 </ul>
                             </nav>
@@ -42,149 +43,197 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="removable-item">
-                                        <td>1</td>
-                                        <td>{{ __('Special Feature Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">special_feature_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->special_feature_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->special_feature_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>2</td>
-                                        <td>{{ __('Courses Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">courses_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->courses_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->courses_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>3</td>
-                                        <td>{{ __('Bundle Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">bundle_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->bundle_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->bundle_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>4</td>
-                                        <td>{{ __('Top Category Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">top_category_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->top_category_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->top_category_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>5</td>
-                                        <td>{{ __('Consultation Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">consultation_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->consultation_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->consultation_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>6</td>
-                                        <td>{{ __('Instructor Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">instructor_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->instructor_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->instructor_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>7</td>
-                                        <td>{{ __('Video Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">video_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->video_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->video_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>8</td>
-                                        <td>{{ __('Customer Says Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">customer_says_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->customer_says_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->customer_says_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>9</td>
-                                        <td>{{ __('Achievement Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">achievement_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->achievement_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->achievement_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>10</td>
-                                        <td>{{ __('FAQ Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">faq_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->faq_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->faq_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>11</td>
-                                        <td>{{ __('Instructor Support Area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">instructor_support_area</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->instructor_support_area == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->instructor_support_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>12</td>
-                                        <td>{{ __('Subscription list area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">subscription_show</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->subscription_show == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->subscription_show != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="removable-item">
-                                        <td>13</td>
-                                        <td>{{ __('SaaS List area') }}</td>
-                                        <td>
-                                            <span id="hidden_attribute_name" style="display: none">saas_show</span>
-                                            <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                                <option value="1" @if($home->saas_show == 1) selected @endif>{{ __('Active') }}</option>
-                                                <option value="0" @if($home->saas_show != 1) selected @endif>{{ __('Disable') }}</option>
-                                            </select>
-                                        </td>
-                                    </tr>
+                                <tr class="removable-item">
+                                    <td>1</td>
+                                    <td>{{ __('Banner Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name" style="display: none">faq_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->faq_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->faq_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="removable-item">
+                                    <td>2</td>
+                                    <td>{{ __('Special Feature Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name"
+                                              style="display: none">special_feature_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->special_feature_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->special_feature_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="removable-item">
+                                    <td>3</td>
+                                    <td>{{ __('Courses Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name" style="display: none">courses_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->courses_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->courses_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="removable-item">
+                                    <td>4</td>
+                                    <td>{{ __('Training Program Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name" style="display: none">bundle_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->bundle_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->bundle_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="removable-item">
+                                    <td>5</td>
+                                    <td>{{ __('Consultation Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name" style="display: none">consultation_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->consultation_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->consultation_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="removable-item">
+                                    <td>6</td>
+                                    <td>{{ __('Instructor Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name" style="display: none">instructor_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->instructor_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->instructor_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="removable-item">
+                                    <td>7</td>
+                                    <td>{{ __('Video Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name" style="display: none">video_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->video_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->video_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="removable-item">
+                                    <td>8</td>
+                                    <td>{{ __('Customer Says Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name" style="display: none">customer_says_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->customer_says_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->customer_says_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="removable-item">
+                                    <td>9</td>
+                                    <td>{{ __('Achievement Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name" style="display: none">achievement_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->achievement_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->achievement_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr class="removable-item">
+                                    <td>10</td>
+                                    <td>{{ __('Instructor Support Area') }}</td>
+                                    <td>
+                                        <span id="hidden_attribute_name"
+                                              style="display: none">instructor_support_area</span>
+                                        <select name="status"
+                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
+                                            <option value="1"
+                                                    @if($home->instructor_support_area == 1) selected @endif>{{ __('Active') }}</option>
+                                            <option value="0"
+                                                    @if($home->instructor_support_area != 1) selected @endif>{{ __('Disable') }}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+{{--                                <tr class="removable-item">--}}
+{{--                                    <td></td>--}}
+{{--                                    <td>{{ __('Top Category Area') }}</td>--}}
+{{--                                    <td>--}}
+{{--                                        <span id="hidden_attribute_name" style="display: none">top_category_area</span>--}}
+{{--                                        <select name="status"--}}
+{{--                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">--}}
+{{--                                            <option value="1"--}}
+{{--                                                    @if($home->top_category_area == 1) selected @endif>{{ __('Active') }}</option>--}}
+{{--                                            <option value="0"--}}
+{{--                                                    @if($home->top_category_area != 1) selected @endif>{{ __('Disable') }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+
+
+
+
+
+
+{{--                                <tr class="removable-item">--}}
+{{--                                    <td>12</td>--}}
+{{--                                    <td>{{ __('Subscription list area') }}</td>--}}
+{{--                                    <td>--}}
+{{--                                        <span id="hidden_attribute_name" style="display: none">subscription_show</span>--}}
+{{--                                        <select name="status"--}}
+{{--                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">--}}
+{{--                                            <option value="1"--}}
+{{--                                                    @if($home->subscription_show == 1) selected @endif>{{ __('Active') }}</option>--}}
+{{--                                            <option value="0"--}}
+{{--                                                    @if($home->subscription_show != 1) selected @endif>{{ __('Disable') }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                                <tr class="removable-item">--}}
+{{--                                    <td>13</td>--}}
+{{--                                    <td>{{ __('SaaS List area') }}</td>--}}
+{{--                                    <td>--}}
+{{--                                        <span id="hidden_attribute_name" style="display: none">saas_show</span>--}}
+{{--                                        <select name="status"--}}
+{{--                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">--}}
+{{--                                            <option value="1"--}}
+{{--                                                    @if($home->saas_show == 1) selected @endif>{{ __('Active') }}</option>--}}
+{{--                                            <option value="0"--}}
+{{--                                                    @if($home->saas_show != 1) selected @endif>{{ __('Disable') }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
                                 </tbody>
                             </table>
                         </div>
@@ -223,7 +272,7 @@
                     $.ajax({
                         type: "POST",
                         url: "{{route('settings.sectionSettingsStatusChange')}}",
-                        data: {"attribute_name": attribute_name, "status": status,  "_token": "{{ csrf_token() }}",},
+                        data: {"attribute_name": attribute_name, "status": status, "_token": "{{ csrf_token() }}",},
                         datatype: "json",
                         success: function (data) {
                             toastr.success('', "{{ __('Section status has been changed') }}");

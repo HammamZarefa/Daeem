@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUsGeneral;
 use App\Models\Assignment;
+use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Bundle;
 use App\Models\Category;
@@ -101,6 +102,7 @@ class MainIndexController extends Controller
             $data['mySaasPackage'] = UserPackage::where('user_packages.user_id', auth()->id())->where('user_packages.status', PACKAGE_STATUS_ACTIVE)->whereDate('enroll_date', '<=', now())->whereDate('expired_date', '>=', now())->whereIn('package_type', [PACKAGE_TYPE_SAAS_INSTRUCTOR, PACKAGE_TYPE_SAAS_ORGANIZATION])->join('packages', 'packages.id', '=', 'user_packages.package_id')->select('package_id', 'package_type', 'subscription_type')->first();
             $data['training_programmes'] = Course::where('course_type',3)->limit(10)->get();
             $data['all_coaching_types'] = CoachingType::all();
+            $data['banners'] = Banner::all();
             return view('frontend.home.home', $data);
         } else {
             return redirect()->to('/install');

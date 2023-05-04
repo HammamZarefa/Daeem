@@ -16,7 +16,7 @@
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{__('Approved Courses')}}</li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{__('Hold Courses')}}</li>
                                 </ul>
                             </nav>
                         </div>
@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <div class="customers__area bg-style mb-30">
                         <div class="item-title d-flex justify-content-between">
-                            <h2>Hold Courses</h2>
+                            <h2>{{__('Hold Courses')}}</h2>
                         </div>
                         <div class="customers__table">
                             <table id="customers-table" class="row-border data-table-filter table-style">

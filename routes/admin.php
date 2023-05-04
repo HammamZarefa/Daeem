@@ -47,6 +47,8 @@ use App\Http\Controllers\VersionUpdateController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('dashboard1', [DashboardController::class, 'dashboard1'])->name('admin.dashboard1');
+
 
 Route::group(['prefix' => 'payout', 'as' => 'payout.'], function () {
     Route::get('new-withdraw', [PayoutController::class, 'newWithdraw'])->name('new-withdraw');
@@ -508,7 +510,11 @@ Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
     Route::get('section-settings', [HomeSettingController::class, 'sectionSettings'])->name('section-settings');
     Route::post('sectionSettingsStatusChange', [HomeSettingController::class, 'sectionSettingsStatusChange'])->name('sectionSettingsStatusChange')->middleware('isDemo');
     Route::get('banner-section-settings', [HomeSettingController::class, 'bannerSection'])->name('banner-section');
-    Route::post('banner-section-settings', [HomeSettingController::class, 'bannerSectionUpdate'])->name('banner-section.update')->middleware('isDemo');
+    Route::get('banner-section-settings-add', [HomeSettingController::class, 'addBanner'])->name('banner-section-add');
+    Route::post('store-banner', [HomeSettingController::class, 'storeBanner'])->name('store-banner')->middleware('isDemo');
+    Route::get('banner-section-settings-edit/{id}', [HomeSettingController::class, 'editBanner'])->name('banner-section-edit');
+    Route::post('banner-section-settings/{id}', [HomeSettingController::class, 'bannerSectionUpdate'])->name('banner-section.update')->middleware('isDemo');
+    Route::get('banner-delete/{id}', [HomeSettingController::class, 'bannerDelete'])->name('banner-delete')->middleware('isDemo');
     Route::get('special-feature-section-settings', [HomeSettingController::class, 'specialFeatureSection'])->name('special-feature-section');
     Route::get('course-section-settings', [HomeSettingController::class, 'courseSection'])->name('course-section');
     Route::get('training-program-section-settings', [HomeSettingController::class, 'trainingProgramSection'])->name('training-program-section');

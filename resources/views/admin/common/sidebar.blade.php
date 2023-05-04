@@ -163,18 +163,18 @@
 
                     @endcan
 
-                    <li class="{{ @$subNavSpecialPromotionIndexActiveClass }}">
-                        <a href="{{route('special_promotional_tag.index')}}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Promotional Tag') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ active_if_match('admin/course-upload-rules') }}">
-                        <a href="{{route('course-rules.index')}}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Rules & Benefits') }}</span>
-                        </a>
-                    </li>
+{{--                    <li class="{{ @$subNavSpecialPromotionIndexActiveClass }}">--}}
+{{--                        <a href="{{route('special_promotional_tag.index')}}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{ __('Promotional Tag') }}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="{{ active_if_match('admin/course-upload-rules') }}">--}}
+{{--                        <a href="{{route('course-rules.index')}}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{ __('Rules & Benefits') }}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
                 </ul>
             </li>
@@ -225,14 +225,14 @@
                             </a>
                         </li>
                     @endcan
-                    @can('add_instructor')
-                        <li class="{{ active_if_match('admin/instructor/create') }}">
-                            <a href="{{route('instructor.create')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Add Instructor') }}</span>
-                            </a>
-                        </li>
-                    @endcan
+{{--                    @can('add_instructor')--}}
+{{--                        <li class="{{ active_if_match('admin/instructor/create') }}">--}}
+{{--                            <a href="{{route('instructor.create')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Add Instructor') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    @endcan--}}
                 </ul>
             </li>
         @endcanany
@@ -281,14 +281,14 @@
                             </a>
                         </li>
                     @endcan
-                    @can('add_organization')
-                        <li class="{{ active_if_match('admin/organizations/create') }}">
-                            <a href="{{route('organizations.create')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Add Organizations') }}</span>
-                            </a>
-                        </li>
-                    @endcan
+{{--                    @can('add_organization')--}}
+{{--                        <li class="{{ active_if_match('admin/organizations/create') }}">--}}
+{{--                            <a href="{{route('organizations.create')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Add Organizations') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    @endcan--}}
                 </ul>
             </li>
         @endcanany
@@ -313,91 +313,91 @@
                             <span>{{ __('All Student') }}</span>
                         </a>
                     </li>
-                    <li class="{{ active_if_match('admin/student/create') }}">
-                        <a href="{{route('student.create')}}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Add Student') }}</span>
-                        </a>
-                    </li>
+{{--                    <li class="{{ active_if_match('admin/student/create') }}">--}}
+{{--                        <a href="{{route('student.create')}}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{ __('Add Student') }}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                 </ul>
             </li>
         @endcan
 
-        @if(getSuperAdminStatus())
-            @if(get_option('subscription_mode'))
-                @can('manage_subscriptions')
-                    <li class="{{ @$navSubscriptionParentActiveClass }}">
-                        <a class="has-arrow" href="#">
-                            <span class="iconify" data-icon="ph:student"></span>
-                            <span>{{__('Manage Subscription')}}</span>
-                        </a>
-                        <ul class="{{ @$navSubscriptionParentShowClass }}">
-                            <li class="{{ @$subNavSubscriptionActiveClass }}">
-                                <a href="{{route('admin.subscriptions.index')}}">
-                                    <i class="fa fa-circle"></i>
-                                    <span>{{ __('All Subscription') }}</span>
-                                </a>
-                            </li>
-                            <li class="{{ (request()->route()->getName() == "admin.subscriptions.create") ? 'mm-active' : '' }}">
-                                <a href="{{route('admin.subscriptions.create')}}">
-                                    <i class="fa fa-circle"></i>
-                                    <span>{{ __('Add Subscription') }}</span>
-                                </a>
-                            </li>
-                            <li class="{{ (request()->route()->getName() == "admin.subscriptions.purchase_pending_list") ? 'mm-active' : '' }}">
-                                <a href="{{route('admin.subscriptions.purchase_pending_list')}}">
-                                    <i class="fa fa-circle"></i>
-                                    <span>{{ __('Subscription Sale Pending') }}</span>
-                                </a>
-                            </li>
-                            <li class="{{ (request()->route()->getName() == "admin.subscriptions.purchase_list") ? 'mm-active' : '' }}">
-                                <a href="{{route('admin.subscriptions.purchase_list')}}">
-                                    <i class="fa fa-circle"></i>
-                                    <span>{{ __('Subscription Sale') }}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcan
-            @endif
+{{--        @if(getSuperAdminStatus())--}}
+{{--            @if(get_option('subscription_mode'))--}}
+{{--                @can('manage_subscriptions')--}}
+{{--                    <li class="{{ @$navSubscriptionParentActiveClass }}">--}}
+{{--                        <a class="has-arrow" href="#">--}}
+{{--                            <span class="iconify" data-icon="ph:student"></span>--}}
+{{--                            <span>{{__('Manage Subscription')}}</span>--}}
+{{--                        </a>--}}
+{{--                        <ul class="{{ @$navSubscriptionParentShowClass }}">--}}
+{{--                            <li class="{{ @$subNavSubscriptionActiveClass }}">--}}
+{{--                                <a href="{{route('admin.subscriptions.index')}}">--}}
+{{--                                    <i class="fa fa-circle"></i>--}}
+{{--                                    <span>{{ __('All Subscription') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="{{ (request()->route()->getName() == "admin.subscriptions.create") ? 'mm-active' : '' }}">--}}
+{{--                                <a href="{{route('admin.subscriptions.create')}}">--}}
+{{--                                    <i class="fa fa-circle"></i>--}}
+{{--                                    <span>{{ __('Add Subscription') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="{{ (request()->route()->getName() == "admin.subscriptions.purchase_pending_list") ? 'mm-active' : '' }}">--}}
+{{--                                <a href="{{route('admin.subscriptions.purchase_pending_list')}}">--}}
+{{--                                    <i class="fa fa-circle"></i>--}}
+{{--                                    <span>{{ __('Subscription Sale Pending') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="{{ (request()->route()->getName() == "admin.subscriptions.purchase_list") ? 'mm-active' : '' }}">--}}
+{{--                                <a href="{{route('admin.subscriptions.purchase_list')}}">--}}
+{{--                                    <i class="fa fa-circle"></i>--}}
+{{--                                    <span>{{ __('Subscription Sale') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
+{{--            @endif--}}
 
-            @if(get_option('saas_mode'))
-                @can('manage_saas')
-                    <li class=" {{ @$navSaasParentActiveClass }} ">
-                        <a class="has-arrow" href="#">
-                            <span class="iconify" data-icon="ph:student"></span>
-                            <span>{{__('Manage SaaS')}}</span>
-                        </a>
-                        <ul class="{{ @$navSaasParentShowClass }}">
-                            <li class="{{ @$subNavSaasActiveClass }}">
-                                <a href="{{route('admin.saas.index')}}">
-                                    <i class="fa fa-circle"></i>
-                                    <span>{{ __('All SaaS') }}</span>
-                                </a>
-                            </li>
-                            <li class="{{ (request()->route()->getName() == "admin.saas.create") ? 'mm-active' : '' }}">
-                                <a href="{{route('admin.saas.create')}}">
-                                    <i class="fa fa-circle"></i>
-                                    <span>{{ __('Add SaaS') }}</span>
-                                </a>
-                            </li>
-                            <li class="{{ (request()->route()->getName() == "admin.saas.purchase_pending_list") ? 'mm-active' : '' }}">
-                                <a href="{{route('admin.saas.purchase_pending_list')}}">
-                                    <i class="fa fa-circle"></i>
-                                    <span>{{ __('SaaS Sale Pending') }}</span>
-                                </a>
-                            </li>
-                            <li class="{{ (request()->route()->getName() == "admin.saas.purchase_list") ? 'mm-active' : '' }}">
-                                <a href="{{route('admin.saas.purchase_list')}}">
-                                    <i class="fa fa-circle"></i>
-                                    <span>{{ __('SaaS Sale') }}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcan
-            @endif
-        @endif
+{{--            @if(get_option('saas_mode'))--}}
+{{--                @can('manage_saas')--}}
+{{--                    <li class=" {{ @$navSaasParentActiveClass }} ">--}}
+{{--                        <a class="has-arrow" href="#">--}}
+{{--                            <span class="iconify" data-icon="ph:student"></span>--}}
+{{--                            <span>{{__('Manage SaaS')}}</span>--}}
+{{--                        </a>--}}
+{{--                        <ul class="{{ @$navSaasParentShowClass }}">--}}
+{{--                            <li class="{{ @$subNavSaasActiveClass }}">--}}
+{{--                                <a href="{{route('admin.saas.index')}}">--}}
+{{--                                    <i class="fa fa-circle"></i>--}}
+{{--                                    <span>{{ __('All SaaS') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="{{ (request()->route()->getName() == "admin.saas.create") ? 'mm-active' : '' }}">--}}
+{{--                                <a href="{{route('admin.saas.create')}}">--}}
+{{--                                    <i class="fa fa-circle"></i>--}}
+{{--                                    <span>{{ __('Add SaaS') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="{{ (request()->route()->getName() == "admin.saas.purchase_pending_list") ? 'mm-active' : '' }}">--}}
+{{--                                <a href="{{route('admin.saas.purchase_pending_list')}}">--}}
+{{--                                    <i class="fa fa-circle"></i>--}}
+{{--                                    <span>{{ __('SaaS Sale Pending') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="{{ (request()->route()->getName() == "admin.saas.purchase_list") ? 'mm-active' : '' }}">--}}
+{{--                                <a href="{{route('admin.saas.purchase_list')}}">--}}
+{{--                                    <i class="fa fa-circle"></i>--}}
+{{--                                    <span>{{ __('SaaS Sale') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
+{{--            @endif--}}
+{{--        @endif--}}
         @can('manage_coupon')
             <li class="{{ @$navCouponActiveClass }}">
                 <a class="has-arrow" href="#">
@@ -421,180 +421,180 @@
             </li>
         @endcan
         @if(getSuperAdminStatus())
-            @can('manage_promotion')
-                <li class="{{ @$navPromotionParentActiveClass }}">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="ic:round-discount"></span>
-                        <span>{{ __('Manage Promotion') }}</span>
-                    </a>
-                    <ul>
-                        <li class="{{ @$subNavPromotionIndexActiveClass }}">
-                            <a href="{{ route('promotion.index') }}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Promotion List') }}</span>
-                            </a>
-                        </li>
-                        <li class="{{@$subNavAddPromotionActiveClass}}">
-                            <a href="{{ route('promotion.create') }}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Add Promotion') }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('payout')
-                <li class="{{ @$navFinanceParentActiveClass }}">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="clarity:dollar-bill-solid"></span>
-                        <span>{{__('Manage Payout')}}</span>
-                    </a>
-                    <ul class="{{ @$navFinanceShowClass }}">
-                        <li class="{{@$subNavFinanceNewWithdrawActiveClass}}">
-                            <a href="{{route('payout.new-withdraw')}}">
-                                <i class="fa fa-circle"></i>
-                                <span> {{ __('Request Withdrawal') }}</span>
-                            </a>
-                        </li>
+{{--            @can('manage_promotion')--}}
+{{--                <li class="{{ @$navPromotionParentActiveClass }}">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="ic:round-discount"></span>--}}
+{{--                        <span>{{ __('Manage Promotion') }}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul>--}}
+{{--                        <li class="{{ @$subNavPromotionIndexActiveClass }}">--}}
+{{--                            <a href="{{ route('promotion.index') }}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Promotion List') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{@$subNavAddPromotionActiveClass}}">--}}
+{{--                            <a href="{{ route('promotion.create') }}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Add Promotion') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
+{{--            @can('payout')--}}
+{{--                <li class="{{ @$navFinanceParentActiveClass }}">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="clarity:dollar-bill-solid"></span>--}}
+{{--                        <span>{{__('Manage Payout')}}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="{{ @$navFinanceShowClass }}">--}}
+{{--                        <li class="{{@$subNavFinanceNewWithdrawActiveClass}}">--}}
+{{--                            <a href="{{route('payout.new-withdraw')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span> {{ __('Request Withdrawal') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                        <li class="{{@$subNavFinanceCompleteWithdrawActiveClass}}">
-                            <a href="{{route('payout.complete-withdraw')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Complete Withdrawal')}}</span>
-                            </a>
-                        </li>
-                        <li class="{{@$subNavFinancerejectedWithdrawActiveClass}}">
-                            <a href="{{route('payout.rejected-withdraw')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Rejected Withdrawal')}}</span>
-                            </a>
-                        </li>
-                        <li class="{{@$subNavFinanceDistributeSubscriptionActiveClass}}">
-                            <a href="{{route('payout.distribute.subscriptions')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Subscription Payment')}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('finance')
-                <li class="">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="map:finance"></span>
-                        <span>{{ __('Financial Report') }}</span>
-                    </a>
-                    <ul>
-                        <li class="{{ active_if_full_match('admin/report/course-revenue-report') }}{{ active_if_full_match('admin/report/bundle-revenue-report') }}{{ active_if_full_match('admin/report/consultation-revenue-report') }}">
-                            <a href="{{route('course-report.revenue-report')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Revenue Report') }}</span>
-                            </a>
-                        </li>
-                        <li class="{{ active_if_full_match('admin/report/order-report') }}">
-                            <a href="{{route('report.order-report')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Order Report') }}</span>
-                            </a>
-                        </li>
-                        <li class="{{ active_if_full_match('admin/report/order-pending') }}">
-                            <a href="{{route('report.order-pending')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Order Pending') }}</span>
-                            </a>
-                        </li>
-                        <li class="{{ active_if_full_match('admin/report/order-cancelled') }}">
-                            <a href="{{route('report.order-cancelled')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Order Cancelled') }}</span>
-                            </a>
-                        </li>
-                        <li class="{{ active_if_full_match('admin/report/cancel-consultation-list') }}">
-                            <a href="{{route('report.cancel-consultation-list')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{ __('Consultation Cancel') }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('manage_certificate')
-                <li class="{{ @$navCertificateActiveClass }}">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="fluent:certificate-20-filled"></span>
-                        <span>{{__('Certificate')}}</span>
-                    </a>
-                    <ul>
-                        <li class="{{ @$subNavAllCertificateActiveClass }}">
-                            <a href="{{route('certificate.index')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('All Certificates')}}</span>
-                            </a>
-                        </li>
-                        <li class="{{ @$subNavAddCertificateActiveClass }}">
-                            <a href="{{route('certificate.create')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Add Certificate')}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('ranking_level')
-                <li class="{{ @$navRankingActiveClass }}">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="fa6-solid:ranking-star"></span>
-                        <span>{{__('Manage Badge')}}</span>
-                    </a>
-                    <ul>
-                        <li class="{{ @$subNavRankingActiveClass }}">
-                            <a href="{{route('ranking.index')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Badges')}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('skill')
-                <li class="{{ @$subNavSkillActiveClass }}">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="carbon:skill-level-intermediate"></span>
-                        <span>{{__('Manage Skill')}}</span>
-                    </a>
-                    <ul>
-                        <li class="{{ @$subNavSkillActiveClass }}">
-                            <a href="{{route('skill.index')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Skills')}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('support_ticket')
-                <li class="{{ @$navSupportTicketParentActiveClass }}">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="ic:twotone-support-agent"></span>
-                        <span>{{__('Support Ticket')}}</span>
-                    </a>
-                    <ul class="">
-                        <li class="{{ @$subNavSupportTicketIndexActiveClass }}">
-                            <a href="{{ route('support-ticket.admin.index') }}">
-                                <i class="fa fa-circle"></i>
-                                <span> {{__('All Tickets')}} </span>
-                            </a>
-                        </li>
-                        <li class="{{ @$subNavSupportTicketOpenActiveClass }}">
-                            <a href="{{ route('support-ticket.admin.open') }}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Open Ticket')}}</span>
-                            </a>
-                        </li>
+{{--                        <li class="{{@$subNavFinanceCompleteWithdrawActiveClass}}">--}}
+{{--                            <a href="{{route('payout.complete-withdraw')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Complete Withdrawal')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{@$subNavFinancerejectedWithdrawActiveClass}}">--}}
+{{--                            <a href="{{route('payout.rejected-withdraw')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Rejected Withdrawal')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{@$subNavFinanceDistributeSubscriptionActiveClass}}">--}}
+{{--                            <a href="{{route('payout.distribute.subscriptions')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Subscription Payment')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
+{{--            @can('finance')--}}
+{{--                <li class="">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="map:finance"></span>--}}
+{{--                        <span>{{ __('Financial Report') }}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul>--}}
+{{--                        <li class="{{ active_if_full_match('admin/report/course-revenue-report') }}{{ active_if_full_match('admin/report/bundle-revenue-report') }}{{ active_if_full_match('admin/report/consultation-revenue-report') }}">--}}
+{{--                            <a href="{{route('course-report.revenue-report')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Revenue Report') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_if_full_match('admin/report/order-report') }}">--}}
+{{--                            <a href="{{route('report.order-report')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Order Report') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_if_full_match('admin/report/order-pending') }}">--}}
+{{--                            <a href="{{route('report.order-pending')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Order Pending') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_if_full_match('admin/report/order-cancelled') }}">--}}
+{{--                            <a href="{{route('report.order-cancelled')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Order Cancelled') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_if_full_match('admin/report/cancel-consultation-list') }}">--}}
+{{--                            <a href="{{route('report.cancel-consultation-list')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{ __('Consultation Cancel') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
+{{--            @can('manage_certificate')--}}
+{{--                <li class="{{ @$navCertificateActiveClass }}">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="fluent:certificate-20-filled"></span>--}}
+{{--                        <span>{{__('Certificate')}}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul>--}}
+{{--                        <li class="{{ @$subNavAllCertificateActiveClass }}">--}}
+{{--                            <a href="{{route('certificate.index')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('All Certificates')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ @$subNavAddCertificateActiveClass }}">--}}
+{{--                            <a href="{{route('certificate.create')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Add Certificate')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
+{{--            @can('ranking_level')--}}
+{{--                <li class="{{ @$navRankingActiveClass }}">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="fa6-solid:ranking-star"></span>--}}
+{{--                        <span>{{__('Manage Badge')}}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul>--}}
+{{--                        <li class="{{ @$subNavRankingActiveClass }}">--}}
+{{--                            <a href="{{route('ranking.index')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Badges')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
+{{--            @can('skill')--}}
+{{--                <li class="{{ @$subNavSkillActiveClass }}">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="carbon:skill-level-intermediate"></span>--}}
+{{--                        <span>{{__('Manage Skill')}}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul>--}}
+{{--                        <li class="{{ @$subNavSkillActiveClass }}">--}}
+{{--                            <a href="{{route('skill.index')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Skills')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
+{{--            @can('support_ticket')--}}
+{{--                <li class="{{ @$navSupportTicketParentActiveClass }}">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="ic:twotone-support-agent"></span>--}}
+{{--                        <span>{{__('Support Ticket')}}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="">--}}
+{{--                        <li class="{{ @$subNavSupportTicketIndexActiveClass }}">--}}
+{{--                            <a href="{{ route('support-ticket.admin.index') }}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span> {{__('All Tickets')}} </span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ @$subNavSupportTicketOpenActiveClass }}">--}}
+{{--                            <a href="{{ route('support-ticket.admin.open') }}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Open Ticket')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                    </ul>
-                </li>
-            @endcan
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
                 @canany(['application_setting', 'global_setting', 'home_setting', 'mail_configuration', 'payment_option', 'content_setting'])
                     <li class="{{ @$navApplicationSettingParentActiveClass }}">
                         <a class="has-arrow" href="#">
@@ -628,23 +628,23 @@
                                 </li>
                             @endcan
 
-                            @can('mail_configuration')
+{{--                            @can('mail_configuration')--}}
 
-                                <li class="{{ @$subNavMailConfigSettingsActiveClass }}">
-                                    <a href="{{ route('settings.mail-configuration') }}">
-                                        <i class="fa fa-circle"></i>
-                                        <span>{{__('Mail Configuration')}}</span>
-                                    </a>
-                                </li>
-                            @endcan
-                            @can('payment_option')
-                                <li class="{{ @$subNavPaymentOptionsSettingsActiveClass }}">
-                                    <a href="{{ route('settings.payment_method_settings') }}">
-                                        <i class="fa fa-circle"></i>
-                                        <span>{{__('Payment Options')}}</span>
-                                    </a>
-                                </li>
-                            @endcan
+{{--                                <li class="{{ @$subNavMailConfigSettingsActiveClass }}">--}}
+{{--                                    <a href="{{ route('settings.mail-configuration') }}">--}}
+{{--                                        <i class="fa fa-circle"></i>--}}
+{{--                                        <span>{{__('Mail Configuration')}}</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            @endcan--}}
+{{--                            @can('payment_option')--}}
+{{--                                <li class="{{ @$subNavPaymentOptionsSettingsActiveClass }}">--}}
+{{--                                    <a href="{{ route('settings.payment_method_settings') }}">--}}
+{{--                                        <i class="fa fa-circle"></i>--}}
+{{--                                        <span>{{__('Payment Options')}}</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            @endcan--}}
                             @can('content_setting')
                                 <li class="{{ @$subNavInstructorSettingsActiveClass }}">
                                     <a href="{{ route('settings.instructor-feature') }}">
@@ -653,12 +653,12 @@
                                     </a>
                                 </li>
 
-                                <li class="{{ @$subNavFAQSettingsActiveClass }}">
-                                    <a href="{{ route('settings.faq.cms') }}">
-                                        <i class="fa fa-circle"></i>
-                                        <span>{{__('FAQ')}}</span>
-                                    </a>
-                                </li>
+{{--                                <li class="{{ @$subNavFAQSettingsActiveClass }}">--}}
+{{--                                    <a href="{{ route('settings.faq.cms') }}">--}}
+{{--                                        <i class="fa fa-circle"></i>--}}
+{{--                                        <span>{{__('FAQ')}}</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                                 {{--                        <li class="{{ @$subNavSupportSettingsActiveClass }}">--}}
                                 {{--                            <a href="{{ route('settings.support-ticket.cms') }}">--}}
                                 {{--                                <i class="fa fa-circle"></i>--}}
@@ -702,48 +702,48 @@
                         </ul>
                     </li>
                 @endcanany
-            <li class="{{ @$navPageParentActiveClass }}">
-                <a class="has-arrow" href="#">
-                    <span class="iconify" data-icon="dashicons:edit-page"></span>
-                    <span>{{__('Manage Page')}}</span>
-                </a>
-                <ul class="">
-                    <li class="{{ @$subNavPageAddActiveClass }}">
-                        <a href="{{route('page.create')}}">
-                            <i class="fa fa-circle"></i>
-                            <span> {{__('Add Page')}} </span>
-                        </a>
-                    </li>
-                    <li class="{{ @$subNavPageIndexActiveClass }}">
-                        <a href="{{route('page.index')}}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{__('All Pages')}}</span>
-                        </a>
-                    </li>
+{{--            <li class="{{ @$navPageParentActiveClass }}">--}}
+{{--                <a class="has-arrow" href="#">--}}
+{{--                    <span class="iconify" data-icon="dashicons:edit-page"></span>--}}
+{{--                    <span>{{__('Manage Page')}}</span>--}}
+{{--                </a>--}}
+{{--                <ul class="">--}}
+{{--                    <li class="{{ @$subNavPageAddActiveClass }}">--}}
+{{--                        <a href="{{route('page.create')}}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span> {{__('Add Page')}} </span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="{{ @$subNavPageIndexActiveClass }}">--}}
+{{--                        <a href="{{route('page.index')}}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{__('All Pages')}}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
-                </ul>
-            </li>
-            <li class="{{ @$navMenuParentActiveClass }}">
-                <a class="has-arrow" href="#">
-                    <span class="iconify" data-icon="bi:menu-up"></span>
-                    <span>{{__('Manage Menu')}}</span>
-                </a>
-                <ul class="">
-                    <li class="{{ @$subNavStaticMenuIndexActiveClass }}">
-                        <a href="{{route('menu.static')}}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{__('Static Menu')}}</span>
-                        </a>
-                    </li>
-                    <li class="{{ @$subNavDynamicMenuIndexActiveClass }}">
-                        <a href="{{route('menu.dynamic')}}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{__('Dynamic Menu')}}</span>
-                        </a>
-                    </li>
+{{--                </ul>--}}
+{{--            </li>--}}
+{{--            <li class="{{ @$navMenuParentActiveClass }}">--}}
+{{--                <a class="has-arrow" href="#">--}}
+{{--                    <span class="iconify" data-icon="bi:menu-up"></span>--}}
+{{--                    <span>{{__('Manage Menu')}}</span>--}}
+{{--                </a>--}}
+{{--                <ul class="">--}}
+{{--                    <li class="{{ @$subNavStaticMenuIndexActiveClass }}">--}}
+{{--                        <a href="{{route('menu.static')}}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{__('Static Menu')}}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="{{ @$subNavDynamicMenuIndexActiveClass }}">--}}
+{{--                        <a href="{{route('menu.dynamic')}}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{__('Dynamic Menu')}}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
-                </ul>
-            </li>
+{{--                </ul>--}}
+{{--            </li>--}}
             <li class="{{ @$navPolicyActiveClass }}">
                 <a class="has-arrow" href="#">
                     <span class="iconify" data-icon="dashicons:privacy"></span>
@@ -818,35 +818,35 @@
             </li>
         @endcan
 
-        @can('content_setting')
-            <li class="{{ @$navContactUsParentActiveClass }}">
-                <a class="has-arrow" href="#">
-                    <span class="iconify" data-icon="fluent:contact-card-32-regular"></span>
-                    <span>{{__('Contact Us')}}</span>
-                </a>
-                <ul class="{{ @$navContactUsParentShowClass }}">
-                    <li class="{{ @$subNavContactUsIndexActiveClass }}">
-                        <a href="{{ route('contact.index') }}">
-                            <i class="fa fa-circle"></i>
-                            <span> {{__('All Contact Us')}} </span>
-                        </a>
-                    </li>
-                    <li class="{{ @$subNavContactUsIssueIndexActiveClass }}">
-                        <a href="{{ route('contact.issue.index') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{__('All Contact Us Issue')}}</span>
-                        </a>
-                    </li>
-                    <li class="{{ @$subNavContactUsIssueAddActiveClass }}">
-                        <a href="{{ route('contact.issue.create') }}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{__('Add Contact Us Issue')}}</span>
-                        </a>
-                    </li>
+{{--        @can('content_setting')--}}
+{{--            <li class="{{ @$navContactUsParentActiveClass }}">--}}
+{{--                <a class="has-arrow" href="#">--}}
+{{--                    <span class="iconify" data-icon="fluent:contact-card-32-regular"></span>--}}
+{{--                    <span>{{__('Contact Us')}}</span>--}}
+{{--                </a>--}}
+{{--                <ul class="{{ @$navContactUsParentShowClass }}">--}}
+{{--                    <li class="{{ @$subNavContactUsIndexActiveClass }}">--}}
+{{--                        <a href="{{ route('contact.index') }}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span> {{__('All Contact Us')}} </span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="{{ @$subNavContactUsIssueIndexActiveClass }}">--}}
+{{--                        <a href="{{ route('contact.issue.index') }}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{__('All Contact Us Issue')}}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="{{ @$subNavContactUsIssueAddActiveClass }}">--}}
+{{--                        <a href="{{ route('contact.issue.create') }}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{__('Add Contact Us Issue')}}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
-                </ul>
-            </li>
-        @endcan
+{{--                </ul>--}}
+{{--            </li>--}}
+{{--        @endcan--}}
 
         @can('manage_blog')
             <li class="{{ @$navBlogParentActiveClass }}">
@@ -907,56 +907,56 @@
                     </ul>
                 </li>
             @endcan
-            <li class="{{ @$navForumParentActiveClass }}">
-                <a class="has-arrow" href="#">
-                    <span class="iconify" data-icon="carbon:forum"></span>
-                    <span>{{ __('Manage Forum') }}</span>
-                </a>
-                <ul>
-                    <li class="{{ @$subNavForumCategoryIndexActiveClass }}">
-                        <a href="{{route('admin.forum.category.index')}}">
-                            <i class="fa fa-circle"></i>
-                            <span>{{ __('Forum Category') }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            @can('manage_affiliate')
-                <li class="">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="tabler:affiliate"></span>
-                        <span>{{__('Manage Affiliate')}}</span>
-                    </a>
-                    <ul class="">
-                        <li class="{{ @$subNavAffiliateManageListActiveClass }}">
-                            <a href="{{route('affiliate.affiliate-request-list')}}">
-                                <i class="fa fa-circle"></i>
-                                <span> {{__('Affiliate Request List')}} </span>
-                            </a>
-                        </li>
-                        <li class="{{ active_if_full_match('admin/affiliate/affiliation-settings') }}">
-                            <a href="{{ route('affiliate.affiliation-settings') }}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Affiliate Settings')}}</span>
-                            </a>
-                        </li>
-                        <li class="{{ @$subNavAffiliateHistoryActiveClass }}">
-                            <a href="{{ route('affiliate.affiliate-history') }}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Affiliate history')}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endif
-            @can('manage_version_update')
-                <li class="{{ @$subNavVersionUpdateActiveClass }}">
-                    <a href="{{ route('settings.file-version-update') }}">
-                        <i class="fa fa-circle"></i>
-                        <span>{{__('Version Update')}}</span>
-                    </a>
-                </li>
-            @endif
+{{--            <li class="{{ @$navForumParentActiveClass }}">--}}
+{{--                <a class="has-arrow" href="#">--}}
+{{--                    <span class="iconify" data-icon="carbon:forum"></span>--}}
+{{--                    <span>{{ __('Manage Forum') }}</span>--}}
+{{--                </a>--}}
+{{--                <ul>--}}
+{{--                    <li class="{{ @$subNavForumCategoryIndexActiveClass }}">--}}
+{{--                        <a href="{{route('admin.forum.category.index')}}">--}}
+{{--                            <i class="fa fa-circle"></i>--}}
+{{--                            <span>{{ __('Forum Category') }}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
+{{--            @can('manage_affiliate')--}}
+{{--                <li class="">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="tabler:affiliate"></span>--}}
+{{--                        <span>{{__('Manage Affiliate')}}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="">--}}
+{{--                        <li class="{{ @$subNavAffiliateManageListActiveClass }}">--}}
+{{--                            <a href="{{route('affiliate.affiliate-request-list')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span> {{__('Affiliate Request List')}} </span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_if_full_match('admin/affiliate/affiliation-settings') }}">--}}
+{{--                            <a href="{{ route('affiliate.affiliation-settings') }}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Affiliate Settings')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ @$subNavAffiliateHistoryActiveClass }}">--}}
+{{--                            <a href="{{ route('affiliate.affiliate-history') }}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Affiliate history')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endif--}}
+{{--            @can('manage_version_update')--}}
+{{--                <li class="{{ @$subNavVersionUpdateActiveClass }}">--}}
+{{--                    <a href="{{ route('settings.file-version-update') }}">--}}
+{{--                        <i class="fa fa-circle"></i>--}}
+{{--                        <span>{{__('Version Update')}}</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            @endif--}}
         @endif
         @can('account_setting')
             <li>

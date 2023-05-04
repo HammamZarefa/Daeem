@@ -37,7 +37,7 @@
                                     <th>{{__('Name')}}</th>
                                     <th>{{__('Phone Number')}}</th>
                                     <th>{{__('Country')}}</th>
-                                    <th>{{__('State')}}</th>
+{{--                                    <th>{{__('State')}}</th>--}}
                                     <th>{{__('Status')}}</th>
                                     <th class="text-center">{{__('Action')}}</th>
                                 </tr>
@@ -58,9 +58,9 @@
                                         <td>
                                             {{$instructor->country ? $instructor->country->country_name : '' }}
                                         </td>
-                                        <td>
-                                            {{$instructor->state ? $instructor->state->name : '' }}
-                                        </td>
+{{--                                        <td>--}}
+{{--                                            {{$instructor->state ? $instructor->state->name : '' }}--}}
+{{--                                        </td>--}}
                                         <td>
                                             <span id="hidden_id" style="display: none">{{$instructor->id}}</span>
                                             <select name="status" class="status label-inline font-weight-bolder mb-1 badge badge-info">

@@ -62,7 +62,7 @@
                                     for="mobile_number">{{__('Phone Number')}}</label>
                                 <input type="text" name="mobile_number" id="mobile_number"
                                     value="{{old('mobile_number')}}" class="form-control"
-                                    placeholder="Type your mobile number">
+                                    placeholder="{{__('Type your mobile number')}}">
                                 @if ($errors->has('mobile_number'))
                                 <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
                                     $errors->first('mobile_number') }}</span>
@@ -127,11 +127,12 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
                                             checked>
                                         <label class="form-check-label mb-0" for="flexCheckChecked">
-                                            By clicking Create account, I agree that I have read and accepted the <a
+                                            {{__('By clicking Create account, I agree that I have read and accepted the')}}
+                                             <a
                                                 href="{{ route('terms-conditions') }}"
-                                                class="color-hover text-decoration-underline">Terms of Use</a> and <a
+                                                class="color-hover text-decoration-underline">{{__('Terms of Use')}}</a> {{__('and')}} <a
                                                 href="{{ route('privacy-policy') }}"
-                                                class="color-hover text-decoration-underline">Privacy Policy.</a>
+                                                class="color-hover text-decoration-underline">{{__('Privacy Policy')}}.</a>
                                         </label>
                                     </div>
                                 </div>

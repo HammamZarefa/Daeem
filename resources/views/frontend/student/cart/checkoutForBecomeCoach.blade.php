@@ -212,7 +212,7 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-30">
                                             <label
-                                                class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Zip Code') }}</label>
+                                                class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Zip code') }}</label>
                                             <input type="text" name="postal_code" id="postal_code"
                                                 value="{{ $student->postal_code }}" class="form-control"
                                                 placeholder="{{ __('Zip code') }}">
@@ -231,7 +231,7 @@
                                     <h6 class="font-16 font-medium color-heading mb-30">{{ __('Payment Method') }}
                                     </h6>
 
-                                    @if (get_option('paypal_status') == 1)
+                                    @if (get_option('paypal_status') == 0)
                                         <div class="form-check payment-method-card-box paypal-box mb-15">
                                             <input class="form-check-input" type="radio" name="payment_method"
                                                 value="paypal" {{ old('payment_method') == 'paypal' ? 'checked' : '' }}
@@ -673,10 +673,11 @@
                                                                         value="" id="flexCheckChecked" checked>
                                                                     <label class="form-check-label mb-0"
                                                                         for="flexCheckChecked">
-                                                                        Please check to acknowledge our <a
+                                                                        {{ __('Please check to acknowledge our') }}
+                                                                         <a
                                                                             href="{{ route('privacy-policy') }}"
-                                                                            class="color-hover text-decoration-underline">Privacy
-                                                                            & Terms Policy</a>
+                                                                            class="color-hover text-decoration-underline">
+                                                                             {{ __('Privacy & Terms Policy') }}</a>
                                                                     </label>
                                                                 </div>
                                                             </div>

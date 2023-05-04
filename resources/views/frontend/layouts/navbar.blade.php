@@ -223,10 +223,10 @@
                                                href="{{route('student.dashboard')}}">{{__('Student Panel')}}</a>
                                         </li>
                                     @else
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                               href="{{route('organization.dashboard')}}">{{__('Organization Panel')}}</a>
-                                        </li>
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a class="nav-link"--}}
+{{--                                               href="{{route('organization.dashboard')}}">{{__('Organization Panel')}}</a>--}}
+{{--                                        </li>--}}
                                     @endif
                                 @elseif(@$authUser->instructor->status == STATUS_REJECTED)
                                     <li class="nav-item">
