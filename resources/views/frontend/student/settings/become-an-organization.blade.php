@@ -362,8 +362,8 @@
 
                         <div class="row mb-30">
                             <div class="col-md-12">
-                                <label class="label-text-title color-heading font-medium font-16 mb-2">{{__('Bio')}}</label>
-                                <textarea name="about_me" class="form-control" cols="30" rows="10" placeholder="About Organization" required>{{ old('about_me') }}</textarea>
+                                <label class="label-text-title color-heading font-medium font-16 mb-2">{{__('Organization Info')}}</label>
+                                <textarea name="about_me" class="form-control" cols="30" rows="10" placeholder="{{__('Organization Info')}}" required>{{ old('about_me') }}</textarea>
                             </div>
                             @if ($errors->has('about_me'))
                                 <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('about_me') }}</span>

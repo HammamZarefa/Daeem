@@ -331,7 +331,6 @@ class DashboardController extends Controller
 
     public function payForCoachRequest($uuid)
     {
-//        dd('afsfasf');
         $instructor = $this->instructorModel->getRecordByUuid($uuid);
         $user = $instructor->user;
         $price = get_option('become_instructor_coast');

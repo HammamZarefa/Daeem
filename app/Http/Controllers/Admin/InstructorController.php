@@ -171,7 +171,7 @@ class InstructorController extends Controller
                 $instructor->save();
             }
             /** ====== Send notification to instructor =========*/
-            $text2 = "Your coaching request has been accepted";
+            $text2 = __('Your coaching request has been accepted');
             $target_url2 = route('student.payForCoachRequest',$instructor->uuid);
             $this->send($text2, 2, $target_url2, $instructor->user->id);
             /** ====== Send notification to instructor =========*/
