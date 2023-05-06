@@ -46,31 +46,32 @@
                                             <h6 class="font-20">{{ __('Course Details') }}</h6>
                                         </div>
 
-                                        <div class="row mb-30">
-                                            <div class="col-md-12">
-                                                <div class="label-text-title color-heading font-medium font-16 mb-3">{{
-                                                    __('Course Type') }}
-                                                    <span class="text-danger">*</span>
-                                                </div>
+{{--                                        <div class="row mb-30">--}}
+{{--                                            <div class="col-md-12">--}}
+{{--                                                <div class="label-text-title color-heading font-medium font-16 mb-3">{{--}}
+{{--                                                    __('Course Type') }}--}}
+{{--                                                    <span class="text-danger">*</span>--}}
+{{--                                                </div>--}}
 
-                                                <select name="course_type" id="course_type" class="form-select"
-                                                        required>
-                                                    <option value="">{{ __('Select Course
-                                                        Type') }}</option>
-                                                    <option value="{{ COURSE_TYPE_GENERAL }}"
-                                                        {{old('course_type')==COURSE_TYPE_GENERAL ? 'selected' : '' }}>
-                                                        General</option>
-                                                    <option value="{{ COURSE_TYPE_SCORM }}"
-                                                        {{old('course_type')==COURSE_TYPE_SCORM ? 'selected' : '' }}>
-                                                        SCORM</option>
-                                                </select>
+{{--                                                <select name="course_type" id="course_type" class="form-select"--}}
+{{--                                                        required>--}}
+{{--                                                    <option value="">{{ __('Select Course--}}
+{{--                                                        Type') }}</option>--}}
+{{--                                                    <option value="{{ COURSE_TYPE_GENERAL }}"--}}
+{{--                                                        {{old('course_type')==COURSE_TYPE_GENERAL ? 'selected' : '' }}>--}}
+{{--                                                        General</option>--}}
+{{--                                                    <option value="{{ COURSE_TYPE_SCORM }}"--}}
+{{--                                                        {{old('course_type')==COURSE_TYPE_SCORM ? 'selected' : '' }}>--}}
+{{--                                                        SCORM</option>--}}
+{{--                                                </select>--}}
 
-                                                @if ($errors->has('course_type'))
-                                                    <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
-                                                    $errors->first('course_type') }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
+{{--                                                @if ($errors->has('course_type'))--}}
+{{--                                                    <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{--}}
+{{--                                                    $errors->first('course_type') }}</span>--}}
+{{--                                                @endif--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+                                        <input type="hidden" name="course_type" value="{{ COURSE_TYPE_GENERAL }}">
                                         <div class="row mb-30">
                                             <div class="col-md-12">
                                                 <div class="label-text-title color-heading font-medium font-16 mb-3">
