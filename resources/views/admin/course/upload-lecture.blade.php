@@ -36,9 +36,9 @@
                                                         <div>
                                                             <label class="mr-15"><input type="radio" name="type" value="video" checked class="lecture-type"> {{ __('Upload Video') }}</label>
                                                             <label class="mr-15"><input type="radio" name="type" value="youtube" class="lecture-type" id="lectureTypeYoutube"> {{ __('Youtube') }} </label>
-                                                            @if(env('VIMEO_STATUS') == 'active')
-                                                            <label class="mr-15"><input type="radio" name="type" value="vimeo" class="lecture-type">  {{ __('Vimeo') }}</label>
-                                                            @endif
+{{--                                                            @if(env('VIMEO_STATUS') == 'active')--}}
+{{--                                                            <label class="mr-15"><input type="radio" name="type" value="vimeo" class="lecture-type">  {{ __('Vimeo') }}</label>--}}
+{{--                                                            @endif--}}
                                                             <label class="mr-15"><input type="radio" name="type" value="text" class="lecture-type" id="lectureTypeText"> {{ __('Text') }} </label>
                                                             <label class="mr-15"><input type="radio" name="type" value="image" class="lecture-type" id="lectureTypeImage"> {{ __('Image') }} </label>
                                                             <label class="mr-15"><input type="radio" name="type" value="pdf" class="lecture-type" id="lectureTypePDF"> {{ __('PDF') }} </label>
@@ -72,70 +72,70 @@
                                                 <input type="text" name="youtube_url_path" class="form-control youtube-url" value="{{ old('youtube_url_path') }}" id="youtube_url_path" placeholder="{{ __('Type Your Youtube Video ID') }}">
                                             </div>
 
-                                            <div id="vimeo" class="d-none">
-                                                <div class="row mb-30">
-                                                    <div class="col-md-12">
-                                                        <label
-                                                            class="label-text-title color-heading font-medium font-16 mb-3">{{
-                                                            __('Vimeo Upload Type') }} <span
-                                                                class="text-danger">*</span></label>
-                                                        <select name="vimeo_upload_type"
-                                                            class="form-select vimeo_upload_type">
-                                                            <option value="">--{{ __('Select Option') }}--</option>
-                                                            <option value="1" @if(old('vimeo_upload_type')==1) selected
-                                                                @endif>{{ __('Video File Upload') }}</option>
-                                                            <option value="2" @if(old('vimeo_upload_type')==2) selected
-                                                                @endif>{{ __('Vimeo Uploaded Video ID') }}</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="vimeo_Video_file_upload_div d-none">
-                                                    <label
-                                                        class="label-text-title color-heading font-medium font-16 mb-3">{{
-                                                        __('Upload Video') }}<span class="text-danger">*</span></label>
-                                                    <div
-                                                        class="upload-course-video-4-wrap upload-introduction-box-content-left d-flex align-items-center flex-column">
-                                                        <div class="upload-introduction-box-content-img mb-3">
-                                                            <img src="{{asset('frontend/assets/img/instructor-img/upload-lesson-icon.png')}}"
-                                                                alt="upload">
-                                                        </div>
-                                                        <input type="file" name="vimeo_url_path" accept="video/mp4"
-                                                            class="form-control" value="{{ old('vimeo_url_path') }}"
-                                                            id="vimeo_url_path" title="Upload lesson">
-                                                    </div>
-                                                    @if ($errors->has('vimeo_url_path'))
-                                                    <span class="text-danger"><i
-                                                            class="fas fa-exclamation-triangle"></i> {{
-                                                        $errors->first('vimeo_url_path') }}</span>
-                                                    @endif
-                                                </div>
-                                                <div class="vimeo_uploaded_Video_id_div d-none">
-                                                    <div class="row mb-30">
-                                                        <div class="col-md-12">
-                                                            <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Uploaded Video ID') }}<span class="text-danger">*</span></label>
-                                                            <div class="upload-course-video-4-wrap upload-introduction-box-content-left d-flex align-items-center flex-column">
-                                                                <input type="text" name="vimeo_url_uploaded_path" placeholder="{{ __('Type your uploaded video ID (ex: 123654)') }}" class="form-control" value="{{ old('vimeo_url_uploaded_path') }}" id="vimeo_url_uploaded_path">
-                                                            </div>
-                                                        </div>
-                                                        @if ($errors->has('vimeo_url_uploaded_path'))
-                                                        <span class="text-danger"><i
-                                                                class="fas fa-exclamation-triangle"></i> {{
-                                                            $errors->first('vimeo_url_uploaded_path') }}</span>
-                                                        @endif
-                                                    </div>
-                                                    <div class="row mb-30">
-                                                        <div class="col-md-12">
-                                                            <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Lesson File Duration') }} (00:00) <span class="text-danger">*</span></label>
-                                                            <input type="text" name="vimeo_file_duration" value="{{old('vimeo_file_duration')}}" class="form-control customVimeoFileDuration" placeholder="{{ __('Type file duration') }}" >
-                                                            @if ($errors->has('vimeo_file_duration'))
-                                                            <span class="text-danger"><i
-                                                                    class="fas fa-exclamation-triangle"></i> {{
-                                                                $errors->first('vimeo_file_duration') }}</span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+{{--                                            <div id="vimeo" class="d-none">--}}
+{{--                                                <div class="row mb-30">--}}
+{{--                                                    <div class="col-md-12">--}}
+{{--                                                        <label--}}
+{{--                                                            class="label-text-title color-heading font-medium font-16 mb-3">{{--}}
+{{--                                                            __('Vimeo Upload Type') }} <span--}}
+{{--                                                                class="text-danger">*</span></label>--}}
+{{--                                                        <select name="vimeo_upload_type"--}}
+{{--                                                            class="form-select vimeo_upload_type">--}}
+{{--                                                            <option value="">--{{ __('Select Option') }}--</option>--}}
+{{--                                                            <option value="1" @if(old('vimeo_upload_type')==1) selected--}}
+{{--                                                                @endif>{{ __('Video File Upload') }}</option>--}}
+{{--                                                            <option value="2" @if(old('vimeo_upload_type')==2) selected--}}
+{{--                                                                @endif>{{ __('Vimeo Uploaded Video ID') }}</option>--}}
+{{--                                                        </select>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="vimeo_Video_file_upload_div d-none">--}}
+{{--                                                    <label--}}
+{{--                                                        class="label-text-title color-heading font-medium font-16 mb-3">{{--}}
+{{--                                                        __('Upload Video') }}<span class="text-danger">*</span></label>--}}
+{{--                                                    <div--}}
+{{--                                                        class="upload-course-video-4-wrap upload-introduction-box-content-left d-flex align-items-center flex-column">--}}
+{{--                                                        <div class="upload-introduction-box-content-img mb-3">--}}
+{{--                                                            <img src="{{asset('frontend/assets/img/instructor-img/upload-lesson-icon.png')}}"--}}
+{{--                                                                alt="upload">--}}
+{{--                                                        </div>--}}
+{{--                                                        <input type="file" name="vimeo_url_path" accept="video/mp4"--}}
+{{--                                                            class="form-control" value="{{ old('vimeo_url_path') }}"--}}
+{{--                                                            id="vimeo_url_path" title="Upload lesson">--}}
+{{--                                                    </div>--}}
+{{--                                                    @if ($errors->has('vimeo_url_path'))--}}
+{{--                                                    <span class="text-danger"><i--}}
+{{--                                                            class="fas fa-exclamation-triangle"></i> {{--}}
+{{--                                                        $errors->first('vimeo_url_path') }}</span>--}}
+{{--                                                    @endif--}}
+{{--                                                </div>--}}
+{{--                                                <div class="vimeo_uploaded_Video_id_div d-none">--}}
+{{--                                                    <div class="row mb-30">--}}
+{{--                                                        <div class="col-md-12">--}}
+{{--                                                            <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Uploaded Video ID') }}<span class="text-danger">*</span></label>--}}
+{{--                                                            <div class="upload-course-video-4-wrap upload-introduction-box-content-left d-flex align-items-center flex-column">--}}
+{{--                                                                <input type="text" name="vimeo_url_uploaded_path" placeholder="{{ __('Type your uploaded video ID (ex: 123654)') }}" class="form-control" value="{{ old('vimeo_url_uploaded_path') }}" id="vimeo_url_uploaded_path">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        @if ($errors->has('vimeo_url_uploaded_path'))--}}
+{{--                                                        <span class="text-danger"><i--}}
+{{--                                                                class="fas fa-exclamation-triangle"></i> {{--}}
+{{--                                                            $errors->first('vimeo_url_uploaded_path') }}</span>--}}
+{{--                                                        @endif--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="row mb-30">--}}
+{{--                                                        <div class="col-md-12">--}}
+{{--                                                            <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Lesson File Duration') }} (00:00) <span class="text-danger">*</span></label>--}}
+{{--                                                            <input type="text" name="vimeo_file_duration" value="{{old('vimeo_file_duration')}}" class="form-control customVimeoFileDuration" placeholder="{{ __('Type file duration') }}" >--}}
+{{--                                                            @if ($errors->has('vimeo_file_duration'))--}}
+{{--                                                            <span class="text-danger"><i--}}
+{{--                                                                    class="fas fa-exclamation-triangle"></i> {{--}}
+{{--                                                                $errors->first('vimeo_file_duration') }}</span>--}}
+{{--                                                            @endif--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
                                             <div id="text" class="d-none">
                                                 <label

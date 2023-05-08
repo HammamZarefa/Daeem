@@ -818,35 +818,35 @@
             </li>
         @endcan
 
-{{--        @can('content_setting')--}}
-{{--            <li class="{{ @$navContactUsParentActiveClass }}">--}}
-{{--                <a class="has-arrow" href="#">--}}
-{{--                    <span class="iconify" data-icon="fluent:contact-card-32-regular"></span>--}}
-{{--                    <span>{{__('Contact Us')}}</span>--}}
-{{--                </a>--}}
-{{--                <ul class="{{ @$navContactUsParentShowClass }}">--}}
-{{--                    <li class="{{ @$subNavContactUsIndexActiveClass }}">--}}
-{{--                        <a href="{{ route('contact.index') }}">--}}
-{{--                            <i class="fa fa-circle"></i>--}}
-{{--                            <span> {{__('All Contact Us')}} </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="{{ @$subNavContactUsIssueIndexActiveClass }}">--}}
-{{--                        <a href="{{ route('contact.issue.index') }}">--}}
-{{--                            <i class="fa fa-circle"></i>--}}
-{{--                            <span>{{__('All Contact Us Issue')}}</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="{{ @$subNavContactUsIssueAddActiveClass }}">--}}
-{{--                        <a href="{{ route('contact.issue.create') }}">--}}
-{{--                            <i class="fa fa-circle"></i>--}}
-{{--                            <span>{{__('Add Contact Us Issue')}}</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
+        @can('content_setting')
+            <li class="{{ @$navContactUsParentActiveClass }}">
+                <a class="has-arrow" href="#">
+                    <span class="iconify" data-icon="fluent:contact-card-32-regular"></span>
+                    <span>{{__('Contact Us')}}</span>
+                </a>
+                <ul class="{{ @$navContactUsParentShowClass }}">
+                    <li class="{{ @$subNavContactUsIndexActiveClass }}">
+                        <a href="{{ route('contact.index') }}">
+                            <i class="fa fa-circle"></i>
+                            <span> {{__('All Contact Us')}} </span>
+                        </a>
+                    </li>
+                    <li class="{{ @$subNavContactUsIssueIndexActiveClass }}">
+                        <a href="{{ route('contact.issue.index') }}">
+                            <i class="fa fa-circle"></i>
+                            <span>{{__('All Contact Us Issue')}}</span>
+                        </a>
+                    </li>
+                    <li class="{{ @$subNavContactUsIssueAddActiveClass }}">
+                        <a href="{{ route('contact.issue.create') }}">
+                            <i class="fa fa-circle"></i>
+                            <span>{{__('Add Contact Us Issue')}}</span>
+                        </a>
+                    </li>
 
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--        @endcan--}}
+                </ul>
+            </li>
+        @endcan
 
         @can('manage_blog')
             <li class="{{ @$navBlogParentActiveClass }}">

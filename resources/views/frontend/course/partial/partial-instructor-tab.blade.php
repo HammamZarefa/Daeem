@@ -40,6 +40,7 @@
                                 <div class="d-flex">
                                     <div>
                                         @php
+
                                             $total_instructor_course =  count($course_instructor->user->$userType->courses);
                                             $total_instructor_students = $course_instructor->user->$userType->enrollments->count();
                                         @endphp

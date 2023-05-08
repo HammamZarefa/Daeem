@@ -119,9 +119,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="input__group mb-25">
-                                    <label>{{ __('Postal Code') }} <span class="text-danger">*</span></label>
-                                    <input type="text" name="postal_code" value="{{$instructor->postal_code}}" placeholder="{{ __('Postal Code') }}" class="form-control"
-                                           required>
+                                    <label>{{ __('Postal Code') }}</label>
+                                    <input type="text" name="postal_code" value="{{$instructor->postal_code}}" placeholder="{{ __('Postal Code') }}" class="form-control">
                                     @if ($errors->has('postal_code'))
                                         <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('postal_code') }}</span>
                                     @endif
@@ -197,7 +196,7 @@
                             @endphp
                             <div class="col-md-6">
                                 <div class="input__group mb-25">
-                                    <label>{{ __('Facebook') }} <span class="text-danger">*</span></label>
+                                    <label>{{ __('Facebook') }}</label>
                                     <input type="text" name="social_link[facebook]" value="{{$instructor->social_link ? $social_link->facebook : ''}}" class="form-control"
                                     placeholder="https://facebook.com">
                                 </div>

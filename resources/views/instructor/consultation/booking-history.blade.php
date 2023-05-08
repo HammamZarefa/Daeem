@@ -298,7 +298,7 @@
                                                     Online
                                                 @endif
                                             </td>
-                                            <td>{{ $upcoming->coachingType != null ? $upcoming->coachingType->name : '-' }}</td>
+                                            <td>{{ $completed->coachingType != null ? $completed->coachingType->name : '-' }}</td>
                                             <td>@if($completed->status == 2)
                                                     <span class="status blocked">{{ __('Cancel') }}</span>
                                                 @elseif($completed->status == 3)

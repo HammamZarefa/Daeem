@@ -86,18 +86,18 @@
                                                                                                     <span class="see-preview-video font-medium font-16">{{ __('Preview Video') }}</span>
                                                                                                 </div>
                                                                                             </a>
-                                                                                        @elseif($lecture->type == 'vimeo')
-                                                                                             <a class="edit-lecture-preview-show d-flex align-items-center justify-content-between color-heading font-medium font-16 mb-3 venobox" data-autoplay="true"
-                                                                                             data-maxwidth="800px" data-vbtype="video" data-href="https://vimeo.com/{{ $lecture->url_path }}">
-                                                                                                <div class="d-flex flex-grow-1">
-                                                                                                    <div><img src="{{ asset('frontend/assets/img/courses-img/play.svg') }}" alt="play"></div>
-                                                                                                    <div class="font-medium font-16 lecture-edit-title">{{$lecture->title}}</div>
-                                                                                                </div>
+{{--                                                                                        @elseif($lecture->type == 'vimeo')--}}
+{{--                                                                                             <a class="edit-lecture-preview-show d-flex align-items-center justify-content-between color-heading font-medium font-16 mb-3 venobox" data-autoplay="true"--}}
+{{--                                                                                             data-maxwidth="800px" data-vbtype="video" data-href="https://vimeo.com/{{ $lecture->url_path }}">--}}
+{{--                                                                                                <div class="d-flex flex-grow-1">--}}
+{{--                                                                                                    <div><img src="{{ asset('frontend/assets/img/courses-img/play.svg') }}" alt="play"></div>--}}
+{{--                                                                                                    <div class="font-medium font-16 lecture-edit-title">{{$lecture->title}}</div>--}}
+{{--                                                                                                </div>--}}
 
-                                                                                                <div class="upload-course-video-6-text flex-shrink-0">
-                                                                                                    <span class="see-preview-video font-medium font-16">{{ __('Preview Video') }}</span>
-                                                                                                </div>
-                                                                                            </a>
+{{--                                                                                                <div class="upload-course-video-6-text flex-shrink-0">--}}
+{{--                                                                                                    <span class="see-preview-video font-medium font-16">{{ __('Preview Video') }}</span>--}}
+{{--                                                                                                </div>--}}
+{{--                                                                                            </a>--}}
                                                                                         @elseif($lecture->type == 'text')
                                                                                             <a type="button" data-lecture_text="{{ $lecture->text }}" class="lectureText edit-lecture-preview-show d-flex align-items-center justify-content-between color-heading font-medium font-16 mb-3"
                                                                                                data-bs-toggle="modal" href="#textUploadModal">
