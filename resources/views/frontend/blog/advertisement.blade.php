@@ -50,11 +50,11 @@
 
                         <div class="blog-item-img-wrap overflow-hidden position-relative">
                             <a href="{{ route('blog-details', $blog->slug) }}"><img src="{{ getImageFile($blog->image_path) }}" alt="img" class="img-fluid"></a>
-{{--                            <div class="blog-item-tag position-absolute font-12 font-semi-bold text-white bg-hover radius-3">{{ __(@$blog->category->name) }}</div>--}}
+                            <div class="blog-item-tag position-absolute font-12 font-semi-bold text-white bg-hover radius-3">{{ __(@$blog->category->name) }}</div>
                         </div>
 
                         <div class="blog-item-bottom-part">
-{{--                            <h3 class="card-title blog-title"><a href="{{ route('blog-details', $blog->slug) }}">{{ __($blog->title) }}</a></h3>--}}
+                            <h3 class="card-title blog-title"><a href="{{ route('blog-details', $blog->slug) }}">{{ __($blog->title) }}</a></h3>
 {{--                            <p class="blog-author-name-publish-date font-13 font-medium color-gray">By: {{ $blog->user->name }} / {{ $blog->created_at->format(' j  M, Y')  }}</p>--}}
 {{--                            <p class="card-text blog-content">{!!  Str::limit($blog->details, 200) !!}</p>--}}
 

@@ -18,13 +18,18 @@ class BlogController extends Controller
 
     public function blogAll($type = 'post')
     {
-        $data['pageTitle'] = "Blog";
+        $data['pageTitle'] = $type;
         $data['metaData'] = staticMeta(5);
         if ($type == 'gallery' || $type == 'Gallery') {
             $data['blogs'] = Blog::whereIn('type', ['video', 'image'])->latest()->active()->paginate(10);
             $data['pageTitle'] = "Gallery";
             return view('frontend.blog.gallery', $data);
-        } else
+        }elseif ($type == 'advertisement'){
+            $data['blogs'] = Blog::where('type', 'advertisement')->latest()->active()->paginate(10);
+            $data['pageTitle'] = $type;
+            return view('frontend.blog.advertisement', $data);
+        }
+        else
             $data['blogs'] = Blog::where('type', $type)->latest()->active()->paginate(10);
         $data['recentBlogs'] = Blog::where('type', $type)->latest()->take(3)->active()->get();
         $data['blogCategories'] = BlogCategory::withCount('activeBlogs')->active()->get();
@@ -63,7 +68,6 @@ class BlogController extends Controller
         $data['recentBlogs'] = $blog->latest()->active()->take(3)->get();
         $data['blogCategories'] = BlogCategory::withCount('activeBlogs')->active()->get();
         $data['tags'] = Tag::all();
-
         return view('frontend.blog.category-blogs', $data);
     }
 

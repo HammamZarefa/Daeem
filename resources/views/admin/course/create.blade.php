@@ -80,7 +80,7 @@
                                                 </div>
 
                                                 <input type="text" name="title" value="{{old('title')}}"
-                                                       class="form-control" placeholder="Type your course title" required>
+                                                       class="form-control" placeholder="{{ __('Type your course title') }}" required>
                                                 @if ($errors->has('title'))
                                                     <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
                                                     $errors->first('title') }}</span>
@@ -95,7 +95,7 @@
                                                 </div>
                                                 <textarea class="form-control" name="subtitle" cols="30" rows="10"
                                                           required
-                                                          placeholder="Course subtitle in 1000 characters">{{old('subtitle')}}</textarea>
+                                                          placeholder="{{ __('Course subtitle in 1000 characters') }}">{{old('subtitle')}}</textarea>
                                                 @if ($errors->has('subtitle'))
                                                     <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
                                                     $errors->first('subtitle') }}</span>
@@ -166,7 +166,7 @@
                                                             <div class="custom-form-group mb-3 col-md-10">
                                                                 <input type="text" name="name" id="name" value=""
                                                                        class="form-control"
-                                                                       placeholder="Type key point name" required>
+                                                                       placeholder="{{ __('Type key point name') }}" required>
                                                             </div>
 
                                                             <div class="col mb-3">
@@ -199,7 +199,7 @@
                                                 </div>
                                                 <textarea class="form-control" name="description" cols="30" rows="10"
                                                           required
-                                                          placeholder="Course description">{{old('description')}}</textarea>
+                                                          placeholder="{{ __('Course description') }}">{{old('description')}}</textarea>
                                                 @if ($errors->has('description'))
                                                     <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{
                                                     $errors->first('description') }}</span>
@@ -212,8 +212,7 @@
                                         <a href="{{route('admin.course.index')}}"
                                            class="theme-btn theme-button3">{{__('Cancel')}}</a>
                                         <button type="submit"
-                                                class="theme-btn default-hover-btn theme-button1">{{__('Save and
-                                            continue')}}</button>
+                                                class="theme-btn default-hover-btn theme-button1">{{__('Save and continue')}}</button>
                                     </div>
                                 </form>
                             </div>
