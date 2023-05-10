@@ -114,14 +114,15 @@
                                     </label>
                                     <select name="meeting_host_name" id="meeting_host_name" class="form-select">
                                         <option value="">{{ __('Select Option') }}</option>
-                                        @if(zoom_status() == 1)
-                                            <option value="zoom">Zoom</option> @endif
-                                        @if(get_option('bbb_status') == 1)
-                                            <option value="bbb">BigBlueButton</option> @endif
-                                        @if(get_option('jitsi_status') == 1)
-                                            <option value="jitsi">Jitsi</option> @endif
-                                        @if(get_option('gmeet_status') == 1 && $gmeet)
-                                            <option value="gmeet">Google Meet</option> @endif
+
+                                            <option value="zoom">{{__('Zoom')}}</option>
+                                        <option value="gmeet">{{__('Google Meet')}}</option>
+{{--                                    @if(get_option('bbb_status') == 1)--}}
+{{--                                            <option value="bbb">BigBlueButton</option> @endif--}}
+{{--                                        @if(get_option('jitsi_status') == 1)--}}
+{{--                                            <option value="jitsi">Jitsi</option> @endif--}}
+
+
                                     </select>
 
                                     @if ($errors->has('meeting_host_name'))
@@ -130,28 +131,28 @@
                                 </div>
                             </div>
 
-                            @if(zoom_status() == 1)
+
                                 <div class="row mb-30 d-none zoom_live_link_div">
                                     <div class="col">
                                         <label
                                             class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Zoom Program Session Link') }}</label>
                                         <div class="row align-items-center">
-                                            <div class="col-md-9">
+                                            <div class="col-md-12">
                                                 <input type="text" name="start_url" class="form-control start_url"
-                                                       id="zoom_start_url" placeholder="Generate your live class link"
+                                                       id="zoom_start_url" placeholder="Type your live class link"
                                                        value="{{ old('start_url') }}">
                                                 @if ($errors->has('start_url'))
                                                     <span class="text-danger"><i
                                                             class="fas fa-exclamation-triangle"></i> {{ $errors->first('start_url') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col">
-                                                <button type="button"
-                                                        class="theme-btn theme-button1 default-hover-btn green-theme-btn createLiveLink">{{ __('Create Live Link') }}</button>
-                                            </div>
+{{--                                            <div class="col">--}}
+{{--                                                <button type="button"--}}
+{{--                                                        class="theme-btn theme-button1 default-hover-btn green-theme-btn createLiveLink">{{ __('Create Live Link') }}</button>--}}
+{{--                                            </div>--}}
                                         </div>
                                         <div class="row align-items-center d-none">
-                                            <div class="col-md-9">
+                                            <div class="col-md-12">
                                                 <input type="hidden" name="join_url" class="form-control join_url"
                                                        id="zoom_join_url" placeholder="Generate your live class link"
                                                        value="{{ old('join_url') }}">
@@ -159,7 +160,35 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+
+                            <div class="row mb-30 d-none gmeet_live_link_div">
+                                <div class="col">
+                                    <label
+                                        class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Google Meet Link') }}</label>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-12">
+                                            <input type="text" name="gmeet_link" class="form-control start_url"
+                                                   id="gmeet_url" placeholder="Type your live class link"
+                                                   value="{{ old('gmeet_link') }}">
+                                            @if ($errors->has('gmeet_link'))
+                                                <span class="text-danger"><i
+                                                        class="fas fa-exclamation-triangle"></i> {{ $errors->first('gmeet_link') }}</span>
+                                            @endif
+                                        </div>
+{{--                                        <div class="col">--}}
+{{--                                            <button type="button"--}}
+{{--                                                    class="theme-btn theme-button1 default-hover-btn green-theme-btn createLiveLink">{{ __('Create Live Link') }}</button>--}}
+{{--                                        </div>--}}
+                                    </div>
+                                    <div class="row align-items-center d-none">
+                                        <div class="col-md-12">
+                                            <input type="hidden" name="join_url" class="form-control join_url"
+                                                   id="zoom_join_url" placeholder="Generate your live class link"
+                                                   value="{{ old('join_url') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             @if(get_option('jitsi_status') == 1)
                                 <div class="row mb-30 d-none jitsi_live_link_div">
                                     <div class="col">
@@ -279,10 +308,25 @@
             var meeting_host_name = this.value
             if (meeting_host_name == 'zoom') {
                 $('.zoom_live_link_div').removeClass('d-none')
+                $('.gmeet_live_link_div').addClass('d-none')
                 $('.bbb_live_link_div').addClass('d-none')
                 $('.jitsi_live_link_div').addClass('d-none')
 
                 $("#zoom_start_url").attr("required", true);
+                $('#gmeet_url').removeAttr('required');
+                $('#moderator_pw').removeAttr('required');
+                $('#attendee_pw').removeAttr('required');
+                $('#jitsi_meeting_id').removeAttr('required');
+            }
+
+            if (meeting_host_name == 'gmeet') {
+                $('.gmeet_live_link_div').removeClass('d-none')
+                $('.zoom_live_link_div').addClass('d-none')
+                $('.bbb_live_link_div').addClass('d-none')
+                $('.jitsi_live_link_div').addClass('d-none')
+
+                $("#zoom_start_url").removeAttr("required", true);
+                $('#gmeet_url').attr('required');
                 $('#moderator_pw').removeAttr('required');
                 $('#attendee_pw').removeAttr('required');
                 $('#jitsi_meeting_id').removeAttr('required');

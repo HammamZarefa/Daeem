@@ -222,6 +222,8 @@ class MainIndexController extends Controller
             $data['consultationInstructors'] = User::join('instructors as ins', 'ins.user_id', '=', 'users.id')->where('ins.status', STATUS_APPROVED)->where('ins.consultation_available', STATUS_APPROVED)->where('organization_id', $data['user']->organization->id)->select('*', 'users.id')->paginate(3);
         }
 
+        $data['all_coaching_types'] = CoachingType::all();
+
         return view('frontend.user-details', $data);
     }
 

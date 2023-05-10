@@ -125,10 +125,8 @@
                                                             <div class="booking-history-left">
                                                                 @if(@$upcoming->meeting_host_name == 'zoom')
                                                                     <h6 class="font-15"><a href="{{ $upcoming->start_url }}" target="_blank" class="theme-btn theme-button1 default-hover-btn green-theme-btn">{{ __('Start Meeting Now') }}</a></h6>
-                                                                @elseif(@$upcoming->meeting_host_name == 'bbb')
-                                                                    <h6 class="font-15"><a href="{{ route('instructor.consultation.join-bbb-meeting', $upcoming->id) }}" target="_blank" class="theme-btn theme-button1 default-hover-btn green-theme-btn">{{ __('Start Meeting Now') }}</a></h6>
-                                                                @elseif(@$upcoming->meeting_host_name == 'jitsi')
-                                                                    <h6 class="font-15"><a href="{{ route('consultation.join-jitsi-meeting', $upcoming->uuid) }}" target="_blank" class="theme-btn theme-button1 default-hover-btn green-theme-btn">{{ __('Start Meeting Now') }}</a></h6>
+                                                                @elseif(@$upcoming->meeting_host_name == 'gmeet')
+                                                                    <h6 class="font-15"><a href="{{ $upcoming->start_url }}" target="_blank" class="theme-btn theme-button1 default-hover-btn green-theme-btn">{{ __('Start Meeting Now') }}</a></h6>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -145,16 +143,11 @@
                                                                         </label>
                                                                         <select name="meeting_host_name" data-id="{{ $upcoming->id }}" id="meeting_host_name_{{ $upcoming->id }}" class="form-select meeting_host_name" required>
                                                                             <option value="">{{ __('Select Option') }}</option>
-                                                                            @if(zoom_status() == 1)
+{{--                                                                            @if(zoom_status() == 1)--}}
                                                                                 <option value="zoom" {{ @$upcoming->meeting_host_name == 'zoom' ? 'selected' : null }}>{{ __('Zoom') }}</option>
-                                                                            @endif
-                                                                            @if(get_option('bbb_status') == 1)
-                                                                                <option value="bbb" {{ @$upcoming->meeting_host_name == 'bbb' ? 'selected' : null }}>{{ __('BigBlueButton') }}
-                                                                                </option>
-                                                                            @endif
-                                                                            @if(get_option('jitsi_status') == 1)
-                                                                                <option value="jitsi" {{ @$upcoming->meeting_host_name == 'jitsi' ? 'selected' : null }}>{{ __('Jitsi') }}</option>
-                                                                            @endif
+                                                                                <option value="gmeet" {{ @$upcoming->meeting_host_name == 'gmeet' ? 'selected' : null }}>{{ __('Gmeet') }}</option>
+{{--                                                                            @endif--}}
+
                                                                         </select>
 
                                                                         @if ($errors->has('meeting_host_name'))
@@ -163,7 +156,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                @if(zoom_status() == 1)
+
                                                                     <div class="row mb-30 d-none zoom_live_link_div">
                                                                         <div class="col">
                                                                             <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Zoom Live Class Link') }}</label>
@@ -176,11 +169,11 @@
                                                                                         <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('start_url') }}</span>
                                                                                     @endif
                                                                                 </div>
-                                                                                <div class="col">
-                                                                                    <button type="button"
-                                                                                            class="theme-btn theme-button1 default-hover-btn green-theme-btn createLiveLink">{{ __('Create Live Link') }}
-                                                                                    </button>
-                                                                                </div>
+{{--                                                                                <div class="col">--}}
+{{--                                                                                    <button type="button"--}}
+{{--                                                                                            class="theme-btn theme-button1 default-hover-btn green-theme-btn createLiveLink">{{ __('Create Live Link') }}--}}
+{{--                                                                                    </button>--}}
+{{--                                                                                </div>--}}
                                                                             </div>
                                                                             <div class="row align-items-center d-none">
                                                                                 <div class="col-md-9">
@@ -191,56 +184,54 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                @endif
-                                                                @if(get_option('jitsi_status') == 1)
-                                                                    <div class="row mb-30 d-none jitsi_live_link_div">
+                                                                    <div class="row mb-30 d-none gmeet_live_link_div">
                                                                         <div class="col">
-                                                                            <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Jitsi Meeting ID/Room') }}</label>
+                                                                            <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Google Meet Link') }}</label>
                                                                             <div class="row align-items-center">
                                                                                 <div class="col-md-9">
-                                                                                    <input type="text" name="jitsi_meeting_id" class="form-control jitsi_meeting_id" id="jitsi_meeting_id_{{ $upcoming->id }}"
-                                                                                           placeholder="Type jitsi meeting id/room" minlength="6"
-                                                                                           value="{{ @$upcoming->meeting_id }}">
-                                                                                    @if ($errors->has('jitsi_meeting_id'))
-                                                                                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('jitsi_meeting_id') }}</span>
+                                                                                    <input type="text" name="gmeet_link" class="form-control gmeet_link" id="gmeet_link_{{ $upcoming->id }}"
+                                                                                           placeholder="Type Google Meet Link" minlength="6"
+                                                                                           value="{{ @$upcoming->start_url }}">
+                                                                                    @if ($errors->has('gmeet_link'))
+                                                                                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('gmeet_link') }}</span>
                                                                                     @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                @endif
-                                                                @if(get_option('bbb_status') == 1)
-                                                                    <div class="d-none bbb_live_link_div">
-                                                                        <div class="row mb-30">
-                                                                            <div class="col">
-                                                                                <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Moderator Password') }}</label>
-                                                                                <div class="row align-items-center">
-                                                                                    <div class="col-md-9">
-                                                                                        <input type="text" name="moderator_pw" minlength="6" class="form-control " id="moderator_pw_{{ $upcoming->id }}"
-                                                                                               placeholder="{{ __('Type moderator password (min length  6)') }}" value="{{ @$upcoming->moderator_pw }}">
-                                                                                        @if ($errors->has('moderator_pw'))
-                                                                                            <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('moderator_pw') }}</span>
-                                                                                        @endif
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row mb-30">
-                                                                            <div class="col">
-                                                                                <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Attendee Password') }}</label>
-                                                                                <div class="row align-items-center">
-                                                                                    <div class="col-md-9">
-                                                                                        <input type="text" name="attendee_pw" minlength="6" class="form-control" id="attendee_pw_{{ $upcoming->id }}"
-                                                                                               placeholder="{{ __('Type attendee password (min length  6)') }}" value="{{ @$upcoming->attendee_pw }}">
-                                                                                        @if ($errors->has('attendee_pw'))
-                                                                                            <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('attendee_pw') }}</span>
-                                                                                        @endif
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                @endif
+{{--                                                                @endif--}}
+{{--                                                                @if(get_option('bbb_status') == 1)--}}
+{{--                                                                    <div class="d-none bbb_live_link_div">--}}
+{{--                                                                        <div class="row mb-30">--}}
+{{--                                                                            <div class="col">--}}
+{{--                                                                                <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Moderator Password') }}</label>--}}
+{{--                                                                                <div class="row align-items-center">--}}
+{{--                                                                                    <div class="col-md-9">--}}
+{{--                                                                                        <input type="text" name="moderator_pw" minlength="6" class="form-control " id="moderator_pw_{{ $upcoming->id }}"--}}
+{{--                                                                                               placeholder="{{ __('Type moderator password (min length  6)') }}" value="{{ @$upcoming->moderator_pw }}">--}}
+{{--                                                                                        @if ($errors->has('moderator_pw'))--}}
+{{--                                                                                            <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('moderator_pw') }}</span>--}}
+{{--                                                                                        @endif--}}
+{{--                                                                                    </div>--}}
+{{--                                                                                </div>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        </div>--}}
+{{--                                                                        <div class="row mb-30">--}}
+{{--                                                                            <div class="col">--}}
+{{--                                                                                <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Attendee Password') }}</label>--}}
+{{--                                                                                <div class="row align-items-center">--}}
+{{--                                                                                    <div class="col-md-9">--}}
+{{--                                                                                        <input type="text" name="attendee_pw" minlength="6" class="form-control" id="attendee_pw_{{ $upcoming->id }}"--}}
+{{--                                                                                               placeholder="{{ __('Type attendee password (min length  6)') }}" value="{{ @$upcoming->attendee_pw }}">--}}
+{{--                                                                                        @if ($errors->has('attendee_pw'))--}}
+{{--                                                                                            <span class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first('attendee_pw') }}</span>--}}
+{{--                                                                                        @endif--}}
+{{--                                                                                    </div>--}}
+{{--                                                                                </div>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
+{{--                                                                @endif--}}
 
                                                                 <div>
                                                                     <button type="submit" class="theme-btn theme-button1 default-hover-btn">{{ __('Save Meeting') }}</button>
@@ -419,34 +410,34 @@
             if (meeting_host_name == 'zoom') {
                 $('.zoom_live_link_div').removeClass('d-none')
                 $('.bbb_live_link_div').addClass('d-none')
-                $('.jitsi_live_link_div').addClass('d-none')
+                $('.gmeet_live_link_div').addClass('d-none')
 
                 $("#zoom_start_url" + id).attr("required", true);
                 $('#moderator_pw_' + id).removeAttr('required');
                 $('#attendee_pw_' + id).removeAttr('required');
-                $('#jitsi_meeting_id_' + id).removeAttr('required');
+                $('#gmeet_link_' + id).removeAttr('required');
             }
 
             if (meeting_host_name == 'bbb') {
                 $('.bbb_live_link_div').removeClass('d-none')
                 $('.zoom_live_link_div').addClass('d-none')
-                $('.jitsi_live_link_div').addClass('d-none')
+                $('.gmeet_live_link_div').addClass('d-none')
 
-                $('#jitsi_meeting_id_' + id).removeAttr('required');
+                $('#gmeet_link_' + id).removeAttr('required');
                 $('#zoom_start_url' + id).removeAttr('required');
                 $("#moderator_pw_" + id).attr("required", true);
                 $("#attendee_pw_" + id).attr("required", true);
             }
 
-            if (meeting_host_name == 'jitsi') {
-                $('.jitsi_live_link_div').removeClass('d-none')
+            if (meeting_host_name == 'gmeet') {
+                $('.gmeet_live_link_div').removeClass('d-none')
                 $('.bbb_live_link_div').addClass('d-none')
                 $('.zoom_live_link_div').addClass('d-none')
 
                 $("#zoom_start_url" + id).removeAttr('required');
                 $('#moderator_pw_' + id).removeAttr('required');
                 $('#attendee_pw_' + id).removeAttr('required');
-                $("#jitsi_meeting_id_" + id).attr("required", true);
+                $("#gmeet_link_" + id).attr("required", true);
             }
         }
 

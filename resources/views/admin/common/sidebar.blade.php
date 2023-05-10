@@ -27,7 +27,7 @@
             <li>
                 <a class="has-arrow" href="#">
                     <span class="iconify" data-icon="dashicons:welcome-learn-more"></span>
-                    <span>{{__('Manage Course')}}</span>
+                    <span>{{__('Async training')}}</span>
                 </a>
                 <ul>
                     @can('pending_course')
@@ -87,7 +87,7 @@
             <li>
                 <a class="has-arrow" href="#">
                     <span class="iconify" data-icon="dashicons:welcome-learn-more"></span>
-                    <span>{{__('Training Programmes')}}</span>
+                    <span>{{__('Sync Training')}}</span>
                 </a>
                 <ul>
                     @can('all_programmes')
@@ -518,28 +518,28 @@
 {{--                    </ul>--}}
 {{--                </li>--}}
 {{--            @endcan--}}
-{{--            @can('manage_certificate')--}}
-{{--                <li class="{{ @$navCertificateActiveClass }}">--}}
-{{--                    <a class="has-arrow" href="#">--}}
-{{--                        <span class="iconify" data-icon="fluent:certificate-20-filled"></span>--}}
-{{--                        <span>{{__('Certificate')}}</span>--}}
-{{--                    </a>--}}
-{{--                    <ul>--}}
-{{--                        <li class="{{ @$subNavAllCertificateActiveClass }}">--}}
-{{--                            <a href="{{route('certificate.index')}}">--}}
-{{--                                <i class="fa fa-circle"></i>--}}
-{{--                                <span>{{__('All Certificates')}}</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="{{ @$subNavAddCertificateActiveClass }}">--}}
-{{--                            <a href="{{route('certificate.create')}}">--}}
-{{--                                <i class="fa fa-circle"></i>--}}
-{{--                                <span>{{__('Add Certificate')}}</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--            @endcan--}}
+            @can('manage_certificate')
+                <li class="{{ @$navCertificateActiveClass }}">
+                    <a class="has-arrow" href="#">
+                        <span class="iconify" data-icon="fluent:certificate-20-filled"></span>
+                        <span>{{__('Certificate')}}</span>
+                    </a>
+                    <ul>
+                        <li class="{{ @$subNavAllCertificateActiveClass }}">
+                            <a href="{{route('certificate.index')}}">
+                                <i class="fa fa-circle"></i>
+                                <span>{{__('All Certificates')}}</span>
+                            </a>
+                        </li>
+                        <li class="{{ @$subNavAddCertificateActiveClass }}">
+                            <a href="{{route('certificate.create')}}">
+                                <i class="fa fa-circle"></i>
+                                <span>{{__('Add Certificate')}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
 {{--            @can('ranking_level')--}}
 {{--                <li class="{{ @$navRankingActiveClass }}">--}}
 {{--                    <a class="has-arrow" href="#">--}}

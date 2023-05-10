@@ -124,7 +124,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="accordion-item course-sidebar-accordion-item">
                                 <h2 class="accordion-header course-sidebar-title" id="panelsStayOpen-headingEight">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight">

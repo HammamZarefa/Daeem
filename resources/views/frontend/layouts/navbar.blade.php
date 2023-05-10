@@ -95,8 +95,7 @@
                             <a class="nav-link" href="{{ url('/') }}">{{__('Home')}}</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{ url('/about-us') }}" id="librariesDropdown"
-                               data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle" href="{{ url('/about-us') }}" id="librariesDropdown">
                                 {{ __('About Us') }}
                             </a>
                             <ul class="dropdown-menu {{$selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : ''}}">
