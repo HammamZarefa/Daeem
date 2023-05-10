@@ -100,22 +100,22 @@
                                         </select>
                                     </td>
                                 </tr>
+{{--                                <tr class="removable-item">--}}
+{{--                                    <td>5</td>--}}
+{{--                                    <td>{{ __('Consultation Area') }}</td>--}}
+{{--                                    <td>--}}
+{{--                                        <span id="hidden_attribute_name" style="display: none">consultation_area</span>--}}
+{{--                                        <select name="status"--}}
+{{--                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">--}}
+{{--                                            <option value="1"--}}
+{{--                                                    @if($home->consultation_area == 1) selected @endif>{{ __('Active') }}</option>--}}
+{{--                                            <option value="0"--}}
+{{--                                                    @if($home->consultation_area != 1) selected @endif>{{ __('Disable') }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
                                 <tr class="removable-item">
                                     <td>5</td>
-                                    <td>{{ __('Consultation Area') }}</td>
-                                    <td>
-                                        <span id="hidden_attribute_name" style="display: none">consultation_area</span>
-                                        <select name="status"
-                                                class="status label-inline font-weight-bolder mb-1 badge badge-info">
-                                            <option value="1"
-                                                    @if($home->consultation_area == 1) selected @endif>{{ __('Active') }}</option>
-                                            <option value="0"
-                                                    @if($home->consultation_area != 1) selected @endif>{{ __('Disable') }}</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr class="removable-item">
-                                    <td>6</td>
                                     <td>{{ __('Instructor Area') }}</td>
                                     <td>
                                         <span id="hidden_attribute_name" style="display: none">instructor_area</span>
@@ -129,7 +129,7 @@
                                     </td>
                                 </tr>
                                 <tr class="removable-item">
-                                    <td>7</td>
+                                    <td>6</td>
                                     <td>{{ __('Video Area') }}</td>
                                     <td>
                                         <span id="hidden_attribute_name" style="display: none">video_area</span>
@@ -143,7 +143,7 @@
                                     </td>
                                 </tr>
                                 <tr class="removable-item">
-                                    <td>8</td>
+                                    <td>7</td>
                                     <td>{{ __('Customer Says Area') }}</td>
                                     <td>
                                         <span id="hidden_attribute_name" style="display: none">customer_says_area</span>
@@ -157,7 +157,7 @@
                                     </td>
                                 </tr>
                                 <tr class="removable-item">
-                                    <td>9</td>
+                                    <td>8</td>
                                     <td>{{ __('Achievement Area') }}</td>
                                     <td>
                                         <span id="hidden_attribute_name" style="display: none">achievement_area</span>
@@ -172,7 +172,7 @@
                                 </tr>
 
                                 <tr class="removable-item">
-                                    <td>10</td>
+                                    <td>9</td>
                                     <td>{{ __('Instructor Support Area') }}</td>
                                     <td>
                                         <span id="hidden_attribute_name"

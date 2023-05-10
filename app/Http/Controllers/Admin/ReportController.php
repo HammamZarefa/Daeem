@@ -289,7 +289,6 @@ class ReportController extends Controller
 
     public function orderReportPaidStatus($uuid, $status)
     {
-
         DB::beginTransaction();
         try {
             $order = Order::where('uuid', $uuid)->first();
@@ -308,8 +307,14 @@ class ReportController extends Controller
         foreach ($orderItems as $orderItem)
         {
             if ($status == 'paid') {
-                $text = __("Your new course has been approved and added.");
-                $target_url = route('student.my-course.show', @$orderItem->course->slug);
+                if ($orderItem->type == 4){
+                    $text = __("Your new consultation has been approved and added.");
+                    $target_url = route('student.my-consultation');
+                }else{
+                    $text = __("Your new course has been approved and added.");
+                    $target_url = route('student.my-course.show', @$orderItem->course->slug);
+                }
+
 
                 /** ====== Send notification to instructor =========*/
                 $text2 = "New student enrolled";

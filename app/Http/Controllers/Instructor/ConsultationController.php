@@ -234,6 +234,9 @@ class ConsultationController extends Controller
         $booking = BookingHistory::where('uuid', $uuid)->firstOrFail();
         $booking->start_url = $request->start_url;
         $booking->join_url = $request->join_url;
+        if ($request->meeting_host_name == 'gmeet'){
+            $booking->start_url = $request->gmeet_link;
+        }
         $booking->meeting_id = $request->meeting_host_name == 'jitsi' ? $request->jitsi_meeting_id : $booking->id . rand();
         $booking->meeting_password = $request->meeting_password;
         $booking->meeting_host_name = $request->meeting_host_name;

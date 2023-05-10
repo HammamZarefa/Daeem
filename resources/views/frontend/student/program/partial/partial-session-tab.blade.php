@@ -48,8 +48,8 @@
                                         <td>
                                             @if($upcoming_live_class->meeting_host_name == 'zoom')
                                                 Zoom
-                                            @elseif($upcoming_live_class->meeting_host_name == 'bbb')
-                                                BigBlueButton
+                                            @elseif($upcoming_live_class->meeting_host_name == 'gmeet')
+                                                Google Meet
                                             @elseif($upcoming_live_class->meeting_host_name == 'jitsi')
                                                 Jitsi
                                             @endif
@@ -59,6 +59,9 @@
                                                 @if($upcoming_live_class->meeting_host_name == 'zoom')
                                                     <a href="{{ $upcoming_live_class->join_url }}" class="color-hover">{{ __('Go To Meeting') }}</a>
                                                     <span class="iconify copyZoomUrl" data-url="{{ $upcoming_live_class->join_url }}" data-icon="akar-icons:copy"></span>
+                                                @elseif($upcoming_live_class->meeting_host_name == 'gmeet')
+                                                    <a href="{{ $upcoming_live_class->start_url }}" class="color-hover">{{ __('Go To Meeting') }}</a>
+                                                    <span class="iconify copyZoomUrl" data-url="{{ $upcoming_live_class->start_url }}" data-icon="akar-icons:copy"></span>
                                                 @elseif($upcoming_live_class->meeting_host_name == 'bbb')
                                                     <a href="{{ route('student.join-bbb-meeting', $upcoming_live_class->id) }}" class="color-hover">{{ __('Go To Meeting') }}</a>
                                                 @elseif($upcoming_live_class->meeting_host_name == 'jitsi')

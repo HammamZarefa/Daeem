@@ -122,6 +122,8 @@
                                         <div class="booking-history-left">
                                             @if(@$orderItem->bookingHistory->meeting_host_name == 'zoom')
                                                 <h6 class="font-15"><a href="{{ @$orderItem->bookingHistory->join_url }}" target="_blank" class="theme-btn theme-button1 default-hover-btn green-theme-btn">Join Now</a></h6>
+                                            @elseif(@$orderItem->bookingHistory->meeting_host_name == 'gmeet')
+                                                <h6 class="font-15"><a href="{{ @$orderItem->bookingHistory->start_url }}" target="_blank" class="theme-btn theme-button1 default-hover-btn green-theme-btn">Join Now</a></h6>
                                             @elseif(@$orderItem->bookingHistory->meeting_host_name == 'bbb')
                                                 <h6 class="font-15"><a href="{{ route('student.consultation.join-bbb-meeting', $orderItem->bookingHistory->id) }}" target="_blank" class="theme-btn theme-button1 default-hover-btn green-theme-btn">Join Now</a></h6>
                                             @elseif(@$orderItem->bookingHistory->meeting_host_name == 'jitsi')
@@ -158,6 +160,18 @@
                                                     <div class="row align-items-center">
                                                         <div class="col-md-9">
                                                             <textarea class="form-control" name="" id="" cols="30" rows="10" disabled>{{$orderItem->bookingHistory->join_url}} </textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        @if(@$orderItem->bookingHistory->meeting_host_name == 'gmeet')
+                                            <div class="row mb-30  zoom_live_link_div">
+                                                <div class="col">
+                                                    <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Google Meet Link') }}</label>
+                                                    <div class="row align-items-center">
+                                                        <div class="col-md-9">
+                                                            <textarea class="form-control" name="" id="" cols="30" rows="10" disabled>{{$orderItem->bookingHistory->start_url}} </textarea>
                                                         </div>
                                                     </div>
                                                 </div>

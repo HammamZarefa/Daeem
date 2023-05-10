@@ -60,9 +60,9 @@
                                 <a class="nav-link" id="Curriculum-tab" data-bs-toggle="tab" href="#Curriculum" role="tab" aria-controls="Curriculum" aria-selected="false">{{ __('Curriculum') }}</a>
                             </li>
                             @endif
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="Discussion-tab" data-bs-toggle="tab" href="#Discussion" role="tab" aria-controls="Discussion" aria-selected="false">{{ __('Discussion') }}</a>
-                            </li>
+{{--                            <li class="nav-item" role="presentation">--}}
+{{--                                <a class="nav-link" id="Discussion-tab" data-bs-toggle="tab" href="#Discussion" role="tab" aria-controls="Discussion" aria-selected="false">{{ __('Discussion') }}</a>--}}
+{{--                            </li>--}}
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="Review-tab" data-bs-toggle="tab" href="#Review" role="tab" aria-controls="Review" aria-selected="false">{{ __('Review') }}</a>
                             </li>

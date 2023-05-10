@@ -36,12 +36,13 @@
                 datatype: "json",
                 success: function (response) {
                     const dateArray = response.days
-                    console.log(dateArray)
+                    var minDatee = new Date()
+                    minDatee.setDate(minDatee.getDate() + 2);
                     $('.appendDatePicker').html(' <input type="text" class="bookingDate" id="datepicker" autocomplete="off" placeholder="Select Date">\n' +
                         '                            <span class="iconify" data-icon="akar-icons:calendar"></span>');
                     $("#datepicker").datepicker({
                         dateFormat: "dd-mm-yy",
-                        minDate: new Date(),
+                        minDate: minDatee,
                         beforeShowDay: (dt) => {
                             return  [dateArray.includes(dt.getDay()) ? true : false]
                         }

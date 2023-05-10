@@ -256,18 +256,18 @@
                     <span>{{ __('Instructor Feature') }}</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ route('settings.instructor-procedure') }}" class="list-item {{ @$instructorProcedureSettingsActiveClass }}">
-                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Instructor Procedure') }}</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('settings.instructor.cms') }}" class="list-item {{ @$instructorCMSSettingsActiveClass }}">
-                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Instructor CMS') }}</span>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="{{ route('settings.instructor-procedure') }}" class="list-item {{ @$instructorProcedureSettingsActiveClass }}">--}}
+{{--                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">--}}
+{{--                    <span>{{ __('Instructor Procedure') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('settings.instructor.cms') }}" class="list-item {{ @$instructorCMSSettingsActiveClass }}">--}}
+{{--                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">--}}
+{{--                    <span>{{ __('Instructor CMS') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li>
                 <a href="{{ route('settings.instructor.coast') }}" class="list-item {{ @$instructorCoastSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
@@ -357,18 +357,18 @@
                     <span>{{ __('Gallery Area') }}</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ route('settings.about.our-history') }}" class="list-item {{ @$subNavOurHistoryActiveClass }}">
-                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Our History') }}</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('settings.about.upgrade-skill') }}" class="list-item {{ @$subNavUpgradeSkillActiveClass }}">
-                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Upgrade Skills') }}</span>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="{{ route('settings.about.our-history') }}" class="list-item {{ @$subNavOurHistoryActiveClass }}">--}}
+{{--                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">--}}
+{{--                    <span>{{ __('Our History') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('settings.about.upgrade-skill') }}" class="list-item {{ @$subNavUpgradeSkillActiveClass }}">--}}
+{{--                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">--}}
+{{--                    <span>{{ __('Upgrade Skills') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li>
                 <a href="{{ route('settings.about.team-member') }}" class="list-item {{ @$subNavTeamMemberActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">

@@ -963,7 +963,12 @@ class CourseController extends Controller
             $class->class_topic = $request->class_topic;
             $class->date = $request->date;
             $class->duration = $request->duration;
-            $class->start_url = $request->start_url;
+            if ($request->meeting_host_name == 'gmeet'){
+                $class->start_url = $request->gmeet_link;
+            }else{
+                $class->start_url = $request->start_url;
+            }
+
             $class->join_url = $request->join_url;
             $class->meeting_host_name = $request->meeting_host_name;
             $class->meeting_id = $request->meeting_host_name == 'jitsi' ? $request->jitsi_meeting_id : $class->id . rand();
@@ -972,23 +977,23 @@ class CourseController extends Controller
             $class->save();
 
             /** ====== Start:: BigBlueButton create meeting ===== */
-            if ($class->meeting_host_name == 'bbb') {
-                Bigbluebutton::create([
-                    'meetingID' => $class->meeting_id,
-                    'meetingName' => $class->class_topic,
-                    'attendeePW' => $request->moderator_pw,
-                    'moderatorPW' => $request->attendee_pw
-                ]);
-            }
+//            if ($class->meeting_host_name == 'bbb') {
+//                Bigbluebutton::create([
+//                    'meetingID' => $class->meeting_id,
+//                    'meetingName' => $class->class_topic,
+//                    'attendeePW' => $request->moderator_pw,
+//                    'moderatorPW' => $request->attendee_pw
+//                ]);
+//            }
             /** ====== End:: BigBlueButton create meeting ===== */
 
             /** ====== Start:: Gmeet create meeting ===== */
-            if ($class->meeting_host_name == 'gmeet') {
-                $endDate = \Carbon\Carbon::parse($class->date)->addMinutes($class->duration);
-                $link = GmeetSetting::createMeeting($class->class_topic, $class->date, $endDate);
-                $class->join_url = $link;
-                $class->save();
-            }
+//            if ($class->meeting_host_name == 'gmeet') {
+//                $endDate = \Carbon\Carbon::parse($class->date)->addMinutes($class->duration);
+//                $link = GmeetSetting::createMeeting($class->class_topic, $class->date, $endDate);
+//                $class->join_url = $link;
+//                $class->save();
+//            }
             /** ====== End:: Gmeet create meeting ===== */
 
 

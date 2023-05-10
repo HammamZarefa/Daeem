@@ -25,7 +25,7 @@
                                 <li><a href="{{ route('about') }}">{{ __('About US')  }}</a></li>
                                 <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
                                 <li><a href="{{ route('courses') }}">{{ __('Courses') }}</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                         <ul class="d-flex justify-content-end">
                             <li><a href="{{ route('allInstructor') }}">{{__('Instructor')}}</a></li>
                             <li><a href="{{ route('student.become-an-instructor') }}">{{__('Become Instructor')}}</a></li>
-                            <li><a href="{{ route('verify_certificate') }}">{{__('Verify Certificate')}}</a></li>
+{{--                            <li><a href="{{ route('verify_certificate') }}">{{__('Verify Certificate')}}</a></li>--}}
                         </ul>
                     </div>
                 </div>

@@ -19,7 +19,10 @@
         </h6>
         <p class="card-text instructor-designation font-medium mb-15">
             {{ @$user->professional_title }}
-            @if(get_instructor_ranking_level($user->badges))<span class="mx-2">||</span>{{ get_instructor_ranking_level($user->badges) }}</p>@endif
+            @if(get_instructor_ranking_level($user->badges))
+{{--                <span class="mx-2">||</span>{{ get_instructor_ranking_level($user->badges) }}--}}
+        </p>
+        @endif
 
         <?php
         $average_rating = $user->courses->where('average_rating', '>', 0)->avg('average_rating');
@@ -39,14 +42,14 @@
             <span class="rating-count font-14 ms-2">({{ count(@$user->courses->where('average_rating', '>', 0))
                 }})</span>
         </div>
-        <div class="search-instructor-bottom-item font-14 font-medium">
-            <div class="search-instructor-award-img d-inline-flex flex-wrap justify-content-center">
-                @foreach ($user->badges as $badge)
-                <img src="{{ asset($badge->badge_image) }}" title="{{ $badge->name }}" alt="{{ $badge->name }}"
-                    class="fit-image rounded-circle">
-                @endforeach
-            </div>
-        </div>
+{{--        <div class="search-instructor-bottom-item font-14 font-medium">--}}
+{{--            <div class="search-instructor-award-img d-inline-flex flex-wrap justify-content-center">--}}
+{{--                @foreach ($user->badges as $badge)--}}
+{{--                <img src="{{ asset($badge->badge_image) }}" title="{{ $badge->name }}" alt="{{ $badge->name }}"--}}
+{{--                    class="fit-image rounded-circle">--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <div class="search-instructor-price d-inline-flex align-items-center mb-15">
             @if ($user->consultation_available == 1)

@@ -75,7 +75,7 @@
                                                 Gmeet
                                                 <button
                                                     class="theme-btn theme-button1 green-theme-btn default-hover-btn viewGmeetMeetingLink"
-                                                    data-url="{{ $resource->join_url }}">
+                                                    data-url="{{ $resource->start_url }}">
                                                     {{ __('View') }}
                                                 </button>
                                             @endif

@@ -218,42 +218,42 @@ $userRelation = getUserRoleRelation($user);
                                 <h6 class="instructor-details-name">{{ $user->$userRelation->name }}</h6>
                                 <p class="instructor-details-designation font-12 font-semi-bold mb-15">{{
                                     $user->$userRelation->professional_title }}</p>
-                                <div class="search-instructor-award-img d-inline-flex flex-wrap justify-content-center">
-                                    @foreach ($user->badges as $badge)
-                                    <img src="{{ asset($badge->badge_image) }}" title="{{ $badge->name }}" alt="{{ $badge->name }}"
-                                        class="fit-image rounded-circle">
-                                    @endforeach
-                                </div>
+{{--                                <div class="search-instructor-award-img d-inline-flex flex-wrap justify-content-center">--}}
+{{--                                    @foreach ($user->badges as $badge)--}}
+{{--                                    <img src="{{ asset($badge->badge_image) }}" title="{{ $badge->name }}" alt="{{ $badge->name }}"--}}
+{{--                                        class="fit-image rounded-circle">--}}
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
                                 <div>
-                                    @auth
-                                    @if (auth()->id() != $user->id)
-                                    @if ($user->followers->where('id', auth()->id())->count())
-                                    <button type="button" class="green-theme-btn theme-button1 follow-btn"
-                                        id="unFollowingId">{{ __('Unfollow') }}</button>
-                                    @else
-                                    <button type="button" class="green-theme-btn theme-button1 follow-btn"
-                                        id="followingId">{{ __('Follow') }}</button>
-                                    @endif
-                                    @endif
-                                    @else
-                                    <button type="button" class="green-theme-btn theme-button1 follow-btn"
-                                        id="unAuthBtnId">{{ __('Follow') }}</button>
-                                    @endauth
+{{--                                    @auth--}}
+{{--                                    @if (auth()->id() != $user->id)--}}
+{{--                                    @if ($user->followers->where('id', auth()->id())->count())--}}
+{{--                                    <button type="button" class="green-theme-btn theme-button1 follow-btn"--}}
+{{--                                        id="unFollowingId">{{ __('Unfollow') }}</button>--}}
+{{--                                    @else--}}
+{{--                                    <button type="button" class="green-theme-btn theme-button1 follow-btn"--}}
+{{--                                        id="followingId">{{ __('Follow') }}</button>--}}
+{{--                                    @endif--}}
+{{--                                    @endif--}}
+{{--                                    @else--}}
+{{--                                    <button type="button" class="green-theme-btn theme-button1 follow-btn"--}}
+{{--                                        id="unAuthBtnId">{{ __('Follow') }}</button>--}}
+{{--                                    @endauth--}}
                                 </div>
                             </div>
-
-                            <div class="follower-following-box mb-20">
-                                <div class="font-15 follower-item only-follower-item border-start-0">
-                                    <h6 class="d-block color-heading font-15" id="followers">{{ count($user->followers)
-                                        }}</h6>
-                                    <span>{{ __('Followers') }}</span>
-                                </div>
-                                <div class="font-15 follower-item border-start-0 border-end-0">
-                                    <h6 class="d-block color-heading font-15" id="following">{{ count($user->followings)
-                                        }}</h6>
-                                    <span>{{ __('Following') }}</span>
-                                </div>
-                            </div>
+<hr>
+{{--                            <div class="follower-following-box mb-20">--}}
+{{--                                <div class="font-15 follower-item only-follower-item border-start-0">--}}
+{{--                                    <h6 class="d-block color-heading font-15" id="followers">{{ count($user->followers)--}}
+{{--                                        }}</h6>--}}
+{{--                                    <span>{{ __('Followers') }}</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="font-15 follower-item border-start-0 border-end-0">--}}
+{{--                                    <h6 class="d-block color-heading font-15" id="following">{{ count($user->followings)--}}
+{{--                                        }}</h6>--}}
+{{--                                    <span>{{ __('Following') }}</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="course-includes-box p-0 mb-20">
                                 <ul>
