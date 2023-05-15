@@ -69,7 +69,7 @@
     <!-- Course Single Details Area Start -->
     <section class="course-single-details-area course-watch-page-area">
         <div class="container-fluid">
-            @if($course->course_type == COURSE_TYPE_GENERAL)
+            @if($course->course_type == COURSE_TYPE_GENERAL ||$course->course_type == COURSE_TYPE_PROGRAM)
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12 col-xl-7 col-xxl-8">
                     @if(@$lecture_type)

@@ -181,6 +181,7 @@ Route::prefix('account')->group(function () {
     });
 });
 
+Route::get('membership',[ProfileController::class,'membership'])->name('instructor.membership');
 Route::group(['prefix' => 'certificates', 'as' => 'instructor.'], function () {
     Route::get('/', [CertificateController::class, 'index'])->name('certificate.index');
     Route::get('add/{course_uuid}', [CertificateController::class, 'add'])->name('certificate.add');
