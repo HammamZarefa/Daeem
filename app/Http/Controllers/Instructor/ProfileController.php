@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Instructor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Instructor\ProfileRequest;
+use App\Models\Certificate;
+use App\Models\Certificate_by_instructor;
 use App\Models\City;
 use App\Models\CoachingType;
 use App\Models\Country;
@@ -12,11 +14,13 @@ use App\Models\Instructor_awards;
 use App\Models\Instructor_certificate;
 use App\Models\Skill;
 use App\Models\State;
+use App\Models\Student_certificate;
 use App\Models\User;
 use App\Tools\Repositories\Crud;
 use App\Traits\General;
 use App\Traits\ImageSaveTrait;
 use Illuminate\Http\Request;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
@@ -49,7 +53,39 @@ class ProfileController extends Controller
         $data['navMemberShipActiveClass'] = 'active';
         $data['user'] = Auth::user();
         $data['instructor'] = Auth::user()->instructor;
-        $data['coachingTypes'] = CoachingType::where('status',1)->get();
+        if (Student_certificate::where('user_id', Auth::id())->where('is_membership',1)->count() == 0) {
+
+            $certificate = Certificate::where('is_for_membership',1)->first();
+            if ($certificate) {
+                $certificate_number = mt_rand(1000000000, 9999999999);
+                $certificate_name = 'certificate-' . str_replace(' ', '', $data['instructor']->name) . '.pdf';
+                // make sure email invoice is checked.
+                $customPaper = array(0, 0, 499.55, 353.05);
+                $certificate->certificate_number = $certificate_number;
+                $html = view('frontend.student.course.certificate.membershipPdf', ['certificate' => $certificate]);
+                // exit($html);
+                $pdf = PDF::loadHtml($html);
+                $pdf->setOptions(['dpi' => 150, 'isRemoteEnabled' => true])->setPaper($customPaper);
+
+                // return $pdf->stream($certificate_name);
+//                set_time_limit(1000);
+                $pdf->save(public_path() . '/uploads/certificate/instructor/' . $certificate_name);
+                /** === make pdf certificate ===== */
+                $student_certificate = new Student_certificate();
+                $student_certificate->course_id = 0;
+                $student_certificate->certificate_number = $certificate_number;
+                $student_certificate->path = "/uploads/certificate/instructor/$certificate_name";
+                $student_certificate->is_membership = 1;
+                $student_certificate->save();
+                $data['student_certificate'] = $student_certificate;
+            }else{
+                $data['student_certificate'] = Student_certificate::where('is_membership',1)->first();
+            }
+
+        }else{
+            $data['student_certificate'] = Student_certificate::where('is_membership',1)->first();
+        }
+
         return view('instructor.membership', $data);
     }
 
