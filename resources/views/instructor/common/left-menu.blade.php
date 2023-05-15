@@ -26,7 +26,9 @@
             </li>
             <li><a href="{{route('instructor.certificate.index')}}" class="{{ @$navCertificateActiveClass }}" ><span class="iconify mr-15" data-icon="fluent:certificate-20-regular"></span>{{__('Certificate')}}</a></li>
 
-{{--            <li><a href="{{route('discussion.index')}}" class="{{ @$navDiscussionActiveClass }}" ><span class="iconify mr-15" data-icon="octicon:comment-discussion-24"></span>{{__('Discussion')}}</a></li>--}}
+            <li><a href="{{route('instructor.membership')}}" class="{{ @$navMemberShipActiveClass }}" ><span class="iconify mr-15" data-icon="mdi:card-account-details-star-outline"></span>{{__('The Membership')}}</a></li>
+
+            {{--            <li><a href="{{route('discussion.index')}}" class="{{ @$navDiscussionActiveClass }}" ><span class="iconify mr-15" data-icon="octicon:comment-discussion-24"></span>{{__('Discussion')}}</a></li>--}}
 {{--            <li><a href="{{route('finance.analysis.index')}}" class="{{ @$subNavAnalysisActiveClass }}" ><span class="iconify mr-15" data-icon="system-uicons:heart-rate"></span></span>{{__('Finance')}}</a></li>--}}
             {{-- <li class="menu-has-children current-menu-item {{@$navFinanceActiveClass}}">
                 <span class="toggle-account-menu">

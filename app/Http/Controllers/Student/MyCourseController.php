@@ -191,7 +191,6 @@ class MyCourseController extends Controller
 
         $data['total_enrolled_students'] = Enrollment::where('course_id', $data['course']->id)->count();
         $data['enrolled_students'] = Enrollment::where('course_id', $data['course']->id)->take(4)->get();
-
         //Start:: Assignment
         $data['assignments'] = Assignment::where('course_id', $data['course']->id)->get();
         //End:: Assignment
@@ -292,17 +291,18 @@ class MyCourseController extends Controller
 
         /** ------- save certificate ----------- */
 
+
         if ($request->get('lecture_uuid')) {
             $lecture = Course_lecture::where('uuid', $request->get('lecture_uuid'))->firstOrFail();
             $isFirst = count($data['course_lecture_views']) ? false : true;
             if(!checkStudentCourseIsLock( $data['course_lecture_views'], $data['course'], $lecture, $data['enrollment'], $isFirst)){
                 $nextLecture = $this->getNextId($data['course_lecture_views'], $data['course'],  $lecture, $data['enrollment']);
+
                 if ($nextLecture) {
                     $data['nextLectureUuid'] = $nextLecture->uuid;
                 } else {
                     $data['nextLectureUuid'] = null;
                 }
-
                 if ($lecture->type == 'video') {
                     $data['video_src'] = $lecture->file_path;
                 } elseif ($lecture->type == 'youtube') {
@@ -312,10 +312,13 @@ class MyCourseController extends Controller
                 } elseif ($lecture->type == 'text') {
                     $lecture = Course_lecture::find($lecture->id);
                     if ($lecture) {
+
                         if (Course_lecture_views::where('user_id', auth()->id())->where('course_id', $lecture->course_id)->where('course_lecture_id', $lecture->id)->count() == 0) {
+
                             $course_lecture_views = new Course_lecture_views();
                             $course_lecture_views->course_id = $lecture->course_id;
                             $course_lecture_views->course_lecture_id = $lecture->id;
+                            $course_lecture_views->enrollment_id = $data['enrollment']->id;
                             $course_lecture_views->save();
                         }
                     }
@@ -843,8 +846,10 @@ class MyCourseController extends Controller
         if (studentCourseProgress($course->id, $enrollment_id) == 100) {
             if (Certificate_by_instructor::where('course_id', $course->id)->count() > 0 && Student_certificate::where('course_id', $course->id)->count() == 0) {
                 $certificate_by_instructor = Certificate_by_instructor::where('course_id', $course->id)->orderBy('id', 'DESC')->first();
+
                 $certificate = Certificate::find($certificate_by_instructor->certificate_id);
                 if ($certificate) {
+
                     $certificate_number = mt_rand(1000000000, 9999999999);
                     $certificate_name = 'certificate-' . $course->uuid . '.pdf';
                     // make sure email invoice is checked.
@@ -856,6 +861,7 @@ class MyCourseController extends Controller
                     $pdf->setOptions(['dpi' => 150, 'isRemoteEnabled' => true])->setPaper($customPaper);
 
                     // return $pdf->stream($certificate_name);
+//                    set_time_limit(1000);
                     $pdf->save(public_path() . '/uploads/certificate/student/' . $certificate_name);
                     /** === make pdf certificate ===== */
                     $student_certificate = new Student_certificate();

@@ -71,9 +71,9 @@
                     </td>
                     <td class="wishlist-add-to-cart-btn">
                         @if(checkIfExpired($enrollment))
-                        <a href="{{ route('student.my-course.show', @$enrollment->course->slug) }}" class="theme-button theme-button1 theme-button3 font-13">{{ __('View') }}</a>
+                        <a href="{{ route('student.my-program.show', @$enrollment->course->slug) }}" class="theme-button theme-button1 theme-button3 font-13">{{ __('View') }}</a>
                         @else
-                        <a href="{{ route('course-details', @$enrollment->course->slug) }}" class="theme-button theme-button1 theme-button3 font-13">{{ __('Renew') }}</a>
+{{--                        <a href="{{ route('program-details', @$enrollment->course->slug) }}" class="theme-button theme-button1 theme-button3 font-13">{{ __('Renew') }}</a>--}}
                         @endif
                     </td>
                 </tr>

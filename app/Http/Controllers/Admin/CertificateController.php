@@ -26,7 +26,7 @@ class CertificateController extends Controller
         $data['title'] = ' Certificates';
         $data['navCertificateActiveClass'] = "mm-active";
         $data['subNavAllCertificateActiveClass'] = "mm-active";
-        $data['certificates'] = Certificate::paginate(25);
+        $data['certificates'] = Certificate::where('is_for_membership',0)->paginate(25);
         return view('admin.certificate.index')->with($data);
     }
 
@@ -89,7 +89,7 @@ class CertificateController extends Controller
         if ($request->hasFile('background_image')) {
             $certificate->image = $request->background_image ? $this->saveImage('certificate', $request->background_image, null, null) :   null;
         }
-        
+
         if ($request->hasFile('role_1_signature')) {
             $certificate->role_1_signature = $request->role_1_signature ? $this->saveImage('certificate', $request->role_1_signature, null, null) :   null;
         }

@@ -27,7 +27,7 @@ class CertificateController extends Controller
         $data['navCertificateActiveClass'] = 'active';
         $data['title'] = 'Add Certificate';
         $data['course'] = Course::whereUuid($course_uuid)->first();
-        $data['certificates'] = Certificate::all();
+        $data['certificates'] = Certificate::where('is_for_membership',0)->get();
         return view('instructor.certificate.add', $data);
     }
 

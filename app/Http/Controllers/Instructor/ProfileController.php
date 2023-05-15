@@ -44,6 +44,15 @@ class ProfileController extends Controller
         return view('instructor.profile', $data);
     }
 
+    public function membership(){
+        $data['title'] = 'Coach Membership';
+        $data['navMemberShipActiveClass'] = 'active';
+        $data['user'] = Auth::user();
+        $data['instructor'] = Auth::user()->instructor;
+        $data['coachingTypes'] = CoachingType::where('status',1)->get();
+        return view('instructor.membership', $data);
+    }
+
     public function saveProfile(ProfileRequest $request, $uuid)
     {
         $instructor = $this->model->getRecordByUuid($uuid);
