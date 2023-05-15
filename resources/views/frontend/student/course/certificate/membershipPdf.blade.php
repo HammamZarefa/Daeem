@@ -25,22 +25,10 @@
 <body>
 
     @php
-    $certificate->title = $certificate_by_instructor->title;
-    $certificate->title_x_position = $certificate_by_instructor->title_x_position;
-    $certificate->title_y_position = $certificate_by_instructor->title_y_position;
-    $certificate->title_font_size = $certificate_by_instructor->title_font_size;
-    $certificate->title_font_color = $certificate_by_instructor->title_font_color;
-    $certificate->body_max_length = $certificate_by_instructor->body_max_length;
-    $certificate->body_x_position = $certificate_by_instructor->body_x_position;
-    $certificate->body_y_position = $certificate_by_instructor->body_y_position;
-    $certificate->body_font_size = $certificate_by_instructor->body_font_size;
-    $certificate->body_font_color = $certificate_by_instructor->body_font_color;
-    $certificate->role_2_signature = $certificate_by_instructor->signature;
-    $certificate->role_2_x_position = $certificate_by_instructor->role_2_x_position;
-    $certificate->role_2_y_position = $certificate_by_instructor->role_2_y_position;
-    $certificate->body = str_replace(array("[name]", "[course]"),
-    array(auth::user()->student ? auth::user()->student->name : '', $course_title),
-    $certificate_by_instructor->body);
+
+    $certificate->body = str_replace(array("[name]"),
+    array(auth::user()->instructor ? auth::user()->instructor->name : ''),
+    $certificate->body);
     @endphp
 
     <div class="pdf-wrapper-box">
@@ -66,7 +54,7 @@
                 @if($certificate->show_student_name == 'yes')
                 <div class="certificate-student-name"
                     style="text-align: center; position: relative; top: {{$certificate->student_name_y_position? : 10}}px; left: {{$certificate->student_name_x_position? : 0}}px; font-size: {{$certificate->student_name_font_size? : 32}}px; font-weight: 400;  color: {{$certificate->student_name_font_color? : '#363234'}}; padding-bottom: 16px">
-                    {{auth::user()->student ? auth::user()->student->name : '' }}</div>
+                    {{auth::user()->instructor ? auth::user()->instructor->name : '' }}</div>
                 @endif
                 <p class="certificate-content"
                     style="padding-bottom: 24px; min-height:220px; line-height: 30px; position: relative; top: {{$certificate->body_y_position? : 16}}px; left: {{$certificate->body_x_position? : 0}}px; text-align: center; padding-left: 128px; padding-right: 128px; color: {{$certificate->body_font_color? : '#363234'}}; font-size: {{$certificate->body_font_size? : 20}}px;">
