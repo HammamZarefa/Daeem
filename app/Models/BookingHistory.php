@@ -56,6 +56,11 @@ class BookingHistory extends Model
         return $this->belongsTo(CoachingType::class, 'coaching_type_id');
     }
 
+    public function programSessionReviews()
+    {
+        return $this->morphMany(ProgramSessionReview::class, 'reviewable');
+    }
+
     protected static function boot()
     {
         parent::boot();

@@ -53,7 +53,6 @@ class ConsultationController extends Controller
 
     public function consultationInstructorList()
     {
-
         $data['consultationInstructors'] = User::query()
                 ->leftJoin('instructors as ins', 'ins.user_id', '=', 'users.id')
                 ->leftJoin('organizations as org', 'org.user_id', '=', 'users.id')

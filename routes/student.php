@@ -30,6 +30,8 @@ Route::group(['as' => 'student.'], function () {
     Route::post('discussion-reply/{discussionId}', [MyCourseController::class, 'discussionReply'])->name('discussion.reply')->middleware('isDemo');
 
     Route::post('session-review-create', [MyCourseController::class, 'sessionReviewCreate'])->name('sessionReview.create')->middleware('isDemo');
+
+    Route::post('bookingHistory-review-create', [MyCourseController::class, 'bookingHistoryReviewCreate'])->name('bookingHistoryReview.create')->middleware('isDemo');
     //Star:: Course Assignment
     Route::get('assignment-list', [MyCourseController::class, 'assignmentList'])->name('assignment-list');
     Route::get('assignment-details', [MyCourseController::class, 'assignmentDetails'])->name('assignment-details');
