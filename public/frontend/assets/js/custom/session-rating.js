@@ -77,6 +77,7 @@
 
     $('.submitSessionReview').on('click', function () {
         var program_session_id = $('.program_session_id').val();
+        var booking_history_id = $('.booking_history_id').val();
         var studentSessionReviewCreateRoute = $('.studentSessionReviewCreateRoute').val();
         toastr.options.positionClass = 'toast-bottom-right';
         if (sessionRatingSum == 0) {
@@ -93,22 +94,24 @@
 
         addRemoveClass2()
 
-        $.ajax({
-            type: "POST",
-            url: studentSessionReviewCreateRoute,
-            data: {'program_session_id': program_session_id, 'rating': sessionRatingSum, 'comment': feedback2, '_token': $('meta[name="csrf-token"]').attr('content')},
-            datatype: "json",
-            success: function (response) {
-                toastr.options.positionClass = 'toast-bottom-right';
-                if (response.status == 200) {
-                    toastr.success(response.msg)
-                }else if (response.status == 302) {
-                    toastr.error(response.msg)
-                }
-            },
-            error: function (error) {
+            $.ajax({
+                type: "POST",
+                url: studentSessionReviewCreateRoute,
+                data: {'program_session_id': program_session_id, 'booking_history_id' : booking_history_id,'rating': sessionRatingSum, 'comment': feedback2, '_token': $('meta[name="csrf-token"]').attr('content')},
+                datatype: "json",
+                success: function (response) {
+                    toastr.options.positionClass = 'toast-bottom-right';
+                    if (response.status == 200) {
+                        toastr.success(response.msg)
+                    }else if (response.status == 302) {
+                        toastr.error(response.msg)
+                    }
+                },
+                error: function (error) {
 
-            },
-        });
+                },
+            });
+
+
     });
 })(jQuery)

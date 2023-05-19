@@ -13,4 +13,9 @@ class ProgramSessionReview extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function reviewable()
+    {
+        return $this->morphTo();
+    }
 }

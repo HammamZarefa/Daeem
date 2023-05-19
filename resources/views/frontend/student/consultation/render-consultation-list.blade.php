@@ -21,6 +21,7 @@
                         $relation = getUserRoleRelation($orderItem->consultationSlot->user)
                     @endphp
                 <tr>
+                    <input type="hidden" class="booking_history_id" value="{{ @$orderItem->bookingHistory->id }}">
                     <td class="wishlist-course-item">
                         <div class="card course-item wishlist-item border-0 d-flex align-items-center">
                             <div class="course-img-wrap flex-shrink-0 overflow-hidden">
@@ -86,13 +87,20 @@
                     </td>
 
                     <td class="wishlist-add-to-cart-btn">
-                        <div class="booking-table-detail-btn quiz-details-action-btns">
+                        @if(@$orderItem->bookingHistory->status == 3)
+                            <button class="color-gray2 me-2 font-medium bg-transparent border-0 my-course-give-a-review-btn star-full my-learning-give-review courseReview" data-session_id="{{ @$past_live_class->id }}" data-bs-toggle="modal" data-bs-target="#writeSessionReviewModal"><span class="iconify me-1" data-icon="bi:star-fill"></span>{{ __('Give Review') }}</button>
+                            <input type="hidden" class="studentSessionReviewCreateRoute" value="{{ route('student.bookingHistoryReview.create') }}">
+                            <input type="hidden" class="session_id" value="{{ @$orderItem->id}}">
+                        @else
+                            <div class="booking-table-detail-btn quiz-details-action-btns">
 
-                            <button data-meeting_host_name="{{ @$orderItem->bookingHistory->meeting_host_name }}" data-id="{{ $orderItem->id }}" class="collapsed create_link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{ $orderItem->id }}"
-                                    aria-expanded="false" aria-controls="collapseExample{{ $orderItem->id }}" title="See Details">
-                                <span class="iconify" data-icon="fa6-solid:angle-down"></span>
-                            </button>
-                        </div>
+                                <button data-meeting_host_name="{{ @$orderItem->bookingHistory->meeting_host_name }}" data-id="{{ $orderItem->id }}" class="collapsed create_link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{ $orderItem->id }}"
+                                        aria-expanded="false" aria-controls="collapseExample{{ $orderItem->id }}" title="See Details">
+                                    <span class="iconify" data-icon="fa6-solid:angle-down"></span>
+                                </button>
+                            </div>
+                            @endif
+
                     </td>
                 </tr>
                 <tr class="show-details-content">

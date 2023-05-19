@@ -594,6 +594,12 @@ Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::get('about-us-our-history', [AboutUsController::class, 'ourHistory'])->name('our-history');
         Route::post('about-us-our-history', [AboutUsController::class, 'ourHistoryUpdate'])->name('our-history.update')->middleware('isDemo');
 
+        Route::get('about-us-our-goals', [AboutUsController::class, 'ourGoals'])->name('our-goals');
+        Route::post('about-us-our-goals', [AboutUsController::class, 'ourGoalsUpdate'])->name('our-goals.update')->middleware('isDemo');
+
+        Route::get('about-us-vision', [AboutUsController::class, 'vision'])->name('vision');
+        Route::post('about-us-vision', [AboutUsController::class, 'visionUpdate'])->name('vision.update')->middleware('isDemo');
+
         Route::get('about-us-upgrade-skill', [AboutUsController::class, 'upgradeSkill'])->name('upgrade-skill');
         Route::post('about-us-upgrade-skill', [AboutUsController::class, 'upgradeSkillUpdate'])->name('upgrade-skill.update')->middleware('isDemo');
 

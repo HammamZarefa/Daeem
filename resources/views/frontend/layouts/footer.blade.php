@@ -36,7 +36,7 @@
                         <div class="footer-links d-flex">
                             <ul>
                                 <li><a href="{{ route('contact') }}">{{  __('Contact')  }}</a></li>
-                                <li><a href="{{ route('support-ticket-faq') }}">{{  __('Support')  }}</a></li>
+{{--                                <li><a href="{{ route('support-ticket-faq') }}">{{  __('Support')  }}</a></li>--}}
                                 @if(!get_option('private_mode') || !auth()->guest())
                                 @endif
                             </ul>

@@ -357,6 +357,24 @@
                     <span>{{ __('Gallery Area') }}</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('settings.about.vision') }}" class="list-item {{ @$subNavVisionActiveClass }}">
+                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
+                    <span>{{ __('Our Vision') }}</span>
+                </a>
+            </li>
+{{--            <li>--}}
+{{--                <a href="{{ route('settings.about.upgrade-skill') }}" class="list-item {{ @$subNavUpgradeSkillActiveClass }}">--}}
+{{--                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">--}}
+{{--                    <span>{{ __('Upgrade Skills') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+            <li>
+                <a href="{{ route('settings.about.our-goals') }}" class="list-item {{ @$subNavOurGoalsActiveClass }}">
+                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
+                    <span>{{ __('Our Goals') }}</span>
+                </a>
+            </li>
 {{--            <li>--}}
 {{--                <a href="{{ route('settings.about.our-history') }}" class="list-item {{ @$subNavOurHistoryActiveClass }}">--}}
 {{--                    <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">--}}

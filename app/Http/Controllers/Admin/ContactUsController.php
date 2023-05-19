@@ -52,7 +52,7 @@ class ContactUsController extends Controller
             abort('403');
         } // end permission checking
 
-        $data['title'] = 'Contact Us CMS';
+        $data['title'] = 'Contact Us';
         $data['navApplicationSettingParentActiveClass'] = 'mm-active';
         $data['subNavContactUsSettingsActiveClass'] = 'mm-active';
         $data['contactUsSettingsActiveClass'] = 'active';

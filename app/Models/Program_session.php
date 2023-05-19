@@ -27,7 +27,7 @@ class Program_session extends Model
 
     public function programSessionReviews()
     {
-        return $this->hasMany(ProgramSessionReview::class, 'session_id');
+        return $this->morphMany(ProgramSessionReview::class, 'reviewable');
     }
 
     protected static function boot()
