@@ -32,7 +32,7 @@ class SignUpRequest extends FormRequest
 
         if(!is_null(request()->input('mobile_number')) || !is_null(request()->input('area_code'))){
             $rules['area_code'] = 'required';
-            $rules['mobile_number'] = 'bail|numeric|digits_between:10,14|unique:users';
+            $rules['mobile_number'] = 'bail|numeric|digits_between:9,14|unique:users';
         }
 
         return $rules;

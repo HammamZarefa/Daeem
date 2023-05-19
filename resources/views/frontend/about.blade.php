@@ -74,43 +74,13 @@
 <!-- Gallery Area End -->
 
 <!-- Our History Area Start -->
-{{--<section class="our-history-area bg-page section-t-space" id="Vision">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-12">--}}
-{{--                <div class="section-title text-center">--}}
-{{--                    <h3 class="section-heading">{{ __(@$aboutUsGeneral->our_history_title) }}</h3>--}}
-{{--                    <p class="section-sub-heading">{{ __(@$aboutUsGeneral->our_history_subtitle) }}</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="row">--}}
-{{--            <div class="container-timeline">--}}
-{{--                <ul>--}}
-{{--                    @foreach($ourHistories as $ourHistory)--}}
-{{--                    <li>--}}
-{{--                        <h6 class="history-year">{{ $ourHistory->year }}</h6>--}}
-{{--                        <div class="history-content">--}}
-{{--                            <h6 class="h6 fw-bold font-18">{{ Str::limit($ourHistory->title, 23) }}</h6>--}}
-{{--                            <p class="font-15 pt-1">{{ Str::limit($ourHistory->subtitle, 100) }}</p>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
-<!-- Our History Area End -->
-
-<!-- Our History Area Start -->
 <section class="our-history-area bg-page section-t-space" id="Vision">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="section-title text-center">
-                    <h3 class="section-heading">الرؤية</h3>
-                    <p class="section-sub-heading">أول منصة عربية، لتحقيق الريادة عربي وعالمي، في مجال الكوتشينج التربوي والتعليمي.</p>
+                    <h3 class="section-heading">{{$aboutUsGeneral->our_vision_title}}</h3>
+                    <p class="section-sub-heading">{{$aboutUsGeneral->our_vision_subtitle}}</p>
                 </div>
             </div>
         </div>
@@ -121,9 +91,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title text-center">
-                    <h3 class="section-heading">الرسالة</h3>
-                    <p class="section-sub-heading">تقديم خدمات الكوتشينج النوعية، لتمكين المؤسسات وا£فراد من تجويد المخرجات في مجال التربية
-                        والتعليم.</p>
+                    <h3 class="section-heading">{{$aboutUsGeneral->our_message_title}}</h3>
+                    <p class="section-sub-heading">{{$aboutUsGeneral->our_message_subtitle}}</p>
                 </div>
             </div>
         </div>
@@ -136,45 +105,47 @@
     <div class="row">
             <div class="col-12">
                 <div class="section-title text-center">
-                    <h3 class="section-heading text-white">{{ __('Our Goal') }}</h3>
+                    <h3 class="section-heading text-white">{{$aboutUsGeneral->our_history_title}}</h3>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <ul>
+                    @foreach($ourHistories as $ourHistory)
                     <li>
                         <i class="iconify" data-icon="ic:baseline-star-border"></i>
-                        <span class="text-white">نشر ثقافة الكوتشينج التربوي والتعليمي في المؤسسات التربوية والتعليمية.</span>
+                        <span class="text-white">{{$ourHistory->subtitle}}</span>
                     </li>
-                    <li>
-                        <i class="iconify" data-icon="ic:baseline-star-border"></i>
-                        <span class="text-white">تصميم وابتكار البرامج والانشطة التربوية لرعاية الناشئة وتحسين جودة حياتهم واختياراتهم وفق نماذج وأدوات الكوتشينج التربوي.</span>
-                    </li>
-                    <li>
-                        <i class="iconify" data-icon="ic:baseline-star-border"></i>
-                        <span class="text-white"">الشراكة مع الجهات والمؤسسات التربوية والتعليمية لتطوير عملها ودعم وتحفيز منسوبيها.</span>
-                    </li>
-                    <li>
-                        <i class="iconify" data-icon="ic:baseline-star-border"></i>
-                        <span class="text-white">استخدام أدوات ونماذج الكوتشينج التربوي والتعليمي لدعم وتحفيز الناشئة تعليمياً وتربويا وتحسين جودة حياتهم.</span>
-                    </li>
-                    <li>
-                        <i class="iconify" data-icon="ic:baseline-star-border"></i>
-                        <span class="text-white">المشاركة في الملتقيات العلمية والندوات والمؤتمرات محليا ودوليا.</span>
-                    </li>
-                    <li>
-                        <i class="iconify" data-icon="ic:baseline-star-border"></i>
-                        <span class="text-white">تأهيل كوتشز متخصصين في مجال الكوتشينج التربوي والتعليمي وتطوير اداءهم ومهارتهم</span>
-                    </li>
-                    <li>
-                        <i class="iconify" data-icon="ic:baseline-star-border"></i>
-                        <span class="text-white">تأهيل الكوتش المعلم لصقل شخصية المتعلم ورفع نواتجه التعليمية  .</span>
-                    </li>
-                    <li>
-                        <i class="iconify" data-icon="ic:baseline-star-border"></i>
-                        <span class="text-white">توفير خدمات الكوتشينج التربوي والتعليمي بشكل متكامل في مكان واحد</span>
-                    </li>
+                    @endforeach
+{{--                    <li>--}}
+{{--                        <i class="iconify" data-icon="ic:baseline-star-border"></i>--}}
+{{--                        <span class="text-white">تصميم وابتكار البرامج والانشطة التربوية لرعاية الناشئة وتحسين جودة حياتهم واختياراتهم وفق نماذج وأدوات الكوتشينج التربوي.</span>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <i class="iconify" data-icon="ic:baseline-star-border"></i>--}}
+{{--                        <span class="text-white"">الشراكة مع الجهات والمؤسسات التربوية والتعليمية لتطوير عملها ودعم وتحفيز منسوبيها.</span>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <i class="iconify" data-icon="ic:baseline-star-border"></i>--}}
+{{--                        <span class="text-white">استخدام أدوات ونماذج الكوتشينج التربوي والتعليمي لدعم وتحفيز الناشئة تعليمياً وتربويا وتحسين جودة حياتهم.</span>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <i class="iconify" data-icon="ic:baseline-star-border"></i>--}}
+{{--                        <span class="text-white">المشاركة في الملتقيات العلمية والندوات والمؤتمرات محليا ودوليا.</span>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <i class="iconify" data-icon="ic:baseline-star-border"></i>--}}
+{{--                        <span class="text-white">تأهيل كوتشز متخصصين في مجال الكوتشينج التربوي والتعليمي وتطوير اداءهم ومهارتهم</span>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <i class="iconify" data-icon="ic:baseline-star-border"></i>--}}
+{{--                        <span class="text-white">تأهيل الكوتش المعلم لصقل شخصية المتعلم ورفع نواتجه التعليمية  .</span>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <i class="iconify" data-icon="ic:baseline-star-border"></i>--}}
+{{--                        <span class="text-white">توفير خدمات الكوتشينج التربوي والتعليمي بشكل متكامل في مكان واحد</span>--}}
+{{--                    </li>--}}
                 </ul>
             </div>
 
@@ -197,39 +168,6 @@
 								</div>
 							</div>
 						</div>
-                        <!-- <section class="servces-page-area section-t-space">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-6 col-12 img-servce">
-
-                <img src="{{ asset('frontend/assets/img/daeem/3.png') }}" alt="">
-
-            </div>
-
-            <div class="col-md-6 col-lg-6 u-content col-12">
-               <div class="content">
-               <h4> للأفراد </h4>
-               <h6>خدمات الدعم والتطوير المهني والشخصي لافراد المجتمع من خلال الجلسات الكوتشينغ الفرديه والجماعيه المتنوعه الخدمات الكوتشينغ للناشئه خدمات التطوير المهني المتزامن وغير المتزامن</h6>
-               </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="container section-t-space">
-        <div class="row">
-                <div class="col-md-6 col-lg-6 u-content col-12">
-                <div class="content or-content">
-                <h4> للمنظمات </h4>
-                <h6>الكوتشينج، وسيلة للتعلم، والتطور، وتحقيق الأهداف والإنجازات فهو لديه أثر ايجابي على الطالب، المعلم، والفريق القيادي في المنشئة التعليمية. حيث يساعد الكوتشنج المدارس على تقديم المعلومات والمهارات الأساسية التي يحتاجها الطالب ليس فقط للتفوق الدراسي ولكن كي يستطيع تحقيق أهدافه في الحياة ويصبح انسان ناجحا.</h6>
-                </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-12 img-servce">
-                    <img src="{{ asset('frontend/assets/img/daeem/1.png') }}" alt="">
-                </div>
-            </div>
-        </div>
-</section> -->
 						<div class="row mt-3">
 							<div class="col-lg-4 col-md-6 col-xs-12">
 								<!--Animation Block-->
@@ -284,94 +222,12 @@
 									</div>
 								</div>
 							</div>
-{{--							<div class="col-lg-4 col-md-6 col-xs-12">--}}
-{{--								<!--Animation Block-->--}}
-{{--								<div class="" data-aos="fade" data-aos-delay="300">--}}
-{{--									<!--Services Item-->--}}
-{{--									<div class="d-flex" style="height: 126px;">--}}
-{{--										<div class="vlt-services__icon">--}}
-{{--                                        <img src="{{ asset('frontend/assets/img/daeem/s4.png') }}" alt="">--}}
-{{--                                        </div>--}}
-{{--										<div class="vlt-services__content">--}}
-{{--											<h5 class="vlt-services__title"><span class="vlt-highlight">Retina Ready</span>--}}
-{{--											</h5>--}}
-{{--											<p class="vlt-services__text">Appear appear rule. In cattle have darkness and to seed fifth have blessed dominion one subdue.--}}
-{{--											</p>--}}
-{{--										</div>--}}
-{{--									</div>--}}
-{{--								</div>--}}
-{{--							</div>--}}
-{{--							<div class="col-lg-4 col-md-6 col-xs-12">--}}
-{{--								<!--Animation Block-->--}}
-{{--								<div class="" data-aos="fade" data-aos-delay="400">--}}
-{{--									<!--Services Item-->--}}
-{{--									<div class="d-flex" style="height: 126px;">--}}
-{{--										<div class="vlt-services__icon">--}}
-{{--                                        <img src="{{ asset('frontend/assets/img/daeem/s5.png') }}" alt="">--}}
-{{--                                        </div>--}}
-{{--										<div class="vlt-services__content">--}}
-{{--											<h5 class="vlt-services__title"><span class="vlt-highlight">100% Responsive</span>--}}
-{{--											</h5>--}}
-{{--											<p class="vlt-services__text">Darkness kind likeness said give male shall first creepeth moved, fruit whose third dry one.--}}
-{{--											</p>--}}
-{{--										</div>--}}
-{{--									</div>--}}
-{{--								</div>--}}
-{{--							</div>--}}
-{{--							<div class="col-lg-4 col-md-6 col-xs-12">--}}
-{{--								<!--Animation Block-->--}}
-{{--								<div class="" data-aos="fade" data-aos-delay="500">--}}
-{{--									<!--Services Item-->--}}
-{{--									<div class="d-flex" style="height: 126px;">--}}
-{{--										<div class="vlt-services__icon">--}}
-{{--                                        <img src="{{ asset('frontend/assets/img/daeem/s1.png') }}" alt="">--}}
-{{--                                        </div>--}}
-{{--										<div class="vlt-services__content">--}}
-{{--											<h5 class="vlt-services__title"><span class="vlt-highlight">Easy Customization</span>--}}
-{{--											</h5>--}}
-{{--											<p class="vlt-services__text">Third male deep creepeth they're dry said for fly have made, divide that every can't seed gathering.--}}
-{{--											</p>--}}
-{{--										</div>--}}
-{{--									</div>--}}
-{{--								</div>--}}
-{{--							</div>--}}
-                            <!-- <div class="col-12 mt-5 text-center">
-                                <a href="" class="theme-btn theme-button2 theme-button3 ">{{ __('View') }} <i data-feather="arrow-right"></i></a>
-                            </div> -->
 						</div>
 					</div>
 				</section>
-<!-- Upgrade Your Skills Area Start -->
-{{--<section class="upgrade-your-skills-area" id="Coaching">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row align-items-center">--}}
-{{--            <div class="col-md-4 col-xl-4 col-sm-12">--}}
-{{--                <div class=" position-relative text-center">--}}
-{{--                --}}{{--  <img style="max-width: 100%;" src="{{ getImageFile(@$aboutUsGeneral->upgrade_skill_logo_path) }}" alt="about" class="img-fluid"> --}}
-{{--                <img style="max-width: 100%;" src="{{ asset('frontend/assets/img/daeem/s1.png') }}" alt="">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-md-8 col-xl-8 col-sm-12">--}}
-{{--                <div class="tex-s-c">--}}
-{{--                    <div class="section-title">--}}
-{{--                        <h3 class="section-heading">{{ __(@$aboutUsGeneral->upgrade_skill_title) }}</h3>--}}
-{{--                    </div>--}}
-{{--                    <p style="font-weight: 501;">{{ __(@$aboutUsGeneral->upgrade_skill_subtitle) }} </p>--}}
-
-{{--                    <!-- section button start-->--}}
-{{--                    <!-- <div class="col-12 section-btn">--}}
-{{--                   --}}{{--     <a href="{{ route('courses') }}" class="theme-btn default-hover-btn theme-button1">{{ __ --}}{{--(@$aboutUsGeneral->upgrade_skill_button_name) }} <i data-feather="arrow-right"></i></a>--}}
-{{--                    </div> -->--}}
-{{--                    <!-- section button end-->--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
-<!-- Upgrade Your Skills Area End -->
 
 <!-- Our Passionate Team Member Area Start -->
-<section class="passionate-team-member-area bg-white">
+<section class="passionate-team-member-area bg-white" id="Coaching">
     <div class="container">
         <div class="row">
             <div class="col-12">

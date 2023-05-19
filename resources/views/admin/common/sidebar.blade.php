@@ -882,31 +882,31 @@
                 </ul>
             </li>
         @endcan
-        @if(getSuperAdminStatus())
-            @can('user_management')
-                <li class="{{ @$navEmailActiveClass }}">
-                    <a class="has-arrow" href="#">
-                        <span class="iconify" data-icon="dashicons:email"></span>
-                        <span>{{__('Email Management')}}</span>
-                    </a>
-                    <ul class="{{ @$navEmailParentShowClass }}">
-                        <li class="{{ @$subNavEmailTemplateActiveClass }}">
-                            <a href="{{route('email-template.index')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Email Template')}}</span>
-                            </a>
-                        </li>
+{{--        @if(getSuperAdminStatus())--}}
+{{--            @can('user_management')--}}
+{{--                <li class="{{ @$navEmailActiveClass }}">--}}
+{{--                    <a class="has-arrow" href="#">--}}
+{{--                        <span class="iconify" data-icon="dashicons:email"></span>--}}
+{{--                        <span>{{__('Email Management')}}</span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="{{ @$navEmailParentShowClass }}">--}}
+{{--                        <li class="{{ @$subNavEmailTemplateActiveClass }}">--}}
+{{--                            <a href="{{route('email-template.index')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Email Template')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                        <li class="{{ @$subNavSendMailActiveClass }}">
-                            <a href="{{route('email-template.send-email')}}">
-                                <i class="fa fa-circle"></i>
-                                <span>{{__('Send Email')}}</span>
-                            </a>
-                        </li>
+{{--                        <li class="{{ @$subNavSendMailActiveClass }}">--}}
+{{--                            <a href="{{route('email-template.send-email')}}">--}}
+{{--                                <i class="fa fa-circle"></i>--}}
+{{--                                <span>{{__('Send Email')}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                    </ul>
-                </li>
-            @endcan
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
 {{--            <li class="{{ @$navForumParentActiveClass }}">--}}
 {{--                <a class="has-arrow" href="#">--}}
 {{--                    <span class="iconify" data-icon="carbon:forum"></span>--}}
@@ -957,7 +957,7 @@
 {{--                    </a>--}}
 {{--                </li>--}}
 {{--            @endif--}}
-        @endif
+{{--        @endif--}}
         @can('account_setting')
             <li>
                 <a class="has-arrow" href="#">

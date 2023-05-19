@@ -114,7 +114,7 @@ class MainIndexController extends Controller
         $data['pageTitle'] = 'About Us';
         $data['metaData'] = staticMeta(7);
         $data['aboutUsGeneral'] = AboutUsGeneral::first();
-        $data['ourHistories'] = OurHistory::take(4)->get();
+        $data['ourHistories'] = OurHistory::all();
         $data['teamMembers'] = TeamMember::all();
         $data['instructorSupports'] = InstructorSupport::all();
         $data['clients'] = ClientLogo::all();

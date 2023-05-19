@@ -164,7 +164,6 @@ class DashboardController extends Controller
         $data['total_instructors'] = Instructor::count();
         $data['countries'] = Country::all();
         $data['all_coaching_types'] = CoachingType::all();
-//        dd($data['all_coaching_types']);
 
         return view('frontend.student.settings.become-an-instructor', $data);
     }
@@ -187,7 +186,6 @@ class DashboardController extends Controller
         $data['total_instructors'] = Instructor::count();
         $data['countries'] = Country::all();
         $data['all_coaching_types'] = CoachingType::all();
-//        dd($data['all_coaching_types']);
 
         return view('frontend.student.settings.become-an-organization', $data);
     }
@@ -214,6 +212,7 @@ class DashboardController extends Controller
 
 
         $object = Instructor::where('user_id', $authUser->id)->get();
+        $student = Student::where('user_id', $authUser->id)->first();
 
 
         if ($object->count() > 0) {
@@ -255,6 +254,8 @@ class DashboardController extends Controller
 
             $instructor = $this->instructorModel->create($data);
             $instructor->coachingTypes()->sync($request->coachingTypes);
+            $student->gender = $request->gender;
+            $student->save();
             $text = __("New organization request");
             $target_url = route('organizations.pending');
 
@@ -286,45 +287,44 @@ class DashboardController extends Controller
 
         $authUser = Auth::user();
 
-            $object = Organization::where('user_id', $authUser->id)->get();
-        if ($object->count() > 0){
+        $object = Organization::where('user_id', $authUser->id)->get();
+        if ($object->count() > 0) {
             $this->showToastrMessage('success', __('Request already send'));
             return redirect(route('student.dashboard'));
         } else {
 
-                $slugCount = Organization::where('slug', getSlug($authUser->name))->count();
-            }
+            $slugCount = Organization::where('slug', getSlug($authUser->name))->count();
+        }
 
-            if ($slugCount)
-            {
-                $slug = getSlug($authUser->name) . '-'. rand(100000, 999999);
-            } else {
-                $slug = getSlug($authUser->name);
-            }
+        if ($slugCount) {
+            $slug = getSlug($authUser->name) . '-' . rand(100000, 999999);
+        } else {
+            $slug = getSlug($authUser->name);
+        }
 
-            $data = [
-                'user_id' => Auth::user()->id,
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'organization_name' => $request->organization_name,
-                'organization_email' => $request->organization_email,
-                'agent_email' => $request->agent_email,
-                'professional_title' => $request->work_field,
-                'phone_number' => $request->phone_number,
-                'address' => $request->address,
-                'about_me' => $request->about_me,
-                'slug' => $slug,
-            ];
+        $data = [
+            'user_id' => Auth::user()->id,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'organization_name' => $request->organization_name,
+            'organization_email' => $request->organization_email,
+            'agent_email' => $request->agent_email,
+            'professional_title' => $request->work_field,
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
+            'about_me' => $request->about_me,
+            'slug' => $slug,
+        ];
 
-                $this->organizationModel->create($data);
-                $text = __("New instructor request");
-                $target_url = route('instructor.pending');
+        $this->organizationModel->create($data);
+        $text = __("New instructor request");
+        $target_url = route('instructor.pending');
 
 
-            $this->send($text, 1, $target_url, null);
+        $this->send($text, 1, $target_url, null);
 
-            $this->showToastrMessage('success', __('Request successfully send'));
-            return redirect(route('student.dashboard'));
+        $this->showToastrMessage('success', __('Request successfully send'));
+        return redirect(route('student.dashboard'));
 
 
     }

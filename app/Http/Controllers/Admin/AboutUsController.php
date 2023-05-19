@@ -121,6 +121,93 @@ class AboutUsController extends Controller
         return redirect()->back();
     }
 
+    public function ourGoals()
+    {
+        $data['title'] = 'Our Goals';
+        $data['navApplicationSettingParentActiveClass'] = 'mm-active';
+        $data['subNavAboutUsSettingsActiveClass'] = 'mm-active';
+        $data['subNavOurGoalsActiveClass'] = 'active';
+
+        $data['aboutUsGeneral'] = AboutUsGeneral::first();
+        $data['ourHistories'] = OurHistory::all();
+
+        return view('admin.application_settings.about.our-goals', $data);
+    }
+
+    public function ourGoalsUpdate(Request $request)
+    {
+        $about = AboutUsGeneral::first();
+        if (!$about) {
+            $about = new AboutUsGeneral();
+        }
+
+        $about->our_history_title = $request->our_history_title;
+//        $about->our_history_subtitle = $request->our_history_subtitle;
+        $about->save();
+
+        $now = now();
+        $notInId = [];
+        if ($request['our_histories']) {
+            if (count($request['our_histories']) > 0) {
+                foreach ($request['our_histories'] as $ourHistory) {
+                    if ($ourHistory['subtitle']){
+                        if (@$ourHistory['id']) {
+                            $history = OurHistory::find($ourHistory['id']);
+                            $history->updated_at = $now;
+                        } else {
+                            $history = new OurHistory();
+                            $history->updated_at = $now;
+                        }
+                        $history->year = '0000';
+                        $history->title = 'goal';
+                        $history->subtitle = $ourHistory['subtitle'];
+                        $history->save();
+                        array_push($notInId, $history->id);
+                    }
+                }
+            }
+            OurHistory::whereNotIn('id',$notInId)->delete();
+        }
+
+        OurHistory::where('updated_at', '!=', $now)->delete();
+
+        $this->showToastrMessage('success', __('Updated Successful'));
+        return redirect()->back();
+    }
+
+    public function vision()
+    {
+        $data['title'] = 'Our Vision';
+        $data['navApplicationSettingParentActiveClass'] = 'mm-active';
+        $data['subNavAboutUsSettingsActiveClass'] = 'mm-active';
+        $data['subNavVisionActiveClass'] = 'active';
+
+        $data['aboutUsGeneral'] = AboutUsGeneral::first();
+
+        return view('admin.application_settings.about.vision', $data);
+    }
+
+    public function visionUpdate(Request $request)
+    {
+        $request->validate([
+            'our_vision_title' => 'required|max:255',
+            'our_message_title' => 'required|max:255',
+        ]);
+        $about = AboutUsGeneral::first();
+        if (!$about) {
+            $about = new AboutUsGeneral();
+        }
+
+        $about->our_vision_title = $request->our_vision_title;
+        $about->our_vision_subtitle = $request->our_vision_subtitle;
+        $about->our_message_title = $request->our_message_title;
+        $about->our_message_subtitle = $request->our_message_subtitle;
+        $about->save();
+
+        $this->showToastrMessage('success', __('Updated Successful'));
+        return redirect()->back();
+    }
+
     public function upgradeSkill()
     {
         $data['title'] = 'Upgrade Skill';
@@ -172,7 +259,7 @@ class AboutUsController extends Controller
     public function teamMemberUpdate(Request $request)
     {
         $request->validate([
-            'team_member_title' => 'required|max:255',
+            'team_member_title' => 'cc|max:255',
             'team_member_subtitle' => 'required',
             'team_member_logo' => 'mimes:png|file|dimensions:min_width=70,min_height=70,max_width=70,max_height=70',
         ]);

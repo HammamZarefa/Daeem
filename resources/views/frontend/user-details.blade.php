@@ -257,13 +257,13 @@ $userRelation = getUserRoleRelation($user);
 
                             <div class="course-includes-box p-0 mb-20">
                                 <ul>
-                                    @if(get_instructor_ranking_level($user->badges))
-                                    <li>
-                                        <span class="iconify" data-icon="icon-park-outline:ranking"></span>
-                                        <span>{{ get_instructor_ranking_level($user->badges) }}
-                                            {{ __('(Ranking)') }}</span>
-                                    </li>
-                                    @endif
+{{--                                    @if(get_instructor_ranking_level($user->badges))--}}
+{{--                                    <li>--}}
+{{--                                        <span class="iconify" data-icon="icon-park-outline:ranking"></span>--}}
+{{--                                        <span>{{ get_instructor_ranking_level($user->badges) }}--}}
+{{--                                            {{ __('(Ranking)') }}</span>--}}
+{{--                                    </li>--}}
+{{--                                    @endif--}}
                                     <li>
                                         <span class="iconify" data-icon="akar-icons:book-close"></span>
                                         <span>{{ @$user->courses->count() }} {{ __('Courses') }}</span>
