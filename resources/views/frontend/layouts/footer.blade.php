@@ -12,7 +12,7 @@
                                 <li><a href="{{get_option('facebook_url')}}"><span class="iconify" data-icon="ant-design:facebook-filled"></span></a></li>
                                 <li><a href="{{get_option('twitter_url')}}"><span class="iconify" data-icon="ant-design:twitter-square-filled"></span></a></li>
                                 <li><a href="{{get_option('linkedin_url')}}"><span class="iconify" data-icon="ant-design:linkedin-filled"></span></a></li>
-                                <li><a href="{{get_option('pinterest_url')}}"><span class="iconify" data-icon="fa-brands:pinterest-square" data-width="1em" data-height="1em"></span></a></li>
+                                <li><a href="{{get_option('pinterest_url')}}"><span class="iconify" data-icon="ant-design:instagram-filled" data-width="1em" data-height="1em"></span></a></li>
                             </ul>
                         </div>
                     </div>

@@ -258,7 +258,7 @@
                                 </div>
                             </div>
                             <div class="row input__group mb-25">
-                                <label class="col-lg-3">{{ __('Pinterest URL') }} <span class="text-danger">*</span></label>
+                                <label class="col-lg-3">{{ __('Instagram URL') }} <span class="text-danger">*</span></label>
                                 <div class="col-lg-9">
                                     <input type="text" name="pinterest_url" value="{{get_option('pinterest_url')}}" class="form-control">
                                 </div>

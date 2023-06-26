@@ -66,28 +66,28 @@ class SettingController extends Controller
             $option = Setting::firstOrCreate(['option_key' => $key]);
             if ($request->hasFile('app_logo') && $key == 'app_logo') {
                 $request->validate([
-                    'app_logo' => 'mimes:png,svg|file'
+                    'app_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('app_logo'));
                 $option->option_value = $this->saveImage('setting', $request->app_logo, null, null );
                 $option->save();
             } elseif ($request->hasFile('app_fav_icon') && $key == 'app_fav_icon') {
                 $request->validate([
-                    'app_fav_icon' => 'mimes:png,svg|file'
+                    'app_fav_icon' => 'file'
                 ]);
                 $this->deleteFile(get_option('app_fav_icon'));
                 $option->option_value = $this->saveImage('setting', $request->app_fav_icon, null, null);
                 $option->save();
             } elseif ($request->hasFile('app_preloader') && $key == 'app_preloader') {
                 $request->validate([
-                    'app_preloader' => 'mimes:png,svg|file'
+                    'app_preloader' => 'file'
                 ]);
                 $this->deleteFile(get_option('app_preloader'));
                 $option->option_value = $this->saveImage('setting', $request->app_preloader, null, null);
                 $option->save();
             } elseif ($request->hasFile('faq_image') && $key == 'faq_image') {
                 $request->validate([
-                    'faq_image' => 'mimes:png,jpg,jpeg|file|dimensions:min_width=650,min_height=650,max_width=650,max_height=650'
+                    'faq_image' => 'file'
                 ]);
                 $this->deleteFile('faq_image');
                 $option->option_value = $this->saveImage('setting', $request->faq_image, null, null);
@@ -95,105 +95,105 @@ class SettingController extends Controller
 
             } elseif ($request->hasFile('home_special_feature_first_logo') && $key == 'home_special_feature_first_logo') {
                 $request->validate([
-                    'home_special_feature_first_logo' => 'mimes:png|file|dimensions:min_width=77,min_height=77,max_width=77,max_height=77'
+                    'home_special_feature_first_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('home_special_feature_first_logo'));
                 $option->option_value = $this->saveImage('setting', $request->home_special_feature_first_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('home_special_feature_second_logo') && $key == 'home_special_feature_second_logo') {
                 $request->validate([
-                    'home_special_feature_second_logo' => 'mimes:png|file|dimensions:min_width=77,min_height=77,max_width=77,max_height=77'
+                    'home_special_feature_second_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('home_special_feature_second_logo'));
                 $option->option_value = $this->saveImage('setting', $request->home_special_feature_second_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('home_special_feature_third_logo') && $key == 'home_special_feature_third_logo') {
                 $request->validate([
-                    'home_special_feature_third_logo' => 'mimes:png|file|dimensions:min_width=77,min_height=77,max_width=77,max_height=77'
+                    'home_special_feature_third_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('home_special_feature_third_logo'));
                 $option->option_value = $this->saveImage('setting', $request->home_special_feature_third_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('course_logo') && $key == 'course_logo') {
                 $request->validate([
-                    'course_logo' => 'mimes:png|file|dimensions:min_width=60,min_height=60,max_width=60,max_height=60'
+                    'course_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('course_logo'));
                 $option->option_value = $this->saveImage('setting', $request->course_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('bundle_course_logo') && $key == 'bundle_course_logo') {
                 $request->validate([
-                    'bundle_course_logo' => 'mimes:png|file|dimensions:min_width=60,min_height=60,max_width=60,max_height=60'
+                    'bundle_course_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('bundle_course_logo'));
                 $option->option_value = $this->saveImage('setting', $request->bundle_course_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('top_category_logo') && $key == 'top_category_logo') {
                 $request->validate([
-                    'top_category_logo' => 'mimes:png|file|dimensions:min_width=60,min_height=60,max_width=60,max_height=60'
+                    'top_category_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('top_category_logo'));
                 $option->option_value = $this->saveImage('setting', $request->top_category_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('top_instructor_logo') && $key == 'top_instructor_logo') {
                 $request->validate([
-                    'top_instructor_logo' => 'mimes:png|file|dimensions:min_width=70,min_height=70,max_width=70,max_height=70'
+                    'top_instructor_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('top_instructor_logo'));
                 $option->option_value = $this->saveImage('setting', $request->top_instructor_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('become_instructor_video_logo') && $key == 'become_instructor_video_logo') {
                 $request->validate([
-                    'become_instructor_video_logo' => 'mimes:png|file|dimensions:min_width=70,min_height=70,max_width=70,max_height=70'
+                    'become_instructor_video_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('become_instructor_video_logo'));
                 $option->option_value = $this->saveImage('setting', $request->become_instructor_video_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('customer_say_logo') && $key == 'customer_say_logo') {
                 $request->validate([
-                    'customer_say_logo' => 'mimes:png|file|dimensions:min_width=64,min_height=64,max_width=64,max_height=64'
+                    'customer_say_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('customer_say_logo'));
                 $option->option_value = $this->saveImage('setting', $request->customer_say_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('achievement_first_logo') && $key == 'achievement_first_logo') {
                 $request->validate([
-                    'achievement_first_logo' => 'mimes:png|file|dimensions:min_width=58,min_height=58,max_width=58,max_height=58'
+                    'achievement_first_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('achievement_first_logo'));
                 $option->option_value = $this->saveImage('setting', $request->achievement_first_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('achievement_second_logo') && $key == 'achievement_second_logo') {
                 $request->validate([
-                    'achievement_second_logo' => 'mimes:png|file|dimensions:min_width=58,min_height=58,max_width=58,max_height=58'
+                    'achievement_second_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('achievement_second_logo'));
                 $option->option_value = $this->saveImage('setting', $request->achievement_second_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('achievement_third_logo') && $key == 'achievement_third_logo') {
                 $request->validate([
-                    'achievement_third_logo' => 'mimes:png|file|dimensions:min_width=58,min_height=58,max_width=58,max_height=58'
+                    'achievement_third_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('achievement_third_logo'));
                 $option->option_value = $this->saveImage('setting', $request->achievement_third_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('achievement_four_logo') && $key == 'achievement_four_logo') {
                 $request->validate([
-                    'achievement_four_logo' => 'mimes:png|file|dimensions:min_width=58,min_height=58,max_width=58,max_height=58'
+                    'achievement_four_logo' => 'file'
                 ]);
                 $this->deleteFile(get_option('achievement_four_logo'));
                 $option->option_value = $this->saveImage('setting', $request->achievement_four_logo, null, null);
                 $option->save();
             } elseif ($request->hasFile('sign_up_left_image') && $key == 'sign_up_left_image') {
                 $request->validate([
-                    'sign_up_left_image' => 'mimes:png,svg|file'
+                    'sign_up_left_image' => 'file'
                 ]);
                 $this->deleteFile(get_option('sign_up_left_image'));
                 $option->option_value = $this->saveImage('setting', $request->sign_up_left_image, null, null);
                 $option->save();
             } elseif ($request->hasFile('become_instructor_video_preview_image') && $key == 'become_instructor_video_preview_image') {
                 $request->validate([
-                    'become_instructor_video_preview_image' => 'mimes:png|file|dimensions:min_width=835,min_height=630,max_width=835,max_height=630'
+                    'become_instructor_video_preview_image' => 'file'
                 ]);
                 $this->deleteFile(get_option('become_instructor_video_preview_image'));
                 $option->option_value = $this->saveImage('setting', $request->become_instructor_video_preview_image, null, null);

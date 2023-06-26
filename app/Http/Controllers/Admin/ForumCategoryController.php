@@ -34,7 +34,7 @@ class ForumCategoryController extends Controller
         $request->validate([
             'title' => 'required|unique:forum_categories,title',
             'subtitle' => 'required',
-            'logo' => 'mimes:png|file|dimensions:min_width=60,min_height=60,max_width=60,max_height=60'
+            'logo' => 'file'
         ]);
 
         $data = [
@@ -57,7 +57,7 @@ class ForumCategoryController extends Controller
         $request->validate([
             'title' => 'required|unique:forum_categories,title,' . $forumCategory->id,
             'subtitle' => 'required',
-            'logo' => 'mimes:png|file|dimensions:min_width=60,min_height=60,max_width=60,max_height=60'
+            'logo' => 'file'
         ]);
 
         if ($request->logo) {

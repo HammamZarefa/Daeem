@@ -91,7 +91,7 @@ class SupportTicketController extends Controller
     {
         $request->validate([
             'message' => 'required',
-            'file' => 'mimes:jpeg,jpg,png,gif|max:10000'
+            'file' => 'max:10000'
         ]);
 
         $message = new TicketMessages();

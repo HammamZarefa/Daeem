@@ -83,7 +83,7 @@ class HomeSettingController extends Controller
         } // end permission checking
 
         $request->validate([
-            'banner_image' => 'mimes:png,svg|file|max:1024'
+            'banner_image' => 'file|max:1024'
         ]);
 
         $banner = new Banner();
@@ -132,7 +132,7 @@ class HomeSettingController extends Controller
         } // end permission checking
 
         $request->validate([
-            'banner_image' => 'mimes:png,svg|file|max:1024'
+            'banner_image' => 'file|max:1024'
         ]);
 
         $banner = Banner::find($id);
