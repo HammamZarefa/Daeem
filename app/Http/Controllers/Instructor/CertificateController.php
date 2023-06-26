@@ -64,7 +64,7 @@ class CertificateController extends Controller
             'body_font_size' => 'required',
             'role_2_x_position' => 'required',
             'role_2_y_position' => 'required',
-            'signature' => 'mimes:png|file|dimensions:min_width=120,min_height=60,max_width=120,max_height=60',
+            'signature' => 'file',
         ]);
 
         $course = Course::whereUuid($course_uuid)->first();

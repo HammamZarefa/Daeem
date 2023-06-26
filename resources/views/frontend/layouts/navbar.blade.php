@@ -252,9 +252,9 @@
 {{--                        <!-- <li class="nav-item">--}}
 {{--                                <a class="nav-link" href="{{ route('forum.index') }}">{{__('Forum')}}</a>--}}
 {{--                            </li> -->--}}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('blogs', 'Gallery') }}">{{__('Gallery')}}</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{ route('blogs', 'Gallery') }}">{{__('Gallery')}}</a>--}}
+{{--                            </li>--}}
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page"
                                    href="{{ route('contact') }}">{{__('Contact')}}</a>

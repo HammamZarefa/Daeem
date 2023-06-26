@@ -20,7 +20,7 @@ class SubscriptionController extends Controller
             if (!auth()->user()->can('manage_subscriptions')) {
                 abort('403');
             } // end permission checking
-            
+
             return $next($request);
         });
 
@@ -36,7 +36,7 @@ class SubscriptionController extends Controller
         $data['subscriptions'] = Package::where('package_type', PACKAGE_TYPE_SUBSCRIPTION)->orderBy('order', 'ASC')->paginate(10);
         return view('admin.subscriptions.index', $data);
     }
-    
+
     public function purchaseList()
     {
         $data['title'] = __('Subscription Package Purchase List');
@@ -46,7 +46,7 @@ class SubscriptionController extends Controller
         $data['userSubscriptions'] = UserPackage::join('packages', 'packages.id', '=', 'user_packages.package_id')->where('user_packages.status', PACKAGE_STATUS_ACTIVE)->where('packages.package_type', PACKAGE_TYPE_SUBSCRIPTION)->select('user_packages.*', 'packages.icon', 'packages.title', 'packages.uuid as package_uuid')->paginate(10);
         return view('admin.subscriptions.purchase_list', $data);
     }
-   
+
     public function pendingPurchaseList()
     {
         $data['title'] = __('Subscription Package Purchase Pending List');
@@ -81,16 +81,16 @@ class SubscriptionController extends Controller
             'recommended' => 'nullable',
             'in_home' => 'nullable',
             'order' => 'required|min:1',
-            'icon' => 'bail|required|mimes:jpeg,jpg,png|max:300|dimensions:width=80,height=80'
+            'icon' => 'bail|required|max:300'
         ]);
 
         $slug = Str::slug($request->title);
-        
+
         if (Package::where('slug', $slug)->count() > 0)
         {
             $slug = Str::slug($request->title) . '-'. rand(100000, 999999);
         }
-        
+
         $data['icon'] = $request->icon ? $this->saveImage('packages', $request->icon, null, null) :   null;
         $data['package_type'] = PACKAGE_TYPE_SUBSCRIPTION;
         $data['slug'] = $slug;
@@ -128,16 +128,16 @@ class SubscriptionController extends Controller
             'recommended' => 'nullable',
             'in_home' => 'nullable',
             'order' => 'required|min:1',
-            'icon' => 'bail|nullable|mimes:jpeg,jpg,png|max:300|dimensions:width=80,height=80'
+            'icon' => 'bail|nullable|max:300'
         ]);
 
         $slug = Str::slug($request->title);
-        
+
         if (Package::where('slug', $slug)->count() > 0)
         {
             $slug = Str::slug($request->title) . '-'. rand(100000, 999999);
         }
-        
+
         $data['icon'] = $request->icon ? $this->saveImage('packages', $request->icon, null, null) :   $subscription->icon;
         $data['slug'] = $slug;
 

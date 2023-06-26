@@ -20,7 +20,7 @@ class SaasController extends Controller
             if (!auth()->user()->can('manage_saas')) {
                 abort('403');
             } // end permission checking
-            
+
             return $next($request);
         });
 
@@ -36,7 +36,7 @@ class SaasController extends Controller
         $data['saases'] = Package::whereIn('package_type', [PACKAGE_TYPE_SAAS_INSTRUCTOR, PACKAGE_TYPE_SAAS_ORGANIZATION])->orderBy('order', 'ASC')->paginate(10);
         return view('admin.saas.index', $data);
     }
-    
+
     public function purchaseList()
     {
         $data['title'] = __('Manage SaaS Packages');
@@ -46,7 +46,7 @@ class SaasController extends Controller
         $data['userSaases'] = UserPackage::join('packages', 'packages.id', '=', 'user_packages.package_id')->where('user_packages.status', PACKAGE_STATUS_ACTIVE)->whereIn('packages.package_type', [PACKAGE_TYPE_SAAS_INSTRUCTOR, PACKAGE_TYPE_SAAS_ORGANIZATION])->select('user_packages.*', 'packages.icon',  'packages.title', 'packages.uuid as package_uuid')->paginate(10);
         return view('admin.saas.purchase_list', $data);
     }
-  
+
     public function pendingPurchaseList()
     {
         $data['title'] = __('Manage SaaS Packages');
@@ -85,16 +85,16 @@ class SaasController extends Controller
             'recommended' => 'nullable',
             'in_home' => 'nullable',
             'order' => 'required|min:1',
-            'icon' => 'bail|required|mimes:jpeg,jpg,png|max:300|dimensions:width=80,height=80'
+            'icon' => 'bail|required|max:300'
         ]);
 
         $slug = Str::slug($request->title);
-        
+
         if (Package::where('slug', $slug)->count() > 0)
         {
             $slug = Str::slug($request->title) . '-'. rand(100000, 999999);
         }
-        
+
         $data['icon'] = $request->icon ? $this->saveImage('packages', $request->icon, null, null) :   null;
         $data['slug'] = $slug;
 
@@ -135,16 +135,16 @@ class SaasController extends Controller
             'recommended' => 'nullable',
             'in_home' => 'nullable',
             'order' => 'required|min:1',
-            'icon' => 'bail|nullable|mimes:jpeg,jpg,png|max:300|dimensions:width=80,height=80'
+            'icon' => 'bail|nullable|max:300'
         ]);
 
         $slug = Str::slug($request->title);
-        
+
         if (Package::where('slug', $slug)->count() > 0)
         {
             $slug = Str::slug($request->title) . '-'. rand(100000, 999999);
         }
-        
+
         $data['icon'] = $request->icon ? $this->saveImage('packages', $request->icon, null, null) :   $saa->icon;
         $data['slug'] = $slug;
 
@@ -199,7 +199,7 @@ class SaasController extends Controller
             ]);
         }
     }
-    
+
     public function changePurchaseStatus(Request $request)
     {
         $saa = UserPackage::whereId($request->id)->firstOrFail();

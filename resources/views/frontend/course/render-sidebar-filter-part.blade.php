@@ -172,44 +172,44 @@
                 </div>
             </div>
 
-            <div class="accordion-item course-sidebar-accordion-item">
-                <h2 class="accordion-header course-sidebar-title" id="panelsStayOpen-headingFive">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
-                        {{ __('Duration') }}
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
-                    <div class="accordion-body">
+{{--            <div class="accordion-item course-sidebar-accordion-item">--}}
+{{--                <h2 class="accordion-header course-sidebar-title" id="panelsStayOpen-headingFive">--}}
+{{--                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">--}}
+{{--                        {{ __('Duration') }}--}}
+{{--                    </button>--}}
+{{--                </h2>--}}
+{{--                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">--}}
+{{--                    <div class="accordion-body">--}}
 
-                        <div class="sidebar-radio-item">
-                            <div class="form-check">
-                                <input class="form-check-input filterDuration" type="checkbox" name="filterDuration" id="exampleRadiosDuration34" value="1">
-                                <label class="form-check-label" for="exampleRadiosDuration34">{{ __('Less Than 24 Hours') }}</label>
-                            </div>
-                        </div>
-                        <div class="sidebar-radio-item">
-                            <div class="form-check">
-                                <input class="form-check-input filterDuration" type="checkbox" name="filterDuration" id="exampleRadiosDuration35" value="2">
-                                <label class="form-check-label" for="exampleRadiosDuration35">{{ __('24 to 36 Hours') }}</label>
-                            </div>
-                        </div>
+{{--                        <div class="sidebar-radio-item">--}}
+{{--                            <div class="form-check">--}}
+{{--                                <input class="form-check-input filterDuration" type="checkbox" name="filterDuration" id="exampleRadiosDuration34" value="1">--}}
+{{--                                <label class="form-check-label" for="exampleRadiosDuration34">{{ __('Less Than 24 Hours') }}</label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="sidebar-radio-item">--}}
+{{--                            <div class="form-check">--}}
+{{--                                <input class="form-check-input filterDuration" type="checkbox" name="filterDuration" id="exampleRadiosDuration35" value="2">--}}
+{{--                                <label class="form-check-label" for="exampleRadiosDuration35">{{ __('24 to 36 Hours') }}</label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="sidebar-radio-item">
-                            <div class="form-check">
-                                <input class="form-check-input filterDuration" type="checkbox" name="filterDuration" id="exampleRadiosDuration36" value="3">
-                                <label class="form-check-label" for="exampleRadiosDuration36">{{ __('36 to 72 Hours') }}</label>
-                            </div>
-                        </div>
-                        <div class="sidebar-radio-item">
-                            <div class="form-check">
-                                <input class="form-check-input filterDuration" type="checkbox" name="filterDuration" id="exampleRadiosDuration37" value="4">
-                                <label class="form-check-label" for="exampleRadiosDuration37">{{ __('Above 72 Hours') }}</label>
-                            </div>
-                        </div>
+{{--                        <div class="sidebar-radio-item">--}}
+{{--                            <div class="form-check">--}}
+{{--                                <input class="form-check-input filterDuration" type="checkbox" name="filterDuration" id="exampleRadiosDuration36" value="3">--}}
+{{--                                <label class="form-check-label" for="exampleRadiosDuration36">{{ __('36 to 72 Hours') }}</label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="sidebar-radio-item">--}}
+{{--                            <div class="form-check">--}}
+{{--                                <input class="form-check-input filterDuration" type="checkbox" name="filterDuration" id="exampleRadiosDuration37" value="4">--}}
+{{--                                <label class="form-check-label" for="exampleRadiosDuration37">{{ __('Above 72 Hours') }}</label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                    </div>
-                </div>
-            </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
         </div>
 
