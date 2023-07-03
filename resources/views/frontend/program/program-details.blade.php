@@ -274,6 +274,7 @@
                     <li><a href="http://www.facebook.com/sharer.php?u={{ route('course-details', $course->slug) }}"><span class="iconify" data-icon="cib:facebook-f"></span></a></li>
                     <li><a href="https://twitter.com/share?url={{ route('course-details', $course->slug) }}"><span class="iconify" data-icon="el:twitter"></span></a></li>
                     <li><a href="https://www.linkedin.com/shareArticle?url={{ route('course-details', $course->slug) }}"><span class="iconify" data-icon="cib:linkedin-in"></span></a></li>
+                    <li><a href="whatsapp://send?text={{ route('course-details', $course->slug) }}" data-action="share/whatsapp/share"><span class="iconify" data-icon="cib:whatsapp"></span></a></li>
                 </ul>
             </div>
         </div>
