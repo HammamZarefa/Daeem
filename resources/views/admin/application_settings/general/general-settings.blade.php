@@ -42,21 +42,25 @@
                             <div class="row input__group mb-25">
                                 <label class="col-lg-3">{{ __('App Email') }} <span class="text-danger">*</span></label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="app_email" value="{{get_option('app_email')}}" class="form-control" required>
+                                    <label>اتركها فارغة لتختفي من الفوتر</label>
+                                    <input type="text" name="app_email" value="{{get_option('app_email')}}" class="form-control" >
                                 </div>
                             </div>
                             <div class="row input__group mb-25">
                                 <label class="col-lg-3">{{ __('App Contact Number') }} <span class="text-danger">*</span></label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="app_contact_number" value="{{get_option('app_contact_number')}}" class="form-control" required>
+                                    <label>اتركها فارغة لتختفي من الفوتر</label>
+                                    <input type="text" name="app_contact_number" value="{{get_option('app_contact_number')}}" class="form-control" >
                                 </div>
                             </div>
-{{--                            <div class="row input__group mb-25">--}}
-{{--                                <label class="col-lg-3">{{ __('App Location') }} <span class="text-danger">*</span></label>--}}
-{{--                                <div class="col-lg-9">--}}
-{{--                                    <input type="text" name="app_location" value="{{get_option('app_location')}}" class="form-control" required>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            <div class="row input__group mb-25">
+                                <label class="col-lg-3">{{ __('App Location') }} <span class="text-danger">*</span></label>
+                                <div class="col-lg-9">
+                                    <label>اتركها فارغة لتختفي من الفوتر</label>
+                                    <input type="text" name="app_location" value="{{get_option('app_location')}}" class="form-control" >
+
+                                </div>
+                            </div>
 {{--                            <div class="row input__group mb-25">--}}
 {{--                                <label class="col-lg-3">{{ __('App Copyright') }} <span class="text-danger">*</span></label>--}}
 {{--                                <div class="col-lg-9">--}}

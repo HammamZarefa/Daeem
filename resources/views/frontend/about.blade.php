@@ -17,7 +17,7 @@
                         <h3 class="page-banner-heading text-white pb-15">{{ __('About Us') }}</h3>
 
                         <!-- Breadcrumb Start-->
-                        <nav aria-label="breadcrumb">
+                        <nav aria-label="breadcrumb" style="position: inherit;">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item font-14"><a href="{{ url('/') }}">{{__('Home')}}</a></li>
                                 <li class="breadcrumb-item font-14 active" aria-current="page">{{ __('About Us') }}</li>

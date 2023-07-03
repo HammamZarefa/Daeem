@@ -9090,3 +9090,7 @@ Classes
 /* .course-single-details-left-content{
     box-shadow: 0px 0px 5px #0003;
 } */
+
+.page-banner-content nav{
+    position: inherit;!important;
+}
