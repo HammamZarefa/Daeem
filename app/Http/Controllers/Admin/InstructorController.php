@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\SendSmsNotification;
 use App\Mail\ForgotPasswordMail;
 use App\Mail\PayForBecomeCoachMail;
 use App\Models\City;
@@ -147,6 +148,7 @@ class InstructorController extends Controller
                 $instructor->save();
             }
 //            return view('admin.test',compact('verification_code','instructor'));
+
             $this->sendPayForBecomeCoachEmail($uuid);
             $this->showToastrMessage('success', __('Status has been changed'));
             return redirect()->back();
@@ -161,6 +163,7 @@ class InstructorController extends Controller
 
     public function sendPayForBecomeCoachEmail($uuid)
     {
+
         $instructor = $this->instructorModel->getRecordByUuid($uuid);
         if ($instructor)
         {
@@ -179,6 +182,13 @@ class InstructorController extends Controller
 
             try {
                 Mail::to($instructor->email)->send(new PayForBecomeCoachMail($instructor, $verification_code));
+                if (get_option('SMS_NOTIFICATION_ACTIVE') == "yes"){
+                    $i_phone = $instructor->phone_number;
+                    $phone = trim($i_phone, "+");
+                    $sendSmsNotification = new SendSmsNotification();
+                    $msg = __('Thank you for Send Request to be a coach in Daeem') . " ".__('Click here to go to pay page') .route('student.payForCoachRequest',$instructor->uuid);
+                    $sendSmsNotification->send($phone,$msg);
+                }
             } catch (\Exception $exception) {
                 toastrMessage('error', 'Something is wrong. Try after few minutes!');
                 return redirect()->back();

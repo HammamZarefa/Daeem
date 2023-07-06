@@ -601,6 +601,15 @@ class SettingController extends Controller
         return view('admin.application_settings.mail-configuration', $data);
     }
 
+    public function smsConfiguration()
+    {
+        $data['title'] = 'Sms Configuration';
+        $data['navApplicationSettingParentActiveClass'] = 'mm-active';
+        $data['subNavSmsConfigSettingsActiveClass'] = 'mm-active';
+        $data['smsConfigSettingsActiveClass'] = 'active';
+        return view('admin.application_settings.sms-configuration', $data);
+    }
+
     public function sendTestMail(Request $request)
     {
         $data = $request;
