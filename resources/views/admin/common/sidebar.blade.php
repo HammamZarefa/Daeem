@@ -595,7 +595,7 @@
 {{--                    </ul>--}}
 {{--                </li>--}}
 {{--            @endcan--}}
-                @canany(['application_setting', 'global_setting', 'home_setting', 'mail_configuration', 'payment_option', 'content_setting'])
+                @canany(['application_setting', 'global_setting', 'home_setting', 'mail_configuration', 'payment_option', 'content_setting','sms_notification'])
                     <li class="{{ @$navApplicationSettingParentActiveClass }}">
                         <a class="has-arrow" href="#">
                             <span class="iconify" data-icon="mdi:application-cog-outline"></span>
@@ -679,6 +679,13 @@
                                         <span>{{__('Contact Us')}}</span>
                                     </a>
                                 </li>
+
+                                    <li class="{{ @$subNavSmsConfigSettingsActiveClass }}">
+                                        <a href="{{ route('settings.sms.configuration') }}">
+                                            <i class="fa fa-circle"></i>
+                                            <span>{{__('SMS Notification')}}</span>
+                                        </a>
+                                    </li>
                                 {{--                        <li class="{{ @$subNavMaintenanceModeSettingsActiveClass }}">--}}
                                 {{--                            <a href="{{ route('settings.maintenance') }}">--}}
                                 {{--                                <i class="fa fa-circle"></i>--}}

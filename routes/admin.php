@@ -574,6 +574,8 @@ Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
     Route::get('contact-us-cms', [ContactUsController::class, 'contactUsCMS'])->name('contact.cms');
     // End:: Contact Us
 
+    Route::get('sms-configuration', [SettingController::class, 'smsConfiguration'])->name('sms.configuration');
+
     Route::get('payment-method', [SettingController::class, 'paymentMethod'])->name('payment_method_settings');
 
     //start:: Bank

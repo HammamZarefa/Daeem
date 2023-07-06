@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\SendSmsNotification;
 use App\Mail\PayForBecomeCoachMail;
 use App\Mail\PayForBecomeOrganizationMail;
 use App\Models\City;
@@ -405,6 +406,13 @@ class OrganizationController extends Controller
 
             try {
                 Mail::to($organization->organization_email)->send(new PayForBecomeOrganizationMail($organization));
+                if (get_option('SMS_NOTIFICATION_ACTIVE') == "yes"){
+                    $o_phone = $organization->phone_number;
+                    $phone = trim($o_phone,"+");
+                    $sendSmsNotification = new SendSmsNotification();
+                    $msg = __('Thank you for Send Request to be a organization in Daeem') . " ".__('Click here to go to pay page') .route('student.payForCoachRequest',$instructor->uuid);
+                    $sendSmsNotification->send($phone,$msg);
+                }
             } catch (\Exception $exception) {
                 toastrMessage('error', 'Something is wrong. Try after few minutes!');
                 return redirect()->back();
