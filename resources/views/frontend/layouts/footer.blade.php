@@ -70,7 +70,7 @@
                                 @endif
                                 @if(__(get_option('app_email')))
                                     <li><span class="iconify" data-icon="ic:round-email" style="color: black;"></span><a
-                                            href="mailto:demo@gmail.com">{{ __(get_option('app_email')) }}</a></li>
+                                            href="mailto:demo@gmail.com" style="font-family: 'feather'">{{ __(get_option('app_email')) }}</a></li>
                                 @endif
                             </ul>
                         </div>
