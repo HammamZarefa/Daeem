@@ -217,9 +217,16 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="input__group mb-25">
-                                    <label>{{ __('Pinterest') }}</label>
-                                    <input type="text" name="social_link[pinterest]" value="{{$instructor->social_link ? $social_link->pinterest : ''}}" class="form-control"
-                               placeholder="https://pinterest.com">
+                                    <label>{{ __('Instagram') }}</label>
+                                    <input type="text" name="social_link[instagram]" value="{{$instructor->social_link ? $social_link->instagram : ''}}" class="form-control"
+                               placeholder="https://instagram.com">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input__group mb-25">
+                                    <label>{{ __('Whatsapp') }}</label>
+                                    <input type="text" name="social_link[whatsapp]" value="{{$instructor->social_link ? $social_link->whatsapp : ''}}" class="form-control"
+                                           placeholder="9661111111111">
                                 </div>
                             </div>
                             <div class="col-md-12">

@@ -180,10 +180,23 @@
                                     <td>
                                         <div class="user-info">
                                             <div class="user-img">
-                                                {{ __('Pinterest') }}:
+                                                {{ __('Instagram') }}:
                                             </div>
                                             <div class="user-text">
-                                                {{@$instructor->social_link ? $social_link->pinterest ?? '' : ''}}
+                                                {{@$instructor->social_link ? $social_link->instagram ?? '' : ''}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-img">
+                                                {{ __('Whatsapp') }}:
+                                            </div>
+                                            <div class="user-text">
+                                                {{@$instructor->social_link ? $social_link->whatsapp ?? '' : ''}}
                                             </div>
                                         </div>
                                     </td>

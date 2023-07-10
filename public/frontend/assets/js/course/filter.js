@@ -6,7 +6,7 @@
 
         $(document).on('click', '#loadMoreBtn', function () {
             window.page++;
-            
+            console.log(paginateRoute)
             var sortBy_id = $('.filterSortBy option:selected').val();
             var min_price = $('.min_price').val()
             var max_price = $('.max_price').val()

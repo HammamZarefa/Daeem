@@ -96,7 +96,7 @@
     </div>
 
     <!-- some important hidden id for filter.js -->
-    <input type="hidden" class="route" value="{{ route('getFilterCourse') }}">
+    <input type="hidden" class="route" value="{{ route('getFilterProgram') }}">
     <input type="hidden" class="fetch-data-route" value="{{ route('course.fetch-data') }}">
 @endsection
 @push('script')
