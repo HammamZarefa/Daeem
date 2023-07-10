@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use function League\Flysystem\Local\ensureDirectoryExists;
 
 class CourseController extends Controller
 {
@@ -402,6 +403,24 @@ class CourseController extends Controller
         ->pluck('course_id')
         ->toArray();
         $data['courses'] = $data['courses']->paginate($this->coursePaginateValue);
+//        dd($data);
+        return view('frontend.course.render-course-list')->with($data);
+    }
+
+    public function getFilterProgram(Request $request)
+    {
+        $data['courses'] = $this->filterProgramData($request);
+        $data['topCourse'] = Enrollment::query()
+            ->whereMonth('created_at', now()->month)
+            ->select('course_id', DB::raw('count(*) as total'))
+            ->groupBy('course_id')
+            ->limit(10)
+            ->orderBy('total','desc')
+            ->get()
+            ->pluck('course_id')
+            ->toArray();
+        $data['courses'] = $data['courses']->paginate($this->coursePaginateValue);
+//        dd($data);
         return view('frontend.course.render-course-list')->with($data);
     }
 
@@ -506,6 +525,7 @@ class CourseController extends Controller
 
         return $data['courses'];
     }
+
 
     public function filterProgramData($request)
     {

@@ -323,9 +323,15 @@ $userRelation = getUserRoleRelation($user);
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{@$user->$userRelation->social_link ? $social_link->pinterest : ''}}">
-                                            <span class="iconify" data-icon="fa-brands:pinterest-square"
+                                        <a href="{{@$user->$userRelation->social_link ? $social_link->instagram : ''}}">
+                                            <span class="iconify" data-icon="fa-brands:instagram-square"
                                                 data-width="1em" data-height="1em"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://wa.me/{{@$user->$userRelation->social_link ? $social_link->whatsapp : ''}}">
+                                            <span class="iconify" data-icon="fa-brands:whatsapp-square"
+                                                  data-width="1em" data-height="1em"></span>
                                         </a>
                                     </li>
                                 </ul>

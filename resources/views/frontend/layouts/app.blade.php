@@ -61,6 +61,7 @@
     @endif
     <link rel="stylesheet" href="{{ asset('frontend/assets/fonts/feather/feather.css') }}">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Animate Css-->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">
 
@@ -146,6 +147,7 @@
 <script src="{{ asset('frontend/assets/vendor/jquery/jquery-3.6.0.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/vendor/jquery/popper.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
 
 <!-- ==== Plugin JavaScript ==== -->
 <script src="{{ asset('frontend/assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
@@ -250,7 +252,11 @@ $(document).ready(function() {
 
     </script>
 @endif
-
+@if(get_option('app_whatsapp_number'))
+<a href="https://wa.me/{{trim(get_option('app_whatsapp_number'),"+")}}" class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+</a>
+@endif
 </body>
 
 </html>

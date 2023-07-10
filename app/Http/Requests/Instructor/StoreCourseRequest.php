@@ -25,7 +25,6 @@ class StoreCourseRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:255'],
-            'course_type' => ['required'],
             'subtitle' => ['required', 'string', 'max:1000'],
             'description' => ['required'],
         ];

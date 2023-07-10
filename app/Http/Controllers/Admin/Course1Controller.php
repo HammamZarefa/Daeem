@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use JoisarJignesh\Bigbluebutton\Facades\Bigbluebutton;
 
-class CourseController extends Controller
+class Course1Controller extends Controller
 {
     use General, ImageSaveTrait, SendNotification;
 
@@ -61,7 +61,7 @@ class CourseController extends Controller
         } // end permission checking
 
         $data['title'] = 'All Courses';
-        $data['courses'] = Course::where('course_type', 1)->paginate(25);
+        $data['courses'] = $this->model->getOrderById('DESC', 25);
         return view('admin.course.index', $data);
     }
 
@@ -72,7 +72,7 @@ class CourseController extends Controller
         } // end permission checking
 
         $data['title'] = 'All Training Programmes';
-        $data['courses'] = Course::where('course_type', 3)->paginate(25);
+        $data['courses'] = Course::where('course_type', 3)->paginate(25);;
 
         return view('admin.program.index', $data);
     }
@@ -159,6 +159,7 @@ class CourseController extends Controller
 
     public function edit($uuid)
     {
+        dd('afok');
         $data['navCourseUploadActiveClass'] = 'active';
         $data['title'] = 'Upload Course';
         $data['rules'] = CourseUploadRule::all();
@@ -258,7 +259,7 @@ class CourseController extends Controller
         }
     }
 
-    public function updateOverview(Request $request, $uuid)
+    public function updateOverview(StoreCourseRequest $request, $uuid)
     {
         $data['navCourseUploadActiveClass'] = 'active';
         $course = Course::where('courses.uuid', $uuid)->first();
@@ -282,7 +283,7 @@ class CourseController extends Controller
 
         $data = [
             'title' => $request->title,
-//            'course_type' => 1,
+            'course_type' => $request->course_type,
             'subtitle' => $request->subtitle,
             'slug' => $slug,
             'description' => $request->description
@@ -1165,7 +1166,7 @@ class CourseController extends Controller
         } // end permission checking
 
         $data['title'] = 'Approved Courses';
-        $data['courses'] = Course::where('status', 1)->where('course_type', 1)->paginate(25);
+        $data['courses'] = Course::where('status', 1)->paginate(25);
         return view('admin.course.approved', $data);
     }
 

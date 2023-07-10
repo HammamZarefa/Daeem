@@ -86,9 +86,11 @@
                                         <td>
 
                                             <div class="action__buttons">
-
                                                 <a href="{{route('admin.course.view', [$course->uuid])}}" class="btn-action mr-30" title="View Details">
                                                     <img src="{{asset('admin/images/icons/eye-2.svg')}}" alt="eye">
+                                                </a>
+                                                <a href="{{route('admin.course.edit', [$course->uuid])}}" class="btn-action mr-30" title="View Details">
+                                                    <img src="{{asset('admin/images/icons/action/edit.svg')}}" alt="eye">
                                                 </a>
 
                                                 <button class="btn-action ms-2 deleteItem" data-formid="delete_row_form_{{$course->uuid}}">

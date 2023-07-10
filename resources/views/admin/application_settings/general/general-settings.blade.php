@@ -54,6 +54,13 @@
                                 </div>
                             </div>
                             <div class="row input__group mb-25">
+                                <label class="col-lg-3">{{ __('App Whatsapp Number') }} <span class="text-danger">*</span></label>
+                                <div class="col-lg-9">
+                                    <label>اتركها فارغة ليختفي زر الواتساب</label>
+                                    <input type="text" name="app_whatsapp_number" value="{{get_option('app_whatsapp_number')}}" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="row input__group mb-25">
                                 <label class="col-lg-3">{{ __('App Location') }} <span class="text-danger">*</span></label>
                                 <div class="col-lg-9">
                                     <label>اتركها فارغة لتختفي من الفوتر</label>
